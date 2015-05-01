@@ -11,6 +11,5 @@ public class MaxPowerOfHundredInt {
             counter++;
         }
         System.out.println("Max power of 100 = " + counter);
-
     }
 }
