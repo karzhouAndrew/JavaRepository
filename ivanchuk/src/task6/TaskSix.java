@@ -9,6 +9,7 @@ public class TaskSix {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите целое число.");
         int number = in.nextInt();
+        in.close();
         int i = 0;
         while (number / Math.pow(10, i) >= 1) {
             i++;
