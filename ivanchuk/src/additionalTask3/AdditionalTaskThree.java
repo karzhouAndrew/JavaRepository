@@ -4,11 +4,10 @@ package additionalTask3;
 
 public class AdditionalTaskThree {
     public static void main(String[] args) {
-        int maxNumberInt = Integer.MAX_VALUE;
-        int i = 1;
-        while (Math.pow(100, i) < maxNumberInt) {
-            i++;
+        int numberDegree = 1;
+        while (Math.pow(100, numberDegree) < Integer.MAX_VALUE) {
+            numberDegree++;
         }
-        System.out.println("Наибольшая степень числа 100 равна " + (i - 1));
+        System.out.println("Наибольшая степень числа 100 равна " + (numberDegree - 1));
     }
 }
