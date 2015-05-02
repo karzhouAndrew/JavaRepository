@@ -1,5 +1,7 @@
 package lab13;
 
+import java.util.Arrays;
+
 /**
  * Задание 13
  * Создать массив, заполнить его случайными элементами, распеча-тать, перевернуть, и снова распечатать (при переворачивании нежела-тельно создавать еще один массив).
@@ -10,8 +12,8 @@ public class Lab13 {
         int marks[] = new int[10];
         for (int i = 0; i < marks.length; i++) {
             marks[i] = (int) (Math.random() * 10 + 1);
-            System.out.println(marks[i]);
         }
+        System.out.println(Arrays.toString(marks));
         int n = marks.length - 1;
         int transit;
         for (int i = 0; i < (marks.length / 2); i++) {
@@ -20,9 +22,6 @@ public class Lab13 {
             marks[n] = transit;
             n--;
         }
-        System.out.println("Результат: ");
-        for (int i = 0; i < marks.length; i++) {
-            System.out.println(marks[i]);
-        }
+        System.out.println(Arrays.toString(marks));
     }
 }
