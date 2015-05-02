@@ -10,10 +10,12 @@ public class MaxNumberIndex {
         int quantityNumber = 7;
         int[] arrayNumber = new int[quantityNumber];
         Random rand = new Random();
-        int maxIndex = 0;
         for (int i = 0; i < arrayNumber.length; i++) {
             arrayNumber[i] = rand.nextInt(100);
-            if (i != 0 && arrayNumber[maxIndex] < arrayNumber[i]) {
+        }
+        int maxIndex = 0;
+        for (int i = 1; i < arrayNumber.length; i++) {
+            if (arrayNumber[maxIndex] < arrayNumber[i]) {
                 maxIndex = i;
             }
         }
