@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 public class TaskEleven {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
         System.out.println("Введите число.");
+        Scanner in = new Scanner(System.in);
         int number = in.nextInt();
+        in.close();
         int sum = 0;
         int i = 1;
         while (i < number + 1) {
