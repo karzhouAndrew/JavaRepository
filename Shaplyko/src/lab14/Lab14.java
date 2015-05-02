@@ -1,9 +1,10 @@
 package lab14;
 
+import java.util.Arrays;
+
 /**
  * Задание 14
- Определите сумму элементов одномерного массива, расположен-ных между минимальным и максимальным значениями.
-
+ * Определите сумму элементов одномерного массива, расположен-ных между минимальным и максимальным значениями.
  */
 public class Lab14 {
     public static void main(String[] args) {
@@ -32,10 +33,12 @@ public class Lab14 {
             for (int i = minMarkInd + 1; i < maxMarkInd; i++) {
                 sum += marks[i];
             }
-        }
-        for (int i = maxMarkInd + 1; i < minMarkInd; i++) {
-            sum += marks[i];
+        } else {                 //  второй цикл нужен, если индекс максимального элемента меньше индекса минимального
+            for (int i = maxMarkInd + 1; i < minMarkInd; i++) {
+                sum += marks[i];
+            }
         }
         System.out.println("Сумма элементов, расположенных между максимальным и минимальным элементом = " + sum);
+
     }
 }
