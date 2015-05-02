@@ -7,47 +7,40 @@ package lab5;
  */
 public class Lab5 {
     public static void main(String[] args) {
-        int number = 3;
-        int num0 = number + 0;
-        int num1 = number + 9;
-        int num2 = number + 8;
-        int num3 = number + 7;
-        int num4 = number + 6;
-        int num5 = number + 5;
-        int num6 = number + 4;
-        int num7 = number + 3;
-        int num8 = number + 2;
-        if (num0 % 2 == 0 && num0 % 5 == 0) {
+        int number = 11111;
+        if (number % 10 == 0) {
             System.out.println(number + " рублей");
         }
-        if (num1 % 2 == 0 && num1 % 5 == 0) {
-            int num9 = (number - number % 10) / 10;
-            num9 = num9 + 9;
-            if (num9 % 2 == 0 && num9 % 5 == 0) {
+        if (number % 10 == 1) {
+            int num = (number - number % 10) / 10;
+            if (num % 10 == 1) {
                 System.out.println(number + " рублей");
             } else {
                 System.out.println(number + " рубль");
             }
         }
-        if (num2 % 2 == 0 && num2 % 5 == 0) {
+        if (number % 10 == 2) {
             System.out.println(number + " рубля");
         }
-        if (num3 % 2 == 0 && num3 % 5 == 0) {
+        if (number % 10 == 3) {
             System.out.println(number + " рубля");
         }
-        if (num4 % 2 == 0 && num4 % 5 == 0) {
+        if (number % 10 == 4) {
             System.out.println(number + " рубля");
         }
-        if (num5 % 2 == 0 && num5 % 5 == 0) {
+        if (number % 10 == 5) {
             System.out.println(number + " рублей");
         }
-        if (num6 % 2 == 0 && num6 % 5 == 0) {
+        if (number % 10 == 6) {
             System.out.println(number + " рублей");
         }
-        if (num7 % 2 == 0 && num7 % 5 == 0) {
+        if (number % 10 == 7) {
             System.out.println(number + " рублей");
         }
-        if (num8 % 2 == 0 && num8 % 5 == 0) {
+        if (number % 10 == 8) {
+            System.out.println(number + " рублей");
+        }
+        if (number % 10 == 9) {
             System.out.println(number + " рублей");
         }
     }
