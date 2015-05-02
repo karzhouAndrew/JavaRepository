@@ -6,7 +6,7 @@ package workGroup;
  */
 public class HomeWorkNumber6 {
     public static void main(String[] args) {
-        int number = 34356967;
+        int number = 34356968;
         int antiNumber = 0;
         for (; number > 0; antiNumber = 10 * antiNumber + number % 10, number /= 10) ;
         System.out.println(antiNumber);
