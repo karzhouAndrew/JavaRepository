@@ -12,11 +12,12 @@ public class TaskThirteen {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите размер массива.");
         int size = in.nextInt();
+        in.close();
         int[][] array = new int[size][size];
         System.out.println("Исходный массив:");
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                array[i][j] = j + (i * size) + 1;
+                array[i][j] = (int) (Math.random() * 50 + 1);
             }
             System.out.println(Arrays.toString(array[i]));
         }
