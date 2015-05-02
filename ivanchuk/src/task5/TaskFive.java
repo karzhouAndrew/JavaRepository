@@ -10,6 +10,7 @@ public class TaskFive {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите целое число.");
         int number = in.nextInt();
+        in.close();
         int remainderDec = number % 10;
         int remainderCent = number % 100;
         boolean firstCheck = remainderDec == 1 && remainderCent != 11;
