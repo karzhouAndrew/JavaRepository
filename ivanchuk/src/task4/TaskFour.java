@@ -13,6 +13,7 @@ public class TaskFour {
         int height = in.nextInt();
         System.out.println("Введите радиус картонки");
         int radius = in.nextInt();
+        in.close();
         double hypotenuse = Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
         if (2 * radius > hypotenuse) {
             System.out.println("Да, отверстие можно закрыть картонкой радиусом " + radius);
