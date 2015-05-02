@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 public class TaskTen {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
         System.out.println("Введите число.");
+        Scanner in = new Scanner(System.in);
         int number = in.nextInt();
+        in.close();
         int n = 2;
         boolean composite = false;
         while (n <= (int) (Math.sqrt(number) + 1)) {
