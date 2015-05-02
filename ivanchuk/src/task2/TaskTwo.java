@@ -9,6 +9,7 @@ public class TaskTwo {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите целое число.");
         int number = in.nextInt();
+        in.close();
         int seconds = number % 60;
         int min = (number - seconds) / 60;
         int minutes = min % 60;
