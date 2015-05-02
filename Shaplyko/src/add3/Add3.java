@@ -7,14 +7,11 @@ public class Add3 {
     public static void main(String[] args) {
         int number = 100;
         int degree = 1;
-        double rezult;
-        while (true) {
-            rezult = Math.pow(number, degree);
-            if (Integer.MAX_VALUE < rezult) {
-                System.out.println("Максимальная степень =  " + degree);
-                break;
-            }
+        double result = 0;
+        while (result < Integer.MAX_VALUE) {
             degree++;
+            result = Math.pow(number, degree);
         }
+        System.out.println("Максимальная степень =  " + degree);
     }
 }
