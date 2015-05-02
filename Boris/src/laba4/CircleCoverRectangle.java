@@ -7,7 +7,7 @@ public class CircleCoverRectangle {
         int radius = 5;
         int sideA = 6;
         int sideB = 8;
-        if ((int) Math.pow(sideA, 2) + (int) Math.pow(sideB, 2) > (int) Math.pow(2 * radius, 2)) {
+        if (Math.pow(sideA, 2) + Math.pow(sideB, 2) > Math.pow(2 * radius, 2)) {
             System.out.printf("Круг с радиусом %d не закрывает полностью прямоугольник со сторонами %d и %d",
                     radius, sideA, sideB);
         } else {
