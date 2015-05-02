@@ -1,4 +1,6 @@
-package lab1;
+package lab3;
+
+import lab1.Calculator;
 
 //First task
 public class HelloWorld {
