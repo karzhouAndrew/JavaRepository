@@ -1,3 +1,4 @@
+package laba7;
 
 //There is natural number. Is it all literals different?
 public class DifferentNumerals {
