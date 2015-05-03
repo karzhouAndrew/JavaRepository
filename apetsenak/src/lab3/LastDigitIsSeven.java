@@ -7,9 +7,9 @@ public class LastDigitIsSeven {
     public static void main(String[] args) {
         int number = 1577;
         if (number % 10 == 7) {
-            System.out.println("Послденяя цифра числа number является семёркой");
+            System.out.println("Послденяя цифра числа является семёркой");
         } else {
-            System.out.println("Послденяя цифра числа number не является семёркой");
+            System.out.println("Послденяя цифра числа не является семёркой");
         }
     }
 }
