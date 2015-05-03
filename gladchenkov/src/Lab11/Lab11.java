@@ -5,16 +5,16 @@ package Lab11;
  */
 public class Lab11 {
     public static void main(String[] args) {
-        int n = 5;
-        int k = 1;
+        int maxNumber = 5;
+        int count = 1;
         int sum = 0;
-        for (int i = 1; k <= n; i++) {
+        for (int i = 1; count <= maxNumber; i++) {
             if (i % 3 == 0) {
-                System.out.println("\n" + "целое число " + k + " : " + i);
-                k++;
+                System.out.println("\n" + "целое число " + count + " : " + i);
+                count++;
                 sum += i;
             }
         }
-        System.out.println("сумма первых " + n + " чисел равна " + sum);
+        System.out.println("сумма первых " + maxNumber + " чисел равна " + sum);
     }
 }
