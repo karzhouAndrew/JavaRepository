@@ -5,14 +5,14 @@ package Lab10;
  */
 public class Lab10 {
     public static void main(String[] args) {
-        int primeNumber = 2;
+        int Number = 2;
 
-        for (int i = 2; i <= (int) Math.sqrt(primeNumber) + 1; i++) {
-            if (primeNumber <= 1) {
+        for (int i = 2; i <= (int) Math.sqrt(Number) + 1; i++) {
+            if (Number <= 1) {
                 System.out.println("Заданное число составное");
                 break;
             }
-            if (primeNumber % i == 0) {
+            if (Number % i == 0) {
                 System.out.println("Заданное число составное");
                 break;
             } else {
