@@ -6,14 +6,14 @@ package lab10;
  */
 public class Lab10 {
     public static void main(String[] args) {
-        int number = 111;
-        int n = 0;
-        for (int i = 1; i <= (int) Math.sqrt(number); i++) {
+        int number = 79;
+        boolean flag = true;
+        for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
-                n += 1;
+                flag = false;
             }
         }
-        if (n == 1 || n == 2) {
+        if (flag) {
             System.out.println("Данное число простое: " + number);
         } else {
             System.out.println("Это не простое число: " + number);
