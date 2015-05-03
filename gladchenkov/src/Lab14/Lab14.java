@@ -30,7 +30,7 @@ public class Lab14 {
         }
         int sum = 0;
         for (int i = minIndex + 1; i < maxIndex; i++) {
-            sum = sum + marks[i];
+            sum += marks[i];
         }
         System.out.println("Сумма между " + minIndex + " и " + maxIndex + " = " + sum);
 
