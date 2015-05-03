@@ -5,21 +5,20 @@ package Lab8;
  */
 public class Lab8 {
     public static void main(String[] args) {
-        double averageSum = 0;
-        double sum = 1;
-        int n = 0;
-        int x = (int) (Math.random() * 20);
+        int sum = 0;
+        int randomNumber = (int) (Math.random() * 4);
+        int count = 2;
+        int factorial = 1;
 
-        while (x != 0) {
-            sum += x;
-            n++;
-            x = (int) (Math.random() * 20);
+        while (randomNumber != 0) {
+            sum += randomNumber;
+            randomNumber = (int) (Math.random() * 4);
         }
-        if (n != 0) {
-            averageSum = sum / n;
-        } else {
-            averageSum = 0;
+
+        while (count <= sum) {
+            factorial *= count;
+            count++;
         }
-        System.out.println("среднее: " + averageSum);
+        System.out.println("Факториал числа: " + sum + " = " + factorial);
     }
 }
