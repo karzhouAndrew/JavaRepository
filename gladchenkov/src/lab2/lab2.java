@@ -3,7 +3,7 @@ package lab2;
 /**Продолжите приведенный пример, добавьте расчет и вывод суток и недель */
 public class lab2 {
     public static void main(String[] args) {
-        int s = 654400;
+        int s = 604800;
         int sec = s % 60;
         int m = (s - sec) / 60;
         int min = m % 60;
