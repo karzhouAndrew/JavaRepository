@@ -6,7 +6,7 @@ package lab4;
  */
 public class CircleRectangle {
     public static void main(String[] args) {
-        int height = 3;
+        int height = 4;
         int width = 6;
         int radius = 5;
         if (radius >= Math.sqrt(Math.pow(height, 2) + Math.pow(width, 2))) {
