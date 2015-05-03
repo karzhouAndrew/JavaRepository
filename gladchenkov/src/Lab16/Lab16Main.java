@@ -6,6 +6,6 @@ package Lab16;
 public class Lab16Main {
     public static void main(String[] args) {
         Lab16 lab = new Lab16();
-        lab.search();
+        lab.search("  Тестовая, строка,! с несколькими,!, запятыми:   ");
     }
 }
