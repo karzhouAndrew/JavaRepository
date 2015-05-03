@@ -22,11 +22,11 @@ public class Cube {
         this.length = length;
     }
 
-    public double CalulateS() {
+    public double calulateS() {
         return 2 * (hight * width + hight * length + width * length);
     }
 
-    public double CalulateV() {
+    public double calulateV() {
         return hight * width * length;
     }
 
