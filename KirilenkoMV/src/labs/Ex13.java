@@ -16,8 +16,7 @@ public class Ex13 {
             array[i] = rand.nextInt(10);
         }
         for (int i = 0; i < array.length / 2; i++) {
-            int temp;
-            temp = array[i];
+            int temp = array[i];
             array[i] = array[array.length - i - 1];
             array[array.length - i - 1] = temp;
         }
@@ -34,10 +33,9 @@ public class Ex13 {
             }
             System.out.println(Arrays.toString(arr[i]));
         }
-        int tmp;
         for (int i = 0; i < arr.length / 2; i++) {
             for (int j = i; j < arr.length - i - 1; j++) {
-                tmp = arr[i][j];
+                int tmp = arr[i][j];
                 arr[i][j] = arr[j][arr.length - i - 1];
                 arr[j][arr.length - i - 1] = arr[arr.length - i - 1][arr.length - j - 1];
                 arr[arr.length - i - 1][arr.length - j - 1] = arr[arr.length - j - 1][i];

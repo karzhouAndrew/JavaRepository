@@ -8,8 +8,8 @@ import java.util.Arrays;
  */
 public class Ex15 {
     public static void main(String[] args) {
-        int i = 7;
-        int[][] array = new int[i][i];
+        int arrayLength = 7;
+        int[][] array = new int[arrayLength][arrayLength];
         for (int j = 0; j < array.length; j++) {
             for (int k = j; k < array[0].length - j; k++) {
                 array[j][k] = 1;
