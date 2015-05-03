@@ -5,18 +5,18 @@ package Lab5;
  */
 public class Lab5 {
     public static void main(String[] args) {
-        int a = 12311;
+        int number = 12311;
 
-        if (a % 10 == 0) {
-            System.out.println(a + " рублей  ");
-        } else if (a % 100 >= 11 && a % 100 <= 19) {
-            System.out.println(a + " рублей ");
-        } else if (a % 10 == 1) {
-            System.out.println(a + " рубль ");
-        } else if (a % 10 >= 2 && a % 10 <= 4) {
-            System.out.println(a + " рубля ");
+        if (number % 10 == 0) {
+            System.out.println(number + " рублей  ");
+        } else if (number % 100 >= 11 && number % 100 <= 19) {
+            System.out.println(number + " рублей ");
+        } else if (number % 10 == 1) {
+            System.out.println(number + " рубль ");
+        } else if (number % 10 >= 2 && number % 10 <= 4) {
+            System.out.println(number + " рубля ");
         } else {
-            System.out.println(a + " рублей ");
+            System.out.println(number + " рублей ");
         }
     }
 }
