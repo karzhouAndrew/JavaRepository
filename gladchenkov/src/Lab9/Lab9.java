@@ -5,18 +5,17 @@ package Lab9;
  */
 public class Lab9 {
     public static void main(String[] args) {
-        double averageSum = 0;
-        double sum = 1;
+
         int n = 0;
-        int x = (int) (Math.random() * 10);
+        int randomNumber = (int) (Math.random() * 10);
         int max = 0;
 
-        while (x != 0) {
+        while (randomNumber != 0) {
             n++;
-            x = (int) (Math.random() * 10);
-            System.out.println("случайное число: " + x);
-            if (max < x) {
-                max = x;
+            randomNumber = (int) (Math.random() * 10);
+            System.out.println("случайное число: " + randomNumber);
+            if (max < randomNumber) {
+                max = randomNumber;
             }
         }
 
