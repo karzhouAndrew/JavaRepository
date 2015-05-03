@@ -16,6 +16,6 @@ public class CubeTest {
         System.out.println("Введите цвет, в который хотите перекрасить куб.");
         String oldColor = cube.getColor();
         cube.paint(in.next());
-        System.out.println(oldColor + " куб вы покрасили в " + cube.getColor() + " цвет.");
+        System.out.println(oldColor + " куб вы покрасили в " + cube.getColor());
     }
 }
