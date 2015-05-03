@@ -12,6 +12,6 @@ public class Add3 {
             degree++;
             result = Math.pow(number, degree);
         }
-        System.out.println("Максимальная степень =  " + degree);
+        System.out.println("Максимальная степень =  " + (degree - 1));
     }
 }
