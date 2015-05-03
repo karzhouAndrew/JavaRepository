@@ -7,8 +7,8 @@ package lab5;
  */
 public class Lab5 {
     public static void main(String[] args) {
-        int number = 11111;
-        if (number % 10 == 0) {
+        int number = 3;
+        if (number % 10 == 0 || number % 10 == 5 || number % 10 == 6 || number % 10 == 7 || number % 10 == 8 || number % 10 == 9) {
             System.out.println(number + " рублей");
         }
         if (number % 10 == 1) {
@@ -19,29 +19,8 @@ public class Lab5 {
                 System.out.println(number + " рубль");
             }
         }
-        if (number % 10 == 2) {
+        if (number % 10 == 2 || number % 10 == 3 || number % 10 == 4) {
             System.out.println(number + " рубля");
-        }
-        if (number % 10 == 3) {
-            System.out.println(number + " рубля");
-        }
-        if (number % 10 == 4) {
-            System.out.println(number + " рубля");
-        }
-        if (number % 10 == 5) {
-            System.out.println(number + " рублей");
-        }
-        if (number % 10 == 6) {
-            System.out.println(number + " рублей");
-        }
-        if (number % 10 == 7) {
-            System.out.println(number + " рублей");
-        }
-        if (number % 10 == 8) {
-            System.out.println(number + " рублей");
-        }
-        if (number % 10 == 9) {
-            System.out.println(number + " рублей");
         }
     }
 }
