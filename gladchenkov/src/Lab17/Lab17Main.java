@@ -8,6 +8,6 @@ package Lab17;
 public class Lab17Main {
     public static void main(String[] args) {
         Lab17 lab = new Lab17();
-        lab.countWords();
+        lab.countWords(" Тестовая, строка,! с несколькими,!, запятыми или не только запятыми:  ");
     }
 }
