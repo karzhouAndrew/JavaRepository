@@ -8,18 +8,18 @@ public class Lab12 {
         int marks[] = new int[10];
         int maxMark = marks[0];
 
-        for (int i = 0; i < marks.length; i++) {  //заполнение массива числами
+        for (int i = 0; i < marks.length; i++) {
             marks[i] = (int) (Math.random() * 10 + 1);
             System.out.println("Ученик № " + i + " = " + marks[i]);
 
         }
-        for (int mark : marks) {  //поиск максимального числа в массиве
+        for (int mark : marks) {
             if (maxMark < mark) {
                 maxMark = mark;
             }
         }
 
-        for (int i = 0; i < marks.length; i++) { //вывод максимального индекса максимального числа
+        for (int i = 0; i < marks.length; i++) {
             if (marks[i] == maxMark) {
                 System.out.println("Ученик " + i + " c максимальной оценкой " + maxMark);
             }
