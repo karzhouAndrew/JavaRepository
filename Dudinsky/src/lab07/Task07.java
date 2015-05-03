@@ -3,7 +3,7 @@ package lab07;
 /*Дано любое натуральное n. Верно ли, что все цифры числа различны?*/
 public class Task07 {
     public static void main(String[] args) {
-        long n = 1234567890;
+        int n = 25716;
         int curDigit, dig0, dig1, dig2, dig3, dig4, dig5, dig6, dig7, dig8, dig9;
         dig0 = dig1 = dig2 = dig3 = dig4 = dig5 = dig6 = dig7 = dig8 = dig9 = 0;
         System.out.print("В заданном числе n = " + n);
