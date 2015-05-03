@@ -5,15 +5,15 @@ package Lab4;
  */
 public class Lab4 {
     public static void main(String[] args) {
-        int a = 40;
-        int b = 100;
-        int c = (int) Math.sqrt(a * a + b * b); //диагональ прямоугольника
-        int r = 200;
+        int firstSide = 40;
+        int secondSide = 100;
+        int diagonal = (int) Math.sqrt(firstSide * firstSide + secondSide * secondSide);
+        int radius = 200;
 
-        if (r >= c) {
-            System.out.printf("Отверстие можно закрыть картонкой ридиуса = " + r);
+        if (radius >= diagonal) {
+            System.out.printf("Отверстие можно закрыть картонкой ридиуса = " + radius);
         } else {
-            System.out.printf("Отверстие нельзя закрыть картонкой ридиуса = " + r);
+            System.out.printf("Отверстие нельзя закрыть картонкой ридиуса = " + radius);
         }
     }
 }
