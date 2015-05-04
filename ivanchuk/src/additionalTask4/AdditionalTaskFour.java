@@ -11,17 +11,11 @@ package additionalTask4;
 
 public class AdditionalTaskFour {
     public static void main(String[] args) {
-        int number = (int) (Math.random() * 899 + 100);
+        int number = (int) (Math.random() * 641 + 300);
         switch (number) {
-            case 781:
-                System.out.println("Число " + number + " - \"Магическое\".");
-                break;
             case 302:
-                System.out.println("Число " + number + " - \"Магическое\".");
-                break;
             case 409:
-                System.out.println("Число " + number + " - \"Магическое\".");
-                break;
+            case 781:
             case 941:
                 System.out.println("Число " + number + " - \"Магическое\".");
                 break;
