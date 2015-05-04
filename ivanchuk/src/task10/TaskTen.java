@@ -12,15 +12,12 @@ public class TaskTen {
         in.close();
         int n = 2;
         boolean composite = false;
-        if (number == 2) {
-        } else {
-            while (n <= (int) (Math.sqrt(number) + 1)) {
-                if (number % n == 0) {
-                    composite = true;
-                    break;
-                }
-                n++;
+        while (n <= (int) (Math.sqrt(number))) {
+            if (number % n == 0) {
+                composite = true;
+                break;
             }
+            n++;
         }
         if (composite) {
             System.out.println(number + " составное число.");
