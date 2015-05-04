@@ -11,7 +11,7 @@ package additionalTask4;
 
 public class AdditionalTaskFour {
     public static void main(String[] args) {
-        int number = (int) (Math.random() * 641 + 300);
+        int number = (int) (Math.random() * 899 + 100);
         switch (number) {
             case 302:
             case 409:
