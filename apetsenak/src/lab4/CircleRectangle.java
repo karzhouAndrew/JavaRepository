@@ -6,8 +6,8 @@ package lab4;
  */
 public class CircleRectangle {
     public static void main(String[] args) {
-        int height = 5;
-        int width = 6;
+        int height = 3;
+        int width = 4;
         int radius = 5;
         if (radius >= Math.sqrt(Math.pow(height, 2) + Math.pow(width, 2))) {
             System.out.println("Картонка радиуса r закроет отверстие.");
