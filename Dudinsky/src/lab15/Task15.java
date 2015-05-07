@@ -11,15 +11,15 @@ import java.util.Arrays;
  */
 public class Task15 {
     public static void main(String[] args) {
-        int butterLength = 7;
-        int[][] butterfly = new int[butterLength][butterLength];
-        for (int i = 0; i <= butterLength / 2; i++) {
-            for (int j = i; j < butterLength - i; j++) {
+        final int SIZE = 7;
+        int[][] butterfly = new int[SIZE][SIZE];
+        for (int i = 0; i <= SIZE / 2; i++) {
+            for (int j = i; j < SIZE - i; j++) {
                 butterfly[i][j] = 1;
-                butterfly[butterLength - 1 - i][j] = 1;
+                butterfly[SIZE - 1 - i][j] = 1;
             }
         }
-        for (int i = 0; i < butterLength; i++) {
+        for (int i = 0; i < SIZE; i++) {
             System.out.println(Arrays.toString(butterfly[i]));
         }
     }
