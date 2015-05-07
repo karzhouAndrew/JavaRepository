@@ -1,7 +1,8 @@
 package lab16;
 
 /**
- * Created by Константин on 06.05.2015.
+ * Задание 16
+ * Найти в строке не только запятые, но и другие знаки препинания. Подсчитать общее их количество.
  */
 public class Lab16 {
     public static void main(String[] args) {
@@ -12,6 +13,7 @@ public class Lab16 {
         System.out.println("У нас есть " + symbol.colon(str) + " двоеточий");
         System.out.println("У нас есть " + symbol.semicolon(str) + " точек с запятой");
         System.out.println("У нас есть " + symbol.dash(str) + " тире");
-        System.out.println("У нас всего знаков препинаний " + (symbol.dash(str)+symbol.semicolon(str)+symbol.colon(str)+symbol.point(str)+symbol.comma(str) ));
+        int sum = symbol.dash(str) + symbol.semicolon(str) + symbol.colon(str) + symbol.point(str) + symbol.comma(str);
+        System.out.println("У нас всего знаков препинаний " + sum);
     }
 }

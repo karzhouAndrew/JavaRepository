@@ -1,58 +1,50 @@
 package lab16;
 
-/**
- * Created by Константин on 06.05.2015.
- */
 public class Symbol {
-    public int comma(String a) {
+    public int comma(String strEnter) {
         int n = 0;
-        char symbol;
-        for (int i = 0; i < a.length(); i++) {
-            symbol = a.charAt(i);
+        for (int i = 0; i < strEnter.length(); i++) {
+            char symbol = strEnter.charAt(i);
             if (symbol == ',') {
                 n++;
             }
         }
         return (n);
     }
-    public int point(String a) {
+    public int point(String strEnter) {
         int n = 0;
-        char symbol;
-        for (int i = 0; i < a.length(); i++) {
-            symbol = a.charAt(i);
+        for (int i = 0; i < strEnter.length(); i++) {
+            char symbol = strEnter.charAt(i);
             if (symbol == '.') {
                 n++;
             }
         }
         return (n);
     }
-    public int colon(String a) {
+    public int colon(String strEnter) {
         int n = 0;
-        char symbol;
-        for (int i = 0; i < a.length(); i++) {
-            symbol = a.charAt(i);
+        for (int i = 0; i < strEnter.length(); i++) {
+            char symbol = strEnter.charAt(i);
             if (symbol == ':') {
                 n++;
             }
         }
         return (n);
     }
-    public int semicolon(String a) {
+    public int semicolon(String strEnter) {
         int n = 0;
-        char symbol;
-        for (int i = 0; i < a.length(); i++) {
-            symbol = a.charAt(i);
+        for (int i = 0; i < strEnter.length(); i++) {
+            char symbol = strEnter.charAt(i);
             if (symbol == ';') {
                 n++;
             }
         }
         return (n);
     }
-    public int dash(String a) {
+    public int dash(String strEnter) {
         int n = 0;
-        char symbol;
-        for (int i = 0; i < a.length(); i++) {
-            symbol = a.charAt(i);
+        for (int i = 0; i < strEnter.length(); i++) {
+            char symbol = strEnter.charAt(i);
             if (symbol == '-') {
                 n++;
             }
