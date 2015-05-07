@@ -6,18 +6,14 @@ package add1;
 public class Add1 {
     public static void main(String[] args) {
         double number = 35.46;
-        int numberInt = (int) number;
-        number = number - numberInt;
+        int n = 1;
+        number = number - (int) number;
         int sum = 0;
-        while (true) {
+        while (n > 0) {
             number = number * 10;
-            numberInt = (int) number;
-            number = number - numberInt;
-            if (numberInt != 0) {
-                sum += numberInt;
-            } else {
-                break;
-            }
+            sum += (int) number;
+            number = number - (int) number;
+            n--;
         }
         System.out.println(sum);
     }
