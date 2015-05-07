@@ -8,25 +8,25 @@ import java.util.Random;
    первый из равных минимальных и последний из равных максимальных; в сумму не включаю сами граничные элементы */
 public class Task14 {
     public static void main(String[] args) {
-        int[] arrMinToMax = new int[12];
-        int arrayLength = arrMinToMax.length;
+        final int SIZE = 12;
+        int[] arrMinToMax = new int[SIZE];
         Random rand = new Random();
-        for (int i = 0; i < arrayLength; i++) {
+        for (int i = 0; i < SIZE; i++) {
             arrMinToMax[i] = rand.nextInt(10);
         }
         System.out.println("Исходный массив случайных чисел:\n" + Arrays.toString(arrMinToMax));
         int minIndex = 0;
         int minValue = arrMinToMax[0];
-        for (int i = 0; i < arrayLength; i++) {
+        for (int i = 0; i < SIZE; i++) {
             if (arrMinToMax[i] < minValue) {
                 minValue = arrMinToMax[i];
                 minIndex = i;
             }
         }
         System.out.println("Первый из элементов с минимальным значением " + minValue + " имеет индекс " + minIndex);
-        int maxIndex = arrayLength - 1;
-        int maxValue = arrMinToMax[arrayLength - 1];
-        for (int i = arrayLength - 1; i >= 0; i--) {
+        int maxIndex = SIZE - 1;
+        int maxValue = arrMinToMax[SIZE - 1];
+        for (int i = SIZE - 1; i >= 0; i--) {
             if (arrMinToMax[i] > maxValue) {
                 maxValue = arrMinToMax[i];
                 maxIndex = i;
