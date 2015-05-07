@@ -31,5 +31,6 @@ public class SumDiagonalMatrix {
         } else {
             System.out.println("Incorrect number");
         }
+        sc.close();
     }
 }
