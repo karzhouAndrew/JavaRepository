@@ -9,7 +9,6 @@ public class SumThreeFractionalDigits {
         System.out.print("Enter real number: ");
         if (sc.hasNextFloat()) {
             float number = sc.nextFloat();
-            sc.close();
             int fractDigit = 0;
             int sum = 0;
             int integralPart = 0;
@@ -23,5 +22,6 @@ public class SumThreeFractionalDigits {
         } else {
             System.out.println("Incorrect number");
         }
+        sc.close();
     }
 }
