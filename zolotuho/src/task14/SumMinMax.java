@@ -1,6 +1,7 @@
 package task14;
 
 import java.util.Random;
+
 //Определите сумму элементов одномерного массива, расположенных между минимальным и максимальным значениями.
 public class SumMinMax {
     public static void main(String[] args) {
@@ -29,8 +30,8 @@ public class SumMinMax {
                 iterMin = i;
             }
         }
-        System.out.println("max iteration number = "+iterMax);
-        System.out.println("min iteration number = "+iterMin);
+        System.out.println("max iteration number = " + iterMax);
+        System.out.println("min iteration number = " + iterMin);
         int sum = 0;
         if (iterMin < iterMax) {
             for (int i = iterMin + 1; i < iterMax; i++) {
