@@ -4,16 +4,15 @@ package lab17;
  * Created by Константин on 06.05.2015.
  */
 public class Symbol {
-    public int word(String a) {
+    public int word(String strEnter) {
         int n = 0;
-        char symbol;
-        if (a.charAt(0) == ' ') {
-            n = n - 1;
+        if (strEnter.charAt(0) == ' ') {
+            n--;
         }
-        for (int i = 0; i < a.length(); i++) {
-            symbol = a.charAt(i);
-            if (symbol == ' ' && i != a.length() - 1) {
-                char symbol2 = a.charAt(i + 1);
+        for (int i = 0; i < strEnter.length(); i++) {
+            char symbol = strEnter.charAt(i);
+            if (symbol == ' ' && i != strEnter.length() - 1) {
+                char symbol2 = strEnter.charAt(i + 1);
                 if (symbol2 != ' ') {
                     n++;
                 }
