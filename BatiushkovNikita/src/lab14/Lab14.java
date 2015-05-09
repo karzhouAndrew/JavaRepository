@@ -2,15 +2,18 @@ package lab14;
 
 // Sum of array elements between max & min values
 
+import java.util.Arrays;
+
 public class Lab14 {
     public static void main(String[] args) {
         int[] array = new int[10];
-        for (int i = 0; i < array.length; i++) {
+        final int SIZE = array.length;
+        for (int i = 0; i < SIZE; i++) {
             array[i] = (int) (Math.random() * 50 + 1);
         }
-        arrayShow(array);
-        int maxPos = maxArrayValuePos(array);
-        int minPos = minArrayValuePos(array);
+        System.out.println(Arrays.toString(array));
+        int maxPos = maxArrayValuePos(array, SIZE);
+        int minPos = minArrayValuePos(array, SIZE);
         int answer = 0;
 
         if (minPos < maxPos) {
@@ -30,18 +33,10 @@ public class Lab14 {
         System.out.println("Sum of array elements between max & min values is " + answer);
     }
 
-
-    public static void arrayShow(int[] array) {
-        for (int i : array) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
-    }
-
-    public static int maxArrayValuePos(int[] array) {
+    public static int maxArrayValuePos(int[] array, int SIZE) {
         int maxValuePos = 0;
         int maxValue = 0;
-        for (int i = 0; i < array.length - 1; i++) {
+        for (int i = 0; i < SIZE - 1; i++) {
             if (array[i] > maxValue) {
                 maxValue = array[i];
                 maxValuePos = i;
@@ -50,10 +45,10 @@ public class Lab14 {
         return maxValuePos;
     }
 
-    public static int minArrayValuePos(int[] array) {
+    public static int minArrayValuePos(int[] array, int SIZE) {
         int minValuePos = 0;
         int minValue = 1000;
-        for (int i = 0; i < array.length - 1; i++) {
+        for (int i = 0; i < SIZE - 1; i++) {
             if (array[i] < minValue) {
                 minValue = array[i];
                 minValuePos = i;
