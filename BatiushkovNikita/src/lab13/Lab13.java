@@ -2,31 +2,27 @@ package lab13;
 
 // Reverse array
 
+import java.util.Arrays;
+
 public class Lab13 {
     public static void main(String[] args) {
         int[] array = new int[5];
-        int arrayLength = array.length;
-        for (int i = 0; i < arrayLength; i++) {
+        final int SIZE = array.length;
+        for (int i = 0; i < SIZE; i++) {
             array[i] = (int) (Math.random() * 10 + 1);
         }
-        arrayShow(array);
-        arrayReverse(array);
-        arrayShow(array);
+
+        System.out.println(Arrays.toString(array));
+        arrayReverse(array, SIZE);
+        System.out.println(Arrays.toString(array));
     }
 
-    public static int[] arrayReverse(int[] array) {
-        for (int i = 0; i < array.length / 2; i++) {
+    public static int[] arrayReverse(int[] array, int SIZE) {
+        for (int i = 0; i < SIZE / 2; i++) {
             int temp = array[i];
-            array[i] = array[array.length - 1 - i];
-            array[array.length - 1 - i] = temp;
+            array[i] = array[SIZE - 1 - i];
+            array[SIZE - 1 - i] = temp;
         }
         return array;
-    }
-
-    public static void arrayShow(int[] array) {
-        for (int i : array) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
     }
 }
