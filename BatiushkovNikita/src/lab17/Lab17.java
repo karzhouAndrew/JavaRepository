@@ -5,10 +5,10 @@ package lab17;
 public class Lab17 {
     public static void main(String[] args) {
         String str = "  The String:;       class,, represents. character!? strings. zzuz ";
-        System.out.println(WordCounter(str));
+        System.out.println(wordCounter(str));
     }
 
-    private static int WordCounter(String str) {
+    private static int wordCounter(String str) {
         str = str.trim();
         str = str.replaceAll("\\s+", " ");
         int strLength = str.length();
