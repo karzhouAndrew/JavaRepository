@@ -7,15 +7,15 @@ package lab9;
 public class Lab9 {
     public static void main(String[] args) {
         int max = 0;
-        int x = (int) (Math.random() * 20);
-        int y = (int) (Math.random() * 20);
-        while (x != 0) {
-            if (x > y) {
-                max = x;
+        int randomNumber1 = (int) (Math.random() * 20);
+        int randomNumber2 = (int) (Math.random() * 20);
+        while (randomNumber1 != 0) {
+            if (randomNumber1 > randomNumber2) {
+                max = randomNumber1;
             }
-            max = y;
-            x = (int) (Math.random() * 20);
-            y = max;
+            max = randomNumber2;
+            randomNumber1 = (int) (Math.random() * 20);
+            randomNumber2 = max;
         }
         System.out.println("Максимальное значение:" + max);
     }
