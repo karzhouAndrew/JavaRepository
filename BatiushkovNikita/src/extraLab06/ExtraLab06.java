@@ -10,7 +10,7 @@ public class ExtraLab06 {
         int t = 1;
         int s = 1;
 
-        if (x == 0 || (x == -1 && s == 1)) {
+        if (x == 0 || (x == -1 && (s == 1 || s == 0))) {
             System.out.println("Division by zero.");
         } else if (x <= 1) {
             System.out.println("Incorrect input. x should be > 1");
