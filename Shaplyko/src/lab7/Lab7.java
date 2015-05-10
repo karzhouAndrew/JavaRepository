@@ -8,8 +8,8 @@ package lab7;
 public class Lab7 {
     public static void main(String[] args) {
         int number = 12306;
-        int i = 0;   //  количество повторений цикла 1
-        int n = 0;    //  количество совпадений (равенство) цифр
+        int repeatLoop1 = 0;
+        int agreement = 0;
         int numberLoop1 = number;
         do {
             int numberDigitLoop1 = numberLoop1 % 10;
@@ -21,15 +21,15 @@ public class Lab7 {
                 int numberShortLoop2 = (numberLoop2 - numberLoop2 % 10) / 10;
                 numberLoop2 = numberShortLoop2;
                 if (numberDigitLoop1 == numberDigitLoop2) {
-                    n++;
+                    agreement++;
                 }
             }
-            i++;
+            repeatLoop1++;
         } while (numberLoop1 > 0);
-        if (i == 1) {
+        if (repeatLoop1 == 1) {
             System.out.println("У вас число, состоящее из одной цифры");
         } else {
-            if (n > i) {
+            if (agreement > i) {
                 System.out.println("Да, совпадение");
             } else {
                 System.out.println("Нет, они различны");
