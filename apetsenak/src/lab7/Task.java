@@ -8,24 +8,26 @@ import java.util.Scanner;
 public class Task {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int number;
-        int flag = 0;
         System.out.println("Введите число : ");
-        number = sc.nextInt();
-        for (int i = 0; i < 10 && flag < 2; i++) {
-            int tempNumber = number;
-            flag = 0;
-            while (tempNumber != 0 && flag < 2) {
-                if (tempNumber % 10 == i) {
-                    flag++;
+        int number = sc.nextInt();
+        boolean isDigitsDifferent = true;
+        do {
+            int checkDigit = number % 10;
+            int tempNumber = number / 10;
+            while (tempNumber > 0 && isDigitsDifferent) {
+                if (tempNumber % 10 == checkDigit) {
+                    isDigitsDifferent = false;
+                } else {
+                    tempNumber /= 10;
                 }
-                tempNumber /= 10;
             }
-        }
-        if (flag > 1) {
-            System.out.println("Цифры не различны");
-        } else {
+            number /= 10;
+        } while (number / 10 > 0 && isDigitsDifferent);
+        if (isDigitsDifferent) {
             System.out.println("Цифры различны");
+        } else {
+            System.out.println("Цифры не различны");
         }
+        sc.close();
     }
 }
