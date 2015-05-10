@@ -6,21 +6,14 @@ package lab8;
  */
 public class Lab8 {
     public static void main(String[] args) {
-        double averagemultiplication = 0;
         double multiplication = 1;
-        int n = 0;
-        int x = (int) (Math.random() * 20);
-        while (x != 0) {
-            multiplication *= x;
-            n++;
-            x = (int) (Math.random() * 20);
+        int quantityRepeat = 2;
+        int x = 4;
+        while (x >= quantityRepeat) {
+            multiplication *= quantityRepeat;
+            quantityRepeat++;
         }
-        if (n != 0) {
-            averagemultiplication = multiplication / n;
-        } else {
-            averagemultiplication = 0;
-        }
-        System.out.println("среднее:" + averagemultiplication + " Произведение: " + multiplication);
+        System.out.println("Факториал числа " + x + " равен: " + multiplication);
     }
 }
 
