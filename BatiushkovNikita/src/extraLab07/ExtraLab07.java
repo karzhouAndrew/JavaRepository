@@ -1,9 +1,7 @@
 package extraLab07;
 
-// 1. The number of consonants and vowels.
-//
+// Manipulating with text
 
-import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,29 +12,51 @@ public class ExtraLab07 {
 
         System.out.println("The number of vowels = " + getNumVowels(text));
         System.out.println("The number of consonants = " + getNumConsonants(text));
-        //getSentenseSequence(getSentenceArr(text));
-        getSent(text);
+        System.out.println("The number of spaces = " + getNumSpaces(text));
+        System.out.println("The number of paragraphs = " + getNumSubParagraph(text));
+        System.out.println();
+        getSentenсeSequence(text);
+        System.out.println();
+        System.out.println("Text without spaces");
+        System.out.println(getModifiedText(text));
+
     }
 
-    private static void getSent(String str) {
-        Pattern pattern = Pattern.compile("[А-Я(.!)]");
+    private static String getModifiedText(String str) {
+        return str.replaceAll("\\s+", "");
+    }
+
+    private static int getNumSubParagraph(String str) {
+        Pattern pattern = Pattern.compile("\\n");
         Matcher matcher = pattern.matcher(str);
+        int count = 0;
         while (matcher.find()) {
-            System.out.println(matcher.group());
+            count++;
         }
+        return count + 1;
     }
-    /*
-    private static void getSentenseSequence(String[] arrStr) {
-        int arrStrLength = arrStr.length;
-        for (int i = 0; i < arrStrLength; i++) {
-            System.out.println(arrStr[i] + ". [Sentence №" + (i + 1) + ". Length: " + arrStr[i].length() + "]");
+
+    private static int getNumSpaces(String str) {
+        Pattern pattern = Pattern.compile("\\s");
+        Matcher matcher = pattern.matcher(str);
+        int count = 0;
+        while (matcher.find()) {
+            count++;
+        }
+        return count;
+    }
+
+    private static void getSentenсeSequence(String str) {
+        Pattern pattern = Pattern.compile("[А-Я].+?[.!?]+");
+        Matcher matcher = pattern.matcher(str);
+        int count = 1;
+        while (matcher.find()) {
+            String sentence = matcher.group();
+            System.out.println("[Sentenсe №" + count + ". Length: " + sentence.length() + "] " + sentence);
+            count++;
         }
     }
 
-    private static String[] getSentenceArr(String str) {
-        return str.split("[.]+");
-    }
-    */
     private static int getNumConsonants(String str) {
         Pattern pattern = Pattern.compile("[бвгджзйклмнпрстфхцчшщБВГДЖЗЙКЛМНПРСТФХЦЧШЩ]");
         Matcher matcher = pattern.matcher(str);
