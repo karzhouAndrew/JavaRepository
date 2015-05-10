@@ -19,13 +19,13 @@ public class ExtraLab07 {
     }
 
     private static void getSent(String str) {
-        Pattern pattern = Pattern.compile("[А-Я.!+]");
+        Pattern pattern = Pattern.compile("[А-Я(.!)]");
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
             System.out.println(matcher.group());
         }
     }
-
+    /*
     private static void getSentenseSequence(String[] arrStr) {
         int arrStrLength = arrStr.length;
         for (int i = 0; i < arrStrLength; i++) {
@@ -36,7 +36,7 @@ public class ExtraLab07 {
     private static String[] getSentenceArr(String str) {
         return str.split("[.]+");
     }
-
+    */
     private static int getNumConsonants(String str) {
         Pattern pattern = Pattern.compile("[бвгджзйклмнпрстфхцчшщБВГДЖЗЙКЛМНПРСТФХЦЧШЩ]");
         Matcher matcher = pattern.matcher(str);
