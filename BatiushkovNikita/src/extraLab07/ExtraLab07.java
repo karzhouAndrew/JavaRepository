@@ -19,10 +19,10 @@ public class ExtraLab07 {
     }
 
     private static void getSent(String str) {
-        Pattern pattern = Pattern.compile(".!?");
+        Pattern pattern = Pattern.compile("[А-Я.!+]");
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
-
+            System.out.println(matcher.group());
         }
     }
 
