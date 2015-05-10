@@ -9,21 +9,18 @@ import java.util.Scanner;
 public class Task {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int number;
-        int flag = 0;
+        boolean isPrimeNumber = true;
         System.out.println("Введите число : ");
-        number = sc.nextInt();
-        if (number < 2) {
-            flag = 1;
-        }
-        for (int i = 2; i < Math.sqrt(number); i++)
+        int number = sc.nextInt();
+        for (int i = 2; i <= Math.sqrt(number); i++)
             if (number % i == 0) {
-                flag = 1;
+                isPrimeNumber = false;
             }
-        if (flag == 1) {
+        if (!isPrimeNumber) {
             System.out.println("Не простое");
         } else {
             System.out.println("Простое");
         }
+        sc.close();
     }
 }
