@@ -14,13 +14,12 @@ public class Lab13 {
             marks[i] = (int) (Math.random() * 10 + 1);
         }
         System.out.println(Arrays.toString(marks));
-        int n = marks.length - 1;
-        int transit;
+        int index = marks.length - 1;
         for (int i = 0; i < (marks.length / 2); i++) {
-            transit = marks[i];
-            marks[i] = marks[n];
-            marks[n] = transit;
-            n--;
+            int temp = marks[i];
+            marks[i] = marks[index];
+            marks[index] = temp;
+            index--;
         }
         System.out.println(Arrays.toString(marks));
     }
