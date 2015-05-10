@@ -14,8 +14,16 @@ public class ExtraLab07 {
 
         System.out.println("The number of vowels = " + getNumVowels(text));
         System.out.println("The number of consonants = " + getNumConsonants(text));
-        getSentenseSequence(getSentenceArr(text));
+        //getSentenseSequence(getSentenceArr(text));
+        getSent(text);
+    }
 
+    private static void getSent(String str) {
+        Pattern pattern = Pattern.compile(".!?");
+        Matcher matcher = pattern.matcher(str);
+        while (matcher.find()) {
+
+        }
     }
 
     private static void getSentenseSequence(String[] arrStr) {
