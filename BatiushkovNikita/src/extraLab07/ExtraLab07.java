@@ -3,6 +3,9 @@ package extraLab07;
 // 1. The number of consonants and vowels.
 //
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ExtraLab07 {
     public static void main(String[] args) {
         String text = "В один прекрасный день заказчику потребовалось выяснить, какие классы использует его приложение. " +
@@ -12,14 +15,32 @@ public class ExtraLab07 {
                 "\rОно, к слову, состоит из двух основных частей: сервера приложений, на котором размещен веб-интерфейс приложения, и сервера обработки (отдельный сервер, на котором различные периодические задачи запускаются с помощью скриптов Ant). " +
                 "Разумеется, информацию о классах необходимо собирать с обеих частей приложения.\n" +
                 "Приступим к поиску решения поставленной задачи и заодно разберемся с механизмами загрузки классов в Java.";
-        System.out.println(text);
+        String text2 = "В один прекрасный день заказчику потребовалось выяснить, какие классы испол";
+        System.out.println("Количество гласных = " + getNumVowels(text2));
+        System.out.println("Количество согласных = " + getNumConsonants(text2));
+
     }
-    private static int getNumConsonats(String str) {
-        char symbol;
-        int strLength = str.length();
-        for (int i = 0; i < strLength; i++) {
-            symbol = str.charAt(i);
-            if (symbol == "а" || symbol == "")
+    private static String getSentence(String str) {
+        return "";
+    }
+
+    private static int getNumConsonants(String str) {
+        Pattern pattern = Pattern.compile("[бвгджзйклмнпрстфхцчшщБВГДЖЗЙКЛМНПРСТФХЦЧШЩ]");
+        Matcher matcher = pattern.matcher(str);
+        int count = 0;
+        while (matcher.find()) {
+            count++;
         }
+        return count;
+    }
+
+    private static int getNumVowels(String str) {
+        Pattern pattern = Pattern.compile("[аоуыэеёюяиАОУЫЭЕЁЮЯИ]");
+        Matcher matcher = pattern.matcher(str);
+        int count = 0;
+        while (matcher.find()) {
+            count++;
+        }
+        return count;
     }
 }
