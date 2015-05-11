@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Даны вещественные числа a, b, c, d.
  * Если a <= b <= c <= d, то каждое число заменить наибольшим,
  * если  a > b > c > d, то числа оставить без изменений,
- * в противном случае – все числа заменить их квадратами
+ * в противном случае – все числа заменить их квадратами.
  */
 public class Task {
     public static void main(String[] args) {
@@ -29,6 +29,5 @@ public class Task {
         }
         System.out.println("a = " + a + "\nb = " + b + "\nc = " + c + "\nd = " + d);
         sc.close();
-
     }
 }
