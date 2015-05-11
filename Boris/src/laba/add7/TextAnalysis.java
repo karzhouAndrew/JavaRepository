@@ -28,17 +28,17 @@ public class TextAnalysis {
         this.str = str;
     }
 
-    public int QuantityConsonant() {
+    public int quantityConsonant() {
         Matcher matcher = patternConsonant.matcher(str);
-        return QuantityLoop(matcher);
+        return quantityLoop(matcher);
     }
 
-    public int QuantityVowel() {
+    public int quantityVowel() {
         Matcher matcher = patternVowel.matcher(str);
-        return QuantityLoop(matcher);
+        return quantityLoop(matcher);
     }
 
-    private int QuantityLoop(Matcher matcher) {
+    private int quantityLoop(Matcher matcher) {
         int quantity = 0;
         while (matcher.find()) {
             quantity++;
@@ -46,7 +46,7 @@ public class TextAnalysis {
         return quantity;
     }
 
-    public void SeparateSentence() {
+    public void separateSentence() {
         Matcher matcher = patternSentence.matcher(str);
         StringBuilder sentence = new StringBuilder();
         while (matcher.find()) {
@@ -58,19 +58,19 @@ public class TextAnalysis {
         System.out.println(sentence.toString());
     }
 
-    public void TextWithoutSpace() {
+    public void textWithoutSpace() {
         System.out.println(str.replaceAll("\\p{Blank}", ""));
     }
 
-    public int QuantitySpace() {
+    public int quantitySpace() {
         Pattern pattern = Pattern.compile("\\p{Blank}");
         Matcher matcher = pattern.matcher(str);
-        return QuantityLoop(matcher);
+        return quantityLoop(matcher);
     }
 
     public int QuantityIndent() {
         Pattern pattern = Pattern.compile("\\n+");
         Matcher matcher = pattern.matcher(str);
-        return str.length() != 0 ? QuantityLoop(matcher) + 1 : 0;
+        return str.length() != 0 ? quantityLoop(matcher) + 1 : 0;
     }
 }
