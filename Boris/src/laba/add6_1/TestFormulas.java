@@ -8,7 +8,7 @@ public class TestFormulas {
         System.out.println("Первое значение формулы при x = " + argX + " равно " + firstFormulaValue.getResultFirst());
         int paramS = 1;
         int paramT = 1;
-        System.out.println("Второе значение формулы при x = " + argX + ",s = " + paramS + " и t = " + paramT
-                + " равно " + firstFormulaValue.getResultSecond(paramS, paramT));
+        System.out.println("Второе значение формулы при x = " + argX + ",s = " + paramS + " и t = "
+                + paramT + " равно " + firstFormulaValue.getResultSecond(paramS, paramT));
     }
 }
