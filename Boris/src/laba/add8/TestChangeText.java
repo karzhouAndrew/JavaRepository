@@ -6,7 +6,7 @@ public class TestChangeText {
         String strExampple = "Child234 sit in the23 coner. Oth234er old children go ho234me.";
         ChangeText objectExample = new ChangeText(strExampple);
         System.out.println(objectExample.getStr());
-        objectExample.Change();
+        objectExample.change();
         System.out.println(objectExample.getStr());
     }
 }
