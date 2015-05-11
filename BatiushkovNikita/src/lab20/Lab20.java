@@ -16,10 +16,12 @@ public class Lab20 {
     private static String getRegExpModifiedString(String testString, String regEx) {
         Pattern pattern = Pattern.compile(regEx);
         Matcher matcher = pattern.matcher(testString);
-        String modifiedString = "";
+        StringBuilder modifiedString = new StringBuilder();
+        //String modifiedString = "";
         while (matcher.find()) {
-            modifiedString += matcher.group();
-            modifiedString += " ";
+            modifiedString.append(matcher.group());
+            //modifiedString += matcher.group();
+            //modifiedString += " ";
         }
         return modifiedString;
     }
