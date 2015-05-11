@@ -1,7 +1,5 @@
 package laba19;
 
-import java.sql.Time;
-
 //Сравнение двух методов на производительность.
 public class CompareStringAppend {
     private String str;
