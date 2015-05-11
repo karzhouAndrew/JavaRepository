@@ -9,8 +9,7 @@ public class Lab20 {
     public static void main(String[] args) {
         String testString = "Aetu0x9A5F the inde0x12 this 0xF5 0xA7string0x59850xA0853AB0xGC56gur";
         String regEx = "(0x[0-9A-Fa-f]{2})";
-        StringBuilder modifiedString = getRegExpModifiedString(testString, regEx);
-        System.out.println(modifiedString);
+        System.out.println(getRegExpModifiedString(testString, regEx));
     }
 
     private static StringBuilder getRegExpModifiedString(String testString, String regEx) {
