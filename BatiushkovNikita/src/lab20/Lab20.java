@@ -15,10 +15,17 @@ public class Lab20 {
     private static StringBuilder getRegExpModifiedString(String testString, String regEx) {
         Pattern pattern = Pattern.compile(regEx);
         Matcher matcher = pattern.matcher(testString);
+<<<<<<< HEAD
         StringBuilder modifiedString = new StringBuilder();
         while (matcher.find()) {
             modifiedString.append(matcher.group());
             modifiedString.append(" ");
+=======
+        String modifiedString = "";
+        while (matcher.find()) {
+            modifiedString += matcher.group();
+            modifiedString += " ";
+>>>>>>> parent of 55decdf... Lab20 rev.2
         }
         return modifiedString;
     }
