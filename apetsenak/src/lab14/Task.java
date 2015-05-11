@@ -12,7 +12,6 @@ public class Task {
         Random rand = new Random();
         int indexMin = 0;
         int indexMax = 0;
-        int sum = 0;
         int minValue = 20;
         int maxValue = 0;
         int array[] = new int[10];
@@ -33,6 +32,7 @@ public class Task {
             indexMin = indexMax;
             indexMax = temp;
         }
+        int sum = 0;
         for (int i = indexMin + 1; i < indexMax; i++) {
             sum += array[i];
         }
