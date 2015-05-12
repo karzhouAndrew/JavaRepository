@@ -21,7 +21,6 @@ public class Task {
             }
         }
         System.out.println("word = " + word);
-        System.out.println(word.length());
         sc.close();
     }
 }
