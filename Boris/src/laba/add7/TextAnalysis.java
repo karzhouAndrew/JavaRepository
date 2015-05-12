@@ -14,7 +14,7 @@ public class TextAnalysis {
     private String str;
     private final Pattern patternConsonant = Pattern.compile("[(а-яА-Я)&&[^аАяЯиИеЕюЮуУэЭоОёЁыЫ]]");
     private final Pattern patternVowel = Pattern.compile("[аАяЯиИеЕюЮуУэЭоОёЁыЫ]");
-    private final Pattern patternSentence = Pattern.compile("[А-Я][^.!?]+[.!?]+");
+    private final Pattern patternSentence = Pattern.compile("[А-Я][^\\.!?]+[\\.!?]+");
 
     TextAnalysis(String str) {
         this.str = str;
