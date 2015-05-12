@@ -9,9 +9,8 @@ public class Hole {
         int width = 4;
         int length = 5;
         int radius = 6;
-        int diamVKvadr;
-        diamVKvadr = width * width + length * length;
-        if (diamVKvadr <= (radius * 2 * 2 * radius)) {
+        int diamSquared = width * width + length * length;
+        if (diamSquared <= (radius * 2 * 2 * radius)) {
             System.out.printf("zakroet");
         } else {
             System.out.printf("ne zakroet");
