@@ -18,7 +18,7 @@ public class Task {
                 if (text.charAt(i - 1) != ' ' && text.charAt(i - 1) != '.' && text.charAt(i - 1) != ',') {
                     numberOfWords++;
                 }
-            } else if (i == 0 && (text.charAt(i) != ' ' && text.charAt(i) != '.' && text.charAt(i) != ',')) {
+            } else if (i + 1 == text.length()) {
                 numberOfWords++;
             }
         }
