@@ -6,15 +6,9 @@ package lab16;
  */
 public class Task {
     public static void main(String[] args) {
-        String str = "Текстовая : строка.. с различными,, знаками  препинания?, :найти ;количество!!!";
-        int numberOfPunctMarks = 0;
-        for (int i = 0; i < str.length(); i++) {
-            char symbol = str.charAt(i);
-            if (symbol == '!' || symbol == ';' || symbol == '?'||symbol == ',' || symbol == '.' || symbol == ':') {
-                numberOfPunctMarks++;
-            }
-        }
+        Calculation calc=new Calculation();
+        String str = "Текстовая : строка.. с различными,, знаками  препинания?, :найти ;количество!!!.,";
         System.out.println(str);
-        System.out.println("numberOfPunctMarks = " + numberOfPunctMarks);
+        System.out.println("Количество знаков препинания : " + calc.calcOfPunctuationMarks(str));
     }
 }
