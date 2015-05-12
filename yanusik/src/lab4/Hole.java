@@ -10,7 +10,7 @@ public class Hole {
         int length = 5;
         int radius = 6;
         int diamVKvadr;
-        diamVKvadr = (int) Math.pow(width, width) + (int) Math.pow(length, length);
+        diamVKvadr = width * width + length * length;
         if (diamVKvadr <= (radius * 2 * 2 * radius)) {
             System.out.printf("zakroet");
         } else {
