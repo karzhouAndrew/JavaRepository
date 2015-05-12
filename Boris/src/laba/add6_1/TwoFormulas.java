@@ -1,6 +1,5 @@
 package laba.add6_1;
 
-
 // Класс на 2 формулы.
 
 import static java.lang.Math.*;
