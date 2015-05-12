@@ -7,6 +7,8 @@ import java.util.Arrays;
 public class Lab13 {
     public static void main(String[] args) {
         final int SIZE = 5;
+        int[] array = new int[SIZE];;
+        final int SIZE = 5;
         int[] array = new int[SIZE];
         for (int i = 0; i < SIZE; i++) {
             array[i] = (int) (Math.random() * 10 + 1);
