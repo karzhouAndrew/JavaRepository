@@ -10,19 +10,9 @@ import java.util.Scanner;
 public class Task {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Calculation calc = new Calculation();
         System.out.println("Введите текст : ");
-        String text = sc.nextLine();
-        int numberOfWords = 0;
-        for (int i = 0; i < text.length(); i++) {
-            if (i != 0 && (text.charAt(i) == ' ' || text.charAt(i) == '.' || text.charAt(i) == ',')) {
-                if (text.charAt(i - 1) != ' ' && text.charAt(i - 1) != '.' && text.charAt(i - 1) != ',') {
-                    numberOfWords++;
-                }
-            } else if (i + 1 == text.length()) {
-                numberOfWords++;
-            }
-        }
-        System.out.println("numberOfWords = " + numberOfWords);
+        System.out.println("numberOfWords = " + calc.calculationNumberOfWords(sc.nextLine()));
         sc.close();
     }
 }
