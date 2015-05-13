@@ -14,7 +14,12 @@ public class Task19 {
         testStringBuilderAppend(iterationQuantity);
         long resultOfStrBuildAppTest = System.nanoTime() - startTime;
         System.out.println("Результат теста StringBuilder и метода append, нс: " + resultOfStrBuildAppTest);
-        System.out.println("Вывод: метод append в StringBuilder быстрее простого сложения String оператором \'+\' в " + (double) resultOfStringAddTest / (double) resultOfStrBuildAppTest + " раз");
+        System.out.println("Вывод 1: метод append в StringBuilder быстрее простого сложения String оператором \'+\' в " + (double) resultOfStringAddTest / (double) resultOfStrBuildAppTest + " раз");
+        startTime = System.nanoTime();
+        testStringBufferAppend(iterationQuantity);
+        long resultOfStrBuffAppTest = System.nanoTime() - startTime;
+        System.out.println("Результат теста StringBuffer и метода append, нс: " + resultOfStrBuffAppTest);
+        System.out.println("Вывод 2: метод append в StringBuffer быстрее простого сложения String оператором \'+\' в " + (double) resultOfStringAddTest / (double) resultOfStrBuffAppTest + " раз");
     }
 
     private static void testStringAddition(int iterationQuantity) {
@@ -26,10 +31,18 @@ public class Task19 {
     }
 
     private static void testStringBuilderAppend(int iterationQuantity) {
-        StringBuilder resultStringBuilder = new StringBuilder("");
+        StringBuilder resultStringBuilder = new StringBuilder();
         for (int i = 0; i < iterationQuantity; i++) {
             resultStringBuilder.append(TEST_STR);
         }
         System.out.println(resultStringBuilder);
+    }
+
+    private static void testStringBufferAppend(int iterationQuantity) {
+        StringBuffer resultStringBuffer = new StringBuffer();
+        for (int i = 0; i < iterationQuantity; i++) {
+            resultStringBuffer.append(TEST_STR);
+        }
+        System.out.println(resultStringBuffer);
     }
 }
