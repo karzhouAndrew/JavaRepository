@@ -6,11 +6,11 @@ import java.util.regex.Pattern;
 
 //2.	Вывести все предложения заданного текста в порядке возрастания количества слов в каждом из них.
 public class SortSentenceRise {
-    private static final Pattern PATTERNSENTENCE = Pattern.compile("[A-ZА-Я][^.?!]+[.?!]+");
+    private static final Pattern PATTERNSENTENCE = Pattern.compile("[A-ZА-Я0-9][^.?!]+[.?!]+");
 
     public static String getSentence(String str) {
         StringBuilder sortString = new StringBuilder("");
-        String[] arraySentence = str.split("[A-ZА-Я][^.?!]+[.?!]+");//Надо подумать, почему не работает один сплит
+        String[] arraySentence = str.split("[A-ZА-Я][^.?!]+[.?!]+");//Надо подумать
         getArraySentence(str, arraySentence);
         int[] arrayQuantityWord = new int[arraySentence.length];
         loopForArrayInitialize(arraySentence, arrayQuantityWord);
