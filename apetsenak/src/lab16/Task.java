@@ -6,9 +6,9 @@ package lab16;
  */
 public class Task {
     public static void main(String[] args) {
-        Calculation calc=new Calculation();
+        Calculation calc = new Calculation();
         String str = "Текстовая : строка.. с различными,, знаками  препинания?, :найти ;количество!!!.,";
         System.out.println(str);
-        System.out.println("Количество знаков препинания : " + calc.calcOfPunctuationMarks(str));
+        System.out.println("Количество знаков препинания : " + calc.findPunct(str));
     }
 }
