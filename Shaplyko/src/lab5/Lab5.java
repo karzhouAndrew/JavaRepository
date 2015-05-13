@@ -8,19 +8,13 @@ package lab5;
 public class Lab5 {
     public static void main(String[] args) {
         int number = 9;
-        if (number % 10 == 0 || (number % 10 >= 5 && number % 10 <= 9)) {
+        int nextNum = (number - number % 10) / 10;
+        if (nextNum % 10 == 1) {
             System.out.println(number + " рублей");
-        }
-        if (number % 10 == 1) {
-            int num = (number - number % 10) / 10;
-            if (num % 10 == 1) {
-                System.out.println(number + " рублей");
-            } else {
-                System.out.println(number + " рубль");
-            }
-        }
-        if (number % 10 >= 2 && number % 10 <= 4) {
+        } else if (number % 10 == 1) {
+            System.out.println(number + " рубль");
+        } else if (number % 10 >= 2 && number % 10 <= 4) {
             System.out.println(number + " рубля");
-        }
+        } else System.out.println(number + " рублей");
     }
 }
