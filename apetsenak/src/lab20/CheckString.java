@@ -8,11 +8,12 @@ public class CheckString {
     public String findHex(String checkString) {
         Pattern pattern = Pattern.compile("0[Xx][0-9a-fA-F]+");
         Matcher matcher = pattern.matcher(checkString);
-        String str = "Hex numbers: ";
+        StringBuilder str = new StringBuilder("Hex numbers: ");
         while (matcher.find()) {
-            str += matcher.group() + ", ";
+            str.append(matcher.group());
+            str.append(", ");
         }
-        return str;
+        return str.toString();
     }
 }
 
