@@ -9,7 +9,7 @@ public class NumberCatcher {
     public String catchAllHexes(String givenStr) {
         Pattern patternHex = Pattern.compile(HEX_CATCH_PATTERN);
         Matcher matcher = patternHex.matcher(givenStr);
-        StringBuilder strBuilder = new StringBuilder("");
+        StringBuilder strBuilder = new StringBuilder();
         while (matcher.find()) {
             strBuilder.append(matcher.group()).append(" ");
         }
