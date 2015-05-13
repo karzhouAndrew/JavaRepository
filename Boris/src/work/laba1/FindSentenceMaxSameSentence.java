@@ -4,8 +4,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 //1.	Найти и вывести предложение из текста, в котором максимальное количество одинаковых слов.
+
 public class FindSentenceMaxSameSentence {
-    private static final Pattern PATTERNSENTENCE = Pattern.compile("[A-ZА-Я][^.?!]+[.?!]+");
+    private static final Pattern PATTERNSENTENCE = Pattern.compile("[A-ZА-Я0-9][^.?!]+[.?!]+");
 
     public static String getSentence(String str) {
         Matcher matcherSentence = PATTERNSENTENCE.matcher(str);
@@ -14,7 +15,6 @@ public class FindSentenceMaxSameSentence {
         while (matcherSentence.find()) {
             String sentence = matcherSentence.group();
             int currentQuantitySameWord = getQuantitySameWord(sentence);
-
             if (sameWordMax < currentQuantitySameWord) {
                 sameWordMax = currentQuantitySameWord;
                 sentenceMax = sentence;
