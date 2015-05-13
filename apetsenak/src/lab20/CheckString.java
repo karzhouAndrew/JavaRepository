@@ -5,17 +5,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CheckString {
-    private String checkString;
-
-    CheckString(String str) {
-        checkString = str;
-    }
-
-    public void findHex() {
+    public String findHex(String checkString) {
         Pattern pattern = Pattern.compile("0[Xx][0-9a-fA-F]+");
         Matcher matcher = pattern.matcher(checkString);
+        String str = "Hex numbers: ";
         while (matcher.find()) {
-            System.out.println(matcher.group());
+            str += matcher.group() + ", ";
         }
+        return str;
     }
 }
+
