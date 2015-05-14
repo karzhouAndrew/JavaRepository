@@ -3,18 +3,26 @@ package lab10;
 // Prime or not
 
 public class Lab10 {
+
+    final static int NUM = 43;
+
     public static void main(String[] args) {
-        int number = 43;
-        int divider = 2;
-        boolean answer = true;
-        if (number == 1) {
-            answer = false;
-        }
-        for (int i = divider; i * i <= number; i++) {
-            if (number % i == 0) {
-                answer = false;
+        System.out.println(primeSimple(NUM));
+    }
+
+    private static boolean primeSimple(int num) {
+        for (int i = 2; i < Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
             }
         }
-        System.out.println(answer);
+        return true;
+    }
+
+    private static int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
     }
 }
