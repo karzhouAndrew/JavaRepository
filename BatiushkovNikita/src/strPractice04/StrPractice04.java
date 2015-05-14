@@ -34,7 +34,7 @@ public class StrPractice04 {
     }
 
     public static String getClearSentence(String str) {
-        return str.replaceAll("[.?!]", "");
+        return str.replaceAll("\\p{Punct}", "");
     }
 
     public static boolean getQuestionSentence(String str) {
