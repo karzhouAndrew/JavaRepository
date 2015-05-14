@@ -8,6 +8,7 @@ public class Str3 {
         String str = " Текст слова буквы. Буквы буквы еееее! Буквы и  из слова?";
         Find find = new Find();
         find.findWordSentences(str);
+
     }
 }
 

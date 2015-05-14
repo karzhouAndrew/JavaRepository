@@ -1,5 +1,6 @@
 package str3;
 
+
 public class Find {
     public void findWordSentences(String str) {
         String strSentences[] = str.toString().split("[.!?]");
@@ -20,5 +21,6 @@ public class Find {
         }
     }
 }
+
 
 
