@@ -1,88 +1,20 @@
 package task16;
 //Найти в строке не только запятые, но и другие знаки препинания. Подсчитать общее их количество.
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class PunctuationChar {
 
-    public int calculateDots(String str) {
+    public int calculatePunctuationMarks(String str) {
         char symbol;
         int counter = 0;
-        for (int i = 0; i < str.length(); i++) {
-            symbol = str.charAt(i);
-            if (symbol == '.') {
-                counter++;
-            }
-        }
-        return counter;
-    }
-
-    public int calculateCommas(String str) {
-        char symbol;
-        int counter = 0;
-        for (int i = 0; i < str.length(); i++) {
-            symbol = str.charAt(i);
-            if (symbol == ',') {
-                counter++;
-            }
-        }
-        return counter;
-    }
-
-    public int calculateColons(String str) {
-        char symbol;
-        int counter = 0;
-        for (int i = 0; i < str.length(); i++) {
-            symbol = str.charAt(i);
-            if (symbol == ':') {
-                counter++;
-            }
-        }
-        return counter;
-    }
-
-    public int calculateSemicolons(String str) {
-        char symbol;
-        int counter = 0;
-        for (int i = 0; i < str.length(); i++) {
-            symbol = str.charAt(i);
-            if (symbol == ';') {
-                counter++;
-            }
-        }
-        return counter;
-    }
-
-    public int calculateExclamations(String str) {
-        char symbol;
-        int counter = 0;
-        for (int i = 0; i < str.length(); i++) {
-            symbol = str.charAt(i);
-            if (symbol == '!') {
-                counter++;
-            }
-        }
-        return counter;
-    }
-
-    public int calculateQuestions(String str) {
-        char symbol;
-        int counter = 0;
-        for (int i = 0; i < str.length(); i++) {
-            symbol = str.charAt(i);
-            if (symbol == '?') {
-                counter++;
-            }
-        }
-        return counter;
-    }
-
-    public int calculateDashes(String str) {
-        char symbol;
-        int counter = 0;
-        for (int i = 0; i < str.length(); i++) {
-            symbol = str.charAt(i);
-            if (symbol == '-') {
-                counter++;
-            }
+        Pattern pattern = Pattern.compile("[.,!?[-];:]");
+        Matcher matcher = pattern.matcher(str);
+        int currentPosition = 0;
+        while (matcher.find(currentPosition)) {
+            counter++;
+            currentPosition = matcher.end();
         }
         return counter;
     }
