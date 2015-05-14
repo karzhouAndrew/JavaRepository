@@ -19,7 +19,6 @@ public class ExtraLab07 {
         System.out.println();
         System.out.println("Text without spaces");
         System.out.println(getModifiedText(text));
-
     }
 
     private static String getModifiedText(String str) {
