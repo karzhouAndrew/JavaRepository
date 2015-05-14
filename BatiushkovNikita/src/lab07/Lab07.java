@@ -7,15 +7,13 @@ public class Lab07 {
         int number = 120456780;
         boolean answer = false;
         while (number != 0) {
-            int testNum = number % 10;
-            int interimNum = number - number % 10;
-            interimNum /= 10;
-            while (interimNum != 0) {
-                if (testNum == interimNum % 10) {
+            int interimNumber = (number - number % 10) / 10;
+            while (interimNumber != 0) {
+                if (number % 10 == interimNumber % 10) {
                     answer = true;
                     break;
                 }
-                interimNum /= 10;
+                interimNumber /= 10;
             }
             number /= 10;
         }
