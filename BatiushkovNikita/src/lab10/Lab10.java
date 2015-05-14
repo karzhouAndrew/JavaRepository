@@ -4,23 +4,23 @@ package lab10;
 
 public class Lab10 {
 
-    final static int NUM = 2147483647;
+    public final static int NUM = 2147483647;
 
     public static void main(String[] args) {
         long startPrimeSimple = System.nanoTime();
-        System.out.println(primeSimple(NUM));
+        System.out.println(isPrime(NUM));
         long stopPrimeSimple = System.nanoTime();
-        System.out.println("primeSimple performance: " + (stopPrimeSimple - startPrimeSimple) + " ns.");
+        System.out.println("isPrime performance: " + (stopPrimeSimple - startPrimeSimple) + " ns.");
 
         long startPrimeFerma = System.nanoTime();
-        System.out.println(primeFerma(NUM));
+        System.out.println(isPrimeFerma(NUM));
         long stopPrimeFerma = System.nanoTime();
-        System.out.println("primeFerma performance: " + (stopPrimeFerma - startPrimeFerma) + " ns.");
+        System.out.println("isPrimeFerma performance: " + (stopPrimeFerma - startPrimeFerma) + " ns.");
         System.out.println();
-        System.out.println("primeFerma " + (stopPrimeSimple - startPrimeSimple) / (stopPrimeFerma - startPrimeFerma) + " times faster.");
+        System.out.println("isPrimeFerma " + (stopPrimeSimple - startPrimeSimple) / (stopPrimeFerma - startPrimeFerma) + " times faster.");
     }
 
-    private static boolean primeSimple(int num) {
+    private static boolean isPrime(int num) {
         for (int i = 2; i <= Math.sqrt(num); i++) {
             if (num % i == 0) {
                 return false;
@@ -29,21 +29,21 @@ public class Lab10 {
         return true;
     }
 
-    private static int gcd(int a, int b) {
-        if (b == 0) {
-            return a;
+    private static int greatestCommonDivisor(int numA, int numB) {
+        if (numB == 0) {
+            return numA;
         }
-        return gcd(b, a % b);
+        return greatestCommonDivisor(numB, numA % numB);
     }
 
-    private static boolean primeFerma(int num) {
+    private static boolean isPrimeFerma(int num) {
         if (num == 2) {
             return true;
         }
         for (int i = 0; i < 100; i++) {
             double a = ((Math.random() * 10 + 1) % (num - 2)) + 2;
-            int h = (int) a;
-            if (gcd(h, num) != 1) {
+            int intA = (int) a;
+            if (greatestCommonDivisor(intA, num) != 1) {
                 return false;
             }
         }
