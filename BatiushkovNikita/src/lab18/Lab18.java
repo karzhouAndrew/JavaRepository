@@ -4,10 +4,27 @@ package lab18;
 
 public class Lab18 {
     public static void main(String[] args) {
-        String str = "thE StrinG clasS representS characteR";
-        System.out.println(getWordLastLetters(str));
+        String testString = " thE StrinG! clasS.. representS,,, characteR ";
+        //System.out.println(getWordLastLetters(str));
+
+        //String[] wordArr = getArrOfWords(testString);
+        String[] wordArr = getArrOfWords(testString);
+        for (int i = 0; i < wordArr.length; i++) {
+            System.out.println(getWordLastLetter(wordArr[i]));
+        }
     }
 
+    private static String[] getArrOfWords(String str) {
+
+    }
+
+
+    private static String getWordLastLetter(String str) {
+        char symbol = str.charAt(str.length() - 1);
+        return String.valueOf(symbol);
+    }
+
+    /*
     private static String getWordLastLetters(String str) {
         int strLength = str.length();
         String lastLetters = "";
@@ -18,5 +35,5 @@ public class Lab18 {
             }
         }
         return lastLetters;
-    }
+    } */
 }
