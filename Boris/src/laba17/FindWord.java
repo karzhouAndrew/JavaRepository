@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 //Подсчитать кол-во слов в тексте.
 public class FindWord {
-    private final static Pattern PATTERNWORD = Pattern.compile("\\w+");
+    private final static Pattern PATTERN_WORD = Pattern.compile("\\w+");
 
     public static int firstRealization(String str) {
         String strExample = str.trim();
@@ -28,7 +28,7 @@ public class FindWord {
     }
 
     public static int secondRealization(String str) {
-        Matcher matcher = PATTERNWORD.matcher(str);
+        Matcher matcher = PATTERN_WORD.matcher(str);
         int quantityWord = 0;
         while (matcher.find()) {
             quantityWord++;
