@@ -4,7 +4,7 @@ package lab12;
 
 public class Lab12 {
 
-    final static int SIZE = 10;
+    protected final static int SIZE = 10;
 
     public static void main(String[] args) {
         int[] array = new int[SIZE];
