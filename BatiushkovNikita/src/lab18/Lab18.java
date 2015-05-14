@@ -2,35 +2,18 @@ package lab18;
 
 // String with the last letter of a words
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Lab18 {
     public static void main(String[] args) {
-        String testString = " thE StrinG! clasS.. representS,,, characteR ";
-        //System.out.println(getWordLastLetters(str));
-
-        //String[] wordArr = getArrOfWords(testString);
-        String[] wordArr = getArrOfWords(testString);
-        for (int i = 0; i < wordArr.length; i++) {
-            System.out.println(getWordLastLetter(wordArr[i]));
-        }
+        String testString = "   thE StrinG! clasS.. representS,,, characteRdsds      ,,, ";
+        testString = getClearSentence(testString);
+        System.out.println(getWordLastLetters(testString) + testString.charAt(testString.length() - 1));
     }
 
-    private static String[] getArrOfWords(String str) {
-        String regExp = "[A-Za-z].+?";
-        Pattern pattern = Pattern.compile(regExp);
-        Matcher matcher =
-
+    private static String getClearSentence(String str) {
+        str = str.trim();
+        return str.replaceAll("\\p{Punct}", "");
     }
 
-
-    private static String getWordLastLetter(String str) {
-        char symbol = str.charAt(str.length() - 1);
-        return String.valueOf(symbol);
-    }
-
-    /*
     private static String getWordLastLetters(String str) {
         int strLength = str.length();
         String lastLetters = "";
@@ -41,5 +24,5 @@ public class Lab18 {
             }
         }
         return lastLetters;
-    } */
+    }
 }
