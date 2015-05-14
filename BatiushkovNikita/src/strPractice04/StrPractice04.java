@@ -7,15 +7,15 @@ import java.util.regex.Pattern;
 
 public class StrPractice04 {
 
-    public final static int WORD_LENGTH = 4;
+    private final static int WORD_LENGTH = 4;
 
     public static void main(String[] args) {
         String text = "Жили-были мужик да баба. Оба были такие ленивые... Так и норовят дело на чужие плечи столкнуть, самим бы только не делать... И дверь-то в избу никогда на крюк не закладывали: утром-де вставай да руки протягивай, да опять крюк скидывай... И так проживем.\\n\" +\n" +
                 "                \"Вот раз баба и свари каши? А уж и каша сварилась! Румяна рассыпчата, крупина жжош от крупины так и отваливается?";
-        getWorldsPredetermLength(text, wordLength);
+        getWorldsPredetermLength(text);
     }
 
-    public static void getWorldsPredetermLength(String text, int wordLength) {
+    public static void getWorldsPredetermLength(String text) {
         Pattern pattern = Pattern.compile("[А-Я].+?[.!?]+");
         Matcher matcher = pattern.matcher(text);
         String[] sentenceArr;
@@ -25,7 +25,7 @@ public class StrPractice04 {
                 sentence = getClearSentence(sentence);
                 sentenceArr = sentence.split(" +");
                 for (String word : sentenceArr) {
-                    if (word.length() == wordLength) {
+                    if (word.length() == WORD_LENGTH) {
                         System.out.println(word);
                     }
                 }
