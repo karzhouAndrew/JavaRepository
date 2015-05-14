@@ -7,7 +7,8 @@ public class LastSymbolsOfWords {
 
     public StringBuilder createWordOfLastChar(String string) {
         string = string.trim();
-        String stringSplat = new String(Arrays.toString(string.split(" ")));
+        String stringSplat;
+        stringSplat = Arrays.toString(string.split(" "));
         int counterSplits = 0;
         counterSplits = stringSplat.length() - string.length() - 1;
         String[] stringWords = new String[counterSplits];
@@ -21,8 +22,8 @@ public class LastSymbolsOfWords {
         StringBuilder word = new StringBuilder();
         for (int i = 0; i < counterWords; i++) {
             int lengthOfWord = stringWords[i].length();
-            boolean b = stringWords[i].matches("[a-zA-Z0-9]+[.|,|?|!]");
-            if (b == true) {
+            boolean foundPunctuation = stringWords[i].matches("[a-zA-Z0-9]+[.|,|?|!]");
+            if (foundPunctuation == true) {
                 word = word.append(stringWords[i].charAt(lengthOfWord - 2));
             } else {
                 word = word.append(stringWords[i].charAt(lengthOfWord - 1));
