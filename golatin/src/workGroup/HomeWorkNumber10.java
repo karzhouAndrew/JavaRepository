@@ -6,10 +6,10 @@ package workGroup;
  */
 public class HomeWorkNumber10 {
     public static void main(String[] args) {
-        int simple = 2342561;
+        int number = 2342561;
         String result = "Число простое";
-        for (int i = 2; i <= Math.sqrt(simple); i++) {
-            if (simple % i == 0) {
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
                 result = "Число имеет делитель " + i;
                 break;
             }

@@ -7,7 +7,10 @@ package workGroup;
  */
 public class AdditionalJob2 {
     public static void main(String[] args) {
-        double a = 3, b = 2, c = 1.3, d = 0;
+        double a = 3;
+        double b = 2;
+        double c = 1.3;
+        double d = 0;
         if ((a <= b) && (b <= c) && (c <= d)) {
             a = b = c = d;
         } else if ((a > b) && (b > c) && (c > d)) {

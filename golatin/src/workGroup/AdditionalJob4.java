@@ -15,11 +15,11 @@ import java.util.Random;
 public class AdditionalJob4 {
     public static void main(String[] args) {
         Random rn = new Random();
-        int Number = rn.nextInt(1000);
-        System.out.println(Number);
-        if ((Number % 111 == 0) || ((Number - 12) % 111 == 0)) {
+        int number = rn.nextInt(1000);
+        System.out.println(number);
+        if ((number % 111 == 0) || ((number - 12) % 111 == 0)) {
             System.out.println("Счастливое");
-        } else if ((Number == 781) || (Number == 302) || (Number == 409) || (Number == 941)) {
+        } else if ((number == 781) || (number == 302) || (number == 409) || (number == 941)) {
             System.out.println("Магическое");
         } else {
             System.out.println("Несчастливое");

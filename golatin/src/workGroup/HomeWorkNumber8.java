@@ -6,12 +6,12 @@ package workGroup;
  */
 public class HomeWorkNumber8 {
     public static void main(String[] args) {
-        int mul = 1;
+        int factorial = 1;
         int i = 1;
         while (i < 10) {
-            mul *= i;
+            factorial *= i;
             i++;
         }
-        System.out.println(mul);
+        System.out.println(factorial);
     }
 }

@@ -8,11 +8,12 @@ public class HomeWorkNumber7 {
     public static void main(String[] args) {
         int number = 1245785;
         String result = "Совпадений нет";
-        for (int flags = 0; number > 0; flags |= 1 << (number % 10), number /= 10) {
+        for (int flags = 0; number > 0; number /= 10) {
             if ((flags & (1 << (number % 10))) != 0) {
                 result = "Совпадение в цифре: " + number % 10;
                 break;
             }
+            flags |= 1 << (number % 10);
         }
         System.out.println(result);
     }

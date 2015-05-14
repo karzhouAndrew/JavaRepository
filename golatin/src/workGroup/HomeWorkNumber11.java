@@ -6,7 +6,9 @@ package workGroup;
  */
 public class HomeWorkNumber11 {
     public static void main(String[] args) {
-        int sum = 0, n = 4, del = 3;
+        int sum = 0;
+        int n = 4;
+        int del = 3;
         for (int i = 0; i < n; sum += i * del, i++) ;
         System.out.println("Сумма " + n + " первых целых чисел, делящихся на " + del + " = " + sum);
     }

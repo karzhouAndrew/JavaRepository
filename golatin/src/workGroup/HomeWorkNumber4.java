@@ -6,7 +6,9 @@ package workGroup;
  */
 public class HomeWorkNumber4 {
     public static void main(String[] args) {
-        float a = 2.3f, b = 3.4f, r = 1.5f;
+        float a = 2.3f;
+        float b = 3.4f;
+        float r = 1.5f;
         System.out.println(a * a + b * b <= 4 * r * r ? "Можно" : "Нельзя");
     }
 }
