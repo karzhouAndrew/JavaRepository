@@ -25,7 +25,7 @@ public class Task {
         System.out.println("Вывод предложений текста: ");
         textEditor.printSentences(text);
         System.out.println();
-        String noSpaces=textEditor.textWithoutSpaces(text);
+        String noSpaces = textEditor.textWithoutSpaces(text);
         System.out.println("Вывод текста без пробелов: ");
         System.out.println(noSpaces);
     }

@@ -48,7 +48,7 @@ public class TextEditor {
 
     public String[] addElement(String[] oldString, String element) {
         String[] newString = new String[oldString.length + 1];
-        System.arraycopy(oldString,0,newString,0,oldString.length);
+        System.arraycopy(oldString, 0, newString, 0, oldString.length);
         newString[oldString.length] = element;
         return newString;
     }
