@@ -2,7 +2,8 @@ package task18;
 
 import java.util.Arrays;
 
-//Имеется строка с текстом. Вывести текст, составленный из последних букв всех слов.
+//Имеется строка с текстом. Вывести текст,
+// составленный из последних букв всех слов.
 public class LastSymbolsOfWords {
 
     public StringBuilder createWordOfLastChar(String string) {
