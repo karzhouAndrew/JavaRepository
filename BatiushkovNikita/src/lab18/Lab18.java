@@ -2,6 +2,9 @@ package lab18;
 
 // String with the last letter of a words
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Lab18 {
     public static void main(String[] args) {
         String testString = " thE StrinG! clasS.. representS,,, characteR ";
@@ -15,6 +18,9 @@ public class Lab18 {
     }
 
     private static String[] getArrOfWords(String str) {
+        String regExp = "[A-Za-z].+?";
+        Pattern pattern = Pattern.compile(regExp);
+        Matcher matcher =
 
     }
 
