@@ -4,47 +4,50 @@ package lab19;
 
 public class Lab19 {
 
-    final static int NUM_OF_CYCLES = 100;
-    final static String STR_ADD = "add ";
+    public final static int NUM_OF_CYCLES = 100;
+    public final static String STR_ADD = "add ";
 
     public static void main(String[] args) {
-        long perfString = StringTest(NUM_OF_CYCLES, STR_ADD);
-        long perfStrBulder = strBuilderTest(NUM_OF_CYCLES, STR_ADD);
-        long perfStrBuffer = strBufferTest(NUM_OF_CYCLES, STR_ADD);
+        long startBufferTest = System.nanoTime();
+        strBufferTest();
+        long stopBufferTest = System.nanoTime();
+        long performanceStrBuffer = stopBufferTest - startBufferTest;
+
+        long startBuilderTest = System.nanoTime();
+        strBuilderTest();
+        long stopBuilderTest = System.nanoTime();
+        long performanceStrBuilder = stopBuilderTest - startBuilderTest;
+
+        long startStringTest = System.nanoTime();
+        stringTest();
+        long stopStringTest = System.nanoTime();
+        long performanceString = stopStringTest - startStringTest;
+
 
         System.out.println("Perfomance string test for " + NUM_OF_CYCLES + " cycles.");
-        System.out.println("\"String\" = " + perfString + " ns.");
-        System.out.println("\"StringBuffer\" = " + perfStrBuffer + " ns.");
-        System.out.println("\"StringBuilder\" = " + perfStrBulder + " ns.");
+        System.out.println("\"String\" = " + performanceString + " ns.");
+        System.out.println("\"StringBuffer\" = " + performanceStrBuffer + " ns.");
+        System.out.println("\"StringBuilder\" = " + performanceStrBuilder + " ns.");
     }
 
-    private static long strBufferTest(int numOfCycles, String strAdd) {
+    private static void strBufferTest() {
         StringBuffer strBufferTest = new StringBuffer();
-        long startBufferTest = System.nanoTime();
-        for (int i = 0; i < numOfCycles; i++) {
-            strBufferTest.append(strAdd);
+        for (int i = 0; i < NUM_OF_CYCLES; i++) {
+            strBufferTest.append(STR_ADD);
         }
-        long stopBufferTest = System.nanoTime();
-        return stopBufferTest - startBufferTest;
     }
 
-    private static long strBuilderTest(int numOfCycles, String strAdd) {
+    private static void strBuilderTest() {
         StringBuilder strBuilderTest = new StringBuilder();
-        long startBuilderTest = System.nanoTime();
-        for (int i = 0; i < numOfCycles; i++) {
-            strBuilderTest.append(strAdd);
+        for (int i = 0; i < NUM_OF_CYCLES; i++) {
+            strBuilderTest.append(STR_ADD);
         }
-        long stopBuilderTest = System.nanoTime();
-        return stopBuilderTest - startBuilderTest;
     }
 
-    private static long StringTest(int numOfCycles, String strAdd) {
+    private static void stringTest() {
         String strStringTest = "";
-        long startStringTest = System.nanoTime();
-        for (int i = 0; i < numOfCycles; i++) {
-            strStringTest += strAdd;
+        for (int i = 0; i < NUM_OF_CYCLES; i++) {
+            strStringTest += STR_ADD;
         }
-        long stopStringTest = System.nanoTime();
-        return stopStringTest - startStringTest;
     }
 }
