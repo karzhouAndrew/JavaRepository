@@ -23,7 +23,6 @@ public class Lab19 {
         long stopStringTest = System.nanoTime();
         long performanceString = stopStringTest - startStringTest;
 
-
         System.out.println("Perfomance string test for " + NUM_OF_CYCLES + " cycles.");
         System.out.println("\"String\" = " + performanceString + " ns.");
         System.out.println("\"StringBuffer\" = " + performanceStrBuffer + " ns.");
