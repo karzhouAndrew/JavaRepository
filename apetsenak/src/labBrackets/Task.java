@@ -5,12 +5,12 @@ package labBrackets;
  */
 public class Task {
     public static void main(String[] args) {
-        char[] str = new char[]{'a', ')', ')', 'a', '(', '(', 'a', '(', ')', 'a', ')', ')', '(', ')'};
+        char[] charArray = new char[]{'a', '(', ')', 'a', '(', '(', 'a', '(', ')', 'a', ')', ')', '(', '('};
         int isStrValid = 0;
-        for (int i = 0; i < str.length && isStrValid >= 0; i++) {
-            if (str[i] == '(') {
+        for (int i = 0; i < charArray.length && isStrValid >= 0; i++) {
+            if (charArray[i] == '(') {
                 isStrValid++;
-            } else if (str[i] == ')') {
+            } else if (charArray[i] == ')') {
                 isStrValid--;
             }
         }
