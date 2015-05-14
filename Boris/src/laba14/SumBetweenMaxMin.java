@@ -11,26 +11,40 @@ public class SumBetweenMaxMin {
         int[] arrayRandom = new int[quantityCell];
         int maxIndex = 0;
         int minIndex = 0;
-        boolean flagMax = false;
-        boolean flagMin = false;
-        arrayRandom[0] = rand.nextInt(101);
-        for (int i = 1; i < arrayRandom.length; i++) {
-            arrayRandom[i] = rand.nextInt(101);
-            if (arrayRandom[maxIndex] < arrayRandom[i]) {
-                maxIndex = i;
-                flagMax = true;
-            } else if (arrayRandom[minIndex] > arrayRandom[i]) {
-                minIndex = i;
-                flagMin = true;
-            } else if (arrayRandom[maxIndex] == arrayRandom[i]) {
-                flagMax = false;
-            } else if (arrayRandom[minIndex] == arrayRandom[i]) {
-                flagMin = false;
-            }
+        boolean isPairMax = false;
+        boolean isPairMin = false;
+        for (int i = 0; i < arrayRandom.length; i++) {
+            arrayRandom[i] = rand.nextInt(10);
         }
         System.out.println(Arrays.toString(arrayRandom));
+        for (int i = 1; i < arrayRandom.length; i++) {
+            if (arrayRandom[maxIndex] < arrayRandom[i]) {
+                maxIndex = i;
+                isPairMax = false;
+            } else if (arrayRandom[minIndex] > arrayRandom[i]) {
+                minIndex = i;
+                isPairMin = false;
+            } else if (arrayRandom[maxIndex] == arrayRandom[i]) {
+                isPairMax = true;
+            } else if (arrayRandom[minIndex] == arrayRandom[i]) {
+                isPairMin = true;
+            }
+        }
         int sum = 0;
-        if (flagMax && flagMin) {
+        if (isPairMax || isPairMin) {
+            System.out.print("Невозможно выполнить сумму. В массиве есть одинаковые ");
+            if (isPairMax) {
+                System.out.print("максимальные числа");
+            }
+            if (isPairMax && isPairMin) {
+                System.out.print(" и ");
+            }
+            if (isPairMin) {
+                System.out.print("минимальные числа");
+            }
+            System.out.println(".");
+
+        } else {
             int start;
             int finish;
             if (minIndex < maxIndex) {
@@ -43,14 +57,7 @@ public class SumBetweenMaxMin {
             for (int i = start; i < finish; i++) {
                 sum += arrayRandom[i];
             }
-            System.out.println("Сумма между " + start + " и " + (finish + 1) + " элементами равна " + sum);
-        } else {
-            System.out.print("Невозможно выполнить сумму. В массиве есть одинаковые ");
-            if (!flagMax) {
-                System.out.println("максимальные числа.");
-            } else {
-                System.out.println("минимальные числа.");
-            }
+            System.out.println("Сумма между " + start + " и " + (finish + 1) + " элементами равна " + sum + ".");
         }
     }
 }
