@@ -8,16 +8,16 @@ public class Task {
         Cube firstCube = new Cube(3);
         Cube secondCube = new Cube(4, "Red");
         System.out.println("Первый куб");
-        firstCube.showCubeFeatures();
+        System.out.println(firstCube.toString());
         System.out.println("Второй куб");
-        secondCube.showCubeFeatures();
+        System.out.println(secondCube.toString());
         System.out.println("Изменим цвет первого куба на синий.");
         firstCube.setColor("Blue");
         System.out.println("Установим длину грани второго куба равной 5.\n");
         secondCube.setEdgeLenght(5);
         System.out.println("Первый куб");
-        firstCube.showCubeFeatures();
+        System.out.println(firstCube.toString());
         System.out.println("Второй куб");
-        secondCube.showCubeFeatures();
+        System.out.println(secondCube.toString());
     }
 }

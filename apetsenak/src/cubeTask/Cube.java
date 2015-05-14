@@ -30,17 +30,17 @@ public class Cube {
         this.color = color;
     }
 
-    public int getSquare() {
+    public int calcSquare() {
         return edgeLenght * edgeLenght;
     }
 
-    public int getVolume() {
-        return getSquare() * edgeLenght;
+    public int calcVolume() {
+        return calcSquare() * edgeLenght;
     }
 
-    public void showCubeFeatures() {
-        System.out.println("Длина грани: " + getEdgeLenght() + ". Цвет: " + getColor());
-        System.out.println("Площадь: " + getSquare() + ". Объём: " + getVolume());
-        System.out.println();
+    @Override
+    public String toString() {
+        return "Длина грани: " + getEdgeLenght() + ". Цвет: " + getColor() + "\n" +
+                "Площадь: " + calcSquare() + ". Объём: " + calcVolume();
     }
 }
