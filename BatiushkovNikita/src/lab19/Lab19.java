@@ -11,22 +11,19 @@ public class Lab19 {
         long startBufferTest = System.nanoTime();
         strBufferTest();
         long stopBufferTest = System.nanoTime();
-        long performanceStrBuffer = stopBufferTest - startBufferTest;
 
         long startBuilderTest = System.nanoTime();
         strBuilderTest();
         long stopBuilderTest = System.nanoTime();
-        long performanceStrBuilder = stopBuilderTest - startBuilderTest;
 
         long startStringTest = System.nanoTime();
         stringTest();
         long stopStringTest = System.nanoTime();
-        long performanceString = stopStringTest - startStringTest;
 
         System.out.println("Perfomance string test for " + NUM_OF_CYCLES + " cycles.");
-        System.out.println("\"String\" = " + performanceString + " ns.");
-        System.out.println("\"StringBuffer\" = " + performanceStrBuffer + " ns.");
-        System.out.println("\"StringBuilder\" = " + performanceStrBuilder + " ns.");
+        System.out.println("\"String\" = " + (stopStringTest - startStringTest) + " ns.");
+        System.out.println("\"StringBuffer\" = " + (stopBufferTest - startBufferTest) + " ns.");
+        System.out.println("\"StringBuilder\" = " + (stopBuilderTest - startBuilderTest) + " ns.");
     }
 
     private static void strBufferTest() {
