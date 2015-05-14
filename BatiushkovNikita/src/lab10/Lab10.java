@@ -4,7 +4,7 @@ package lab10;
 
 public class Lab10 {
 
-    public final static int NUM = 2147483647;
+    private final static int NUM = 2147483647;
 
     public static void main(String[] args) {
         long startPrimeSimple = System.nanoTime();
@@ -41,8 +41,7 @@ public class Lab10 {
             return true;
         }
         for (int i = 0; i < 100; i++) {
-            double a = ((Math.random() * 10 + 1) % (num - 2)) + 2;
-            int intA = (int) a;
+            int intA = (int) ((Math.random() * 10 + 1) % (num - 2)) + 2;
             if (greatestCommonDivisor(intA, num) != 1) {
                 return false;
             }
