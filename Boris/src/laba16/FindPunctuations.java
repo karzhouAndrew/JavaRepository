@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 //Дана строка. Найти и подсчитать все знаки препинания
 public class FindPunctuations {
-    private final static Pattern pattern = Pattern.compile("\\p{Punct}");
+    private final static Pattern PATTERN_PUNCTUATION = Pattern.compile("\\p{Punct}");
 
     public static int getQuantityPunctual(String str) {
         int size = str.length();
@@ -23,7 +23,7 @@ public class FindPunctuations {
     }
 
     public static int getQuantityPunctualOther(String str) {
-        Matcher matcher = pattern.matcher(str);
+        Matcher matcher = PATTERN_PUNCTUATION.matcher(str);
         int quantityPunctual = 0;
         while (matcher.find()) {
             quantityPunctual++;
