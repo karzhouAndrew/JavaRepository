@@ -9,13 +9,16 @@ package lab22;
 
 public class Lab22 {
     public static void main(String[] args) {
-        Time time = new Time(4, 2);
-        Time time2 = new Time(2);
-        System.out.println(time.getSeconds());
+        Time time = new Time(3600, 0, 0);
+        //Time time2 = new Time(1, 3, 0);
+        Time time3 = new Time(3600);
+        boolean isEqual = time.compareTimeObjects(time3);
+        //time.getAmountSeconds();
+        System.out.println(isEqual);
+/*        System.out.println(time.getSeconds());
         System.out.println(time.getHours());
-        System.out.println(time2.getSeconds());
+        System.out.println(time2.getSeconds());*/
         //Object time1 = new Time();
-        System.out.println("string".compareTo("strinG"));
 
     }
 
