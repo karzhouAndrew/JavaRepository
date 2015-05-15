@@ -12,10 +12,9 @@ public class Lab17 {
         str = str.trim();
         str = str.replaceAll("\\s+", " ");
         int strLength = str.length();
-        char symbol;
         int count = 0;
         for (int i = 0; i < strLength; i++) {
-            symbol = str.charAt(i);
+            char symbol = str.charAt(i);
             if (symbol == ' ') {
                 count++;
             }
