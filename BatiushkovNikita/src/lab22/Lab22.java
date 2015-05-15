@@ -15,6 +15,8 @@ public class Lab22 {
         System.out.println(time.getHours());
         System.out.println(time2.getSeconds());
         //Object time1 = new Time();
+        System.out.println("string".compareTo("strinG"));
+
     }
 
     public static void output() {
