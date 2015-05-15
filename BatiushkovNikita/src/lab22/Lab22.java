@@ -7,13 +7,13 @@ package lab22;
 // Создать два конструктора: получающий общее количество секунд, и часы, минуты и секунды по отдельности.
 // Сделать метод для вывода данных. Прочее на ваше усмотрение.
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-
 public class Lab22 {
     public static void main(String[] args) {
         Time time = new Time(4, 2);
+        Time time2 = new Time(2);
         System.out.println(time.getSeconds());
         System.out.println(time.getHours());
+        System.out.println(time2.getSeconds());
         //Object time1 = new Time();
     }
 
