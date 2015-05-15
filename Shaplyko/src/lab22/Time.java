@@ -37,8 +37,8 @@ public class Time {
         return (hour * 60 * 60 + minute * 60 + second);
     }
 
-    public int compareToTime(Object obj) {
-        Time tmp = (Time) obj;
+    public int compareToTime(Object object) {
+        Time tmp = (Time)  object;
         if ((this.second + this.minute * 60 + this.hour * 60 * 60) < (tmp.second + tmp.minute * 60 + tmp.hour * 60 * 60)) {
             System.out.println("Объекты 1 меньше объекта 2 = " + -1);
             return -1;
