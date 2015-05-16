@@ -10,15 +10,11 @@ public class TaskSix {
         System.out.println("Введите целое число.");
         int number = in.nextInt();
         in.close();
-        int i = 0;
-        while (number / Math.pow(10, i) >= 1) {
-            i++;
-        }
-        int value;
+        int value = number;
         int result = 0;
-        for (int j = 0; j < i + 1; j++) {
-            value = (int) (number % Math.pow(10, j + 1) / Math.pow(10, j));
-            result += value * Math.pow(10, i - 1 - j);
+        while (value > 0) {
+            result = result * 10 + value % 10;
+            value /= 10;
         }
         System.out.println("Введенное число: " + number + ". Полученное число: " + result);
     }
