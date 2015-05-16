@@ -8,18 +8,18 @@ import java.util.Scanner;
 public class Task {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int number = 0;
+        int number = 1;
         int sum = 0;
         System.out.println("Введите кол-во первых чисел : ");
         int amountOfNumbers = sc.nextInt();
+        sc.close();
         while (amountOfNumbers != 0) {
-            if (number % 3 == 0 && number != 0) {
+            if (number % 3 == 0) {
                 amountOfNumbers--;
                 sum += number;
             }
             number++;
         }
         System.out.println("sum = " + sum);
-        sc.close();
     }
 }
