@@ -17,6 +17,10 @@ public class Lab07 {
             }
             number /= 10;
         }
-        System.out.println(answer);
+        if (answer == false) {
+            System.out.println("Number is not contains the same digits");
+        } else {
+            System.out.println("Number contains the same digits.");
+        }
     }
 }
