@@ -5,19 +5,19 @@ package lab17;
  */
 public class Symbol {
     public int word(String strEnter) {
-        int n = 0;
+        int amountWord = 0;
         if (strEnter.charAt(0) == ' ') {
-            n--;
+            amountWord--;
         }
         for (int i = 0; i < strEnter.length(); i++) {
             char symbol = strEnter.charAt(i);
             if (symbol == ' ' && i != strEnter.length() - 1) {
                 char symbol2 = strEnter.charAt(i + 1);
                 if (symbol2 != ' ') {
-                    n++;
+                    amountWord++;
                 }
             }
         }
-        return (n + 1);
+        return amountWord + 1;
     }
 }
