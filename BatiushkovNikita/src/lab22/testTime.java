@@ -7,7 +7,7 @@ package lab22;
 // Создать два конструктора: получающий общее количество секунд, и часы, минуты и секунды по отдельности.
 // Сделать метод для вывода данных. Прочее на ваше усмотрение.
 
-public class TestTime {
+public class testTime {
     public static void main(String[] args) {
         Time time1 = new Time(0, 120, 0);
         Time time2 = new Time(7200);
