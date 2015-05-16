@@ -4,9 +4,6 @@ public class Cube {
     private int edgeLength;
     private String color = "Черный";
 
-    public Cube() {
-    }
-
     public Cube(int edgeLength) {
         this.edgeLength = edgeLength;
     }
