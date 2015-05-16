@@ -7,23 +7,19 @@ package lab22;
 // Создать два конструктора: получающий общее количество секунд, и часы, минуты и секунды по отдельности.
 // Сделать метод для вывода данных. Прочее на ваше усмотрение.
 
-public class Lab22 {
-    public static void main(String[] args) {
-        Time time = new Time(3600, 0, 0);
-        //Time time2 = new Time(1, 3, 0);
-        Time time3 = new Time(3600);
-        boolean isEqual = time.compareTimeObjects(time3);
-        //time.getAmountSeconds();
-        System.out.println(isEqual);
-/*        System.out.println(time.getSeconds());
-        System.out.println(time.getHours());
-        System.out.println(time2.getSeconds());*/
-        //Object time1 = new Time();
+public class testTime {
 
+    public static void main(String[] args) {
+        Time time1 = new Time(3721, 1, 1);
+        Time time2 = new Time(7381);
+        output(time1, time2);
+        boolean isEqual = time1.compareTimeObjects(time2);
+        System.out.println(isEqual);
+        time1.toString();
     }
 
-    public static void output() {
-
+    public static void output(Time time1, Time time2) {
+        System.out.println(time1.toString());
 
     }
 }
