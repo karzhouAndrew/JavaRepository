@@ -12,25 +12,20 @@ package additionalTask4;
 public class AdditionalTaskFour {
     public static void main(String[] args) {
         int number = (int) (Math.random() * 899 + 100);
-        switch (number) {
-            case 302:
-            case 409:
-            case 781:
-            case 941:
-                System.out.println("Число " + number + " - \"Магическое\".");
-                break;
-            default:
-                int[] array = new int[3];
-                for (int i = 0; i < array.length; i++) {
-                    array[i] = (int) (number % Math.pow(10, i + 1) / Math.pow(10, i));
-                }
-                boolean coincidence = array[0] == array[1] && array[0] == array[2];
-                boolean increase = array[2] == array[1] - 1 && array[1] == array[0] - 1;
-                if (coincidence || increase) {
-                    System.out.println("Число " + number + " - \"Счастливое\".");
-                } else {
-                    System.out.println("Число " + number + " - \"Несчастливое\".");
-                }
+        if (number == 302 || number == 409 || number == 781 || number == 941) {
+            System.out.println("Число " + number + " - \"Магическое\".");
+        } else {
+            int[] array = new int[3];
+            for (int i = 0; i < array.length; i++) {
+                array[i] = (int) (number % Math.pow(10, i + 1) / Math.pow(10, i));
+            }
+            boolean coincidence = array[0] == array[1] && array[0] == array[2];
+            boolean increase = array[2] == array[1] - 1 && array[1] == array[0] - 1;
+            if (coincidence || increase) {
+                System.out.println("Число " + number + " - \"Счастливое\".");
+            } else {
+                System.out.println("Число " + number + " - \"Несчастливое\".");
+            }
         }
     }
 }
