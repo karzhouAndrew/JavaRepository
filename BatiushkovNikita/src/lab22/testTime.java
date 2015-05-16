@@ -11,7 +11,9 @@ public class testTime {
     public static void main(String[] args) {
         Time time1 = new Time(0, 120, 0);
         Time time2 = new Time(7200);
+
         boolean isEqual = time1.compareTimeObjects(time2);
+
         System.out.println("time1" + "\n" + time1.toString());
         System.out.println("time2" + "\n" + time2.toString());
         System.out.println();
