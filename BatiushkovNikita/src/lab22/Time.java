@@ -1,6 +1,5 @@
 package lab22;
 
-
 public class Time {
     private int seconds;
     private int minutes;
