@@ -4,7 +4,7 @@ package lab07;
 
 public class Lab07 {
     public static void main(String[] args) {
-        int number = 120456780;
+        int number = 123456780;
         boolean answer = false;
         while (number != 0) {
             int interimNumber = (number - number % 10) / 10;
@@ -17,10 +17,6 @@ public class Lab07 {
             }
             number /= 10;
         }
-        if (answer == false) {
-            System.out.println("Number is not contains the same digits");
-        } else {
-            System.out.println("Number contains the same digits.");
-        }
+        System.out.println(answer?"Number contains the same digits.":"Number is not contains the same digits.");
     }
 }
