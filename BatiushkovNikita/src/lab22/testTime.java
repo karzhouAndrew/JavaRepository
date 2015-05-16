@@ -8,18 +8,13 @@ package lab22;
 // Сделать метод для вывода данных. Прочее на ваше усмотрение.
 
 public class testTime {
-
     public static void main(String[] args) {
-        Time time1 = new Time(3721, 1, 1);
-        Time time2 = new Time(7381);
-        output(time1, time2);
+        Time time1 = new Time(0, 120, 0);
+        Time time2 = new Time(7200);
         boolean isEqual = time1.compareTimeObjects(time2);
-        System.out.println(isEqual);
-        time1.toString();
-    }
-
-    public static void output(Time time1, Time time2) {
-        System.out.println(time1.toString());
-
+        System.out.println("time1" + "\n" + time1.toString());
+        System.out.println("time2" + "\n" + time2.toString());
+        System.out.println();
+        System.out.println("Is time1 equal time2?" + "\n" + isEqual);
     }
 }

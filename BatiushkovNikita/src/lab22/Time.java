@@ -25,4 +25,13 @@ public class Time {
     public boolean compareTimeObjects(Time anotherTime) {
         return getAmountSeconds() == anotherTime.getAmountSeconds();
     }
+
+    @Override
+    public String toString() {
+        return "Time{" +
+                "seconds = " + seconds +
+                ", minutes = " + minutes +
+                ", hours = " + hours +
+                '}' + "\n" + "Total time in seconds = " + getAmountSeconds();
+    }
 }
