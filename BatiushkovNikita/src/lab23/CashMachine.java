@@ -1,14 +1,10 @@
 package lab23;
 
-// Создать класс и объекты описывающие Банкомат.
-// Набор купюр находящихся в банкомате должен задаваться тремя свойствами:
-// количеством купюр номиналом 20 50 100. Сделать методы для добавления денег в банкомат.
-// Сделать функцию снимающую деньги. На вход передается сумма денег.
-// На выход – булевское значение (операция удалась или нет).
-// При снятии денег функция должна рапечатывать каким количеством купюр какого номинала выдается сумма.
-// Создать конструктор с тремя параметрами – количеством купюр. Прочее – на  ваше усмотрение.
-
 public class CashMachine {
+    private final int VALUE_20 = 20;
+    private final int VALUE_50 = 50;
+    private final int VALUE_100 = 100;
+
     private int numBanknotes20;
     private int numBanknotes50;
     private int numBanknotes100;
@@ -17,6 +13,20 @@ public class CashMachine {
         this.numBanknotes20 = numBanknotes20;
         this.numBanknotes50 = numBanknotes50;
         this.numBanknotes100 = numBanknotes100;
+    }
+
+    public boolean getMoney(int amountOfMoney) {
+        if (amountOfMoney == 0) {
+            return true;
+        } else {
+            for (int i : new int[]{VALUE_20, VALUE_50, VALUE_100}) {
+                if (amountOfMoney >= i && getMoney(amountOfMoney - i)) {
+                    System.out.println(i);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public int getNumBanknotes20() {

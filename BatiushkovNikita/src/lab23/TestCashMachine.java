@@ -10,6 +10,8 @@ package lab23;
 
 public class TestCashMachine {
     public static void main(String[] args) {
+        CashMachine cashMachine = new CashMachine(10, 10, 10);
+        System.out.println(cashMachine.getMoney(170));
 
     }
 }
