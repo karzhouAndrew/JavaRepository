@@ -17,7 +17,7 @@ public class FindWord {
                 }
             }
         }
-        return (newStr.toString());
+        return newStr.toString();
     }
 }
 
