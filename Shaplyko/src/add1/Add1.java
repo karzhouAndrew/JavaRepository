@@ -10,7 +10,7 @@ public class Add1 {
         number = number - (int) number;
         int sum = 0;
         while (n > 0) {
-            number = number * 10;
+            number *= 10;
             sum += (int) number;
             number = number - (int) number;
             n--;
