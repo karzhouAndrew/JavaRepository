@@ -10,14 +10,14 @@ public class TaskTen {
         Scanner in = new Scanner(System.in);
         int number = in.nextInt();
         in.close();
-        int n = 2;
+        int i = 2;
         boolean composite = false;
-        while (n <= (int) (Math.sqrt(number))) {
-            if (number % n == 0) {
+        while (i <= (int) (Math.sqrt(number))) {
+            if (number % i == 0) {
                 composite = true;
                 break;
             }
-            n++;
+            i++;
         }
         if (composite) {
             System.out.println(number + " составное число.");
