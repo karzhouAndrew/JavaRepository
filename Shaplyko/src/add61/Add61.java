@@ -10,7 +10,7 @@ public class Add61 {
         int x = 4;
         int t = 2;
         int s = 2;
-        System.out.println ("Функция первая =  " + calculation.function1(x, t, s));
-        System.out.println ("Функция вторая =  " + calculation.function2(x));
+        System.out.println("Функция первая =  " + calculation.function1(x, t, s));
+        System.out.println("Функция вторая =  " + calculation.function2(x));
     }
 }
