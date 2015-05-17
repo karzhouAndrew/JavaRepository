@@ -7,11 +7,11 @@ public class Cube {
     private double side;
     private String color;
 
-    Cube(double side) {
+    public Cube(double side) {
         new Cube(side, "Transparent");
     }
 
-    Cube(double side, String color) {
+    public Cube(double side, String color) {
         if (side <= 0) {
             System.out.println("\nСторона куба должна быть больше 0, а не " + side + ". Длина стороны установлена равной 3.");
             this.side = 3;
