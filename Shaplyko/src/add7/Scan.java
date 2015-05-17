@@ -15,7 +15,7 @@ public class Scan {
                 }
             }
         }
-        return (countConsonant);
+        return countConsonant;
     }
 
     public static int vowel(String str) {
@@ -29,7 +29,7 @@ public class Scan {
                 }
             }
         }
-        return (countVowel);
+        return countVowel;
     }
 
     public void separateSentence(String str) {
@@ -42,27 +42,27 @@ public class Scan {
             newProffer.append(matcher.end() - matcher.start());
             newProffer.append("\n");
         }
-        System.out.println(newProffer.toString());
+        System.out.println(newProffer);
     }
 
     public int space(String str) {
         Pattern pattern = Pattern.compile(" ");
         Matcher matcher = pattern.matcher(str);
-        int namberSpace = 0;
+        int numberSpace = 0;
         while (matcher.find()) {
-            namberSpace++;
+            numberSpace++;
         }
-        return namberSpace;
+        return numberSpace;
     }
 
     public int paragraph(String str) {
         Pattern pattern = Pattern.compile("\\n+");
         Matcher matcher = pattern.matcher(str);
-        int namberParagraph = 0;
+        int numberParagraph = 0;
         while (matcher.find()) {
-            namberParagraph++;
+            numberParagraph++;
         }
-        return namberParagraph;
+        return numberParagraph;
     }
 
     public void deleteSpace(String str) {
