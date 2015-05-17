@@ -18,8 +18,8 @@ public class Sentence {
             arrayIndexSentences[j] = arrayIndexSentences[indexNumber];
             arrayIndexSentences[indexNumber] = minNumber;
         }
-        for (int i = 0; i < arrayIndexSentences.length; ++i) {
-            for (int j = 0; j < strSentences.length; ++j) {
+        for (int i = 0; i < arrayIndexSentences.length; i++) {
+            for (int j = 0; j < strSentences.length; j++) {
                 if (arrayIndexSentences[i] == strSentences[j].split(" ").length) {
                     System.out.println(strSentences[j]);
                 }
