@@ -9,7 +9,37 @@ public class SumBetweenMaxMin {
         int quantityCell = 15;
         Random rand = new Random();
         int[] arrayRandom = new int[quantityCell];
-        int maxIndex = 0;
+        //Another realization, take first Max or Min value
+        for (int i = 0; i < arrayRandom.length; i++) {
+            arrayRandom[i] = rand.nextInt(100);
+        }
+        System.out.println(Arrays.toString(arrayRandom));
+        int sumMaxRight = 0;
+        int sumMinRight = 0;
+        int maxValue = arrayRandom[0];
+        int minValue = arrayRandom[0];
+        for (int i = 0; i < arrayRandom.length; i++) {
+            if (arrayRandom[i] > maxValue) {
+                maxValue = arrayRandom[i];
+                sumMaxRight = 0;
+            } else {
+                sumMaxRight += arrayRandom[i];
+            }
+            if (arrayRandom[i] < minValue) {
+                minValue = arrayRandom[i];
+                sumMinRight = 0;
+            } else {
+                sumMinRight += arrayRandom[i];
+            }
+        }
+        if ((sumMaxRight - sumMinRight) < 0) {
+            System.out.println(sumMinRight - sumMaxRight - maxValue);
+        } else {
+            System.out.println(sumMaxRight - sumMinRight - minValue);
+        }
+
+
+        /*int maxIndex = 0;
         int minIndex = 0;
         boolean isPairMax = false;
         boolean isPairMin = false;
@@ -58,6 +88,6 @@ public class SumBetweenMaxMin {
                 sum += arrayRandom[i];
             }
             System.out.println("Сумма между " + start + " и " + (finish + 1) + " элементами равна " + sum + ".");
-        }
+        }*/
     }
 }
