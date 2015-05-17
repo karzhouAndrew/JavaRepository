@@ -1,5 +1,8 @@
 package task25;
 
+//Создать иерархию классов, описывающих банковские карточки.
+//Иерархия должна иметь хотя бы три уровня.
+
 public class TaskTest {
     public static void main(String[] args) {
         BankCard accountCard = new AccountCard("Maestro", 8000000);
