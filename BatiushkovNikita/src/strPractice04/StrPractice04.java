@@ -18,12 +18,11 @@ public class StrPractice04 {
     public static void getWorldsPredetermLength(String text) {
         Pattern pattern = Pattern.compile("[А-Я].+?[.!?]+");
         Matcher matcher = pattern.matcher(text);
-        String[] sentenceArr;
         while (matcher.find()) {
             String sentence = matcher.group();
-            if (getQuestionSentence(sentence) == true) {
+            if (getQuestionSentence(sentence)) {
                 sentence = getClearSentence(sentence);
-                sentenceArr = sentence.split(" +");
+                String[] sentenceArr = sentence.split(" +");
                 for (String word : sentenceArr) {
                     if (word.length() == WORD_LENGTH) {
                         System.out.println(word);
