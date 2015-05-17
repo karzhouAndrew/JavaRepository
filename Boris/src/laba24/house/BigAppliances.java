@@ -6,8 +6,8 @@ import laba24.HouseAppliances;
 public abstract class BigAppliances extends HouseAppliances {
     protected int weight;
 
-    public BigAppliances(boolean isTurnOn, int frequencyUseInMonth,String manufacturer, int weight) {
-        super(isTurnOn, frequencyUseInMonth, manufacturer);
+    public BigAppliances(boolean isSwitchOn, int frequencyUseInMonth,String manufacturer, int weight) {
+        super(isSwitchOn, frequencyUseInMonth, manufacturer);
         this.weight = weight;
     }
 

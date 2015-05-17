@@ -1,13 +1,13 @@
 package laba24;
 
 //Бытовая техника
-public class HouseAppliances {
-    protected boolean isTurnOn;
+public abstract class HouseAppliances {
+    protected boolean isSwitchOn;
     protected int frequencyUseInMonth;
     protected String manufacturer;
 
-    public HouseAppliances(boolean isTurnOn, int frequencyUseInMonth, String manufacturer) {
-        this.isTurnOn = isTurnOn;
+    public HouseAppliances(boolean isSwitchOn, int frequencyUseInMonth, String manufacturer) {
+        this.isSwitchOn = isSwitchOn;
         this.frequencyUseInMonth = frequencyUseInMonth;
         this.manufacturer = manufacturer;
     }
@@ -17,10 +17,10 @@ public class HouseAppliances {
     }
 
     public void switcher() {
-        if (this.isTurnOn) {
-            this.isTurnOn = false;
+        if (this.isSwitchOn) {
+            this.isSwitchOn = false;
         } else {
-            this.isTurnOn = true;
+            this.isSwitchOn = true;
         }
     }
 }
