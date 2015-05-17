@@ -4,7 +4,7 @@ package laba.add7;
 
 public class TestTextAnalysis {
     public static void main(String[] args) {
-        String str = "Водитель против ментов\n" +
+        String strExample = "Водитель против ментов\n" +
                 "Случилось это со мной совсем недавно, поэтому точное место указывать не буду. Возвращался " +
                 "я домой из гостей на своей машине, остановили меня гаишники за превышение скорости на 11 км/час: " +
                 "ехал я 51 км/час, вместо положенных 40. Про себя думаю: «как они достали, эти нахалы с тремя " +
@@ -42,12 +42,12 @@ public class TestTextAnalysis {
                 "– А программное обеспечение для ноутбука у вас лицензионное?\n" +
                 "– ???\n" +
                 "Озадаченный мент молча отдал мне документы. Уже через час я был дома.";
-        TextAnalysis objectAnalysis = new TextAnalysis(str);
-        System.out.println("Кол-во согласных букв равно " + objectAnalysis.quantityConsonant());
-        System.out.println("Кол-во гласных букв равно " + objectAnalysis.quantityVowel());
-        System.out.println("Кол-во пробелов равно " + objectAnalysis.quantitySpace());
-        System.out.println("Кол-во абзацев равно " + objectAnalysis.quantityIndent());
-        objectAnalysis.separateSentence();
-        objectAnalysis.textWithoutSpace();
+
+        System.out.println("Кол-во согласных букв равно " + TextAnalysis.quantityConsonant(strExample));
+        System.out.println("Кол-во гласных букв равно " + TextAnalysis.quantityVowel(strExample));
+        System.out.println("Кол-во пробелов равно " + TextAnalysis.quantitySpace(strExample));
+        System.out.println("Кол-во абзацев равно " + TextAnalysis.quantityIndent(strExample));
+        TextAnalysis.separateSentence(strExample);
+        TextAnalysis.textWithoutSpace(strExample);
     }
 }

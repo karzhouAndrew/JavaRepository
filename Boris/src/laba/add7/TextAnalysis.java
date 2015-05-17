@@ -11,34 +11,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TextAnalysis {
-    private String str;
-    private final Pattern patternConsonant = Pattern.compile("[(а-яА-Я)&&[^аАяЯиИеЕюЮуУэЭоОёЁыЫ]]");
-    private final Pattern patternVowel = Pattern.compile("[аАяЯиИеЕюЮуУэЭоОёЁыЫ]");
-    private final Pattern patternSentence = Pattern.compile("[А-Я][^\\.!?]+[\\.!?]+");
+    private final static Pattern patternConsonant = Pattern.compile("[(а-яА-Я)&&[^аАяЯиИеЕюЮуУэЭоОёЁыЫ]]");
+    private final static Pattern patternVowel = Pattern.compile("[аАяЯиИеЕюЮуУэЭоОёЁыЫ]");
+    private final static Pattern patternSentence = Pattern.compile("[А-Я][^\\.!?]+[\\.!?]+");
 
-    TextAnalysis(String str) {
-        this.str = str;
-    }
-
-    public String getStr() {
-        return str;
-    }
-
-    public void setStr(String str) {
-        this.str = str;
-    }
-
-    public int quantityConsonant() {
+    public static int quantityConsonant(String str) {
         Matcher matcher = patternConsonant.matcher(str);
         return quantityLoop(matcher);
     }
 
-    public int quantityVowel() {
+    public static int quantityVowel(String str) {
         Matcher matcher = patternVowel.matcher(str);
         return quantityLoop(matcher);
     }
 
-    private int quantityLoop(Matcher matcher) {
+    private static int quantityLoop(Matcher matcher) {
         int quantity = 0;
         while (matcher.find()) {
             quantity++;
@@ -46,7 +33,7 @@ public class TextAnalysis {
         return quantity;
     }
 
-    public void separateSentence() {
+    public static void separateSentence(String str) {
         Matcher matcher = patternSentence.matcher(str);
         StringBuilder sentence = new StringBuilder();
         while (matcher.find()) {
@@ -58,17 +45,17 @@ public class TextAnalysis {
         System.out.println(sentence.toString());
     }
 
-    public void textWithoutSpace() {
+    public static void textWithoutSpace(String str) {
         System.out.println(str.replaceAll("\\p{Blank}", ""));
     }
 
-    public int quantitySpace() {
+    public static int quantitySpace(String str) {
         Pattern pattern = Pattern.compile("\\p{Blank}");
         Matcher matcher = pattern.matcher(str);
         return quantityLoop(matcher);
     }
 
-    public int quantityIndent() {
+    public static int quantityIndent(String str) {
         Pattern pattern = Pattern.compile("\\n+");
         Matcher matcher = pattern.matcher(str);
         return str.length() != 0 ? quantityLoop(matcher) + 1 : 0;
