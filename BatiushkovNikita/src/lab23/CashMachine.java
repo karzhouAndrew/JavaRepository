@@ -1,9 +1,8 @@
 package lab23;
 
+import java.util.Arrays;
+
 public class CashMachine {
-/*    Money money20 = new Money();
-    Money money50 = new Money();
-    Money money100 = new Money();*/
     private final int VALUE_20 = 20;
     private final int VALUE_50 = 50;
     private final int VALUE_100 = 100;
@@ -12,11 +11,6 @@ public class CashMachine {
     private int numBanknotes50;
     private int numBanknotes100;
 
-    private static int count20 = 0;
-    private static int count50 = 0;
-    private static int count100 = 0;
-
-
     public CashMachine(int numBanknotes20, int numBanknotes50, int numBanknotes100) {
         this.numBanknotes20 = numBanknotes20;
         this.numBanknotes50 = numBanknotes50;
@@ -24,14 +18,14 @@ public class CashMachine {
     }
 
     public boolean getMoney(int amountOfMoney) {
+        int[] arrValues = {VALUE_100, VALUE_50, VALUE_20};
+        int[] arrAmount = {numBanknotes100, numBanknotes50, numBanknotes20};
         if (amountOfMoney == 0) {
             return true;
         } else {
-            for (int i : new int[]{VALUE_100, VALUE_50, VALUE_20}) {
-                if (amountOfMoney >= i && getMoney(amountOfMoney - i)) {
-                    //System.out.println(i);
-                    //System.out.println(Arrays.toString(MonetaryValue.values()));
-                    //System.out.println(MonetaryValue.getValue());
+            for (int i = 0; i < arrValues.length; i++) {
+                int value = arrValues[i];
+                if (amountOfMoney >= i && getMoney(amountOfMoney - value)) {
                     reduceNumBanknotes(i);
                     return true;
                 }
@@ -40,42 +34,17 @@ public class CashMachine {
         return false;
     }
 
-    public void reduceNumBanknotes(int value) {
-        switch (value) {
-            case 20:
-                count20();
-                --numBanknotes20;
-                break;
-            case 50:
-                count50();
-                --numBanknotes50;
-                break;
-            case 100:
-                count100();
-                --numBanknotes100;
-                break;
-        }
+    int[] arrAmount = {numBanknotes100, numBanknotes50, numBanknotes20};
+    public int[] reduceNumBanknotes(int value) {
+        arrAmount[value]--;
+        System.out.println(Arrays.toString(arrAmount));
+        return arrAmount;
     }
 
     public void increaseNumBanknotes(int numBanknotes20, int numBanknotes50, int numBanknotes100) {
         this.numBanknotes20 += numBanknotes20;
         this.numBanknotes50 += numBanknotes50;
         this.numBanknotes100 += numBanknotes100;
-    }
-
-    public static int count20() {
-        count20++;
-        return count20;
-    }
-
-    public static int count50() {
-        count50++;
-        return count50;
-    }
-
-    public static int count100() {
-        count100++;
-        return count100;
     }
 
     @Override
@@ -86,4 +55,5 @@ public class CashMachine {
                 ", numBanknotes100=" + numBanknotes100 +
                 '}';
     }
+
 }
