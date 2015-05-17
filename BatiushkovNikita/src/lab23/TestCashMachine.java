@@ -10,8 +10,18 @@ package lab23;
 
 public class TestCashMachine {
     public static void main(String[] args) {
-        CashMachine cashMachine = new CashMachine(10, 10, 10);
-        System.out.println(cashMachine.getMoney(170));
-
+        Money money20 = new Money();
+        Money money50 = new Money();
+        Money money100 = new Money();
+        CashMachine cashMachine = new CashMachine(0, 0, 0);
+        System.out.println(cashMachine.getMoney(830));
+        System.out.println("20 : " + CashMachine.count20() + "\n" +
+                "50 : " + CashMachine.count50() + "\n" +
+                "100 : " + CashMachine.count100());
+/*      System.out.println(cashMachine.toString());
+        cashMachine.increaseNumBanknotes(5, 6, 1);
+        System.out.println(cashMachine.toString());
+        System.out.println(MonetaryValue.VALUE100.getValue());
+        System.out.println(Arrays.toString(MonetaryValue.values()));*/
     }
 }
