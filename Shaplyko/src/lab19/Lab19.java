@@ -13,6 +13,9 @@ public class Lab19 {
         System.out.println("Время выполнения при помощи оператора сложения " + calculation.methodString(str, srtPlus));
         System.out.println("Время выполнения при помощи " +
                 "StringBuilder и метода append " + calculation.methodBuilder(str, srtPlus));
+        System.out.println("Время выполнения при помощи " +
+                "StringBuffer и метода append " + calculation.methodBuffer(str, srtPlus));
+
     }
 }
 

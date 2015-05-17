@@ -18,6 +18,16 @@ public class Calculation {
         }
         return (System.nanoTime() - timeout);
     }
+
+    public long methodBuffer(String str, String strPlus) {
+        StringBuffer stringBuffer = new StringBuffer(str);
+        long timeout = System.nanoTime();
+        for (int i = 0; i < 100; i++) {
+            stringBuffer.append(strPlus);
+        }
+        return (System.nanoTime() - timeout);
+    }
 }
+
 
 
