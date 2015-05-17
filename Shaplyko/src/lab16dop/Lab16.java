@@ -1,7 +1,5 @@
 package lab16dop;
 
-import java.awt.*;
-
 /**
  * Описать класс куб.
  1) Найти площадь куба
@@ -12,10 +10,9 @@ public class Lab16 {
     public static void main(String[] args) {
         int side = 3;
         Cube cube = new Cube();
-        int resultV = cube.volume(side);
-        int resultS = cube.area(side);
+        int resultV = cube.calculationVolume(side);
+        int resultS = cube.calculationArea(side);
         cube.paint ("red");
         System.out.println("Объем куба = " + resultV + " Площадь  = " + resultS);
-
     }
 }
