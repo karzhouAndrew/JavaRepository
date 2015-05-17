@@ -3,7 +3,7 @@ package laba24.house;
 import laba24.HouseAppliances;
 
 //Крупногабаритная бытовая техника
-public class BigAppliances extends HouseAppliances {
+public abstract class BigAppliances extends HouseAppliances {
     protected int weight;
 
     public BigAppliances(boolean isTurnOn, int frequencyUseInMonth,String manufacturer, int weight) {

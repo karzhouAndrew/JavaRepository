@@ -3,21 +3,21 @@ package laba24.house;
 import laba24.HouseAppliances;
 
 //Кухонная техника
-public class KitchenAppliances extends HouseAppliances {
+public class AppliancesForCooking extends HouseAppliances {
     protected int temperatureLevel;
     private final static int ROOM_TEMPERATURE = 25;
 
-    public KitchenAppliances(boolean isTurnOn, int frequencyUseInMonth, String manufacturer, int temperatureLevel) {
+    public AppliancesForCooking(boolean isTurnOn, int frequencyUseInMonth, String manufacturer, int temperatureLevel) {
         super(isTurnOn, frequencyUseInMonth, manufacturer);
         this.temperatureLevel = temperatureLevel;
     }
 
-    public KitchenAppliances(int temperatureLevel) {
+    public AppliancesForCooking(int temperatureLevel) {
         super();
         this.temperatureLevel = temperatureLevel;
     }
 
-    public KitchenAppliances() {
+    public AppliancesForCooking() {
         this(ROOM_TEMPERATURE);
     }
 
