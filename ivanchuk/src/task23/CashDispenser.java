@@ -31,11 +31,7 @@ public class CashDispenser {
                 }
                 cashSum -= gotBanknotes[i] * banknotes[i].getFaceValue();
             }
-            if (cashSum == 0) {
-                return true;
-            } else {
-                return false;
-            }
+            return cashSum == 0;
         } else {
             return false;
         }
