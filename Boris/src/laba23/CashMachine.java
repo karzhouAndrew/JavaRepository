@@ -3,7 +3,7 @@ package laba23;
 //Создать класс и объекты опивывающие Банкомат. Набор купюр находящихся в банкомате должен задаваться тремя свойствами:
 //кол-вом купюр номиналом 20 50 100. Сделать методы для добавления денег в банкомат. Сделать функцию снимающие деньги.
 //На вход передается сумма денег. На выход - булевское занчение (операция удалась или не удалась). При снятии денег
-//функция должна расспечатывать каким кол-вом купюр какого номинала вылается сумма. Создать конструктор с
+//функция должна расспечатывать каким кол-вом купюр какого номинала выдается сумма. Создать конструктор с
 // тремя параметрами - кол-вом купюр. Прочее - на ваше усмотрение.
 
 import com.sun.org.apache.xpath.internal.SourceTree;
@@ -32,10 +32,15 @@ public class CashMachine {
     }
 
     public boolean getCashMoney(int quantityMoney) {
+        CashMachine cloneObjectField;
+        cloneObjectField = new CashMachine(quantity20, quantity50, quantity100);
         if (quantityMoney > 0) {
             if (enoughMoney(quantityMoney)) {
                 if (enoughPaperMoney(quantityMoney)) {
-                    System.out.println("Деньги списаны и выданы.");
+                    System.out.println("Деньги списаны в кол-ве" + (cloneObjectField.quantity100 - this.quantity100)
+                            + " купюр номиналом 100, " + (cloneObjectField.quantity50 - this.quantity50)
+                            + " купюр номиналом 50, " + (cloneObjectField.quantity20 - this.quantity20)
+                            + " купюр номиналом 20 " + " и выданы.");
                     return true;
                 } else {
                     System.out.println("В банкомате не хватает купюр с определенным номиналом.");
