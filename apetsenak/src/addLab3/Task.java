@@ -6,10 +6,11 @@ package addLab3;
 public class Task {
     public static void main(String[] args) {
         int intMaxValue = Integer.MAX_VALUE;
-        int power;
+        int power = 0;
         System.out.println("intMaxValue = " + intMaxValue);
-        for (power = 0; intMaxValue > 100; power++) {
+        while (intMaxValue > 100) {
             intMaxValue /= 100;
+            power++;
         }
         System.out.println("power = " + power);
     }
