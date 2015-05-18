@@ -32,7 +32,7 @@ public class SumBetweenMaxMin {
                 sumMinRight += arrayRandom[i];
             }
         }
-        if ((sumMaxRight - sumMinRight) < 0) {
+        if (sumMaxRight - sumMinRight < 0) {
             System.out.println(sumMinRight - sumMaxRight - maxValue);
         } else {
             System.out.println(sumMaxRight - sumMinRight - minValue);
