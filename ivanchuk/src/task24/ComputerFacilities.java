@@ -1,6 +1,6 @@
 package task24;
 
-public class ComputerFacilities extends HouseholdAppliances {
+public abstract class ComputerFacilities extends HouseholdAppliances {
     private double processorPower;
 
     public ComputerFacilities(String brand, double processorPower) {

@@ -1,6 +1,6 @@
 package task24;
 
-public class HouseholdAppliances {
+public abstract class HouseholdAppliances {
     private String includedInSocket;
     private String brand;
 
@@ -11,6 +11,10 @@ public class HouseholdAppliances {
 
     public void includeInSocket() {
         includedInSocket = "ON";
+    }
+
+    public void switchOffFromSocket() {
+        includedInSocket = "OFF";
     }
 
     public String getIncludedInSocket() {

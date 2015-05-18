@@ -1,6 +1,6 @@
 package task24;
 
-public class EquipmentEntertainment extends HouseholdAppliances {
+public abstract class EquipmentEntertainment extends HouseholdAppliances {
     private String supportedFormats;
 
     public EquipmentEntertainment(String brand, String supportedFormats) {

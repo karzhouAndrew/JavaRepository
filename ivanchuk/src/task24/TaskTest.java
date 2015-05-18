@@ -12,6 +12,8 @@ public class TaskTest {
         HouseholdAppliances homeTheater = new HomeTheater("Sony", "DVD", "Sony");
         personalComputer.includeInSocket();
         homeTheater.includeInSocket();
+        dvdPlayer.includeInSocket();
+        personalComputer.switchOffFromSocket();
         System.out.println("Laptop: " + laptop.getIncludedInSocket() + " " + laptop.getBrand() + " "
                 + ((Laptop) laptop).getProcessorPower() + " " + ((Laptop) laptop).getBatteryCapacity());
         System.out.println("PC: " + personalComputer.getIncludedInSocket() + " "
