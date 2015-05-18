@@ -40,9 +40,9 @@ public class TextEditor {
 
     public void printSentences(String str) {
         String[] newText = devideIntoSentences(str);
-        for (String s : newText) {
-            System.out.println(s);
-            System.out.println("Длина предложения - " + s.length());
+        for (String sentence : newText) {
+            System.out.println(sentence);
+            System.out.println("Длина предложения - " + sentence.length());
         }
     }
 
