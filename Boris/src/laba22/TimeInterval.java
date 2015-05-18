@@ -57,7 +57,13 @@ public class TimeInterval {
     }
 
     public int intervalCompare(TimeInterval interval) {
-        return (this.intervalInSeconds() - interval.intervalInSeconds());
+        if (this.hours - interval.hours != 0){
+            return this.hours - interval.hours;
+        }else if (this.minutes - interval.minutes != 0){
+            return this.minutes - interval.minutes;
+        }else {
+            return (this.seconds - interval.seconds);
+        }
     }
 
     public String toString() {
