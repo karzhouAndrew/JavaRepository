@@ -13,8 +13,7 @@ public class Time {
         int hour = h % 24;
         int d = (h - hour) / 24;
         int day = d % 24;
-        int w = (d - day) / 7;
-        System.out.println("Время: " + w + " недель  " + day + " дней   " + hour + " часов " + min + " минут " + sec + " секунд ");
+        int week = (d - day) / 7;
+        System.out.println("Время: " + week + " недель  " + day + " дней   " + hour + " часов " + min + " минут " + sec + " секунд ");
     }
-
 }
