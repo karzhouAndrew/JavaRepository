@@ -2,7 +2,7 @@ package lab25;
 
 
 public interface CardWork {
-    public void withdrawMoney(int amount);
+    void withdrawMoney(int amount);
 
-    public void putMoney(int amount);
+    void putMoney(int amount);
 }
