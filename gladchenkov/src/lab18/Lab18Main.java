@@ -6,7 +6,8 @@ package lab18;
 public class Lab18Main {
     public static void main(String[] args) {
         Lab18 lab = new Lab18();
-        lab.lastLetter("  Тестовая строка с несколькими запятыми или не только запятыми даже точкой ");
+        String text = "  Тестовая строка с несколькими запятыми или не только запятыми даже точкой ";
+        System.out.println(lab.lastLetter(text));
 
     }
 }
