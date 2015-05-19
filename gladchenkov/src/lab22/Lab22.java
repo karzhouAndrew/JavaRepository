@@ -21,7 +21,7 @@ public class Lab22 {
 
     public int getInfo() {
         info = sec + min * 60 + hour * 60;
-        System.out.println("Полное количество секунд = " + info);
+        System.out.println("Полное количество секунд =  " + info);
         return info;
     }
 
