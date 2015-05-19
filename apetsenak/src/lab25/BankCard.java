@@ -9,7 +9,7 @@ public abstract class BankCard {
 
     public BankCard(String cardNumber, String cardType, String bankName, String cardSpecification) {
         this.bankName = bankName;
-        this.cardType = CardType.valueOf(cardType.toUpperCase());
+        this.cardType = CardType.getType(cardType);
         this.cardSpecification = cardSpecification;
         this.cardNumber = cardNumber;
     }
