@@ -1,7 +1,6 @@
 package doplab1;
 
-/**
- * Created by PC on 20.05.2015.
+/*1.	Определить сумму первых трех цифр дробной части заданного положительного вещественного числа
  */
 public class Main {
     public static void main(String[] args) {
