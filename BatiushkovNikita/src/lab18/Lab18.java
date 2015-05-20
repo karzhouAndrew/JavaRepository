@@ -2,6 +2,7 @@ package lab18;
 
 // String with the last letter of a words
 
+
 public class Lab18 {
     public static void main(String[] args) {
         String testString = "   thE StrinG! clasS.. representS,,, characteRdsds      ,,, ";
