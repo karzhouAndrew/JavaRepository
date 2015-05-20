@@ -6,7 +6,6 @@ package laba23;
 //функция должна расспечатывать каким кол-вом купюр какого номинала выдается сумма. Создать конструктор с
 // тремя параметрами - кол-вом купюр. Прочее - на ваше усмотрение.
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 
 public class CashMachine {
 
@@ -32,14 +31,13 @@ public class CashMachine {
     }
 
     public boolean getCashMoney(int quantityMoney) {
-        CashMachine cloneObjectField;
-        cloneObjectField = new CashMachine(quantity20, quantity50, quantity100);
+        CashMachine cloneFieldsCashMachine = new CashMachine(quantity20, quantity50, quantity100);
         if (quantityMoney > 0) {
-            if (enoughMoney(quantityMoney)) {
+            if (quantityMoney <= quantity100 * NOMINAL_100 + quantity50 * NOMINAL_50 + quantity20 * NOMINAL_20) {
                 if (enoughPaperMoney(quantityMoney)) {
-                    System.out.println("Деньги списаны в кол-ве" + (cloneObjectField.quantity100 - this.quantity100)
-                            + " купюр номиналом 100, " + (cloneObjectField.quantity50 - this.quantity50)
-                            + " купюр номиналом 50, " + (cloneObjectField.quantity20 - this.quantity20)
+                    System.out.println("Деньги списаны в кол-ве" + (cloneFieldsCashMachine.quantity100 - this.quantity100)
+                            + " купюр номиналом 100, " + (cloneFieldsCashMachine.quantity50 - this.quantity50)
+                            + " купюр номиналом 50, " + (cloneFieldsCashMachine.quantity20 - this.quantity20)
                             + " купюр номиналом 20 " + " и выданы.");
                     return true;
                 } else {
@@ -73,11 +71,6 @@ public class CashMachine {
             this.quantity20 -= 5;
             quantityMoney -= 100;
         }
-
-    }
-
-    private boolean enoughMoney(int quantityMoney) {
-        return (quantityMoney <= (quantity100 * NOMINAL_100 + quantity50 * NOMINAL_50 + quantity20 * NOMINAL_20));
 
     }
 

@@ -7,7 +7,7 @@ public class TestCashMachine {
         atm.reloadCashMachine(5, 5, 30);
         System.out.println(atm.getCashMoney(5000));
         System.out.println(atm.getCashMoney(3070));
-       atm.cashRemainder();
+        atm.cashRemainder();
 
     }
 }
