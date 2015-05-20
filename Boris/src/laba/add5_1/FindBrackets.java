@@ -5,30 +5,28 @@ public class FindBrackets {
     public static void main(String[] args) {
         String sentence = "sd)((f) ((sdf))(sfdsf))(";
         char[] arrayLetters = sentence.toCharArray();
-        char openBracket = '(';
-        char closeBracket = ')';
-        int flagPairsBracket = 0;
+        int equalityBracket = 0;
         int quantityOpenBracket = 0;
         int quantityCloseBracket = 0;
-        boolean flagMinus = true;
+        boolean correctPosition = true;
         for (int i = 0; i < sentence.length(); i++) {
-            if (arrayLetters[i] == openBracket) {
+            if (arrayLetters[i] == '(') {
                 quantityOpenBracket++;
-                flagPairsBracket++;
+                equalityBracket++;
             }
-            if (arrayLetters[i] == closeBracket) {
+            if (arrayLetters[i] == ')') {
                 quantityCloseBracket++;
-                flagPairsBracket--;
+                equalityBracket--;
             }
-            if (flagPairsBracket < 0) {
-                flagMinus = false;
+            if (equalityBracket < 0) {
+                correctPosition = false;
             }
         }
-        if (flagPairsBracket == 0) {
-            if (quantityCloseBracket == 0 && quantityOpenBracket == 0) {
+        if (equalityBracket == 0) {
+            if (quantityCloseBracket == 0) {
                 System.out.println("Скобок нет.");
             } else {
-                if (flagMinus) {
+                if (correctPosition) {
                     System.out.println("Скобки рассположены правильно.");
 
                 } else {
@@ -40,6 +38,5 @@ public class FindBrackets {
             System.out.println("Кол-во скобок не одинаковое.");
             System.out.printf("%d открытых скобок и %d закрытых скобок.", quantityOpenBracket, quantityCloseBracket);
         }
-
     }
 }
