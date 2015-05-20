@@ -6,7 +6,7 @@ public class Lab18 {
     public static void main(String[] args) {
         String testString = "   thE StrinG! clasS.. representS,,, characteRdsds      ,,, ";
         testString = getClearSentence(testString);
-        System.out.println(getWordLastLetters(testString) + testString.charAt(testString.length() - 1));
+        System.out.println(getWordLastLetters(testString));
     }
 
     private static String getClearSentence(String str) {
@@ -14,15 +14,15 @@ public class Lab18 {
         return str.replaceAll("\\p{Punct}", "");
     }
 
-    private static String getWordLastLetters(String str) {
+    private static StringBuilder getWordLastLetters(String str) {
+        StringBuilder stringBuilder = new StringBuilder();
         int strLength = str.length();
-        String lastLetters = "";
         for (int i = 0; i < strLength; i++) {
             char symbol = str.charAt(i);
             if (symbol == ' ') {
-                lastLetters += str.charAt(i - 1);
+                stringBuilder.append(str.charAt(i - 1));
             }
         }
-        return lastLetters;
+        return stringBuilder;
     }
 }
