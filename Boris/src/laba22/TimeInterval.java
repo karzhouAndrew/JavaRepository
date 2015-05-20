@@ -57,22 +57,34 @@ public class TimeInterval {
     }
 
     public int intervalCompare(TimeInterval interval) {
-        if (this.hours - interval.hours != 0){
+        if (this.hours - interval.hours != 0) {
             return this.hours - interval.hours;
-        }else if (this.minutes - interval.minutes != 0){
+        } else if (this.minutes - interval.minutes != 0) {
             return this.minutes - interval.minutes;
-        }else {
+        } else {
             return (this.seconds - interval.seconds);
         }
     }
 
+    @Override
     public String toString() {
-        return getClass().getName() + " хранит в себе введенный промежуток времени";
+        return getClass().getName() + " хранит в себе введенный промежуток времени" +
+                " равный " + hours + " часам " + minutes + " минутам и " + seconds + " секундам.\n";
     }
 
-    public void lookTime() {
-        System.out.printf("В объекте хранится промежуток времени равный %d часам %d минутам и %d секундам.\n",
-                hours, minutes, seconds);
+    @Override
+    public boolean equals(Object obj) {
+        if (super.equals(obj)) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        TimeInterval interval = (TimeInterval) obj;
+        return this.intervalCompare(interval) == 0;
     }
 
     public int getSeconds() {
