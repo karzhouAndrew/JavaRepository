@@ -6,23 +6,23 @@ import java.util.regex.Pattern;
 //1.	Найти и вывести предложение из текста, в котором максимальное количество одинаковых слов.
 
 public class FindSentenceMaxSameSentence {
-    private static final Pattern PATTERNSENTENCE = Pattern.compile("[A-ZА-Я0-9][^.?!]+[.?!]+");
+    private static final Pattern PATTERN_SENTENCE = Pattern.compile("[A-ZА-Я0-9][^.?!]+[.?!]+");
 
     public static String getSentence(String str) {
-        Matcher matcherSentence = PATTERNSENTENCE.matcher(str);
-        String sentenceMax = "";
+        Matcher matcherSentence = PATTERN_SENTENCE.matcher(str);
+        StringBuilder sentenceMax = new StringBuilder();
         int sameWordMax = 0;
         while (matcherSentence.find()) {
             String sentence = matcherSentence.group();
             int currentQuantitySameWord = getQuantitySameWord(sentence);
             if (sameWordMax < currentQuantitySameWord) {
                 sameWordMax = currentQuantitySameWord;
-                sentenceMax = sentence;
+                sentenceMax.append(sentence);
             } else if (sameWordMax == currentQuantitySameWord) {
-                sentenceMax += "\n" + sentence;
+                sentenceMax.append("\n").append(sentence);
             }
         }
-        return sentenceMax;
+        return sentenceMax.toString();
     }
 
     private static int getQuantitySameWord(String str) {
