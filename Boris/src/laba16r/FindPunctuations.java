@@ -1,4 +1,4 @@
-package laba16;
+package laba16r;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
