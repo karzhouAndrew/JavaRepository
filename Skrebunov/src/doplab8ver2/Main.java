@@ -1,7 +1,6 @@
 package doplab8ver2;
 
-/**
- * Created by PC on 21.05.2015.
+/*Заменить в строке все вхождения 'child' на 'children'.  Удалить из текста все символы, являющиеся цифрами.
  */
 public class Main {
     public static void main(String[] args) {
