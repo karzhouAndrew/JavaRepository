@@ -8,7 +8,7 @@ public class TestTimeInterval {
         TimeInterval secondInterval = new TimeInterval(3660);
         System.out.println(secondInterval.intervalCompare(firstInterval));
         System.out.println(secondInterval.equals(firstInterval));
-        System.out.println(firstInterval.toString());
+        System.out.println(firstInterval);
         System.out.println(secondInterval.intervalInSeconds());
     }
 }
