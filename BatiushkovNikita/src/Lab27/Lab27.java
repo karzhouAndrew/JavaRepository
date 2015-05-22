@@ -15,41 +15,18 @@ public class Lab27 {
         System.out.println(getUniqueIntegerList(list));
     }
 
-    private static List<Integer> getUniqueIntegerList(List<Integer> list) {
-        //Iterator<Integer> iterator = list.listIterator();
-        //ListIterator<Integer> iterator = list.listIterator();
-        Iterator<Integer> iterator = list.listIterator();
-        //Iterator<Integer> subIterator = list.listIterator();
-        //Iterator<Integer> innerIterator = list.iterator();
-        ArrayList list2 = list.clone();
-        for (int value: list) {
-            while (iterator.hasNext()) {
-                if (iterator.next() == value) {
-                    iterator.remove();
-                }
-            }
+    private static Set<Integer> getUniqueIntegerList(List<Integer> list) {
+        Set<Integer> set = new HashSet<Integer>(SIZE);
+        for (int value : list) {
+            set.add(value);
         }
-/*        while (iteratorI.hasNext()) {
-            int value = iteratorI.next();
-            //int index = iterator.nextIndex();
-            System.out.println(value);
-            ListIterator<Integer> iteratorJ = list.listIterator();
-            List<Integer> tempList = list.subList(iteratorJ.nextIndex(), SIZE);
-            while (iteratorJ.hasNext()) {
-                if (iteratorJ.next() == value) {
-                    iteratorJ.remove();
-                }
-            }
-        }*/
-
-
-        return list;
+        return set;
     }
 
     private static List<Integer> getRandomIntegerList(int size) {
         List<Integer> arrayList = new ArrayList<Integer>(size);
         for (int i = 0; i < size; i++) {
-            arrayList.add((int) (Math.random() * 5 + 1));
+            arrayList.add((int) (Math.random() * 10 + 1));
         }
         return arrayList;
     }
