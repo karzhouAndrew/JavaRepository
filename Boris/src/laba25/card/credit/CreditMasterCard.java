@@ -6,6 +6,7 @@ import laba25.card.MasterCard;
 
 public class CreditMasterCard extends MasterCard implements Credit {
     private int percent;
+
     public CreditMasterCard(String nameHolder, int cardNumber, double euroAccount, int percent) {
         super(nameHolder, cardNumber, euroAccount);
         this.percent = percent;

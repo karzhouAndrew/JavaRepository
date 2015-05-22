@@ -5,7 +5,8 @@ import laba25.card.BelCard;
 
 
 public class DebitBelCard extends BelCard implements Debit {
-private int percent;
+    private int percent;
+
     public DebitBelCard(String nameHolder, int cardNumber, double rubleAccount, int percent) {
         super(nameHolder, cardNumber, rubleAccount);
         this.percent = percent;
