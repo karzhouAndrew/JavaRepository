@@ -13,6 +13,17 @@ public class Lab27 {
         List<Integer> list = getRandomIntegerList(SIZE);
         System.out.println(list);
         System.out.println(getUniqueIntegerList(list));
+        System.out.println(getUniqueIntegerList2(list));
+    }
+
+    private static List<Integer> getUniqueIntegerList2(List<Integer> list) {
+        List<Integer> uniqueList = new ArrayList<Integer>();
+        for (int value : list) {
+            if (!uniqueList.contains(value)) {
+                uniqueList.add(value);
+            }
+        }
+        return uniqueList;
     }
 
     private static Set<Integer> getUniqueIntegerList(List<Integer> list) {
