@@ -3,11 +3,11 @@ package work.laba6;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//6.	В заданном тексте найти подстроку максимальной длины, являющуюся палиндромом.
+//6.	В заданном тексте найти подстроку максимальной длины, являющуюся палиндромом (из нескольких слов).
 public class FindPalindrome {
     private static final Pattern PATTERN_SENTENCE = Pattern.compile("[A-ZА-Я0-9][^.?!]+[.?!]+");
 
-    public static String findPalindrome(String str) {
+    public static String findMaxPalindrome(String str) {
         Matcher matcher = PATTERN_SENTENCE.matcher(str);
         StringBuilder maxPalindrome = new StringBuilder();
         while (matcher.find()) {
@@ -23,48 +23,69 @@ public class FindPalindrome {
     }
 
     private static String palindromeInSentence(String sentence) {
-        int startIndex = 0;
-        int endIndex = sentence.length() - 1;
-        String maxPalindrome = new String();
-        //Если не учитывать знаки препинания, можно сравниваит буквы из массива слов.
-        //Сделать реализацию  через отрезание слов от предложения!!!
-        while (startIndex < sentence.length()) {
-            if ()
-            while (endIndex > startIndex) {
-                if (sentence.toLowerCase().charAt(startIndex) == sentence.toLowerCase().charAt(endIndex)) {
-                    String sentenceForEquals = sentence.substring(startIndex,endIndex).toLowerCase();
-                    if (isItPalindrome(sentenceForEquals)) {
-                        String palindrome = pickUpPalindrome(sentence, startIndex, endIndex).toString();
-                        maxPalindrome = takeMaxPalindrome(maxPalindrome,palindrome);
-                    }
+        String maxPalindromeInSentence = new String();
+        sentence = sentence.replaceAll("[\\p{Punct}\\p{Blank}]+", " ").trim();
+        boolean isPalindromeFound = false;
+        while (!sentence.isEmpty()) {
+            String searchingSentence = sentence;
+            while (!searchingSentence.isEmpty()) {
+                String sequenceOfLiterals = searchingSentence.replaceAll("\\p{Blank}+", "").toLowerCase();
+                if (isItPalindrome(sequenceOfLiterals)) {
+                    maxPalindromeInSentence = takeMaxFromTwo(maxPalindromeInSentence, searchingSentence);
+                    isPalindromeFound = true;
+                    break;
                 }
-                endIndex--;
+                searchingSentence = removeLastWord(searchingSentence);
             }
-            startIndex++;
+            sentence = removeFirstWord(sentence);
+            if (isPalindromeFound &&
+                    isMaxPalindromeLargerRemainingSentence(sentence, maxPalindromeInSentence)){
+                return maxPalindromeInSentence;
+            }
         }
-        return maxPalindrome;
+        return maxPalindromeInSentence;
     }
 
-    private static String takeMaxPalindrome(String maxPalindrome, String palindrome) {
-        if (maxPalindrome.length() < palindrome.length()){
+    private static boolean isMaxPalindromeLargerRemainingSentence(String sentence, String maxPalindromeInSentence) {
+        return maxPalindromeInSentence.replaceAll("\\p{Blank}+", "").length() > sentence.replaceAll("\\p{Blank}+", "").length();
+    }
+
+    private static String removeLastWord(String sentence) {
+        String[] arrayWord = sentence.split(" ");
+        return removeWord(arrayWord, arrayWord.length - 1);
+    }
+
+    private static String removeWord(String[] arrayWord, int wordNumber) {
+        StringBuilder sentenceRemoveLastWord = new StringBuilder();
+        if (arrayWord.length == 1) {
+            return "";
+        } else {
+            for (int i = 0; i < arrayWord.length; i++) {
+                if (i != wordNumber) {
+                    sentenceRemoveLastWord.append(arrayWord[i]).append(" ");
+                }
+            }
+            return sentenceRemoveLastWord.toString().trim();
+        }
+    }
+
+    private static String removeFirstWord(String sentence) {
+        return removeWord(sentence.split(" "), 0);
+    }
+
+
+    private static String takeMaxFromTwo(String maxPalindrome, String palindrome) {
+        if (maxPalindrome.length() < palindrome.length()) {
             return palindrome;
-        }else {
+        } else {
             return maxPalindrome;
         }
     }
 
-    private static StringBuilder pickUpPalindrome(String sentence, int startIndex, int endIndex) {
-        StringBuilder palindrome = new StringBuilder();
-        for (int i = startIndex; i < endIndex; i++) {
-            palindrome.append(sentence.charAt(i));
-        }
-        return palindrome;
-    }
-
-    private static boolean isItPalindrome(String sentence) {
+    private static boolean isItPalindrome(String word) {
         int startIndex = 0;
-        while (startIndex < sentence.length()) {
-            if (sentence.charAt(startIndex) != sentence.charAt(sentence.length()-1-startIndex)) {
+        while (startIndex < word.length() / 2.0) {
+            if (word.charAt(startIndex) != word.charAt(word.length() - 1 - startIndex)) {
                 return false;
             }
             startIndex++;
