@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 public class FindSentenceMaxSameSentence {
     private static final Pattern PATTERN_SENTENCE = Pattern.compile("[A-ZА-Я0-9][^.?!]+[.?!]+");
+    private static final String SPLIT_WORD_REGEX = "[ \\p{Punct}]+";
 
     public static String getSentence(String str) {
         Matcher matcherSentence = PATTERN_SENTENCE.matcher(str);
@@ -26,7 +27,7 @@ public class FindSentenceMaxSameSentence {
     }
 
     private static int getQuantitySameWord(String str) {
-        String[] arrayWords = str.split("[ \\p{Punct}]+");
+        String[] arrayWords = str.split(SPLIT_WORD_REGEX);
         int quantitySameWord = 0;
         for (int i = 0; i < arrayWords.length - 1; i++) {
             String compareWord = arrayWords[i];
