@@ -24,12 +24,12 @@ public class FindWordInInterrogativeSentence {
     }
 
     private static String findWords(String sentence, int sizeWord) {
-        StringBuilder getWord = new StringBuilder();
+        StringBuilder findingWord = new StringBuilder();
         for (String word : sentence.split(REGEX_FOR_SPLIT_WORD)) {
             if (word.length() == sizeWord) {
-                getWord.append(word).append(" ");
+                findingWord.append(word).append(" ");
             }
         }
-        return getWord.toString();
+        return findingWord.toString();
     }
 }
