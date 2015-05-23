@@ -21,7 +21,7 @@ public class TestFindWord {
                 "What is the longest word in the English language? \n" +
                 "SMILES: there is a mile between the first and last letters!\" ";
         int sizeWord = 7;
-        System.out.println(FindWordInInterrogativeSentence.getWords(strExample,sizeWord));
+        System.out.println(FindWordInInterrogativeSentence.getWords(strExample, sizeWord));
     }
 }
 

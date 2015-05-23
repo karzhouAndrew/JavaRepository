@@ -16,7 +16,7 @@ public class FindWordInInterrogativeSentence {
                 wordsOut.append(findWords(sentence, sizeWord));
             }
         }
-        if (wordsOut.toString() == "") {
+        if (wordsOut.toString().equals("")) {
             return "Слов заданной длины не найдено.";
         }
         return wordsOut.toString();
