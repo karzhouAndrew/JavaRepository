@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 public class ReplaceFirstAndLastWordInSentence {
     private static final String REGEX_SENTENCE = "[A-ZА-Я0-9][^.?!]+[.?!]+";
     private static final Pattern PATTERN_SENTENCE = Pattern.compile(REGEX_SENTENCE);
+    private static final String REGEX_FOR_SPLIT_PUNCTUATION = "\\p{Punct}";
 
     public static String replaceWordInSentence(String str) {
         Matcher matcher = PATTERN_SENTENCE.matcher(str);
@@ -33,14 +34,14 @@ public class ReplaceFirstAndLastWordInSentence {
 
     private static String getChangeSentence(String sentence) {
         String[] arrayWord = sentence.split(" +");
-        String firstWord = buildWord(arrayWord[0], arrayWord[arrayWord.length - 1]);
-        String lastWord = buildWord(arrayWord[arrayWord.length - 1], arrayWord[0]);
+        String firstWord = buildWordWithPunctuation(arrayWord[0], arrayWord[arrayWord.length - 1]);
+        String lastWord = buildWordWithPunctuation(arrayWord[arrayWord.length - 1], arrayWord[0]);
         sentence = sentence.replaceFirst(arrayWord[arrayWord.length - 1], lastWord);
         sentence = sentence.replaceFirst(arrayWord[0], firstWord);
         return sentence;
     }
 
-    private static String buildWord(String startWord, String endWord) {
-        return startWord.replace(startWord.split("\\p{Punct}")[0], endWord.split("\\p{Punct}")[0]);
+    private static String buildWordWithPunctuation(String startWord, String endWord) {
+        return startWord.replace(startWord.split(REGEX_FOR_SPLIT_PUNCTUATION)[0], endWord.split(REGEX_FOR_SPLIT_PUNCTUATION)[0]);
     }
 }
