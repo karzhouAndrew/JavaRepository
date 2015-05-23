@@ -23,7 +23,7 @@ public class FindPalindrome {
     }
 
     private static String palindromeInSentence(String sentence) {
-        String maxPalindromeInSentence = new String();
+        String maxPalindromeInSentence = "";
         sentence = sentence.replaceAll("[\\p{Punct}\\p{Blank}]+", " ").trim();
         boolean isPalindromeFound = false;
         while (!sentence.isEmpty()) {
@@ -39,7 +39,7 @@ public class FindPalindrome {
             }
             sentence = removeFirstWord(sentence);
             if (isPalindromeFound &&
-                    isMaxPalindromeLargerRemainingSentence(sentence, maxPalindromeInSentence)){
+                    isMaxPalindromeLargerRemainingSentence(sentence, maxPalindromeInSentence)) {
                 return maxPalindromeInSentence;
             }
         }
