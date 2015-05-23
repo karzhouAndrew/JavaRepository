@@ -2,25 +2,37 @@ package laba24;
 
 //Бытовая техника
 public abstract class HouseAppliances {
-    protected boolean isSwitchOn;
-    protected int frequencyUseInMonth;
-    protected String manufacturer;
+    private String brand;
+    private String price;
+    private boolean isTurnOn;
 
-    public HouseAppliances(boolean isSwitchOn, int frequencyUseInMonth, String manufacturer) {
-        this.isSwitchOn = isSwitchOn;
-        this.frequencyUseInMonth = frequencyUseInMonth;
-        this.manufacturer = manufacturer;
+    public HouseAppliances(String brand, String price, boolean isTurnOn) {
+        this.brand = brand;
+        this.price = price;
+        this.isTurnOn = isTurnOn;
     }
 
-    public HouseAppliances() {
-        this(false, 0, "Unknone");
+    public HouseAppliances(String brand) {
+        this.brand = brand;
     }
 
-    public void switcher() {
-        if (this.isSwitchOn) {
-            this.isSwitchOn = false;
-        } else {
-            this.isSwitchOn = true;
-        }
+    protected void switcher() {
+        isTurnOn = isTurnOn ? false : true;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public boolean isTurnOn() {
+        return isTurnOn;
+    }
+
+    public void setTurnOn(boolean isTurnOn) {
+        this.isTurnOn = isTurnOn;
     }
 }
