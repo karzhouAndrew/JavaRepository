@@ -23,9 +23,10 @@ public class ReplaceFirstAndLastWordInSentence {
         return getString(str, arrayOriginalSentence, arrayChangeableSentence, numberOfSentence);
     }
 
-    private static String getString(String str, String[] arrayOriginalSentence, String[] arrayChangeableSentence, int numberOfSentence) {
+    private static String getString(String str, String[] arrayOriginalSentence,
+                                    String[] arrayChangeableSentence, int numberOfSentence) {
         for (int i = 0; i < numberOfSentence; i++) {
-            str = str.replaceAll(arrayOriginalSentence[i],arrayChangeableSentence[i]);
+            str = str.replace(arrayOriginalSentence[i], arrayChangeableSentence[i]);
         }
         return str;
     }
