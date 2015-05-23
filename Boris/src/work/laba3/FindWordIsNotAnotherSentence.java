@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 //3.	Найти такое слово в первом предложении, которого нет ни в одном из остальных предложений.
 public class FindWordIsNotAnotherSentence {
     private static final Pattern PATTERN_SENTENCE = Pattern.compile("[A-ZА-Я0-9][^.?!]+[.?!]+");
+    private static final String REGEX_FOR_SPLIT_WORD = "[ \\p{Punct}]+";
 
     public String getWord(String str) {
         Matcher matcher = PATTERN_SENTENCE.matcher(str);
@@ -49,6 +50,6 @@ public class FindWordIsNotAnotherSentence {
     }
 
     private String[] wordArray(String str) {
-        return str.trim().split("[ \\p{Punct}]+");
+        return str.trim().split(REGEX_FOR_SPLIT_WORD);
     }
 }
