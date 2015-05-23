@@ -28,7 +28,7 @@ public class FindWordIsNotAnotherSentence {
             for (int i = 0; i < arrayWordFirstSentence.length; i++) {
                 while (compareWord.equalsIgnoreCase(arrayWordFirstSentence[i])) {
                     arrayWordFirstSentence = deleteWord(arrayWordFirstSentence, i);
-                    if (arrayWordFirstSentence.length <= i){
+                    if (arrayWordFirstSentence.length <= i) {
                         break;
                     }
                 }
