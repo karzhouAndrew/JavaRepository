@@ -6,6 +6,9 @@ import java.util.regex.Pattern;
 //6.	В заданном тексте найти подстроку максимальной длины, являющуюся палиндромом (из нескольких слов).
 public class FindPalindrome {
     private static final Pattern PATTERN_SENTENCE = Pattern.compile("[A-ZА-Я0-9][^.?!]+[.?!]+");
+    private static final String BLANK_REGEX = "\\p{Blank}+";
+    private static final String BLANK_AND_PUNCTUATION_REGEX = "[\\p{Punct}\\p{Blank}]+";
+
 
     public static String findMaxPalindrome(String str) {
         Matcher matcher = PATTERN_SENTENCE.matcher(str);
@@ -24,12 +27,12 @@ public class FindPalindrome {
 
     private static String palindromeInSentence(String sentence) {
         String maxPalindromeInSentence = "";
-        sentence = sentence.replaceAll("[\\p{Punct}\\p{Blank}]+", " ").trim();
+        sentence = sentence.replaceAll(BLANK_AND_PUNCTUATION_REGEX, " ").trim();
         boolean isPalindromeFound = false;
         while (!sentence.isEmpty()) {
             String searchingSentence = sentence;
             while (!searchingSentence.isEmpty()) {
-                String sequenceOfLiterals = searchingSentence.replaceAll("\\p{Blank}+", "").toLowerCase();
+                String sequenceOfLiterals = searchingSentence.replaceAll(BLANK_REGEX, "").toLowerCase();
                 if (isItPalindrome(sequenceOfLiterals)) {
                     maxPalindromeInSentence = takeMaxFromTwo(maxPalindromeInSentence, searchingSentence);
                     isPalindromeFound = true;
@@ -47,7 +50,7 @@ public class FindPalindrome {
     }
 
     private static boolean isMaxPalindromeLargerRemainingSentence(String sentence, String maxPalindromeInSentence) {
-        return maxPalindromeInSentence.replaceAll("\\p{Blank}+", "").length() > sentence.replaceAll("\\p{Blank}+", "").length();
+        return maxPalindromeInSentence.replaceAll(BLANK_REGEX, "").length() > sentence.replaceAll(BLANK_REGEX, "").length();
     }
 
     private static String removeLastWord(String sentence) {
@@ -75,11 +78,7 @@ public class FindPalindrome {
 
 
     private static String takeMaxFromTwo(String maxPalindrome, String palindrome) {
-        if (maxPalindrome.length() < palindrome.length()) {
-            return palindrome;
-        } else {
-            return maxPalindrome;
-        }
+        return maxPalindrome.length() < palindrome.length() ? palindrome : maxPalindrome;
     }
 
     private static boolean isItPalindrome(String word) {
