@@ -1,16 +1,17 @@
 package work.laba2;
 
-import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 //2.	Вывести все предложения заданного текста в порядке возрастания количества слов в каждом из них.
 public class SortSentenceRise {
-    private static final Pattern PATTERN_SENTENCE = Pattern.compile("[A-ZА-Я0-9][^.?!]+[.?!]+");
+    private static final String SENTENCE_REGEX = "[A-ZА-Я0-9][^.?!]+[.?!]+";
+    private static final Pattern PATTERN_SENTENCE = Pattern.compile(SENTENCE_REGEX);
+    private static final String REGEX_FOR_SPLIT_WORD = "[ \\p{Punct}]+";
 
     public static String getSentence(String str) {
-        StringBuilder sortString = new StringBuilder("");
-        String[] arraySentence = str.split("[A-ZА-Я][^.?!]+[.?!]+");
+        StringBuilder sortString = new StringBuilder();
+        String[] arraySentence = str.split(SENTENCE_REGEX);
         getArraySentence(str, arraySentence);
         int[] arrayQuantityWord = new int[arraySentence.length];
         loopForArrayInitialize(arraySentence, arrayQuantityWord);
@@ -61,7 +62,7 @@ public class SortSentenceRise {
     }
 
     private static int getQuantityWord(String str) {
-        String[] arrayWords = str.split("[ \\p{Punct}]+");
+        String[] arrayWords = str.split(REGEX_FOR_SPLIT_WORD);
         return arrayWords.length;
     }
 
