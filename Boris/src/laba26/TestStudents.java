@@ -1,5 +1,7 @@
 package laba26;
 
+//Создать список учеников с помощью ArrayList, заполнить случайными оценками. Удалить неудовлетворительные
+// оценки из списка.
 
 public class TestStudents {
     public static void main(String[] args) {
