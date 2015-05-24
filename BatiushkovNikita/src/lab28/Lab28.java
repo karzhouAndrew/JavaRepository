@@ -9,12 +9,29 @@ import java.util.List;
 
 public class Lab28 {
 
-    final static int SIZE = 10;
+    private final static int GROUP_SIZE = 10;
 
     public static void main(String[] args) {
-        List<Integer> list = getRandomIntegerList(SIZE);
-        System.out.println(list);
-        System.out.println(getListMaxValue(list));
+        List<Integer> gradeList = getGradeList(getStudentList());
+        System.out.println(gradeList);
+        System.out.println(getListMaxValue(gradeList));
+    }
+
+    public static List<Integer> getGradeList(List<Student> studentList) {
+        List<Integer> list = new ArrayList<Integer>();
+        for (int i = 0; i < GROUP_SIZE; i++) {
+            list.add((studentList.get(i)).getGrade());
+        }
+        return list;
+    }
+
+    private static List<Student> getStudentList() {
+        List<Student> list = new ArrayList<Student>();
+        for (int i = 0; i < GROUP_SIZE; i++) {
+            int randomGrade = (int) (Math.random() * 10) + 1;
+            list.add(new Student(randomGrade));
+        }
+        return list;
     }
 
     private static int getListMaxValue(List<Integer> list) {
@@ -27,13 +44,5 @@ public class Lab28 {
             }
         }
         return maxValue;
-    }
-
-    private static List<Integer> getRandomIntegerList(int size) {
-        List<Integer> arrayList = new ArrayList<Integer>(size);
-        for (int i = 0; i < size; i++) {
-            arrayList.add((int) (Math.random() * 10 + 1));
-        }
-        return arrayList;
     }
 }
