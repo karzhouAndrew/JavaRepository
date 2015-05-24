@@ -3,36 +3,49 @@ package laba26;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Students implements Cleaning {
-    private List<Integer> markArray = new ArrayList<Integer>();
-    private List<String> nameArray = new ArrayList<String>();
+public class Students {
+    private List<Student> listing;
 
-    public void addStudentAndMark(String name, Integer mark) {
-        if (mark < 1) {
-            System.out.println("Exception");
-            mark = 3;
-        }
-        markArray.add(mark);
-        nameArray.add(name);
+    public Students() {
+        listing = new ArrayList<Student>();
     }
 
-    @Override
-    public void deleteBadMarks() {
-        int indexIteration = markArray.size() - 1;
-        while (indexIteration >= 0) {
-            if (markArray.get(indexIteration) <= BAD_MARK) {
-                markArray.remove(indexIteration);
-                nameArray.remove(indexIteration);
+    public void addStudent (String name, int mark){
+        listing.add(new Student(name, mark));
+    }
+
+    private class Student {
+        private int mark;
+        private String name;
+
+        public Student(String name,int mark) {
+            this.mark = mark;
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return "{" +
+                    "name='" + name +'\'' +
+                    ", mark=" + mark  +
+                    '}';
+        }
+    }
+
+    public void deleteBadStudyingStudents (int acceptedMark){
+        int studentIndex = listing.size() - 1;
+        while (studentIndex > -1){
+            if (listing.get(studentIndex).mark < acceptedMark){
+                listing.remove(studentIndex);
             }
-            indexIteration--;
+            studentIndex--;
         }
     }
 
     @Override
     public String toString() {
-        return getClass().getName() + " {" +
-                "markArray=" + markArray.toString() +
-                ", nameArray=" + nameArray.toString() +
+        return "Students{" +
+                "listing=" + listing +
                 '}';
     }
 }
