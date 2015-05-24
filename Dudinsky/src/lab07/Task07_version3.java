@@ -9,14 +9,14 @@ public class Task07_version3 {
         while (givenNumberN > 9) {
             int currentDigit = givenNumberN % 10;
             givenNumberN /= 10;
-            int fragmentOfN = givenNumberN;
-            while (fragmentOfN > 0) {
-                if (fragmentOfN % 10 == currentDigit) {
+            int givNumFragment = givenNumberN;
+            while (givNumFragment > 0) {
+                if (givNumFragment % 10 == currentDigit) {
                     System.out.println(" обнаружен повтор цифры " + currentDigit);
                     equalDigits = true;
                     break;
                 }
-                fragmentOfN /= 10;
+                givNumFragment /= 10;
             }
         }
         if (!equalDigits) {
