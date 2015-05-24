@@ -14,7 +14,7 @@ public class Lab28 {
     public static void main(String[] args) {
         List<Integer> gradeList = getGradeList(getStudentList());
         System.out.println(gradeList);
-        System.out.println(getListMaxValue(gradeList));
+        System.out.println(getMaxValue(gradeList));
     }
 
     public static List<Integer> getGradeList(List<Student> studentList) {
@@ -34,12 +34,12 @@ public class Lab28 {
         return list;
     }
 
-    private static int getListMaxValue(List<Integer> list) {
+    private static int getMaxValue(List<Integer> list) {
         Iterator<Integer> iterator = list.iterator();
         int maxValue = 0;
         while (iterator.hasNext()) {
             int value = iterator.next();
-            if (value >= maxValue) {
+            if (value > maxValue) {
                 maxValue = value;
             }
         }
