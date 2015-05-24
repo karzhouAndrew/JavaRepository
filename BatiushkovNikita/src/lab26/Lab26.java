@@ -9,17 +9,34 @@ import java.util.List;
 
 public class Lab26 {
 
-    final static int SIZE = 10;
-    final static int GRADE_REQUIRED = 5;
+    private final static int GROUP_SIZE = 10;
+    private final static int GRADE_REQUIRED = 5;
 
     public static void main(String[] args) {
-        List<Integer> list = getRandomIntegerList(SIZE);
-        System.out.println(list);
-        List<Integer> gradedList = getGradedList(list);
-        System.out.println(gradedList);
+        List<Integer> gradeList = getGradeList(getStudentList());
+        System.out.println(gradeList);
+        List<Integer> gradeReqList = getGradeRequiredList(gradeList);
+        System.out.println(gradeReqList);
     }
 
-    private static List<Integer> getGradedList(List<Integer> list) {
+    public static List<Integer> getGradeList(List<Student> studentList) {
+        List<Integer> list = new ArrayList<Integer>();
+        for (int i = 0; i < GROUP_SIZE; i++) {
+            list.add((studentList.get(i)).getGrade());
+        }
+        return list;
+    }
+
+    private static List<Student> getStudentList() {
+        List<Student> list = new ArrayList<Student>();
+        for (int i = 0; i < GROUP_SIZE; i++) {
+            int randomGrade = (int) (Math.random() * 10) + 1;
+            list.add(new Student(randomGrade));
+        }
+        return list;
+    }
+
+    private static List<Integer> getGradeRequiredList(List<Integer> list) {
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
             if (iterator.next() < GRADE_REQUIRED) {
@@ -27,13 +44,5 @@ public class Lab26 {
             }
         }
         return list;
-    }
-
-    private static List<Integer> getRandomIntegerList(int size) {
-        List<Integer> arrayList = new ArrayList<Integer>(size);
-        for (int i = 0; i < size; i++) {
-            arrayList.add((int) (Math.random() * 10 + 1));
-        }
-        return arrayList;
     }
 }
