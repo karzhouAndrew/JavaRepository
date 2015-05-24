@@ -14,12 +14,12 @@ public class Task19 {
         testStringBuilderAppend(iterationQuantity);
         long resultOfStrBuildAppTest = System.nanoTime() - startTime;
         System.out.println("Результат теста StringBuilder и метода append, нс: " + resultOfStrBuildAppTest);
-        System.out.println("Вывод 1: метод append в StringBuilder быстрее простого сложения String оператором \'+\' в " + (double) resultOfStringAddTest / (double) resultOfStrBuildAppTest + " раз");
+        System.out.println("Вывод 1: метод append в StringBuilder быстрее простого сложения String оператором \'+\' в " + (double) resultOfStringAddTest / resultOfStrBuildAppTest + " раз");
         startTime = System.nanoTime();
         testStringBufferAppend(iterationQuantity);
         long resultOfStrBuffAppTest = System.nanoTime() - startTime;
         System.out.println("Результат теста StringBuffer и метода append, нс: " + resultOfStrBuffAppTest);
-        System.out.println("Вывод 2: метод append в StringBuffer быстрее простого сложения String оператором \'+\' в " + (double) resultOfStringAddTest / (double) resultOfStrBuffAppTest + " раз");
+        System.out.println("Вывод 2: метод append в StringBuffer быстрее простого сложения String оператором \'+\' в " + (double) resultOfStringAddTest / resultOfStrBuffAppTest + " раз");
     }
 
     private static void testStringAddition(int iterationQuantity) {
