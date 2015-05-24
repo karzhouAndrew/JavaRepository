@@ -19,8 +19,9 @@ public class Journal {
     public void removeDissatisfyMarks() {
         ListIterator<Pupil> iterator = pupils.listIterator();
         while (iterator.hasNext()) {
-            if (iterator.next().getMark() < 4)
+            if (iterator.next().getMark() < 4) {
                 iterator.remove();
+            }
         }
     }
 
