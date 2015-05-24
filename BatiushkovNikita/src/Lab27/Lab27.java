@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Lab27 {
 
-    public final static int SIZE = 10;
+    private final static int SIZE = 10;
 
     public static void main(String[] args) {
         List<Integer> list = getRandomIntegerList(SIZE);
