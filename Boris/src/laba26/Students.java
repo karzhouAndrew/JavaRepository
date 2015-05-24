@@ -10,7 +10,7 @@ public class Students {
         listing = new ArrayList<Student>();
     }
 
-    public void addStudent (String name, int mark){
+    public void addStudent(String name, int mark) {
         listing.add(new Student(name, mark));
     }
 
@@ -18,7 +18,7 @@ public class Students {
         private int mark;
         private String name;
 
-        public Student(String name,int mark) {
+        public Student(String name, int mark) {
             this.mark = mark;
             this.name = name;
         }
@@ -26,16 +26,16 @@ public class Students {
         @Override
         public String toString() {
             return "{" +
-                    "name='" + name +'\'' +
-                    ", mark=" + mark  +
+                    "name='" + name + '\'' +
+                    ", mark=" + mark +
                     '}';
         }
     }
 
-    public void deleteBadStudyingStudents (int acceptedMark){
+    public void deleteBadStudyingStudents(int acceptedMark) {
         int studentIndex = listing.size() - 1;
-        while (studentIndex > -1){
-            if (listing.get(studentIndex).mark < acceptedMark){
+        while (studentIndex > -1) {
+            if (listing.get(studentIndex).mark < acceptedMark) {
                 listing.remove(studentIndex);
             }
             studentIndex--;
