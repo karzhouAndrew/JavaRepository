@@ -2,6 +2,7 @@ package lab19;
 
 /* Задание 19. Напишите два цикла выполняющих многократное сложение строк, один с помощью оператора сложения и String, а другой с помощью StringBuilder и метода append. Сравните скорость их выполнения. */
 public class Task19 {
+
     private static final String TEST_STR = "test ";
 
     public static void main(String[] args) {
