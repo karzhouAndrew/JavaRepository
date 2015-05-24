@@ -5,11 +5,11 @@ package task26;
 
 public class TaskTest {
     public static void main(String[] args) {
-        MarksList marksList = new MarksList(10);
+        StudentsList studentsList = new StudentsList(10);
         System.out.println("Исходный список оценок:");
-        System.out.println(marksList);
-        marksList.deleteBadMarks();
+        System.out.println(studentsList);
+        studentsList.deleteBadMarks();
         System.out.println("После удаления неудовлетворительных оценок:");
-        System.out.println(marksList);
+        System.out.println(studentsList);
     }
 }
