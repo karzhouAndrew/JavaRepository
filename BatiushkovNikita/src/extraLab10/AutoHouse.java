@@ -14,7 +14,7 @@ package extraLab10;
 import java.lang.reflect.Method;
 import java.util.*;
 
-public class AutoHouse implements Sorting{
+public class AutoHouse {
     private Map<Integer, Car> cars = new TreeMap<Integer, Car>();
 
     public AutoHouse() {
@@ -25,8 +25,8 @@ public class AutoHouse implements Sorting{
         addCar(new Car(3048, 2007, 12300, "Mini", "Freak color"));
     }
 
-/*    public SortedSet<Map.Entry<Integer, Car>> getSortedCarsByPrice() {
-        SortedSet<Map.Entry<Integer, Car>> sortedCars = new TreeSet<Map.Entry<Integer, Car>>(
+    public Set<Map.Entry<Integer, Car>> getSortedCarsByPrice() {
+        Set<Map.Entry<Integer, Car>> sortedCars = new TreeSet<Map.Entry<Integer, Car>>(
                 new Comparator<Map.Entry<Integer, Car>>() {
                     @Override
                     public int compare(Map.Entry<Integer, Car> car1, Map.Entry<Integer, Car> car2) {
@@ -46,8 +46,8 @@ public class AutoHouse implements Sorting{
         return sortedCars;
     }
 
-    public SortedSet<Map.Entry<Integer, Car>> getSortedCarsByYear() {
-        SortedSet<Map.Entry<Integer, Car>> sortedCars = new TreeSet<Map.Entry<Integer, Car>>(
+    public Set<Map.Entry<Integer, Car>> getSortedCarsByYear() {
+        Set<Map.Entry<Integer, Car>> sortedCars = new TreeSet<Map.Entry<Integer, Car>>(
                 new Comparator<Map.Entry<Integer, Car>>() {
                     @Override
                     public int compare(Map.Entry<Integer, Car> car1, Map.Entry<Integer, Car> car2) {
@@ -65,7 +65,7 @@ public class AutoHouse implements Sorting{
         );
         sortedCars.addAll(cars.entrySet());
         return sortedCars;
-    }*/
+    }
 
     public Map<Integer, Car> getCarsByYear(int year) {
         Map<Integer, Car> carsByYear = new TreeMap<Integer, Car>();
