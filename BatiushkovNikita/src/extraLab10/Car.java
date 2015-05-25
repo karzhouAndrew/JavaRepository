@@ -64,6 +64,6 @@ public class Car {
                 ", Price,$: " + price +
                 ", Brand name: " + brandName +
                 ", Additional options: " + carOptions +
-                '}';
+                '}' + "\n";
     }
 }

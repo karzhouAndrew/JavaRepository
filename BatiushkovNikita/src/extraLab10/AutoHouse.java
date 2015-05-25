@@ -11,12 +11,11 @@ package extraLab10;
 //        5) Сортировка по цене.
 // Реализовать консольное меню.
 
+import java.lang.reflect.Method;
+import java.util.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class AutoHouse {
-    private Map<Integer, Car> cars = new HashMap<Integer, Car>();
+public class AutoHouse implements Sorting{
+    private Map<Integer, Car> cars = new TreeMap<Integer, Car>();
 
     public AutoHouse() {
         addCar(new Car(7364, 1976, 17500, "Mazda", "Leather upholstery"));
@@ -26,18 +25,51 @@ public class AutoHouse {
         addCar(new Car(3048, 2007, 12300, "Mini", "Freak color"));
     }
 
-    public Map<Integer, Car> getCarsSortedByYear() {
-        for (Map.Entry<Integer, Car> car: cars.entrySet()) {
-            int year = car.getValue().getYear();
-            // http://stackoverflow.com/questions/109383/how-to-sort-a-mapkey-value-on-the-values-in-java
-        }
-        return cars;
+/*    public SortedSet<Map.Entry<Integer, Car>> getSortedCarsByPrice() {
+        SortedSet<Map.Entry<Integer, Car>> sortedCars = new TreeSet<Map.Entry<Integer, Car>>(
+                new Comparator<Map.Entry<Integer, Car>>() {
+                    @Override
+                    public int compare(Map.Entry<Integer, Car> car1, Map.Entry<Integer, Car> car2) {
+                        int compareValue1 = car1.getValue().getPrice();
+                        int compareValue2 = car2.getValue().getPrice();
+                        if (compareValue1 < compareValue2) {
+                            return -1;
+                        } else if (compareValue1 == compareValue2) {
+                            return 0;
+                        } else {
+                            return 1;
+                        }
+                    }
+                }
+        );
+        sortedCars.addAll(cars.entrySet());
+        return sortedCars;
     }
 
+    public SortedSet<Map.Entry<Integer, Car>> getSortedCarsByYear() {
+        SortedSet<Map.Entry<Integer, Car>> sortedCars = new TreeSet<Map.Entry<Integer, Car>>(
+                new Comparator<Map.Entry<Integer, Car>>() {
+                    @Override
+                    public int compare(Map.Entry<Integer, Car> car1, Map.Entry<Integer, Car> car2) {
+                        int compareValue1 = car1.getValue().getYear();
+                        int compareValue2 = car2.getValue().getYear();
+                        if (compareValue1 < compareValue2) {
+                            return -1;
+                        } else if (compareValue1 == compareValue2) {
+                            return 0;
+                        } else {
+                            return 1;
+                        }
+                    }
+                }
+        );
+        sortedCars.addAll(cars.entrySet());
+        return sortedCars;
+    }*/
 
     public Map<Integer, Car> getCarsByYear(int year) {
-        Map<Integer, Car> carsByYear = new HashMap<Integer, Car>();
-        for (Map.Entry<Integer, Car> car: cars.entrySet()) {
+        Map<Integer, Car> carsByYear = new TreeMap<Integer, Car>();
+        for (Map.Entry<Integer, Car> car : cars.entrySet()) {
             if (car.getValue().getYear() == year) {
                 carsByYear.put(car.getKey(), car.getValue());
             }
@@ -46,8 +78,8 @@ public class AutoHouse {
     }
 
     public Map<Integer, Car> getCarsByBrand(String brand) {
-        Map<Integer, Car> carsByBrand = new HashMap<Integer, Car>();
-        for (Map.Entry<Integer, Car> car: cars.entrySet()) {
+        Map<Integer, Car> carsByBrand = new TreeMap<Integer, Car>();
+        for (Map.Entry<Integer, Car> car : cars.entrySet()) {
             if (car.getValue().getBrandName().equalsIgnoreCase(brand)) {
                 carsByBrand.put(car.getKey(), car.getValue());
             }
@@ -63,7 +95,7 @@ public class AutoHouse {
         cars.remove(car.getId());
     }
 
-    public Map<Integer, Car> getCarMap() {
+    public Map<Integer, Car> getCars() {
         return cars;
     }
 }

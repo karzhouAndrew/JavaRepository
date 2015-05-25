@@ -15,7 +15,8 @@ public class TestAutoHouse {
         //System.out.println(autoHouse.getCarsByBrand("Mazda"));
         //System.out.println(autoHouse.getByBrand("Mazda").get(1).getBrandName());
         //System.out.println(autoHouse.getCarsByYear(2000));
-        autoHouse.getCarsSortedByYear();
+        //System.out.println(autoHouse. getSortedCarsByPrice());
+        //System.out.println(autoHouse.getSortedCars());
 
     }
 
