@@ -15,22 +15,27 @@ public class DeletingWordWithSpecialLength {
         } else if (deletingWordLength == 0) {
             return stringText;
         } else {
-            return copyTextWithOutSpecialWord(stringText, deletingWordLength).toString();
+            return getTextWithOutSpecialWord(stringText, deletingWordLength).toString();
         }
     }
 
-//    private static StringBuilder copyTextWithOutSpecialWord(String stringText, int deletingWordLength) {
-//        StringBuilder changeableText = new StringBuilder();
-//        String[] arrayTextSplitSpace = stringText.split(" ");
-//        for (int i = 0; i < arrayTextSplitSpace.length; i++) {
-//
-//            changeableText
-//                    .append(replaceSpecialWord(deletingWordLength, arrayTextSplitSpace[i]))
-//                    .append(" ");
-//        }
-//        return changeableText;
-//    }
-//
+    private static StringBuilder getTextWithOutSpecialWord(String stringText, int deletingWordLength) {
+        String[] arrayTextSplitRegexWord = stringText.split("\\w+");
+        String[] arrayTextSplitExceptRegexWord = stringText.split("\\W+");
+        return replaceSpecialWordAndAssembleText(deletingWordLength, arrayTextSplitRegexWord, arrayTextSplitExceptRegexWord);
+    }
+
+    private static StringBuilder replaceSpecialWordAndAssembleText(int deletingWordLength, String[] arrayTextSplitRegexWord, String[] arrayTextSplitExceptRegexWord) {
+        StringBuilder changeableText = new StringBuilder();
+        for (int i = 0; i < arrayTextSplitRegexWord.length; i++) {
+            changeableText.append(arrayTextSplitRegexWord[i]);
+            if (i < arrayTextSplitExceptRegexWord.length) {
+                changeableText.append(replaceSpecialWord(deletingWordLength, arrayTextSplitExceptRegexWord[i]));
+            }
+        }
+        return changeableText;
+    }
+
     private static String replaceSpecialWord(int deletingWordLength, String partOfTextToSpace) {
         Matcher matcher = WORD_PATTERN.matcher(partOfTextToSpace);
         while (matcher.find()) {
@@ -41,24 +46,5 @@ public class DeletingWordWithSpecialLength {
         return partOfTextToSpace;
     }
 
-    //Another realization
-    private static StringBuilder copyTextWithOutSpecialWord(String stringText, int deletingWordLength) {
-        StringBuilder changeableText = new StringBuilder();
-        String[] arrayTextSplitRegexWord = stringText.split("\\w+");
-        String[] arrayTextSplitExceptRegexWord = stringText.split("\\W+");
-        assembleChangeableText(deletingWordLength, arrayTextSplitRegexWord, arrayTextSplitExceptRegexWord);
-        return changeableText;
-    }
-
-    private static StringBuilder assembleChangeableText(int deletingWordLength, String[] arrayTextSplitRegexWord, String[] arrayTextSplitExceptRegexWord) {
-        StringBuilder changeableText = new StringBuilder();
-        for (int i = 0; i < arrayTextSplitRegexWord.length; i++) {
-            changeableText.append(arrayTextSplitRegexWord[i]);
-            if (i < arrayTextSplitExceptRegexWord.length) {
-                changeableText.append(replaceSpecialWord(deletingWordLength, arrayTextSplitExceptRegexWord[i]));
-            }
-        }
-        return changeableText;
-    }
 
 }
