@@ -10,21 +10,21 @@ public class SumDiagonalMatrix {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the dimension of a matrix : ");
         if (sc.hasNext()) {
-            int n = sc.nextInt();
-            float[][] matriX = new float[n][n];
+            int matrixSize = sc.nextInt();
+            float[][] matrix = new float[matrixSize][matrixSize];
             Random rand = new Random();
-            for (int i = 0; i < matriX.length; i++) {
-                for (int j = 0; j < matriX.length; j++) {
-                    matriX[i][j] = rand.nextFloat();
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix.length; j++) {
+                    matrix[i][j] = rand.nextFloat();
                 }
             }
-            for (float[] floats : matriX) {
+            for (float[] floats : matrix) {
                 System.out.println(Arrays.toString(floats));
             }
             float sum = 0;
-            for (int i = 0; i < matriX.length; i++) {
-                for (int j = i; j < matriX.length; j++) {
-                    sum += matriX[i][j];
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = i; j < matrix.length; j++) {
+                    sum += matrix[i][j];
                 }
             }
             System.out.println("Sum = " + sum);
