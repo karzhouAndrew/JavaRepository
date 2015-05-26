@@ -3,8 +3,7 @@ package additionalTask6;
 //проверить валидность строки на скобки
 public class CheckStringBracket {
     public static void main(String[] args) {
-        char[] stringTest;
-        stringTest = new char[]{'q', 'w', ')', '(', '9', '0', '(', '0', ')', 'm'};
+        char[] stringTest = new char[]{'q', 'w', ')', '(', '9', '0', '(', '0', ')', 'm'};
         int checkSum = 0;
         for (int i = 0; i < stringTest.length; i++) {
             if (stringTest[i] == '(') {
