@@ -33,10 +33,6 @@ public class AutoHouse {
     }
 
 
-
-
-
-
     public void removeCarForID(int iD) {
         if (listingExistedCar.containsKey(iD)) {
             listingExistedCar.remove(iD);
@@ -80,17 +76,15 @@ public class AutoHouse {
         removeCarForSpecify(null, yearOfIssue);
     }
 
-    public void removeAllCar(){
+    public void removeAllCar() {
         listingExistedCar.clear();
     }
 
     private void findIDWithSpecifiedColor(ColorEnum colorEnum, List<Integer> listingID) {
         if (colorEnum != null) {
-            int indexListingID = listingID.size();
+            int indexListingID = listingID.size() - 1;
             while (indexListingID > -1) {
-                if (listingExistedCar.get(indexListingID).getColor().equals(colorEnum)) {
-                    continue;
-                } else {
+                if (!(listingExistedCar.get(listingID.get(indexListingID)).getColor().equals(colorEnum))) {
                     listingID.remove(indexListingID);
                 }
                 indexListingID--;
@@ -100,11 +94,10 @@ public class AutoHouse {
 
     private void findIDWithSpecifiedCompany(CompanyEnum companyEnum, List<Integer> listingID) {
         if (companyEnum != null) {
-            int indexListingID = listingID.size();
+            int indexListingID = listingID.size() - 1;
             while (indexListingID > -1) {
-                if (listingExistedCar.get(indexListingID).getCompany().equals(companyEnum)) {
-                    continue;
-                } else {
+                CompanyEnum companyEnum1 = listingExistedCar.get(listingID.get(indexListingID)).getCompany();
+                if (!companyEnum1.equals(companyEnum)) {
                     listingID.remove(indexListingID);
                 }
                 indexListingID--;
@@ -114,11 +107,9 @@ public class AutoHouse {
 
     private void findIDWithSpecifiedPrice(int price, List<Integer> listingID) {
         if (price > 0) {
-            int indexListingID = listingID.size();
+            int indexListingID = listingID.size() - 1;
             while (indexListingID > -1) {
-                if (listingExistedCar.get(indexListingID).getPrice() == price) {
-                    continue;
-                } else {
+                if (!(listingExistedCar.get(listingID.get(indexListingID)).getPrice() == price)) {
                     listingID.remove(indexListingID);
                 }
                 indexListingID--;
@@ -128,11 +119,9 @@ public class AutoHouse {
 
     private void findIDWithSpecifiedYearsOfIssue(int yearOfIssue, List<Integer> listingID) {
         if (yearOfIssue > 0) {
-            int indexListingID = listingID.size();
+            int indexListingID = listingID.size() - 1;
             while (indexListingID > -1) {
-                if (listingExistedCar.get(indexListingID).getYearOfIssue().get(Calendar.YEAR) == yearOfIssue) {
-                    continue;
-                } else {
+                if (!(listingExistedCar.get(listingID.get(indexListingID)).getYearOfIssue().get(Calendar.YEAR) == yearOfIssue)) {
                     listingID.remove(indexListingID);
                 }
                 indexListingID--;
