@@ -10,7 +10,7 @@ public class SearchHexadecimalInString {
     public String obtainHexadecimalFromString(String string) {
         Pattern pattern = Pattern.compile("0x\\p{XDigit}+");
         Matcher matcher = pattern.matcher(string);
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder();
         int position = 0;
         int increment = 0;
         while (matcher.find(position)) {
