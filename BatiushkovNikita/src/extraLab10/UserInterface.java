@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 
 public class UserInterface {
+    public final static AutoHouse AUTO_HOUSE = new AutoHouse();
+
     public static void main(String[] args) {
-        //AutoHouse autoHouse = new AutoHouse();
         menuAddCar();
         //mainMenu();
     }
@@ -44,16 +45,58 @@ public class UserInterface {
     }
 
     public static void menuAddCar() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("(Integer) Enter car Id: ");
+        Scanner scanner;
+
         int carId;
-        while (scanner.hasNext() == true) {
+        int carYear;
+        int carPrice;
+        String carBrand;
+
+
+        while (true) {
+            scanner = new Scanner(System.in);
+            System.out.print("(Integer) Enter car id: ");
             if (scanner.hasNextInt()) {
                 carId = scanner.nextInt();
                 break;
             } else {
-                System.out.println("wrong");
-                //return;
+                System.out.println("Invalid input. Try again.");
+            }
+        }
+
+        while (true) {
+            scanner = new Scanner(System.in);
+            System.out.print("(Integer) Enter car year: ");
+            if (scanner.hasNextInt()) {
+                carYear = scanner.nextInt();
+                if (carYear < 2015 && carYear > 1800) {
+                    break;
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else {
+                System.out.println("Invalid input. Try again.");
+            }
+        }
+
+        while (true) {
+            scanner = new Scanner(System.in);
+            System.out.print("(Integer) Enter car price: ");
+            if (scanner.hasNextInt()) {
+                carPrice = scanner.nextInt();
+            } else {
+                System.out.println("Invalid input. Try again.");
+            }
+        }
+        //scanner.remove(); http://www.cs.utexas.edu/users/ndale/Scanner.html
+
+        while (true) {
+            scanner = new Scanner(System.in);
+            System.out.print("(Integer) Enter car price: ");
+            if (scanner.hasNext()) {
+                carBrand = scanner.next();
+            } else {
+                System.out.println("Invalid input. Try again.");
             }
         }
     }

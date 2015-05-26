@@ -2,6 +2,7 @@ package extraLab10;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class TestAutoHouse {
 
@@ -17,6 +18,16 @@ public class TestAutoHouse {
         //System.out.println(autoHouse.getCarsByYear(2000));
         System.out.println(autoHouse. getSortedCarsByPrice());
         //System.out.println(autoHouse.getSortedCars());
+
+        Scanner scanner = new Scanner(System.in);
+
+        String input;
+
+        if (scanner.hasNext()) {
+            input = scanner.next();
+        }
+
+
 
     }
 
