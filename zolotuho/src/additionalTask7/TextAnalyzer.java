@@ -53,17 +53,17 @@ public class TextAnalyzer {
     }
 
     public void showSentencesWithSymbolCounter(String string) {
-        Pattern pattern6 = Pattern.compile("[.?!]");
-        Matcher matcher6 = pattern6.matcher(string);
+        Pattern pattern = Pattern.compile("[.?!]");
+        Matcher matcher = pattern.matcher(string);
 
         int currentPosition = 0;
-        while (matcher6.find(currentPosition)) {
-            System.out.println(string.substring(currentPosition, matcher6.end()) + " " + ((matcher6.end() - currentPosition) - 1));
-            currentPosition = matcher6.end();
+        while (matcher.find(currentPosition)) {
+            System.out.println(string.substring(currentPosition, matcher.end()) + " " + ((matcher.end() - currentPosition) - 1));
+            currentPosition = matcher.end();
         }
     }
 
     public String obtainTextWithoutSpaces(String string) {
-        return string.replaceAll(" ", "");
+        return string.replaceAll(" +", "");
     }
 }
