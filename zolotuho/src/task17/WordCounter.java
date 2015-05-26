@@ -6,10 +6,9 @@ package task17;
 public class WordCounter {
 
     public int calculateWords(String str) {
-        char symbol = ' ';
         int counterWords = 0;
         for (int i = 0; i < str.length(); i++) {
-            symbol = str.charAt(i);
+           char symbol = str.charAt(i);
             if (symbol == ' ') {
                 if (i == 0) {
                     counterWords--;
@@ -24,7 +23,7 @@ public class WordCounter {
                 }
             }
         }
-        counterWords += 1;
+        counterWords++;
         return counterWords;
     }
 }
