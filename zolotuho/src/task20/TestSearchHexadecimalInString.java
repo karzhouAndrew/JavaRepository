@@ -1,6 +1,5 @@
 package task20;
 
-
 public class TestSearchHexadecimalInString {
 
     public static void main(String[] args) {
