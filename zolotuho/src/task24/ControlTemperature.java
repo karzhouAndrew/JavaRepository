@@ -1,6 +1,5 @@
 package task24;
 
-
 public interface ControlTemperature {
 
     void setTemperature(double temperature);

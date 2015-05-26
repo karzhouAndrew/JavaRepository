@@ -22,9 +22,9 @@ public class TestHouseHold {
         houseHold.showState();
         houseHold.switchOn();
         houseHold.showState();
-        houseHold=fridge;
+        houseHold = fridge;
         houseHold.showState();
-        houseHold=fridge1;
+        houseHold = fridge1;
         houseHold.showState();
         ((Fridge) houseHold).increaseByOneDegree();
         ((Fridge) houseHold).increaseByOneDegree();

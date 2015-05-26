@@ -1,7 +1,5 @@
 package task24;
 
-
-
 public class GasCooker extends Cooker {
     private double gasTubeDiameter;
     private ProcessMode modeOfCooking;

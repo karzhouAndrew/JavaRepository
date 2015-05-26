@@ -1,9 +1,8 @@
 package task24;
 
-
 public class Iron extends SmallHouseHold {
-    TypeSurface typeSurface;
-    ProcessMode processMode;
+   private TypeSurface typeSurface;
+   private ProcessMode processMode;
 
     public Iron(double weight, double lengthOfCord, TypeSurface typeSurface, ProcessMode processMode) {
         super(weight, lengthOfCord);
@@ -24,6 +23,10 @@ public class Iron extends SmallHouseHold {
         return typeSurface;
     }
 
+    public void setTypeSurface(TypeSurface typeSurface) {
+        this.typeSurface = typeSurface;
+    }
+
     public ProcessMode getProcessMode() {
         return processMode;
     }
@@ -35,11 +38,9 @@ public class Iron extends SmallHouseHold {
     public void switchOn() {
         state = true;
         this.processMode = processMode.SLOW;
-
     }
 
     public void switchOff() {
         state = false;
-
     }
 }

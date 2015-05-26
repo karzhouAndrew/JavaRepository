@@ -1,6 +1,5 @@
 package task24;
 
-
 public abstract class SmallHouseHold extends HouseHold {
     private double weight;
     private double lengthOfCord;
