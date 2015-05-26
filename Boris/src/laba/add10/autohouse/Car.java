@@ -5,15 +5,15 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Car {
-    private String company;
-    private String color;
-    private GregorianCalendar yearOfIssue = new GregorianCalendar();
+    private CompanyEnum company;
+    private ColorEnum color;
+    private GregorianCalendar yearOfIssue;
     private int price;
 
-    protected Car(String company, String color, int yearOfIssue, int price) {
+    protected Car(CompanyEnum company, ColorEnum color, int yearOfIssue, int price) {
         this.company = company;
         this.color = color;
-        this.yearOfIssue.set(Calendar.YEAR, yearOfIssue);
+        this.yearOfIssue = new GregorianCalendar(yearOfIssue, 0, 1);
         this.price = price;
     }
 
@@ -25,8 +25,8 @@ public class Car {
         Car car = (Car) o;
 
         if (price != car.price) return false;
-        if (color != null ? !color.equals(car.color) : car.color != null) return false;
-        if (company != null ? !company.equals(car.company) : car.company != null) return false;
+        if (color != car.color) return false;
+        if (company != car.company) return false;
         if (yearOfIssue != null ? !yearOfIssue.equals(car.yearOfIssue) : car.yearOfIssue != null) return false;
 
         return true;
@@ -43,19 +43,19 @@ public class Car {
 
     @Override
     public String toString() {
-        return "\n" + "Car{" +
-                "company='" + company + '\'' +
-                ", color='" + color + '\'' +
-                ", yearOfIssue=" + yearOfIssue +
+        return "Car{" +
+                "company=" + company +
+                ", color=" + color +
+                ", yearOfIssue=" + yearOfIssue.get(Calendar.YEAR) +
                 ", price=" + price +
-                '}';
+                '}' + "\n";
     }
 
-    public String getCompany() {
+    public CompanyEnum getCompany() {
         return company;
     }
 
-    public String getColor() {
+    public ColorEnum getColor() {
         return color;
     }
 
