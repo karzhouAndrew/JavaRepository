@@ -47,8 +47,8 @@ public class TimeInterval {
         this.hours = hours;
     }
 
-    public int calculateFullSeconds ()   {
-         return this.seconds + this.minutes * 60 + this.hours * 60 * 60;
+    public int calculateFullSeconds() {
+        return this.seconds + this.minutes * 60 + this.hours * 60 * 60;
     }
 
     @Override
