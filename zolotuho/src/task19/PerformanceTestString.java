@@ -4,22 +4,26 @@ package task19;
 // а другой с помощью StringBuilder и метода append. Сравните скорость их выполнения.
 public class PerformanceTestString {
 
-    public long calculateExecutionTime(String stringFirst, String stringSecond, int loopLimit) {
-        long n1 = System.nanoTime();
+    public long calculateExecutionTimeString(int loopLimit) {
+        String stringFirst = "qwerty";
+        String stringSecond = "asdfgh";
+        long startTime = System.nanoTime();
         for (int i = 0; i < loopLimit; i++) {
             stringFirst += stringSecond;
         }
-        long n2 = System.nanoTime();
-        return n2 - n1;
+        long finishTime = System.nanoTime();
+        return finishTime - startTime;
     }
 
-    public long calculateExecutionTime(StringBuilder stringFirst, StringBuilder stringSecond, int loopLimit) {
-        long n1 = System.nanoTime();
-        n1 = System.nanoTime();
+    public long calculateExecutionTimeStringBuilder(int loopLimit) {
+        StringBuilder stringFirst = new StringBuilder("qwerty");
+        StringBuilder stringSecond = new StringBuilder("asdfgh");
+
+        long startTime = System.nanoTime();
         for (int i = 0; i < loopLimit; i++) {
             stringFirst.append(stringSecond);
         }
-        long n2 = System.nanoTime();
-        return n2 - n1;
+        long finishTime = System.nanoTime();
+        return finishTime - startTime;
     }
 }
