@@ -2,19 +2,26 @@ package extraLab10;
 
 
 import java.awt.*;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeMap;
 
 
 public class UserInterface {
-    public final static AutoHouse AUTO_HOUSE = new AutoHouse();
+    public static final AutoHouse AUTO_HOUSE = new AutoHouse();
 
     public static void main(String[] args) {
-        menuAddCar();
-        //mainMenu();
+        System.out.println("Welcome to the AutoHouse!");
+        //carViewer(AUTO_HOUSE.getCarsByBrand("Mazda"));
+        //carViewer(AUTO_HOUSE.getSortedCarsByPrice());
+        //carViewer(AUTO_HOUSE.getCars());
+        mainMenu();
+        //menuAddCar();
     }
 
     public static void mainMenu() {
-        System.out.println("Welcome to the AutoHouse!");
+/*
         System.out.println("1.  Add new car in AutoHouse.");
         System.out.println("2.  Remove car from the AutoHouse by ID.");
         System.out.println("3.  Search cars by brand.");
@@ -23,45 +30,42 @@ public class UserInterface {
         System.out.println("6.  Sort cars by price.");
         System.out.println("7.  View all cars.");
         System.out.println("8.  Exit.");
+*/
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("(Integer) Please make a selection: ");
-        if (scanner.hasNextInt()) {
-            int i = scanner.nextInt();
-            scanner.close();
-            switch (i) {
-                case 1:
-                    menuAddCar();
-                    break;
-                case 2:
-                    System.out.println("zzzzzzzzz");
-                    break;
+        String test1 = "";
+        String test2 = "";
+        Scanner scanner;
+        System.out.println("Enter String: ");
+        while (true) {
+            scanner  = new Scanner(System.in);
+            if (scanner.hasNext() == true) {
+                test1 = scanner.next();
+                System.out.println("Entered " + test1);
+                break;
+            } else {
+                System.out.println("Wrong input. Try again.");
+                //scanner.reset();
             }
-        } else {
-            System.out.println();
-            System.out.println("Wrong input. Try again." + "\n");
-            mainMenu();
         }
+
+
+    }
+
+    public static void menuRemoveCar() {
+
     }
 
     public static void menuAddCar() {
         Scanner scanner;
 
-        int carId;
         int carYear;
         int carPrice;
-        String carBrand;
+        String carBrand = null;
 
-
-        while (true) {
-            scanner = new Scanner(System.in);
-            System.out.print("(Integer) Enter car id: ");
-            if (scanner.hasNextInt()) {
-                carId = scanner.nextInt();
-                break;
-            } else {
-                System.out.println("Invalid input. Try again.");
-            }
+        scanner = new Scanner(System.in);
+        System.out.print("(String) Enter car brand name: ");
+        if (scanner.hasNext()) {
+            carBrand = scanner.next();
         }
 
         while (true) {
@@ -84,23 +88,44 @@ public class UserInterface {
             System.out.print("(Integer) Enter car price: ");
             if (scanner.hasNextInt()) {
                 carPrice = scanner.nextInt();
-            } else {
-                System.out.println("Invalid input. Try again.");
+                if (carPrice >= 0) {
+                    break;
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
             }
         }
-        //scanner.remove(); http://www.cs.utexas.edu/users/ndale/Scanner.html
 
-        while (true) {
-            scanner = new Scanner(System.in);
-            System.out.print("(Integer) Enter car price: ");
-            if (scanner.hasNext()) {
-                carBrand = scanner.next();
-            } else {
-                System.out.println("Invalid input. Try again.");
-            }
+        Car car = new Car((int) (Math.random() * 1e4), carYear, carPrice, carBrand);
+        AUTO_HOUSE.addCar(car);
+        System.out.println("\n" + "Car was added." + "\n");
+        mainMenu();
+    }
+
+    public static void carViewer(Map<Integer, Car> cars) {
+        System.out.println("Id" + "\t" + "Brand" + "\t" + "Year" + "\t" + "Price");
+        for (Map.Entry<Integer, Car> car : cars.entrySet()) {
+            System.out.printf(car.getValue().getId() + "\t");
+            System.out.printf(car.getValue().getBrandName() + "\t");
+            System.out.printf(car.getValue().getYear() + "\t");
+            System.out.printf(car.getValue().getPrice() + "\t");
+            System.out.println();
         }
     }
+
+    public static void carViewer(Set<Map.Entry<Integer, Car>> cars) {
+        System.out.println("Id" + "\t" + "Brand" + "\t" + "Year" + "\t" + "Price");
+        for (Map.Entry<Integer, Car> car : cars) {
+            System.out.printf(car.getValue().getId() + "\t");
+            System.out.printf(car.getValue().getBrandName() + "\t");
+            System.out.printf(car.getValue().getYear() + "\t");
+            System.out.printf(car.getValue().getPrice() + "\t");
+            System.out.println();
+        }
+    }
+
 }
+
 
 
 
