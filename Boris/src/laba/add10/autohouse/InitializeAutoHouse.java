@@ -5,7 +5,6 @@ import java.util.Random;
 
 public class InitializeAutoHouse {
     private static Enum<CompanyEnum>  company;
-    private static Enum<ColorEnum> color;
     private static int minYear = 1990;
     private static int maxYear = 2015;
     private static Random random = new Random();
@@ -18,7 +17,7 @@ public class InitializeAutoHouse {
         AutoHouse listingAutoHouse = new AutoHouse();
         for (int i = 0; i < quantity; i++) {
             int year = randYear(minYear, maxYear);
-            listingAutoHouse.addCarInAutoHouse(randCompany(), randColor(), minYear + year, randPrice(year));
+            listingAutoHouse.addCarInAutoHouse(randCompany(), minYear + year, randPrice(year));
         }
         return listingAutoHouse;
     }
@@ -29,11 +28,6 @@ public class InitializeAutoHouse {
 
     private static int randYear(int minYear, int maxYear) {
         return random.nextInt(maxYear - minYear + 1);
-    }
-
-    private static ColorEnum randColor() {
-        ColorEnum [] arrayEnum = ColorEnum.values();
-        return arrayEnum[random.nextInt(arrayEnum.length)];
     }
 
     private static CompanyEnum randCompany() {

@@ -11,6 +11,7 @@ package laba.add10.autohouse;
 //
 //        Реализовать консольное меню.
 
+
 import java.util.*;
 
 public class AutoHouse {
@@ -20,8 +21,8 @@ public class AutoHouse {
         listingExistedCar = new HashMap<Integer, Car>();
     }
 
-    public void addCarInAutoHouse(CompanyEnum company, ColorEnum color, int yearOfIssue, int price) {
-        listingExistedCar.put(generateID(), new Car(company, color, yearOfIssue, price));
+    public void addCarInAutoHouse(CompanyEnum company,  int yearOfIssue, int price) {
+        listingExistedCar.put(generateID(), new Car(company, yearOfIssue, price));
     }
 
     private int generateID() {
@@ -32,6 +33,39 @@ public class AutoHouse {
         return iD;
     }
 
+    public Map<Integer, Car> getIDSortYearOfIssue() {
+        Map<Integer, Car> sortForYearOfIssue = new TreeMap<Integer, Car>(new Comparator() {
+            @Override
+            public int compare(Object first, Object second) {
+                return listingExistedCar.get(first).getYearOfIssue().compareTo(listingExistedCar.get(second).getYearOfIssue());
+            }
+        });
+        sortForYearOfIssue.putAll(listingExistedCar);
+        return sortForYearOfIssue;
+    }
+
+    public Map<Integer, Car> getCarSortPrice() {
+        Map<Integer, Car> sortForPrice = new TreeMap<Integer, Car>(new Comparator() {
+            @Override
+            public int compare(Object first, Object second) {
+                return listingExistedCar.get(first).getPrice() - listingExistedCar.get(second).getPrice();
+            }
+        });
+        sortForPrice.putAll(listingExistedCar);
+        return sortForPrice;
+    }
+
+    public List<Integer> findIDCarForSpecifyCompany(CompanyEnum company) {
+        List<Integer> listingID = new ArrayList<Integer>(listingExistedCar.keySet());
+        findIDWithSpecifiedCompany(company, listingID);
+        return listingID;
+    }
+
+    public List<Integer> findIDCarForSpecifyYearOfIssue(int year) {
+        List<Integer> listingID = new ArrayList<Integer>(listingExistedCar.keySet());
+        findIDWithSpecifiedYearsOfIssue(year, listingID);
+        return listingID;
+    }
 
     public void removeCarForID(int iD) {
         if (listingExistedCar.containsKey(iD)) {
@@ -41,10 +75,9 @@ public class AutoHouse {
         }
     }
 
-    public void removeCarForSpecify(CompanyEnum companyEnum, ColorEnum colorEnum, int yearOfIssue, int price) {
+    public void removeCarForSpecify(CompanyEnum companyEnum, int yearOfIssue, int price) {
         List<Integer> listingID = new ArrayList<Integer>(listingExistedCar.keySet());
         findIDWithSpecifiedCompany(companyEnum, listingID);
-        findIDWithSpecifiedColor(colorEnum, listingID);
         findIDWithSpecifiedYearsOfIssue(yearOfIssue, listingID);
         findIDWithSpecifiedPrice(price, listingID);
         if (listingID.isEmpty()) {
@@ -56,20 +89,16 @@ public class AutoHouse {
         }
     }
 
-    public void removeCarForSpecify(CompanyEnum companyEnum, ColorEnum colorEnum, int yearOfIssue) {
-        removeCarForSpecify(companyEnum, colorEnum, yearOfIssue, -1);
-    }
-
-    public void removeCarForSpecify(CompanyEnum companyEnum, ColorEnum colorEnum) {
-        removeCarForSpecify(companyEnum, colorEnum, -1);
+    public void removeCarForSpecify(CompanyEnum companyEnum, int yearOfIssue) {
+        removeCarForSpecify(companyEnum, yearOfIssue, -1);
     }
 
     public void removeCarForSpecify(CompanyEnum companyEnum) {
-        removeCarForSpecify(companyEnum, null);
+        removeCarForSpecify(companyEnum, -1, -1);
     }
 
-    public void removeCarForSpecify(CompanyEnum companyEnum, int yearOfIssue) {
-        removeCarForSpecify(companyEnum, null, yearOfIssue);
+    public void removeCarForSpecify(int yearOfIssue, int price) {
+        removeCarForSpecify(null, yearOfIssue, price);
     }
 
     public void removeCarForSpecify(int yearOfIssue) {
@@ -78,18 +107,6 @@ public class AutoHouse {
 
     public void removeAllCar() {
         listingExistedCar.clear();
-    }
-
-    private void findIDWithSpecifiedColor(ColorEnum colorEnum, List<Integer> listingID) {
-        if (colorEnum != null) {
-            int indexListingID = listingID.size() - 1;
-            while (indexListingID > -1) {
-                if (!(listingExistedCar.get(listingID.get(indexListingID)).getColor().equals(colorEnum))) {
-                    listingID.remove(indexListingID);
-                }
-                indexListingID--;
-            }
-        }
     }
 
     private void findIDWithSpecifiedCompany(CompanyEnum companyEnum, List<Integer> listingID) {
