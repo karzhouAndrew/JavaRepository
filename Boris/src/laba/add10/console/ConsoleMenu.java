@@ -4,6 +4,8 @@ package laba.add10.console;
 import laba.add10.autohouse.AutoHouse;
 import laba.add10.autohouse.InitializeAutoHouse;
 
+import static laba.add10.console.ConsoleMenuAutoHouse.*;
+
 public class ConsoleMenu {
     private static final int quantityCars = 10;
     private static AutoHouse listing = InitializeAutoHouse.generateQuantityCarInAutoHouse(quantityCars);
@@ -33,20 +35,37 @@ public class ConsoleMenu {
     }
 
     private static void startMethodFindCarByConstructingYear() {
-        System.out.println(listing.findIDCarForSpecifyYearOfIssue(ConsoleMenuAutoHouse.consoleConstructingYear()));
+        System.out.println(listing.findIDCarForSpecifyYearOfIssue(getConsoleConstructingYear()));
     }
 
     private static void startMethodFindCarByCompany() {
-        System.out.println(listing.findIDCarForSpecifyCompany(ConsoleMenuAutoHouse.enumConsoleCompany()));
+        System.out.println(listing.findIDCarForSpecifyCompany(getConsoleEnumCompany()));
     }
 
     private static void startMethodRemoveCarInAutoHouse() {
-//Console for choice method.
+        int removeNumberMethod = selectRemoveParameter();
+        if (removeNumberMethod == 1) {
+            listing.removeCarForSpecify(getConsoleEnumCompany(), getConsoleConstructingYear(), getConsolePrice());
+        } else if (removeNumberMethod == 2) {
+            listing.removeCarForSpecify(getConsoleEnumCompany(), getConsoleConstructingYear());
+        } else if (removeNumberMethod == 3) {
+            listing.removeCarForSpecify(getConsoleEnumCompany());
+        } else if (removeNumberMethod == 4) {
+            listing.removeCarForSpecify(getConsoleConstructingYear(), getConsolePrice());
+        } else if (removeNumberMethod == 5) {
+            listing.removeCarForSpecify(getConsoleConstructingYear());
+        } else if (removeNumberMethod == 6) {
+            listing.removeAllCar();
+        } else if (removeNumberMethod == 7) {
+            listing.removeCarForID(getConsoleID());
+        }
+        System.out.println("Car is deleting.");
     }
 
     private static void startMethodAddCar() {
-        listing.addCarInAutoHouse(ConsoleMenuAutoHouse.enumConsoleCompany(), ConsoleMenuAutoHouse.consoleConstructingYear(),
-                ConsoleMenuAutoHouse.consolePrice());
+        listing.addCarInAutoHouse(getConsoleEnumCompany(), getConsoleConstructingYear(),
+                getConsolePrice());
+        System.out.println("Car is addition.");
     }
 
 }
