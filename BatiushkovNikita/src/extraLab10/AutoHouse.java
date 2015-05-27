@@ -11,18 +11,17 @@ package extraLab10;
 //        5) Сортировка по цене.
 // Реализовать консольное меню.
 
-import java.lang.reflect.Method;
 import java.util.*;
 
 public class AutoHouse {
     private Map<Integer, Car> cars = new TreeMap<Integer, Car>();
 
     public AutoHouse() {
-        addCar(new Car(7364, 1976, 17500, "Mazda", "Leather upholstery"));
-        addCar(new Car(1367, 1999, 12100, "VAZ", null));
-        addCar(new Car(8112, 2003, 52000, "BatMobile", "Justice"));
-        addCar(new Car(3242, 2000, 51300, "Volvo", null));
-        addCar(new Car(3048, 2007, 12300, "Mini", "Freak color"));
+        addCar(new Car(1976, 17500, "Mazda"));
+        addCar(new Car(1999, 12100, "VAZ"));
+        addCar(new Car(2003, 52000, "BatMobile"));
+        addCar(new Car(2000, 51300, "Volvo"));
+        addCar(new Car(2007, 12300, "Mazda"));
     }
 
     public Set<Map.Entry<Integer, Car>> getSortedCarsByPrice() {
@@ -91,8 +90,8 @@ public class AutoHouse {
         cars.put(car.getId(), car);
     }
 
-    public void removeCar(Car car) {
-        cars.remove(car.getId());
+    public void removeCar(int id) {
+        cars.remove(id);
     }
 
     public Map<Integer, Car> getCars() {
