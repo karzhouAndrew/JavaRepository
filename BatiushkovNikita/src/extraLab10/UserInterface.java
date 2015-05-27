@@ -32,23 +32,47 @@ public class UserInterface {
         System.out.println("8.  Exit.");
 */
 
-        String test1 = "";
-        String test2 = "";
+        int choice;
         Scanner scanner;
-        System.out.println("Enter String: ");
+        System.out.println("Enter Integer: ");
         while (true) {
             scanner  = new Scanner(System.in);
-            if (scanner.hasNext() == true) {
-                test1 = scanner.next();
-                System.out.println("Entered " + test1);
-                break;
+            if (scanner.hasNextInt() == true) {
+                choice = scanner.nextInt();
+                if (choice == 1) {
+                    testCase1();
+                    mainMenu();
+                    break;
+                } else if (choice == 2) {
+                    testCase2();
+                    mainMenu();
+                    break;
+                } else if (choice == 3) {
+                    testCase3();
+                    mainMenu();
+                    break;
+                } else {
+                    break;
+                }
+                //break;
             } else {
                 System.out.println("Wrong input. Try again.");
-                //scanner.reset();
             }
         }
 
 
+    }
+
+    public static void testCase1() {
+        System.out.println("testCase1 worked");
+    }
+
+    public static void testCase2() {
+        System.out.println("testCase2 worked");
+    }
+
+    public static void testCase3() {
+        System.out.println("testCase3 worked");
     }
 
     public static void menuRemoveCar() {
@@ -99,7 +123,6 @@ public class UserInterface {
         Car car = new Car((int) (Math.random() * 1e4), carYear, carPrice, carBrand);
         AUTO_HOUSE.addCar(car);
         System.out.println("\n" + "Car was added." + "\n");
-        mainMenu();
     }
 
     public static void carViewer(Map<Integer, Car> cars) {
