@@ -2,6 +2,7 @@ package laba.add10.console;
 
 
 import laba.add10.autohouse.CompanyEnum;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -92,7 +93,7 @@ public class ConsoleMenuAutoHouse {
         }
     }
 
-    public static int selectRemoveParameter(){
+    public static int selectRemoveParameter() {
         int methodCod = 0;
         String message = "Select characteristic, in which car would you delete:\n" +
                 "1 - company, constructing year, price;\n" +
@@ -105,19 +106,19 @@ public class ConsoleMenuAutoHouse {
         do {
             System.out.println(message);
             methodCod = getConsoleInteger();
-            if (methodCod > 0 && methodCod < 8){
+            if (methodCod > 0 && methodCod < 8) {
                 return methodCod;
             }
         } while (true);
     }
 
-    public static int getConsoleID (){
+    public static int getConsoleID() {
         int iD = 0;
         String message = "Enter ID to remove car:";
         do {
             System.out.println(message);
             iD = getConsoleInteger();
-            if (iD > 0 ){
+            if (iD > 0) {
                 return iD;
             }
         } while (true);
