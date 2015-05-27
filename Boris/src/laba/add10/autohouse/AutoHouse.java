@@ -21,7 +21,7 @@ public class AutoHouse {
         listingExistedCar = new HashMap<Integer, Car>();
     }
 
-    public void addCarInAutoHouse(CompanyEnum company,  int yearOfIssue, int price) {
+    public void addCarInAutoHouse(CompanyEnum company, int yearOfIssue, int price) {
         listingExistedCar.put(generateID(), new Car(company, yearOfIssue, price));
     }
 

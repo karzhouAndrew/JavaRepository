@@ -4,7 +4,7 @@ package laba.add10.autohouse;
 import java.util.Random;
 
 public class InitializeAutoHouse {
-    private static Enum<CompanyEnum>  company;
+    private static Enum<CompanyEnum> company;
     private static int minYear = 1990;
     private static int maxYear = 2015;
     private static Random random = new Random();
@@ -23,7 +23,7 @@ public class InitializeAutoHouse {
     }
 
     private static int randPrice(int year) {
-        return random.nextInt(10000) + year*1000;
+        return random.nextInt(10000) + year * 1000;
     }
 
     private static int randYear(int minYear, int maxYear) {
@@ -31,7 +31,7 @@ public class InitializeAutoHouse {
     }
 
     private static CompanyEnum randCompany() {
-    CompanyEnum [] arrayEnum = CompanyEnum.values();
+        CompanyEnum[] arrayEnum = CompanyEnum.values();
         return arrayEnum[(random.nextInt(arrayEnum.length))];
     }
 
