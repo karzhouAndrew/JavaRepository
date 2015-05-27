@@ -1,9 +1,7 @@
 package extraLab10;
 
 
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class UserInterface {
     public static final AutoHouse AUTO_HOUSE = new AutoHouse();
@@ -12,7 +10,6 @@ public class UserInterface {
         System.out.println("Welcome to the AutoHouse!");
         System.out.println();
         mainMenu();
-        //carViewer(AUTO_HOUSE.getCarsByBrand("Mazda"));
     }
 
     public static void mainMenu() {
@@ -35,34 +32,29 @@ public class UserInterface {
                 choice = scanner.nextInt();
                 if (choice == 1) {
                     menuAddCar();
-                    mainMenu();
                 } else if (choice == 2) {
                     menuRemoveCar();
-                    mainMenu();
                 } else if (choice == 3) {
                     menuSearchByBrand();
-                    mainMenu();
                 } else if (choice == 4) {
                     menuSearchByYear();
-                    mainMenu();
                 } else if (choice == 5) {
                     menuSortByYear();
-                    mainMenu();
                 } else if (choice == 6) {
                     menuSortByPrice();
-                    mainMenu();
                 } else if (choice == 7) {
                     menuViewAll();
-                    mainMenu();
                 } else if (choice == 8) {
-                    return;
-                } else {
                     break;
+                } else {
+                    System.out.println("Wrong input. Try again.");
                 }
+                mainMenu();
             } else {
                 System.out.println("Wrong input. Try again.");
                 System.out.printf("Make your choice: ");
             }
+            break;
         }
     }
 
@@ -92,7 +84,7 @@ public class UserInterface {
         if (cars.isEmpty()) {
             System.out.println("Car brand " + "\"" + carBrand + "\"" + " not found. Try again.");
         } else {
-            carViewer(cars);
+            carViewer(cars.entrySet());
         }
     }
 
@@ -102,7 +94,7 @@ public class UserInterface {
         if (cars.isEmpty()) {
             System.out.println("Year " + "\"" + year + "\"" + " not found. Try again.");
         } else {
-            carViewer(cars);
+            carViewer(cars.entrySet());
         }
     }
 
@@ -115,7 +107,7 @@ public class UserInterface {
     }
 
     public static void menuViewAll() {
-        carViewer(AUTO_HOUSE.getCars());
+        carViewer(AUTO_HOUSE.getCars().entrySet());
     }
 
     public static int enterCarId() {
@@ -130,7 +122,7 @@ public class UserInterface {
                     break;
                 }
             } else {
-                System.out.println("Invalid input. Try again.");
+                System.out.println("Wrong input. Try again.");
             }
         }
         return carId;
@@ -154,17 +146,21 @@ public class UserInterface {
             System.out.print("(Integer) Enter car price: ");
             if (scanner.hasNextInt()) {
                 carPrice = scanner.nextInt();
-                if (carPrice >= 0) {
+                if (carPrice >= 0 && carPrice < Integer.MAX_VALUE) {
                     break;
                 } else {
-                    System.out.println("Invalid input. Try again.");
+                    System.out.println("Wrong input. Try again.");
                 }
+            } else {
+                System.out.println("Wrong input. Try again.");
             }
         }
         return carPrice;
     }
 
     public static int enterCarYear() {
+        GregorianCalendar calendar = new GregorianCalendar();
+        ;
         int carYear;
         Scanner scanner;
         while (true) {
@@ -172,27 +168,16 @@ public class UserInterface {
             System.out.print("(Integer) Enter car year: ");
             if (scanner.hasNextInt()) {
                 carYear = scanner.nextInt();
-                if (carYear < 2015 && carYear > 1800) {
+                if (carYear <= calendar.get(Calendar.YEAR) && carYear > 1800) {
                     break;
                 } else {
-                    System.out.println("Invalid input. Try again.");
+                    System.out.println("Wrong input. Try again.");
                 }
             } else {
-                System.out.println("Invalid input. Try again.");
+                System.out.println("Wrong input. Try again.");
             }
         }
         return carYear;
-    }
-
-    public static void carViewer(Map<Integer, Car> cars) {
-        System.out.println("Id" + "\t" + "Brand" + "\t" + "Year" + "\t" + "Price");
-        for (Map.Entry<Integer, Car> car : cars.entrySet()) {
-            System.out.printf(car.getValue().getId() + "\t");
-            System.out.printf(car.getValue().getBrandName() + "\t");
-            System.out.printf(car.getValue().getYear() + "\t");
-            System.out.printf(car.getValue().getPrice() + "\t");
-            System.out.println();
-        }
     }
 
     public static void carViewer(Set<Map.Entry<Integer, Car>> cars) {
@@ -205,7 +190,6 @@ public class UserInterface {
             System.out.println();
         }
     }
-
 }
 
 
