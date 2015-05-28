@@ -41,7 +41,5 @@ public class DefineUniqueNumbers {
         } else {
             System.out.println("Incorrect number was entered");
         }
-
-
-    }
+   }
 }
