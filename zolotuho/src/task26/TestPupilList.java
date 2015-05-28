@@ -18,7 +18,7 @@ public class TestPupilList {
 
         for (Pupil pupil : pupilList) {
             if (pupil.getAverageMark() <= 3) {
-                System.out.println(pupil.toString());
+                System.out.println(pupil);
             }
         }
     }
