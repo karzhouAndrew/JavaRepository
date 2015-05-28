@@ -9,14 +9,14 @@ public class Cube {
         this.color = color;
     }
 
-    public Cube(Cube ex) {
-        this.size = ex.size;
-        this.color = ex.color;
-    }
-
     public Cube() {
         size = 0;
         color = "white";
+    }
+
+    @Override
+    protected Cube clone() {
+        return this;
     }
 
     public double getSize() {
@@ -35,16 +35,11 @@ public class Cube {
         this.color = color;
     }
 
-    public double getVolume() {
+    public double calculateVolume() {
         return Math.pow(size, 3);
     }
 
-    public double getArea() {
+    public double calculateArea() {
         return 6 * Math.pow(size, 2);
-    }
-
-    public void copyCube(Cube ex) {
-        this.size = ex.size;
-        this.color = ex.color;
     }
 }
