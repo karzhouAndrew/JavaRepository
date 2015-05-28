@@ -25,7 +25,7 @@ public class ConsoleCheckInChoice {
             if (enteredCommand > 0 && enteredCommand < 7) {
                 ConsoleMenuAutoHouse.startMethod(enteredCommand);
                 System.out.println("Something else? (0 - exit.)");
-                if (getConsoleInteger() == EXIT) {
+                if (getConsoleToExit() == EXIT) {
                     System.out.println("Goodbye.");
                     return;
                 }
@@ -36,6 +36,15 @@ public class ConsoleCheckInChoice {
                 System.out.println("There are not this command. Please repeat.");
             }
         } while (true);
+    }
+
+    private static int getConsoleToExit() {
+        Scanner consoleIn = new Scanner(System.in);
+        try {
+            return Integer.valueOf(consoleIn.nextLine());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
     }
 
     public static CompanyEnum getConsoleEnumCompany() {
