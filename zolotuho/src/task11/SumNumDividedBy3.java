@@ -23,5 +23,6 @@ public class SumNumDividedBy3 {
         } else {
             System.out.println("Incorrect number");
         }
+        sc.close();
     }
 }
