@@ -3,8 +3,8 @@ package mathExpression;
 import java.util.Scanner;
 
 public class TestExpression {
-    public static double getNumFromConsole(boolean b, double realNumber) {
-        if (b) {
+    public static double getNumFromConsole(boolean bool, double realNumber) {
+        if (bool) {
             return realNumber;
         } else {
             return 0;
