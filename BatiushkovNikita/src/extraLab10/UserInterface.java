@@ -26,51 +26,51 @@ public class UserInterface {
 
         int userInput;
         Scanner scanner;
-        while (true) {
+        boolean exit = true;
+        while (exit) {
             scanner = new Scanner(System.in);
             if (scanner.hasNextInt()) {
                 userInput = scanner.nextInt();
                 switch (Menu.getIndex(userInput)) {
                     case ADD_NEW_CAR:
                         menuAddCar();
-                        mainMenu();
                         break;
                     case REMOVE_CAR:
                         menuRemoveCar();
-                        mainMenu();
                         break;
                     case SEARCH_CARS_BY_BRAND:
                         menuSearchByBrand();
-                        mainMenu();
                         break;
                     case SEARCH_CARS_BY_YEAR:
                         menuSearchByYear();
-                        mainMenu();
                         break;
                     case SORT_CARS_BY_YEAR:
                         menuSortByYear();
-                        mainMenu();
                         break;
                     case SORT_CARS_BY_PRICE:
                         menuSortByPrice();
-                        mainMenu();
                         break;
                     case VIEW_ALL_CARS:
                         menuViewAll();
-                        mainMenu();
                         break;
                     case EXIT:
+                        exit = false;
                         break;
                     default:
                         System.out.println("Wrong input. Try again.");
                         System.out.printf("Make your choice: ");
-                        mainMenu();
+                        break;
                 }
-                break;
+                if (exit) {
+                    mainMenu();
+                } else {
+                    break;
+                }
             } else {
                 System.out.println("Wrong input. Try again.");
                 System.out.printf("Make your choice: ");
             }
+            break;
         }
     }
 
