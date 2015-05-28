@@ -1,10 +1,10 @@
 package laba.add10;
 
 
-import laba.add10.console.ConsoleMenuAutoHouse;
+import laba.add10.console.ConsoleCheckInChoice;
 
 public class TestAutoHouse {
     public static void main(String[] args) {
-        ConsoleMenuAutoHouse.consoleHello();
+        ConsoleCheckInChoice.consoleHello();
     }
 }

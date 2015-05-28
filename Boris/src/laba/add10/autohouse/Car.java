@@ -6,12 +6,12 @@ import java.util.GregorianCalendar;
 
 public class Car {
     private CompanyEnum company;
-    private GregorianCalendar yearOfIssue;
+    private GregorianCalendar constructYear;
     private int price;
 
-    protected Car(CompanyEnum company, int yearOfIssue, int price) {
+    protected Car(CompanyEnum company, int constructYear, int price) {
         this.company = company;
-        this.yearOfIssue = new GregorianCalendar(yearOfIssue, 0, 1);
+        this.constructYear = new GregorianCalendar(constructYear, 0, 1);
         this.price = price;
     }
 
@@ -24,7 +24,7 @@ public class Car {
 
         if (price != car.price) return false;
         if (company != car.company) return false;
-        if (yearOfIssue != null ? !yearOfIssue.equals(car.yearOfIssue) : car.yearOfIssue != null) return false;
+        if (constructYear != null ? !constructYear.equals(car.constructYear) : car.constructYear != null) return false;
 
         return true;
     }
@@ -32,7 +32,7 @@ public class Car {
     @Override
     public int hashCode() {
         int result = company != null ? company.hashCode() : 0;
-        result = 31 * result + (yearOfIssue != null ? yearOfIssue.hashCode() : 0);
+        result = 31 * result + (constructYear != null ? constructYear.hashCode() : 0);
         result = 31 * result + price;
         return result;
     }
@@ -41,7 +41,7 @@ public class Car {
     public String toString() {
         return "Car{" +
                 "company=" + company +
-                ", yearOfIssue=" + yearOfIssue.get(Calendar.YEAR) +
+                ", constructYear=" + constructYear.get(Calendar.YEAR) +
                 ", price=" + price +
                 '}' + "\n";
     }
@@ -50,8 +50,8 @@ public class Car {
         return company;
     }
 
-    public GregorianCalendar getYearOfIssue() {
-        return yearOfIssue;
+    public GregorianCalendar getConstructYear() {
+        return constructYear;
     }
 
     public int getPrice() {
