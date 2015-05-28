@@ -8,22 +8,22 @@ public class ButterflyMatrix {
         System.out.print("enter odd dimension : ");
         Scanner sc = new Scanner(System.in);
         if (sc.hasNext()) {
-            int dim = sc.nextInt();
+            int matrixSize = sc.nextInt();
             sc.close();
-            int[][] array = new int[dim][dim];
-            for (int i = 0; i < array.length; i++) {
-                int decrement = array.length - 1 - i;
-                if (i <= array.length / 2) {
-                    for (int j = i; j < array.length - i; j++) {
-                        array[i][j] = 1;
+            int[][] matrix = new int[matrixSize][matrixSize];
+            for (int i = 0; i < matrix.length; i++) {
+                int decrement = matrix.length - 1 - i;
+                if (i <= matrix.length / 2) {
+                    for (int j = i; j < matrix.length - i; j++) {
+                        matrix[i][j] = 1;
                     }
                 } else {
-                    for (int j = decrement; j < array.length - decrement; j++) {
-                        array[i][j] = 1;
+                    for (int j = decrement; j < matrix.length - decrement; j++) {
+                        matrix[i][j] = 1;
                     }
                 }
             }
-            for (int[] ints : array) {
+            for (int[] ints : matrix) {
                 System.out.println(Arrays.toString(ints));
             }
         } else {
