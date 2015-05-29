@@ -9,7 +9,7 @@ public class MasterCard extends DebitCard {
     }
 
     @Override
-    void payBill(long sum) {
+    public void payBill(long sum) {
         if (getBalance() - sum * discount / 100 >= 0) {
             setBalance(getBalance() - sum * discount / 100);
             System.out.println("successful payment");

@@ -1,6 +1,8 @@
 package task25;
 
-enum Currency {BLR, USD, EU, RUB}
+enum Currency {
+    BLR, USD, EU, RUB
+}
 
 public abstract class DebitCard extends PaymentCard {
     private long balance;

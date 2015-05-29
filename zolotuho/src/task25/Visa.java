@@ -3,7 +3,7 @@ package task25;
 public class Visa extends DebitCard {
     private long monthlyPercent;
 
-    void transferToAnotherCard(long sum, PaymentCard paymentCard) {
+    public void transferToAnotherCard(long sum, PaymentCard paymentCard) {
         if (getBalance() - sum >= 0) {
             setBalance(getBalance() - sum);
         } else {
