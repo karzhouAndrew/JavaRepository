@@ -1,6 +1,5 @@
 package task2;
 
-
 import java.util.Scanner;
 
 //Продолжите приведенный пример, добавьте расчет и вывод суток и недель.
@@ -21,6 +20,9 @@ public class TimeBar {
             int week = (day - dayResidue) / 7;
             System.out.println(week + " weeks " + dayResidue + " days " + hourResidue + " hours "
                     + minResidue + " minutes " + secResidue + " seconds ");
-        } else System.out.println("Entered incorrect number");
+        } else {
+            System.out.println("Entered incorrect number");
+        }
+        sc.close();
     }
 }
