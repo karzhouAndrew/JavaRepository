@@ -8,17 +8,17 @@ public class StudentsList {
     private List<Student> studentsList;
 
     class Student {
-        private final String name;
+        private final String NAME;
         private int mark;
 
         public Student(String name, int mark) {
-            this.name = name;
+            NAME = name;
             this.mark = mark;
         }
 
         @Override
         public String toString() {
-            return name + " - " + mark;
+            return NAME + " - " + mark;
         }
 
         public int getMark() {
