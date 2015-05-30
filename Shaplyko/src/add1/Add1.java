@@ -7,7 +7,7 @@ public class Add1 {
     public static void main(String[] args) {
         double number = 35.46;
         int n = 1;
-        number = number - (int) number;
+        number -= (int) number;
         int sum = 0;
         while (n > 0) {
             number *= 10;
