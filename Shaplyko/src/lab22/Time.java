@@ -19,17 +19,14 @@ public class Time {
     }
 
     public int getSecond() {
-        System.out.println("Количество секунд = " + second);
         return second;
     }
 
     public int getMinute() {
-        System.out.println("Количество минут = " + minute);
         return minute;
     }
 
     public int getHour() {
-        System.out.println("Количество часов = " + hour);
         return hour;
     }
 
@@ -37,12 +34,18 @@ public class Time {
         return (hour * 60 * 60 + minute * 60 + second);
     }
 
+    public int amountSecond(Object object) {
+        Time tmp = (Time) object;
+        return (tmp.hour * 60 * 60 + tmp.minute * 60 + tmp.second);
+    }
+
+
     public int compareToTime(Object object) {
-        Time tmp = (Time)  object;
-        if ((this.second + this.minute * 60 + this.hour * 60 * 60) < (tmp.second + tmp.minute * 60 + tmp.hour * 60 * 60)) {
+        Time tmp = (Time) object;
+        if ((amountSecond()) < (amountSecond(tmp))) {
             System.out.println("Объекты 1 меньше объекта 2 = " + -1);
             return -1;
-        } else if ((this.second + this.minute * 60 + this.hour * 60 * 60) > (tmp.second + tmp.minute * 60 + tmp.hour * 60 * 60)) {
+        } else if ((amountSecond()) > (amountSecond(tmp))) {
             System.out.println("Объекты 1 больше объекта 2 = " + 1);
             return 1;
         }
