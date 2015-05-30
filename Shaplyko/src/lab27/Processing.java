@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Processing {
-    List<Integer> listNumber = new ArrayList<Integer>();
+    private List<Integer> listNumber = new ArrayList<Integer>();
 
     public void generationNumber(int lengthList) {
         for (int i = 0; i < lengthList; i++) {
