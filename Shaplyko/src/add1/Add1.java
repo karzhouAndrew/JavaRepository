@@ -12,7 +12,7 @@ public class Add1 {
         while (n > 0) {
             number *= 10;
             sum += (int) number;
-            number = number - (int) number;
+            number -= (int) number;
             n--;
         }
         System.out.println(sum);
