@@ -1,6 +1,8 @@
 package lab16dop;
 
 public class Cube {
+    private String colorRGB;
+
     public int calculationArea(int side) {
         return side * side * 6;
     }
@@ -9,8 +11,7 @@ public class Cube {
         return side * side * side;
     }
 
-    public void paint(String color) {
-        String colorRGB;
+    public void setPaint(String color) {
         if (color == "black") {
             colorRGB = "Цвет куба черный";
         } else if (color == "red") {

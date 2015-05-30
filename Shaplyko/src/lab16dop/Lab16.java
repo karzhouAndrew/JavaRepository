@@ -12,7 +12,7 @@ public class Lab16 {
         Cube cube = new Cube();
         int resultV = cube.calculationVolume(side);
         int resultS = cube.calculationArea(side);
-        cube.paint ("red");
+        cube.setPaint ("red");
         System.out.println("Объем куба = " + resultV + " Площадь  = " + resultS);
     }
 }
