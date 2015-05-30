@@ -1,8 +1,5 @@
 package lab23;
 
-/**
- * Created by Константин on 15.05.2015.
- */
 public class Atm {
     private int denomination20;
     private int denomination50;
@@ -15,7 +12,7 @@ public class Atm {
     }
 
     public int getDenomination20() {
-        return this.denomination20;
+        return denomination20;
     }
 
     public int getDenomination50() {
@@ -26,40 +23,49 @@ public class Atm {
         return denomination100;
     }
 
-    public void setDenomination20(int denomination20) {
-        this.denomination20 = this.denomination20 + denomination20;
+    public void enterDenomination20(int denomination20) {
+        this.denomination20 += denomination20;
     }
 
-    public void setDenomination50(int denomination50) {
-        this.denomination50 = this.denomination50 + denomination50;
+    public void enterDenomination50(int denomination50) {
+        this.denomination50 += denomination50;
     }
 
-    public void setDenomination100(int denomination100) {
-        this.denomination100 = this.denomination100 + denomination100;
+    public void enterDenomination100(int denomination100) {
+        this.denomination100 += denomination100;
     }
 
     private int amountMoney(int denomination100, int denomination50, int denomination20) {
         return (denomination100 * 100 + denomination50 * 50 + denomination20 * 20);
     }
 
+    private int amountBills100(int total) {
+        return (total - total % 100) / 100;
+    }
+
+    private int amountBills50(int total) {
+        return ((total - amountBills100(total) * 100) - (total - amountBills100(total) * 100) % 50) / 50;
+    }
+
+    private int amountBills20(int total) {
+        return ((total - (amountBills100(total) * 100 + amountBills50(total) * 50)) - (total - (amountBills100(total) * 100
+                + amountBills50(total) * 50)) % 20) / 20;
+    }
+
     public boolean withdrawMoney(int total) {
         boolean operation = false;
         if (amountMoney(denomination100, denomination50, denomination20) >= total) {
-            int amountBills100 = (total - total % 100) / 100;
-            int amountBills50 = ((total - amountBills100 * 100) - (total - amountBills100 * 100) % 50) / 50;
-            int amountBills20 = ((total - (amountBills100 * 100 + amountBills50 * 50)) - (total - (amountBills100 * 100
-                    + amountBills50 * 50)) % 20) / 20;
-            if (amountBills100 * 100 + amountBills50 * 50 + amountBills20 * 20 == total) {
-                if ((denomination100 >= amountBills100) && (denomination50 >= amountBills50) &&
-                        (denomination20 >= amountBills20)) {
-                    denomination100 = denomination100 - amountBills100;
-                    denomination50 = denomination50 - amountBills50;
-                    denomination20 = denomination20 - amountBills20;
+            if (amountBills100(total) * 100 + amountBills50(total) * 50 + amountBills20(total) * 20 == total) {
+                if ((denomination100 >= amountBills100(total)) && (denomination50 >= amountBills50(total)) &&
+                        (denomination20 >= amountBills20(total))) {
+                    denomination100 -= amountBills100(total);
+                    denomination50 -= amountBills50(total);
+                    denomination20 -= amountBills20(total);
                     operation = true;
                     System.out.println("Операция произошла успешно =  " + operation);
-                    System.out.println("Сумма выдается количеством купюр 100 дол. = " + amountBills100 +
-                            " количеством купюр 50 дол. = " + amountBills50 +
-                            " количеством купюр 20 дол. = " + amountBills20);
+                    System.out.println("Сумма выдается количеством купюр 100 дол. = " + amountBills100(total) +
+                            " количеством купюр 50 дол. = " + amountBills50(total) +
+                            " количеством купюр 20 дол. = " + amountBills20(total));
                 }
             } else {
                 System.out.println("Недостаточно купюр =  " + operation);

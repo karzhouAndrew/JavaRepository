@@ -12,9 +12,9 @@ package lab23;
 public class Lab23 {
     public static void main(String[] args) {
         Atm atm = new Atm(0, 0, 0);
-        atm.setDenomination100(2);
-        atm.setDenomination50(1);
-        atm.setDenomination20(1);
+        atm.enterDenomination100(2);
+        atm.enterDenomination50(1);
+        atm.enterDenomination20(1);
         atm.getDenomination100();
         atm.withdrawMoney(220);
     }
