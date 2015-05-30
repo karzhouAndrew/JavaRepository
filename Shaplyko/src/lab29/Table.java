@@ -4,10 +4,10 @@ import java.util.Map;
 
 
 public class Table {
-    Map<String, Integer> words = new HashMap<String, Integer>();
+   private Map<String, Integer> words = new HashMap<String, Integer>();
 
     public void creationTable(String str) {
-        String strSentences[] = str.toString().split("[.!?,]");
+        String strSentences[] = str.split("[.!?,]");
         for (int i = 0; i < strSentences.length; ++i) {
             String[] strWord = strSentences[i].split(" ");
             for (int k = 0; k < strWord.length; ++k) {
