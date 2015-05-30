@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Scan {
-    public static int consonant(String str) {
+    public static int numberConsonant(String str) {
         int countConsonant = 0;
         char[] consonant = "БВГДЖЗЙКЛМНПРСТФХЦЧШЩЪЬбвгджзйклмнпрстфхцчшщьъ".toCharArray();
         char[] suppose = str.toCharArray();
@@ -18,7 +18,7 @@ public class Scan {
         return countConsonant;
     }
 
-    public static int vowel(String str) {
+    public static int numberVowel(String str) {
         int countVowel = 0;
         char[] vowel = "АЕЁИОУЫЭЮЯаеёиоуыэюя".toCharArray();
         char[] suppose = str.toCharArray();
@@ -45,7 +45,7 @@ public class Scan {
         System.out.println(newProffer);
     }
 
-    public int space(String str) {
+    public int numberSpace(String str) {
         Pattern pattern = Pattern.compile(" ");
         Matcher matcher = pattern.matcher(str);
         int numberSpace = 0;
@@ -55,7 +55,7 @@ public class Scan {
         return numberSpace;
     }
 
-    public int paragraph(String str) {
+    public int numberParagraph(String str) {
         Pattern pattern = Pattern.compile("\\n+");
         Matcher matcher = pattern.matcher(str);
         int numberParagraph = 0;

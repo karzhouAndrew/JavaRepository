@@ -24,11 +24,11 @@ public class Add7 {
                 "Люди постарше любят обычные, бумажные книги.\n" +
                 "Вы берёте книгу, открываете её... Путешествие началось!";
         Scan scan = new Scan();
-        System.out.println("Гласных букв в тексте = " + scan.vowel(str));
-        System.out.println("Согласных букв в тексте = " + scan.consonant(str));
+        System.out.println("Гласных букв в тексте = " + scan.numberVowel(str));
+        System.out.println("Согласных букв в тексте = " + scan.numberConsonant(str));
         scan.separateSentence(str);
-        System.out.println("Пробелов в тексте = " + scan.space(str));
-        System.out.println("Абзацев в тексте = " + scan.paragraph(str));
+        System.out.println("Пробелов в тексте = " + scan.numberSpace(str));
+        System.out.println("Абзацев в тексте = " + scan.numberParagraph(str));
         scan.deleteSpace(str);
     }
 }
