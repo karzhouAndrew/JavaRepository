@@ -1,21 +1,16 @@
 package str6;
 
 public class Find {
+    public static final String DIVIDED_PUNCTUATION = "[-;:,.!?\\s]";
+
     public String findMirror(String str) {
-        String strWord[] = str.toString().split("[-;:,.!?\\s]");
+        String strWord[] = str.split(DIVIDED_PUNCTUATION);
         int lengthMax = 0;
         String result = null;
         for (int i = 0; i < strWord.length; i++) {
-            char[] arrayCharWord = strWord[i].toCharArray();
-            int length = 0;
-            for (int j = 0; j < arrayCharWord.length / 2; j++) {
-                if (arrayCharWord[j] == arrayCharWord[arrayCharWord.length - 1 - j]) {
-                    length++;
-                }
-            }
-            if (length == arrayCharWord.length / 2 && length > lengthMax) {
+            if (strWord[i].equals((new StringBuilder(strWord[i])).reverse().toString()) && strWord[i].length() > lengthMax) {
                 result = strWord[i];
-                lengthMax = length;
+                lengthMax = strWord[i].length();
             }
         }
         return result;
