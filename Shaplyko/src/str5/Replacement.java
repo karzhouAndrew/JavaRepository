@@ -3,7 +3,7 @@ package str5;
 public class Replacement {
     public StringBuilder replaceWord(String str) {
         StringBuilder newStr = new StringBuilder();
-        String strSentences[] = str.toString().split("[.!?]");
+        String strSentences[] = str.split("[.!?]");
         char[] arrayCharStr = str.toCharArray();
         char punctuationMark[] = new char[strSentences.length];
         int numberPunctuationMark = 0;
