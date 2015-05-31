@@ -15,4 +15,11 @@ public class Maestro extends CreditCard {
     public void setAmountCash(int amountCash) {
         this.amountCashEuro = amountCash;
     }
+
+    @Override
+    public String toString() {
+        return "Maestro{" +
+                "amountCashEuro=" + amountCashEuro +
+                '}';
+    }
 }

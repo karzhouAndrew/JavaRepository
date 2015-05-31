@@ -15,5 +15,12 @@ public class CreditCard extends Card {
     public void setPersonalData(String personalData) {
         this.personalData = personalData;
     }
+
+    @Override
+    public String toString() {
+        return "CreditCard{" +
+                "personalData='" + personalData + '\'' +
+                '}';
+    }
 }
 

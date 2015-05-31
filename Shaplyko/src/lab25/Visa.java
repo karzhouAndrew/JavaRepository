@@ -25,6 +25,14 @@ public class Visa extends CreditCard {
     public void setCountryService(String countryService) {
         this.countryService = countryService;
     }
+
+    @Override
+    public String toString() {
+        return "Visa{" +
+                "amountCashDollar=" + amountCashDollar +
+                ", countryService='" + countryService + '\'' +
+                '}';
+    }
 }
 
 

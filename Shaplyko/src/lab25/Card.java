@@ -14,5 +14,12 @@ public class Card {
     public void setIdentificationNumber(int identificationNumber) {
         this.identificationNumber = identificationNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "identificationNumber=" + identificationNumber +
+                '}';
+    }
 }
 
