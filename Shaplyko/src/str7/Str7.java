@@ -8,7 +8,8 @@ public class Str7 {
         String str = "Текст из которого удалить все c согласной буквы алава еееее буквы и слова ";
         int wordLength = 5;
         FindWord findWord = new FindWord();
-        System.out.print(findWord.separateWord(str, wordLength));
+        System.out.println(findWord.separateWord(str, wordLength));
+        System.out.println(findWord.separateWord2(str, wordLength));
     }
 }
 
