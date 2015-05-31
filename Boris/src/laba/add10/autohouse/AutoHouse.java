@@ -185,4 +185,8 @@ public class AutoHouse {
                 "listingExistedCar=" + listingExistedCar +
                 '}';
     }
+
+    public Map<Integer, Car> getListingExistedCar() {
+        return listingExistedCar;
+    }
 }
