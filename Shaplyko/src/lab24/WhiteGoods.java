@@ -1,17 +1,22 @@
 package lab24;
 
-public class WhiteGoods extends Technics {
-    private String plugged;
+public abstract class WhiteGoods extends Technics {
+      private boolean plugged;
+
+       public WhiteGoods(String brandName) {
+        super(brandName);
+
+    }
 
     public void pluggedIn(String brandName) {
-        plugged = "is included";
+        plugged = true;
     }
 
     public void unplugged(String brandName) {
-        plugged = "disabled";
+        plugged = false;
     }
 
-    public String getPlugged() {
+    public boolean getPlugged() {
         return plugged;
     }
 }

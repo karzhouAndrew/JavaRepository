@@ -17,4 +17,12 @@ public class Technics {
     public void setBrandName(String brandName) {
         this.brandName = brandName;
     }
+
+    @Override
+    public String toString() {
+        return "Technics{" +
+                "brandName='" + brandName + '\'' +
+                '}';
+    }
 }
+
