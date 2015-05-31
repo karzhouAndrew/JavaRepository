@@ -2,7 +2,7 @@ package str2;
 
 public class Sentence {
     public void sortingSentence(String str) {
-        String strSentences[] = str.toString().split("[.!?]");
+        String strSentences[] = str.split("[.!?]");
         int arrayIndexSentences[] = new int[strSentences.length];
         for (int i = 0; i < strSentences.length; ++i) {
             arrayIndexSentences[i] = strSentences[i].split(" ").length;
