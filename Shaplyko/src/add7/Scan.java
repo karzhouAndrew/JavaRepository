@@ -4,13 +4,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Scan {
+    public static final char[] CONSONANT = "БВГДЖЗЙКЛМНПРСТФХЦЧШЩЪЬбвгджзйклмнпрстфхцчшщьъ".toCharArray();
+    public static final char[] VOWEL = "АЕЁИОУЫЭЮЯаеёиоуыэюя".toCharArray();
+    public static final String FOR_SEPARATE_SENTENCE = "[А-Я][^!?.]+[!?.]+";
+
     public static int numberConsonant(String str) {
         int countConsonant = 0;
-        char[] consonant = "БВГДЖЗЙКЛМНПРСТФХЦЧШЩЪЬбвгджзйклмнпрстфхцчшщьъ".toCharArray();
         char[] suppose = str.toCharArray();
         for (int i = 0; i < suppose.length; ++i) {
-            for (int j = 0; j < consonant.length; j++) {
-                if (suppose[i] == consonant[j]) {
+            for (int j = 0; j < CONSONANT.length; j++) {
+                if (suppose[i] == CONSONANT[j]) {
                     countConsonant++;
                 }
             }
@@ -20,11 +23,11 @@ public class Scan {
 
     public static int numberVowel(String str) {
         int countVowel = 0;
-        char[] vowel = "АЕЁИОУЫЭЮЯаеёиоуыэюя".toCharArray();
+
         char[] suppose = str.toCharArray();
         for (int i = 0; i < suppose.length; ++i) {
-            for (int j = 0; j < vowel.length; j++) {
-                if (suppose[i] == vowel[j]) {
+            for (int j = 0; j < VOWEL.length; j++) {
+                if (suppose[i] == VOWEL[j]) {
                     countVowel++;
                 }
             }
@@ -33,7 +36,7 @@ public class Scan {
     }
 
     public void separateSentence(String str) {
-        Pattern pattern = Pattern.compile("[А-Я][^!?.]+[!?.]+");
+        Pattern pattern = Pattern.compile(FOR_SEPARATE_SENTENCE);
         Matcher matcher = pattern.matcher(str);
         StringBuilder newProffer = new StringBuilder();
         while (matcher.find()) {
