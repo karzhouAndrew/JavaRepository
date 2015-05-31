@@ -1,7 +1,7 @@
 package add9;
 
 public class CheckAnnotation {
-    int number;
+    private int number;
 
     public CheckAnnotation(int number) {
         this.number = number;
