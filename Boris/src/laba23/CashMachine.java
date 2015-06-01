@@ -30,7 +30,7 @@ public class CashMachine {
         }
     }
 
-    public boolean getCashMoney(int quantityMoney) {
+    public boolean possibilityTakeOffCash(int quantityMoney) {
         CashMachine cloneFieldsCashMachine = new CashMachine(quantity20, quantity50, quantity100);
         if (quantityMoney > 0) {
             if (quantityMoney <= quantity100 * NOMINAL_100 + quantity50 * NOMINAL_50 + quantity20 * NOMINAL_20) {
