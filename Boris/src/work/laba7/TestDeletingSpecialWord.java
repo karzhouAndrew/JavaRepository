@@ -10,6 +10,6 @@ public class TestDeletingSpecialWord {
                 "If you light a man on fire, he is warm for the rest of his life.\n";
         System.out.println(testString + "\n");
         System.out.println(
-                DeletingWordWithSpecialLength.DeleteWordStartingConsonantAndSpecifiedLength(testString, lengthDeletingWord));
+                DeletingWordWithSpecialLength.getTextWithoutWordStartingConsonantAndSpecifiedLength(testString, lengthDeletingWord));
     }
 }

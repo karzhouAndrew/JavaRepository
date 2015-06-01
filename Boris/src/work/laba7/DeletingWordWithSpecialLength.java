@@ -9,9 +9,9 @@ public class DeletingWordWithSpecialLength {
     private final static String SPECIAL_WORD_REGEX = "^[[B-Zb-zБ-Ъб-ъ0-9]&&[^eEyYuUiIoOуУеЕэЭоОыЫиИ]]\\w*";
     private final static Pattern WORD_PATTERN = Pattern.compile(SPECIAL_WORD_REGEX);
 
-    public static String DeleteWordStartingConsonantAndSpecifiedLength(String stringText, int deletingWordLength) {
+    public static String getTextWithoutWordStartingConsonantAndSpecifiedLength(String stringText, int deletingWordLength) {
         if (deletingWordLength < 0) {
-            return "Exception. Negative length.";
+            return "Exception. Negative word length.";
         } else if (deletingWordLength == 0) {
             return stringText;
         } else {
