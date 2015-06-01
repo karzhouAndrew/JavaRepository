@@ -13,36 +13,36 @@ public class Lab26 {
     private final static int GRADE_REQUIRED = 5;
 
     public static void main(String[] args) {
-        List<Integer> gradeList = getGradeList(getStudentList());
-        System.out.println(gradeList);
-        List<Integer> gradeReqList = getGradeRequiredList(gradeList);
-        System.out.println(gradeReqList);
+        List<Integer> studentsRatingList = getGradeList(getStudentList());
+        System.out.println(studentsRatingList);
+        List<Integer> studentsReqRatingList = getGradeRequiredList(studentsRatingList);
+        System.out.println(studentsReqRatingList);
     }
 
     public static List<Integer> getGradeList(List<Student> studentList) {
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> gradeList = new ArrayList<Integer>();
         for (int i = 0; i < GROUP_SIZE; i++) {
-            list.add((studentList.get(i)).getGrade());
+            gradeList.add((studentList.get(i)).getGrade());
         }
-        return list;
+        return gradeList;
     }
 
     private static List<Student> getStudentList() {
-        List<Student> list = new ArrayList<Student>();
+        List<Student> studentList = new ArrayList<Student>();
         for (int i = 0; i < GROUP_SIZE; i++) {
             int randomGrade = (int) (Math.random() * 10) + 1;
-            list.add(new Student(randomGrade));
+            studentList.add(new Student(randomGrade));
         }
-        return list;
+        return studentList;
     }
 
-    private static List<Integer> getGradeRequiredList(List<Integer> list) {
-        Iterator<Integer> iterator = list.iterator();
+    private static List<Integer> getGradeRequiredList(List<Integer> gradeRequiredList) {
+        Iterator<Integer> iterator = gradeRequiredList.iterator();
         while (iterator.hasNext()) {
             if (iterator.next() < GRADE_REQUIRED) {
                 iterator.remove();
             }
         }
-        return list;
+        return gradeRequiredList;
     }
 }
