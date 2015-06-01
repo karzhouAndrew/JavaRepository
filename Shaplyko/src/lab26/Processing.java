@@ -5,19 +5,19 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class Processing {
-    List<Integer> listMark = new ArrayList<Integer>();
+    private List<Student> listMark = new ArrayList<Student>();
 
     public void generationMark(int lengthList) {
         for (int i = 0; i < lengthList; i++) {
-            listMark.add(i, (int) (Math.random() * 10 + 1));
+            listMark.add(i, new Student("Ученик" + i, (int) (Math.random() * 10 + 1)));
         }
         System.out.println("Список оценок " + listMark);
     }
 
     public void processingMark() {
-        ListIterator<Integer> iterator = listMark.listIterator();
+        ListIterator<Student> iterator = listMark.listIterator();
         while (iterator.hasNext()) {
-            if (iterator.next() <= 3) {
+            if (iterator.next().getMark() <= 3) {
                 iterator.remove();
             }
         }
