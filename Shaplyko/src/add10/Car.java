@@ -1,16 +1,15 @@
 package add10;
 
-public class AutoHouse {
+public class Car {
     private String brand;
     private String model;
     private int graduationYear;
     private int price;
 
-
-    public AutoHouse() {
+    public Car() {
     }
 
-    public AutoHouse(String brand, String model, int graduationYear, int price) {
+    public Car(String brand, String model, int graduationYear, int price) {
         this.brand = brand;
         this.model = model;
         this.graduationYear = graduationYear;
@@ -19,17 +18,14 @@ public class AutoHouse {
     }
 
     public String getBrand() {
-
         return brand;
     }
 
     public String getModel() {
-
         return model;
     }
 
     public int getGraduationYear() {
-
         return graduationYear;
     }
 
@@ -38,17 +34,14 @@ public class AutoHouse {
     }
 
     public void setBrand(String brand) {
-
         this.brand = brand;
     }
 
     public void setModel(String model) {
-
         this.model = model;
     }
 
     public void setGraduationYear(int graduationYear) {
-
         this.graduationYear = graduationYear;
     }
 
@@ -62,12 +55,12 @@ public class AutoHouse {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AutoHouse autoHouse = (AutoHouse) o;
+        Car car = (Car) o;
 
-        if (graduationYear != autoHouse.graduationYear) return false;
-        if (price != autoHouse.price) return false;
-        if (!brand.equals(autoHouse.brand)) return false;
-        if (!model.equals(autoHouse.model)) return false;
+        if (graduationYear != car.graduationYear) return false;
+        if (price != car.price) return false;
+        if (!brand.equals(car.brand)) return false;
+        if (!model.equals(car.model)) return false;
 
         return true;
     }

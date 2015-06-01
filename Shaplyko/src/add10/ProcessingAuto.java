@@ -1,20 +1,21 @@
 package add10;
+
 import java.util.*;
 
 public class ProcessingAuto {
-    private Map<Integer, AutoHouse> autoMap = new HashMap<Integer, AutoHouse>();
+    private Map<Integer, Car> autoMap = new HashMap<Integer, Car>();
     private int vehicleNumber = 1000;
 
     public void startAutoHouse() {
-        autoMap.put(vehicleNumber++, new AutoHouse("SsangYong", "Korando", 2005, 9000));
-        autoMap.put(vehicleNumber++, new AutoHouse("SsangYong", "Rexston", 2009, 15000));
-        autoMap.put(vehicleNumber++, new AutoHouse("BMW", "X5", 2007, 14000));
-        autoMap.put(vehicleNumber++, new AutoHouse("BMW", "740", 2001, 8000));
-        autoMap.put(vehicleNumber++, new AutoHouse("BMW", "535", 2015, 17000));
+        autoMap.put(vehicleNumber++, new Car("SsangYong", "Korando", 2005, 9000));
+        autoMap.put(vehicleNumber++, new Car("SsangYong", "Rexston", 2009, 15000));
+        autoMap.put(vehicleNumber++, new Car("BMW", "X5", 2007, 14000));
+        autoMap.put(vehicleNumber++, new Car("BMW", "740", 2001, 8000));
+        autoMap.put(vehicleNumber++, new Car("BMW", "535", 2015, 17000));
     }
 
     public void additionVehicle() {
-        AutoHouse autoHouse = new AutoHouse();
+        Car autoHouse = new Car();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите марку автомобиля: ");
         autoHouse.setBrand(scanner.nextLine().toUpperCase());
@@ -48,7 +49,7 @@ public class ProcessingAuto {
         int numberMatches = 0;
         while (iterator.hasNext()) {
             int temp = iterator.next();
-            if (autoMap.get(temp).getBrand().compareTo(brand) == 0) {
+            if (autoMap.get(temp).getBrand().equalsIgnoreCase(brand)) {
                 System.out.println("VIN code = " + temp);
                 System.out.println(autoMap.get(temp));
                 numberMatches++;
@@ -79,16 +80,16 @@ public class ProcessingAuto {
     }
 
     public void graduationYearSort() {
-        YearSorting yearSorting = new YearSorting(autoMap);
-        Map<Integer, AutoHouse> yearSortAuto = new TreeMap<Integer, AutoHouse>(yearSorting);
+        YearComparator yearSorting = new YearComparator(autoMap);
+        Map<Integer, Car> yearSortAuto = new TreeMap<Integer, Car>(yearSorting);
         yearSortAuto.putAll(autoMap);
         printAutoHouse(yearSortAuto);
     }
 
 
     public void priceSort() {
-        PriceSorting priceSorting = new PriceSorting(autoMap);
-        Map<Integer, AutoHouse> priceSortAuto = new TreeMap<Integer, AutoHouse>(priceSorting);
+        PriceComparator priceSorting = new PriceComparator(autoMap);
+        Map<Integer, Car> priceSortAuto = new TreeMap<Integer, Car>(priceSorting);
         priceSortAuto.putAll(autoMap);
         printAutoHouse(priceSortAuto);
 
@@ -104,7 +105,7 @@ public class ProcessingAuto {
         }
     }
 
-    public void printAutoHouse(Map<Integer, AutoHouse> autoMap) {
+    public void printAutoHouse(Map<Integer, Car> autoMap) {
         Iterator<Integer> iterator = autoMap.keySet().iterator();
         while (iterator.hasNext()) {
             int temp = iterator.next();
