@@ -1,10 +1,11 @@
 package dopLab9;
 
-public class Methods {
+public class ClassTransaction {
 
     @Transaction
-    public void go() {
-        System.out.println("Метод go");
+    public void go(String str) {
+
+        System.out.println(str);
     }
 
     public void run() {
