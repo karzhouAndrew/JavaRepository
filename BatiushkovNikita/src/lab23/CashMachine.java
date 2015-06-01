@@ -28,13 +28,13 @@ public class CashMachine {
         arrAmount[2] += numBanknotes20;
     }
 
-    private boolean transaction(int amountOfMoney) {
-        if (amountOfMoney == 0) {
+    private boolean transaction(int amountMoney) {
+        if (amountMoney == 0) {
             return true;
         } else {
             for (int i = 0; i < arrValues.length; i++) {
                 int value = arrValues[i];
-                if (amountOfMoney >= i && transaction(amountOfMoney - value)) {
+                if (amountMoney >= i && transaction(amountMoney - value)) {
                     if (arrAmount[i] > 0) {
                         arrAmount[i]--;
                         arrIssued[i]++;
@@ -48,9 +48,9 @@ public class CashMachine {
         return false;
     }
 
-    public void getMoney(int amountOfMoney) {
-        System.out.println("The required amount: " + amountOfMoney);
-        if (transaction(amountOfMoney)) {
+    public void viewTransaction(int amountMoney) {
+        System.out.println("The required amount: " + amountMoney);
+        if (transaction(amountMoney)) {
             System.out.println("Transaction is possible.");
             System.out.println("Take your money:");
             System.out.println("100: " + arrIssued[0]);

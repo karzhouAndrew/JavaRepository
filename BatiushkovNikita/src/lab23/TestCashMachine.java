@@ -13,6 +13,6 @@ public class TestCashMachine {
     public static void main(String[] args) {
         CashMachine cashMachine = new CashMachine(0, 0, 0);
         cashMachine.addMoney(10, 10, 10);
-        cashMachine.getMoney(390);
+        cashMachine.viewTransaction(390);
     }
 }
