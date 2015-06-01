@@ -10,28 +10,28 @@ public class Lab27 {
     private final static int SIZE = 10;
 
     public static void main(String[] args) {
-        List<Integer> list = getRandomIntegerList(SIZE);
-        System.out.println(list);
-        System.out.println(getUniqueIntegerList(list));
-        System.out.println(getUniqueIntegerList2(list));
+        List<Integer> randomIntegerList = getRandomIntegerList(SIZE);
+        System.out.println(randomIntegerList);
+        System.out.println(getUniqueIntegerList(randomIntegerList));
+        System.out.println(getUniqueIntegerList2(randomIntegerList));
     }
 
-    private static List<Integer> getUniqueIntegerList2(List<Integer> list) {
-        List<Integer> uniqueList = new ArrayList<Integer>();
-        for (int value : list) {
-            if (!uniqueList.contains(value)) {
-                uniqueList.add(value);
+    private static List<Integer> getUniqueIntegerList2(List<Integer> integerList) {
+        List<Integer> uniqueIntegerList = new ArrayList<Integer>();
+        for (int value : integerList) {
+            if (!uniqueIntegerList.contains(value)) {
+                uniqueIntegerList.add(value);
             }
         }
-        return uniqueList;
+        return uniqueIntegerList;
     }
 
-    private static Set<Integer> getUniqueIntegerList(List<Integer> list) {
-        Set<Integer> set = new HashSet<Integer>(SIZE);
-        for (int value : list) {
-            set.add(value);
+    private static Set<Integer> getUniqueIntegerList(List<Integer> integerList) {
+        Set<Integer> integerSet = new HashSet<Integer>(SIZE);
+        for (int value : integerList) {
+            integerSet.add(value);
         }
-        return set;
+        return integerSet;
     }
 
     private static List<Integer> getRandomIntegerList(int size) {
