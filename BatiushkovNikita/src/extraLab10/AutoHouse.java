@@ -28,16 +28,8 @@ public class AutoHouse {
         Set<Map.Entry<Integer, Car>> sortedCars = new TreeSet<Map.Entry<Integer, Car>>(
                 new Comparator<Map.Entry<Integer, Car>>() {
                     @Override
-                    public int compare(Map.Entry<Integer, Car> car1, Map.Entry<Integer, Car> car2) {
-                        int compareValue1 = car1.getValue().getPrice();
-                        int compareValue2 = car2.getValue().getPrice();
-                        if (compareValue1 < compareValue2) {
-                            return -1;
-                        } else if (compareValue1 == compareValue2) {
-                            return 0;
-                        } else {
-                            return 1;
-                        }
+                    public int compare(Map.Entry<Integer, Car> compareCar1, Map.Entry<Integer, Car> compareCar2) {
+                        return Integer.compare(compareCar1.getValue().getPrice(), compareCar2.getValue().getPrice());
                     }
                 }
         );
@@ -49,16 +41,8 @@ public class AutoHouse {
         Set<Map.Entry<Integer, Car>> sortedCars = new TreeSet<Map.Entry<Integer, Car>>(
                 new Comparator<Map.Entry<Integer, Car>>() {
                     @Override
-                    public int compare(Map.Entry<Integer, Car> car1, Map.Entry<Integer, Car> car2) {
-                        int compareValue1 = car1.getValue().getYear();
-                        int compareValue2 = car2.getValue().getYear();
-                        if (compareValue1 < compareValue2) {
-                            return -1;
-                        } else if (compareValue1 == compareValue2) {
-                            return 0;
-                        } else {
-                            return 1;
-                        }
+                    public int compare(Map.Entry<Integer, Car> compareCar1, Map.Entry<Integer, Car> compareCar2) {
+                        return Integer.compare(compareCar1.getValue().getYear(), compareCar2.getValue().getYear());
                     }
                 }
         );
