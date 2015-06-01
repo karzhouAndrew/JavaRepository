@@ -6,43 +6,22 @@ package add2;
  */
 public class Add2 {
     public static void main(String[] args) {
-        double[] array = {2, 4, 4, 7};
-        double maxArray = array[0];
-        int n = 0;
-        int i = 0;
-        while (i < array.length) {
-            if (maxArray <= array[i]) {
-                maxArray = array[i];
-                n++;
-            }
-            i++;
+        int numberA = 2;
+        int numberB = 4;
+        int numberC = 4;
+        int numberD = 7;
+        if (numberA <= numberB && numberB <= numberC && numberC <= numberD) {
+            numberA = numberD;
+            numberB = numberD;
+            numberC = numberD;
+        } else if (!(numberA > numberB && numberB > numberC && numberC > numberD)) {
+            numberA = (int) Math.pow(numberA, 2);
+            numberB = (int) Math.pow(numberB, 2);
+            numberC = (int) Math.pow(numberC, 2);
+            numberD = (int) Math.pow(numberD, 2);
         }
-        if ((n) == array.length) {
-            i = 0;
-            while (i < array.length) {
-                array[i] = maxArray;
-                i++;
-            }
-        } else {
-            i = 0;
-            n = 0;
-            double minArray = array[0];
-            while (i < array.length) {
-                if (minArray > array[i]) {
-                    minArray = array[i];
-                    n++;
-                }
-                i++;
-            }
-            if ((n + 1) == array.length) {
-            } else {
-                i = 0;
-                while (i < array.length) {
-                    array[i] = Math.pow(array[i], 2);
-                    i++;
-                }
-            }
-        }
-        System.out.println(Arrays.toString(array));
+        System.out.println("Число a = " + numberA + " Число b = " + numberB + " Число c = " + numberC +
+                " Число d = " + numberD);
     }
 }
+
