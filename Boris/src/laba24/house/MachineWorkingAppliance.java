@@ -3,7 +3,7 @@ package laba24.house;
 import laba24.HouseAppliances;
 
 public abstract class MachineWorkingAppliance extends HouseAppliances {
-    protected String maxVelocity;
+    private String maxVelocity;
 
     public MachineWorkingAppliance(String brand, String price, boolean isTurnOn, String maxVelocity) {
         super(brand, price, isTurnOn);
