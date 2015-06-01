@@ -9,8 +9,8 @@ public class Processing {
     public void generationNumber(int lengthList) {
         for (int i = 0; i < lengthList; i++) {
             listNumber.add(i, (int) (Math.random() * 10 + 1));
+            System.out.print(listNumber.get(i));
         }
-        System.out.println("Список чисел " + listNumber);
     }
 
     public void processingNumber() {
@@ -21,6 +21,6 @@ public class Processing {
                 }
             }
         }
-        System.out.println("Список чисел после редактирования " + listNumber);
+        System.out.println(" Список чисел после редактирования " + listNumber);
     }
 }
