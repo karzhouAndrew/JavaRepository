@@ -15,13 +15,13 @@ public class Task29 {
         return wordsArray;
     }
 
-    public static Map<String, Integer> getWordsFrequency(String text) {
+    public static Map<String, Integer> calculateWordsFrequency(String text) {
         String[] wordsArray = getWords(text);
         for (String word : wordsArray) {
             word = word.toLowerCase();
             Integer wordFrequency = wordsFrequency.get(word);
             if (wordsFrequency.containsKey(word)) {
-                wordsFrequency.put(word, ++wordFrequency);
+                wordsFrequency.put(word, wordFrequency + 1);
             } else {
                 wordsFrequency.put(word, 1);
             }
