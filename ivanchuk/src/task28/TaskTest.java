@@ -8,6 +8,6 @@ public class TaskTest {
         StudentsList studentsList = new StudentsList(10);
         System.out.println("Исходный список оценок:");
         System.out.println(studentsList);
-        System.out.println("Наибольшая оценка: " + studentsList.getMaxMarks());
+        System.out.println("Наибольшая оценка: " + studentsList.calculateMaxMarks());
     }
 }

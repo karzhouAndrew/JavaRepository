@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class StudentsList {
-    private List<Student> studentsList;
+    private List<Student> students;
 
     class Student {
         private final String NAME;
@@ -27,24 +27,24 @@ public class StudentsList {
     }
 
     public StudentsList(int marksQuantity) {
-        studentsList = new ArrayList<Student>(marksQuantity);
+        students = new ArrayList<Student>(marksQuantity);
         for (int i = 0; i < marksQuantity; i++) {
-            studentsList.add(new Student("Student" + (i + 1), (int) (Math.random() * 10 + 1)));
+            students.add(new Student("Student" + (i + 1), (int) (Math.random() * 10 + 1)));
         }
     }
 
     @Override
     public String toString() {
         StringBuilder text = new StringBuilder();
-        for (Student student : studentsList) {
+        for (Student student : students) {
             text.append(student).append("\n");
         }
         return new String(text);
     }
 
-    public int getMaxMarks() {
-        Iterator<Student> marksIterator = studentsList.iterator();
-        int maxMark = studentsList.get(0).getMark();
+    public int calculateMaxMarks() {
+        Iterator<Student> marksIterator = students.iterator();
+        int maxMark = students.get(0).getMark();
         while (marksIterator.hasNext()) {
             int mark = marksIterator.next().getMark();
             if (mark > maxMark) {
