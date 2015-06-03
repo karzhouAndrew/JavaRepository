@@ -3,7 +3,6 @@ package laba.add9;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Objects;
 
 public class AnnotationAnalyzer {
     public void checkClass (Class<?> clazz) throws InvocationTargetException, IllegalAccessException, InstantiationException {
