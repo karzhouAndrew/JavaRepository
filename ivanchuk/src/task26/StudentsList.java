@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class StudentsList {
-    private List<Student> studentsList;
+    private List<Student> students;
 
     class Student {
         private final String NAME;
@@ -27,28 +27,30 @@ public class StudentsList {
     }
 
     public StudentsList(int marksQuantity) {
-        studentsList = new ArrayList<Student>(marksQuantity);
+        students = new ArrayList<Student>(marksQuantity);
         for (int i = 0; i < marksQuantity; i++) {
-            studentsList.add(new Student("Student" + (i + 1), (int) (Math.random() * 10 + 1)));
+            students.add(new Student("Student" + (i + 1), (int) (Math.random() * 10 + 1)));
         }
     }
 
     @Override
     public String toString() {
         StringBuilder text = new StringBuilder();
-        for (Student student : studentsList) {
+        for (Student student : students) {
             text.append(student).append("\n");
         }
         return new String(text);
     }
 
-    public void deleteBadMarks() {
-        Iterator<Student> marksIterator = studentsList.iterator();
+    public List<Student> deleteBadMarks() {
+        List<Student> studentsWithoutBadMarks = new ArrayList<Student>(students);
+        Iterator<Student> marksIterator = studentsWithoutBadMarks.iterator();
         while (marksIterator.hasNext()) {
             if (marksIterator.next().getMark() <= 5) {
                 marksIterator.remove();
             }
         }
+        return studentsWithoutBadMarks;
     }
 }
 
