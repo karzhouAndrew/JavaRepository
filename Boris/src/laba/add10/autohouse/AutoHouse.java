@@ -33,7 +33,7 @@ public class AutoHouse {
     }
 
     public Map<Integer, Car> getIDSortByConstructYear() throws NullListException {
-        if (cars.isEmpty()){
+        if (cars.isEmpty()) {
             throw new NullListException();
         }
         Map<Integer, Car> sortForConstructYear = new TreeMap<Integer, Car>(
@@ -67,9 +67,9 @@ public class AutoHouse {
 
 
     public Map<Integer, Car> getCarSortByPrice() throws NullListException {
-            if (cars.isEmpty()){
-                throw new NullListException();
-            }
+        if (cars.isEmpty()) {
+            throw new NullListException();
+        }
         Map<Integer, Car> sortForPrice = new TreeMap<Integer, Car>(
                 new Comparator() {
                     @Override
@@ -154,7 +154,6 @@ public class AutoHouse {
         findIDWithSpecifiedPrice(price, listingID);
         removeCarForIDList(listingID);
     }
-
 
 
     public void removeAllCar() {

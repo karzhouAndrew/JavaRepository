@@ -10,8 +10,7 @@ public class Car {
     private int price;
 
 
-
-   public Car(CompanyEnum company, int constructYear, int price) {
+    public Car(CompanyEnum company, int constructYear, int price) {
         this.company = company;
         this.constructYear = new GregorianCalendar(constructYear, 0, 1);
         this.price = price;

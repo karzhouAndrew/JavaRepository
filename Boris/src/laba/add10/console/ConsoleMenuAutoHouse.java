@@ -65,27 +65,27 @@ public class ConsoleMenuAutoHouse {
 
     private static void startMethodRemoveCarInAutoHouse() {
         int selectedMethod = selectRemoveParameters();
-       try {
-           if (selectedMethod == 1) {
-               carsListing.removeCarForSpecify(getConsoleEnumCompany(), getConsoleConstructingYear(), getConsolePrice());
-           } else if (selectedMethod == 2) {
-               carsListing.removeCarForSpecify(getConsoleEnumCompany(), getConsoleConstructingYear(), -1);
-           } else if (selectedMethod == 3) {
-               carsListing.removeCarForSpecify(getConsoleEnumCompany(), -1, -1);
-           } else if (selectedMethod == 4) {
-               carsListing.removeCarForSpecify(null, getConsoleConstructingYear(), getConsolePrice());
-           } else if (selectedMethod == 5) {
-               carsListing.removeCarForSpecify(null, getConsoleConstructingYear(), -1);
-           } else if (selectedMethod == 6) {
-               carsListing.removeAllCar();
-           } else if (selectedMethod == 7) {
-               carsListing.removeCarForID(getConsoleID());
-           } else if (selectedMethod == 0) {
-               return;
-           }
-       } catch (NullListException e){
-           System.out.println("There are no cars with this ID in listing AutoHouse.");
-       }
+        try {
+            if (selectedMethod == 1) {
+                carsListing.removeCarForSpecify(getConsoleEnumCompany(), getConsoleConstructingYear(), getConsolePrice());
+            } else if (selectedMethod == 2) {
+                carsListing.removeCarForSpecify(getConsoleEnumCompany(), getConsoleConstructingYear(), -1);
+            } else if (selectedMethod == 3) {
+                carsListing.removeCarForSpecify(getConsoleEnumCompany(), -1, -1);
+            } else if (selectedMethod == 4) {
+                carsListing.removeCarForSpecify(null, getConsoleConstructingYear(), getConsolePrice());
+            } else if (selectedMethod == 5) {
+                carsListing.removeCarForSpecify(null, getConsoleConstructingYear(), -1);
+            } else if (selectedMethod == 6) {
+                carsListing.removeAllCar();
+            } else if (selectedMethod == 7) {
+                carsListing.removeCarForID(getConsoleID());
+            } else if (selectedMethod == 0) {
+                return;
+            }
+        } catch (NullListException e) {
+            System.out.println("There are no cars with this ID in listing AutoHouse.");
+        }
         System.out.println("Cars were deleted.");
     }
 
