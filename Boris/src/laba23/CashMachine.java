@@ -32,24 +32,42 @@ public class CashMachine {
 
     public boolean possibilityTakeOffCash(int quantityMoney) {
         CashMachine cloneFieldsCashMachine = new CashMachine(quantity20, quantity50, quantity100);
+        if (isCorrectMoneyAmount(quantityMoney, cloneFieldsCashMachine)) {
+            writtenOffMoney(quantityMoney);
+            System.out.println("Деньги списаны в кол-ве " + quantityMoney + ". "
+                    + (cloneFieldsCashMachine.quantity100 - this.quantity100)
+                    + " купюр номиналом 100, " + (cloneFieldsCashMachine.quantity50 - this.quantity50)
+                    + " купюр номиналом 50, " + (cloneFieldsCashMachine.quantity20 - this.quantity20)
+                    + " купюр номиналом 20 " + " и выданы.");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isCorrectMoneyAmount(int quantityMoney, CashMachine cloneFieldsCashMachine) {
         if (quantityMoney > 0) {
-            if (quantityMoney <= quantity100 * NOMINAL_100 + quantity50 * NOMINAL_50 + quantity20 * NOMINAL_20) {
-                if (enoughPaperMoney(quantityMoney)) {
-                    System.out.println("Деньги списаны в кол-ве" + (cloneFieldsCashMachine.quantity100 - this.quantity100)
-                            + " купюр номиналом 100, " + (cloneFieldsCashMachine.quantity50 - this.quantity50)
-                            + " купюр номиналом 50, " + (cloneFieldsCashMachine.quantity20 - this.quantity20)
-                            + " купюр номиналом 20 " + " и выданы.");
-                    return true;
-                } else {
-                    System.out.println("В банкомате не хватает купюр с определенным номиналом.");
-                    return false;
-                }
-            } else {
-                System.out.println("В банкомате нет столько денег.");
-                return false;
-            }
+            return isThisEnoughMoney(quantityMoney, cloneFieldsCashMachine);
         } else {
             System.out.println("Введено некорректное значение снимаемой суммы.");
+            return false;
+        }
+    }
+
+    private boolean isThisEnoughMoney(int quantityMoney, CashMachine cloneFieldsCashMachine) {
+        if (quantityMoney <= quantity100 * NOMINAL_100 + quantity50 * NOMINAL_50 + quantity20 * NOMINAL_20) {
+            return isEnoughQuantityBankNotes(quantityMoney, cloneFieldsCashMachine);
+        } else {
+            System.out.println("В банкомате нет столько денег.");
+            return false;
+        }
+    }
+
+    private boolean isEnoughQuantityBankNotes(int quantityMoney, CashMachine cloneFieldsCashMachine) {
+        if (isEnoughPaperMoney(quantityMoney)) {
+            return true;
+        } else {
+            System.out.println("В банкомате не хватает купюр с определенным номиналом.");
             return false;
         }
     }
@@ -74,20 +92,34 @@ public class CashMachine {
 
     }
 
-    private boolean enoughPaperMoney(int quantityMoney) {
+    private void writtenOffMoney(int money) {
+        if (money % 20 == 0) {
+            writtenOffMoney((money % NOMINAL_100) / NOMINAL_20, 0, money);
+        } else {
+            writtenOffMoney((money - NOMINAL_50) % NOMINAL_100 / NOMINAL_20, 1, money);
+        }
+    }
+
+    private boolean isEnoughPaperMoney(int quantityMoney) {
         if (quantityMoney % NOMINAL_20 == 0) {
-            if (quantity20 >= (quantityMoney % NOMINAL_100) / NOMINAL_20) {
-                writtenOffMoney((quantityMoney % NOMINAL_100) / NOMINAL_20, 0, quantityMoney);
-                return true;
-            } else {
-                return false;
-            }
+            return isEnough20BankNotes(quantityMoney);
         } else if ((quantityMoney - NOMINAL_50) % 20 == 0) {
-            if (quantity50 >= 1 && quantity20 >= ((quantityMoney - NOMINAL_50) % NOMINAL_100) / NOMINAL_20) {
-                writtenOffMoney((quantityMoney - NOMINAL_50) % NOMINAL_100 / NOMINAL_20, 1, quantityMoney);
-                return true;
-            }
+            return isEnough20And50BankNotes(quantityMoney);
+        } else {
             return false;
+        }
+    }
+
+    private boolean isEnough20And50BankNotes(int quantityMoney) {
+        if (quantity50 >= 1 && quantity20 >= ((quantityMoney - NOMINAL_50) % NOMINAL_100) / NOMINAL_20) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isEnough20BankNotes(int quantityMoney) {
+        if (quantity20 >= (quantityMoney % NOMINAL_100) / NOMINAL_20) {
+            return true;
         } else {
             return false;
         }
