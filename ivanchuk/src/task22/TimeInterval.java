@@ -31,7 +31,7 @@ public class TimeInterval {
         return hours;
     }
 
-    public int allSeconds() {
+    public int getAllSeconds() {
         int seconds = this.seconds;
         seconds += this.minutes * 60;
         seconds += this.hours * 3600;
@@ -40,9 +40,11 @@ public class TimeInterval {
 
     public int compareTo(TimeInterval anotherTimeInterval) {
         if (hours != anotherTimeInterval.hours) {
-            return hours - anotherTimeInterval.hours;
+            return Integer.compare(hours, anotherTimeInterval.hours);
         } else if (minutes != anotherTimeInterval.minutes) {
-            return minutes - anotherTimeInterval.minutes;
-        } else return seconds - anotherTimeInterval.seconds;
+            return Integer.compare(minutes, anotherTimeInterval.minutes);
+        } else {
+            return Integer.compare(seconds, anotherTimeInterval.seconds);
+        }
     }
 }
