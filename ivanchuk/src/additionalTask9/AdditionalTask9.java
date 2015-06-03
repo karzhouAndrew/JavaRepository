@@ -1,22 +1,23 @@
 package additionalTask9;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class AdditionalTask9 {
-    private static final char[] NUMBERS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    private static final String NUMBERS_PATTERN = "\\d+";
 
     public static String replaceChild(String text) {
         return text.replaceAll("child", "children");
     }
 
-    public static StringBuilder deleteNumbers(StringBuilder text) {
+    public static StringBuilder deleteNumbers(String text) {
         StringBuilder textWithoutNumbers = new StringBuilder(text);
+        Pattern pattern = Pattern.compile(NUMBERS_PATTERN);
+        Matcher matcher = pattern.matcher(text);
         int numbersQuantity = 0;
-        for (int i = 0; i < text.length(); i++) {
-            for (char number : NUMBERS) {
-                if (text.charAt(i) == number) {
-                    textWithoutNumbers.delete(i - numbersQuantity, i - numbersQuantity + 1);
-                    numbersQuantity++;
-                }
-            }
+        while (matcher.find()) {
+            textWithoutNumbers.delete(matcher.start() - numbersQuantity, matcher.end() - numbersQuantity);
+            numbersQuantity += matcher.end() - matcher.start();
         }
         return textWithoutNumbers;
     }

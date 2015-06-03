@@ -6,7 +6,7 @@ package additionalTask9;
 public class TaskTest {
     public static void main(String[] args) {
         String text = "I 5656children7 chil9990 7867child67";
-        StringBuilder textEdited = new StringBuilder(AdditionalTask9.replaceChild(text));
+        String textEdited = AdditionalTask9.replaceChild(text);
         System.out.println("Отредактированный текст: " + AdditionalTask9.deleteNumbers(textEdited));
     }
 }
