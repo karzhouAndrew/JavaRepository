@@ -9,9 +9,9 @@ public class CubeTest {
         System.out.println("Введите длину ребра куба.");
         Scanner in = new Scanner(System.in);
         Cube cube = new Cube(in.nextInt());
-        int cubeArea = cube.area();
+        int cubeArea = cube.calculateArea();
         System.out.println("Площадь куба с ребром " + cube.getEdgeLength() + " равна " + cubeArea);
-        int cubeVolume = cube.volume();
+        int cubeVolume = cube.calculateVolume();
         System.out.println("Объем куба с ребром " + cube.getEdgeLength() + " равен " + cubeVolume);
         System.out.println("Введите цвет, в который хотите перекрасить куб.");
         String oldColor = cube.getColor();

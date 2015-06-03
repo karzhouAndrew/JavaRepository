@@ -20,11 +20,11 @@ public class Cube {
         this.color = color;
     }
 
-    public int area() {
+    public int calculateArea() {
         return 6 * edgeLength * edgeLength;
     }
 
-    public int volume() {
+    public int calculateVolume() {
         return edgeLength * edgeLength * edgeLength;
     }
 }
