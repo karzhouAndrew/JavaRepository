@@ -12,30 +12,30 @@ public class Lab28 {
     private final static int GROUP_SIZE = 10;
 
     public static void main(String[] args) {
-        List<Integer> studentsRatingList = getGradeList(getStudentList());
-        System.out.println(studentsRatingList);
-        System.out.println(getMaxValue(studentsRatingList));
+        List<Integer> studentsRating = getGrades(getStudents());
+        System.out.println(studentsRating);
+        System.out.println(getMaxValue(studentsRating));
     }
 
-    public static List<Integer> getGradeList(List<Student> studentList) {
-        List<Integer> gradeList = new ArrayList<Integer>();
+    public static List<Integer> getGrades(List<Student> students) {
+        List<Integer> grades = new ArrayList<Integer>();
         for (int i = 0; i < GROUP_SIZE; i++) {
-            gradeList.add((studentList.get(i)).getGrade());
+            grades.add((students.get(i)).getGrade());
         }
-        return gradeList;
+        return grades;
     }
 
-    private static List<Student> getStudentList() {
-        List<Student> studentList = new ArrayList<Student>();
+    private static List<Student> getStudents() {
+        List<Student> students = new ArrayList<Student>();
         for (int i = 0; i < GROUP_SIZE; i++) {
             int randomGrade = (int) (Math.random() * 10) + 1;
-            studentList.add(new Student(randomGrade));
+            students.add(new Student(randomGrade));
         }
-        return studentList;
+        return students;
     }
 
-    private static int getMaxValue(List<Integer> studentList) {
-        Iterator<Integer> iterator = studentList.iterator();
+    private static int getMaxValue(List<Integer> students) {
+        Iterator<Integer> iterator = students.iterator();
         int maxValue = 0;
         while (iterator.hasNext()) {
             int value = iterator.next();
