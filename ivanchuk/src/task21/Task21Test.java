@@ -12,6 +12,6 @@ public class Task21Test {
         Scanner in = new Scanner(System.in);
         String text = in.nextLine();
         in.close();
-        System.out.println(Task21.simpleParagraph(text));
+        System.out.println(Task21.replaceWithSimpleParagraph(text));
     }
 }

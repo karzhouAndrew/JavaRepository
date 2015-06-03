@@ -1,9 +1,9 @@
 package task21;
 
 public class Task21 {
-    private static final String patternParagraph = "<[pP] .*?>";
+    private static final String PARAGRAPH_PATTERN = "<[pP] .*?>";
 
-    public static String simpleParagraph(String text) {
-        return text.replaceAll(patternParagraph, "<p>");
+    public static String replaceWithSimpleParagraph(String text) {
+        return text.replaceAll(PARAGRAPH_PATTERN, "<p>");
     }
 }
