@@ -3,14 +3,19 @@ package laba.add10.console;
 
 import laba.add10.autohouse.AutoHouse;
 import laba.add10.autohouse.InitializeAutoHouse;
+import laba.add10.exeption.NullListException;
 
 import static laba.add10.console.ConsoleCheckInChoice.*;
 
 public class ConsoleMenuAutoHouse {
     private static final int quantityCars = 10;
-    private static AutoHouse carListing = InitializeAutoHouse.generateQuantityCarInAutoHouse(quantityCars);
+    private static AutoHouse carsListing = getCarsInAutoHouse();
 
-    public static void startMethod(int methodNumber) {
+    private static AutoHouse getCarsInAutoHouse() {
+        return InitializeAutoHouse.generateQuantityCarInAutoHouse(quantityCars);
+    }
+
+    public static void selectMethodToStart(int methodNumber) {
         if (methodNumber == 1) {
             startMethodAddCar();
         } else if (methodNumber == 2) {
@@ -27,45 +32,65 @@ public class ConsoleMenuAutoHouse {
     }
 
     private static void startMethodGetListCarSortByPrice() {
-        System.out.println(carListing.getCarSortByPrice());
+        try {
+            System.out.println(carsListing.getCarSortByPrice());
+        } catch (NullListException e) {
+            System.out.println("There are no cars in listing AutoHouse.");
+        }
     }
 
     private static void startMethodGetListCarSortByConstructingYear() {
-        System.out.println(carListing.getIDSortByConstructYear());
+        try {
+            System.out.println(carsListing.getIDSortByConstructYear());
+        } catch (NullListException e) {
+            System.out.println("There are no cars in listing AutoHouse.");
+        }
     }
 
     private static void startMethodFindCarByConstructingYear() {
-        System.out.println(carListing.findIDCarForSpecifyConstructYear(getConsoleConstructingYear()));
+        try {
+            System.out.println(carsListing.findIDCarForSpecifyConstructYear(getConsoleConstructingYear()));
+        } catch (NullListException e) {
+            System.out.println("There are no cars with this year of constructing in listing AutoHouse.");
+        }
     }
 
     private static void startMethodFindCarByCompany() {
-        System.out.println(carListing.findIDCarForSpecifyCompany(getConsoleEnumCompany()));
+        try {
+            System.out.println(carsListing.findIDCarForSpecifyCompany(getConsoleEnumCompany()));
+        } catch (NullListException e) {
+            System.out.println("There are no cars this company in listing AutoHouse.");
+        }
     }
 
     private static void startMethodRemoveCarInAutoHouse() {
-        int removeNumberMethod = selectRemoveParameter();
-        if (removeNumberMethod == 1) {
-            carListing.removeCarForSpecify(getConsoleEnumCompany(), getConsoleConstructingYear(), getConsolePrice());
-        } else if (removeNumberMethod == 2) {
-            carListing.removeCarForSpecify(getConsoleEnumCompany(), getConsoleConstructingYear(), -1);
-        } else if (removeNumberMethod == 3) {
-            carListing.removeCarForSpecify(getConsoleEnumCompany(), -1, -1);
-        } else if (removeNumberMethod == 4) {
-            carListing.removeCarForSpecify(null, getConsoleConstructingYear(), getConsolePrice());
-        } else if (removeNumberMethod == 5) {
-            carListing.removeCarForSpecify(null, getConsoleConstructingYear(), -1);
-        } else if (removeNumberMethod == 6) {
-            carListing.removeAllCar();
-        } else if (removeNumberMethod == 7) {
-            carListing.removeCarForID(getConsoleID());
-        } else if (removeNumberMethod == 0) {
-            return;
-        }
-        System.out.println("Car was deleted.");
+        int selectedMethod = selectRemoveParameters();
+       try {
+           if (selectedMethod == 1) {
+               carsListing.removeCarForSpecify(getConsoleEnumCompany(), getConsoleConstructingYear(), getConsolePrice());
+           } else if (selectedMethod == 2) {
+               carsListing.removeCarForSpecify(getConsoleEnumCompany(), getConsoleConstructingYear(), -1);
+           } else if (selectedMethod == 3) {
+               carsListing.removeCarForSpecify(getConsoleEnumCompany(), -1, -1);
+           } else if (selectedMethod == 4) {
+               carsListing.removeCarForSpecify(null, getConsoleConstructingYear(), getConsolePrice());
+           } else if (selectedMethod == 5) {
+               carsListing.removeCarForSpecify(null, getConsoleConstructingYear(), -1);
+           } else if (selectedMethod == 6) {
+               carsListing.removeAllCar();
+           } else if (selectedMethod == 7) {
+               carsListing.removeCarForID(getConsoleID());
+           } else if (selectedMethod == 0) {
+               return;
+           }
+       } catch (NullListException e){
+           System.out.println("There are no cars with this ID in listing AutoHouse.");
+       }
+        System.out.println("Cars were deleted.");
     }
 
     private static void startMethodAddCar() {
-        carListing.addCarInAutoHouse(getConsoleEnumCompany(), getConsoleConstructingYear(),
+        carsListing.addCarInAutoHouse(getConsoleEnumCompany(), getConsoleConstructingYear(),
                 getConsolePrice());
         System.out.println("Car was added.");
     }

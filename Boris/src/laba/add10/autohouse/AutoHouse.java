@@ -12,25 +12,30 @@ package laba.add10.autohouse;
 //        Реализовать консольное меню.
 
 
+import laba.add10.exeption.NullListException;
+
 import java.util.*;
 
 public class AutoHouse {
-    private Map<Integer, Car> carsListingExisted;
+    private Map<Integer, Car> cars;
 
     public AutoHouse() {
-        carsListingExisted = new HashMap<Integer, Car>();
+        cars = new HashMap<Integer, Car>();
     }
 
     public void addCarInAutoHouse(CompanyEnum company, int constructYear, int price) {
-        carsListingExisted.put(generateID(), new Car(company, constructYear, price));
+        cars.put(generateID(), new Car(company, constructYear, price));
     }
 
     private int generateID() {
         int iD = new Random().nextInt(1000);
-        return carsListingExisted.containsKey(iD) ? generateID() : iD;
+        return cars.containsKey(iD) ? generateID() : iD;
     }
 
-    public Map<Integer, Car> getIDSortByConstructYear() {
+    public Map<Integer, Car> getIDSortByConstructYear() throws NullListException {
+        if (cars.isEmpty()){
+            throw new NullListException();
+        }
         Map<Integer, Car> sortForConstructYear = new TreeMap<Integer, Car>(
                 new Comparator() {
                     @Override
@@ -56,12 +61,15 @@ public class AutoHouse {
                     }
                 }
         );
-        sortForConstructYear.putAll(new TreeMap<Integer, Car>(carsListingExisted));
+        sortForConstructYear.putAll(new TreeMap<Integer, Car>(cars));
         return sortForConstructYear;
     }
 
 
-    public Map<Integer, Car> getCarSortByPrice() {
+    public Map<Integer, Car> getCarSortByPrice() throws NullListException {
+            if (cars.isEmpty()){
+                throw new NullListException();
+            }
         Map<Integer, Car> sortForPrice = new TreeMap<Integer, Car>(
                 new Comparator() {
                     @Override
@@ -91,30 +99,36 @@ public class AutoHouse {
                     }
                 }
         );
-        sortForPrice.putAll(new TreeMap<Integer, Car>(carsListingExisted));
+        sortForPrice.putAll(new TreeMap<Integer, Car>(cars));
         return sortForPrice;
     }
 
-    public List<Integer> findIDCarForSpecifyCompany(CompanyEnum company) {
-        List<Integer> listingID = new ArrayList<Integer>(carsListingExisted.keySet());
+    public List<Integer> findIDCarForSpecifyCompany(CompanyEnum company) throws NullListException {
+        List<Integer> listingID = new ArrayList<Integer>(cars.keySet());
         findIDWithSpecifiedCompany(company, listingID);
+        if (listingID.isEmpty())
+            throw new NullListException();
         return listingID;
     }
 
-    public List<Integer> findIDCarForSpecifyConstructYear(int year) {
-        List<Integer> listingID = new ArrayList<Integer>(carsListingExisted.keySet());
+    public List<Integer> findIDCarForSpecifyConstructYear(int year) throws NullListException {
+        List<Integer> listingID = new ArrayList<Integer>(cars.keySet());
         findIDWithSpecifiedConstructYear(year, listingID);
+        if (listingID.isEmpty())
+            throw new NullListException();
         return listingID;
     }
 
-    public List<Integer> findIDCarForSpecifyPrice(int price) {
-        List<Integer> listingID = new ArrayList<Integer>(carsListingExisted.keySet());
-        findIDWithSpecifiedPrice(price, listingID);
-        return listingID;
-    }
+//    public List<Integer> findIDCarForSpecifyPrice(int price) throws NullListException {
+//        List<Integer> listingID = new ArrayList<Integer>(cars.keySet());
+//        findIDWithSpecifiedPrice(price, listingID);
+//        if (listingID.isEmpty())
+//            throw new NullListException();
+//        return listingID;
+//    }
 
-    public void removeCarForID(int iD) {
-        if (carsListingExisted.containsKey(iD)) {
+    public void removeCarForID(int iD) throws NullListException {
+        if (cars.containsKey(iD)) {
             List<Integer> listingID = new ArrayList<Integer>();
             listingID.add(iD);
             removeCarForIDList(listingID);
@@ -123,31 +137,28 @@ public class AutoHouse {
         }
     }
 
-    private void removeCarForIDList(List<Integer> listingID) {
+    private void removeCarForIDList(List<Integer> listingID) throws NullListException {
         if (listingID.isEmpty()) {
-            return;
+            throw new NullListException();
         } else {
             for (Integer iD : listingID) {
-                carsListingExisted.remove(iD);
+                cars.remove(iD);
             }
         }
     }
 
-    public void removeCarForSpecify(CompanyEnum companyEnum, int constructYear, int price) {
-        List<Integer> listingID = new ArrayList<Integer>(carsListingExisted.keySet());
+    public void removeCarForSpecify(CompanyEnum companyEnum, int constructYear, int price) throws NullListException {
+        List<Integer> listingID = new ArrayList<Integer>(cars.keySet());
         findIDWithSpecifiedCompany(companyEnum, listingID);
         findIDWithSpecifiedConstructYear(constructYear, listingID);
         findIDWithSpecifiedPrice(price, listingID);
-        if (listingID.isEmpty()) {
-            System.out.println("There are no car with this parameters.");
-            return;
-        } else {
-            removeCarForIDList(listingID);
-        }
+        removeCarForIDList(listingID);
     }
 
+
+
     public void removeAllCar() {
-        carsListingExisted.clear();
+        cars.clear();
     }
 
     private void findIDWithSpecifiedCompany(CompanyEnum companyEnum, List<Integer> listingID) {
@@ -159,7 +170,7 @@ public class AutoHouse {
     private void saveIDWithSpecifyCompany(CompanyEnum companyEnum, List<Integer> listingID) {
         int indexListingID = listingID.size() - 1;
         while (indexListingID > -1) {
-            CompanyEnum companyValueForPreviousCar = carsListingExisted.get(listingID.get(indexListingID)).getCompany();
+            CompanyEnum companyValueForPreviousCar = cars.get(listingID.get(indexListingID)).getCompany();
             if (!companyValueForPreviousCar.equals(companyEnum)) {
                 listingID.remove(indexListingID);
             }
@@ -176,7 +187,7 @@ public class AutoHouse {
     private void saveIDWithSpecifyPrice(int price, List<Integer> listingID) {
         int indexListingID = listingID.size() - 1;
         while (indexListingID > -1) {
-            if (!(carsListingExisted.get(listingID.get(indexListingID)).getPrice() == price)) {
+            if (!(cars.get(listingID.get(indexListingID)).getPrice() == price)) {
                 listingID.remove(indexListingID);
             }
             indexListingID--;
@@ -200,7 +211,7 @@ public class AutoHouse {
     }
 
     private int getConstructYearCar(List<Integer> listingID, int indexListingID) {
-        return carsListingExisted.get(listingID.get(indexListingID)).getConstructYear();
+        return cars.get(listingID.get(indexListingID)).getConstructYear();
     }
 
     @Override
@@ -210,7 +221,7 @@ public class AutoHouse {
 
         AutoHouse autoHouse = (AutoHouse) o;
 
-        if (carsListingExisted != null ? !carsListingExisted.equals(autoHouse.carsListingExisted) : autoHouse.carsListingExisted != null)
+        if (cars != null ? !cars.equals(autoHouse.cars) : autoHouse.cars != null)
             return false;
 
         return true;
@@ -218,21 +229,21 @@ public class AutoHouse {
 
     @Override
     public int hashCode() {
-        return carsListingExisted != null ? carsListingExisted.hashCode() : 0;
+        return cars != null ? cars.hashCode() : 0;
     }
 
     @Override
     public String toString() {
         return "AutoHouse{" +
-                "carsListingExisted=" + carsListingExisted +
+                "cars=" + cars +
                 '}';
     }
 
-    public Map<Integer, Car> getCarsListingExisted() {
-        return carsListingExisted;
+    public Map<Integer, Car> getCars() {
+        return cars;
     }
 
     private Car getCar(Object objectCar) {
-        return carsListingExisted.get(objectCar);
+        return cars.get(objectCar);
     }
 }

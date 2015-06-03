@@ -24,7 +24,7 @@ public class ConsoleCheckInChoice {
             System.out.println(message);
             int enteredCommand = getConsoleInteger();
             if (enteredCommand > 0 && enteredCommand < 7) {
-                ConsoleMenuAutoHouse.startMethod(enteredCommand);
+                ConsoleMenuAutoHouse.selectMethodToStart(enteredCommand);
                 System.out.println("Something else? (0 - exit.)");
                 if (getConsoleToExit() == EXIT) {
                     System.out.println("Goodbye.");
@@ -106,7 +106,7 @@ public class ConsoleCheckInChoice {
         }
     }
 
-    public static int selectRemoveParameter() {
+    public static int selectRemoveParameters() {
         String message = "Select characteristic, in which car would you delete:\n" +
                 "1 - company, constructing year, price;\n" +
                 "2 - company, constructing year;\n" +
