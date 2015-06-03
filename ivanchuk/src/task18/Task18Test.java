@@ -10,6 +10,6 @@ public class Task18Test {
         Scanner in = new Scanner(System.in);
         String text = in.nextLine();
         in.close();
-        System.out.println("Полученный текст: " + Task18.lastLettersOfWords(text));
+        System.out.println("Полученный текст: " + Task18.getLastWordsLetters(text));
     }
 }
