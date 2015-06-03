@@ -13,36 +13,36 @@ public class Lab26 {
     private final static int GRADE_REQUIRED = 5;
 
     public static void main(String[] args) {
-        List<Integer> studentsRatingList = getGradeList(getStudentList());
-        System.out.println(studentsRatingList);
-        List<Integer> studentsReqRatingList = getGradeRequiredList(studentsRatingList);
-        System.out.println(studentsReqRatingList);
+        List<Integer> studentsRating = getGrades(getStudents());
+        System.out.println(studentsRating);
+        List<Integer> studentsRatingReq = getGradesReq(studentsRating);
+        System.out.println(studentsRatingReq);
     }
 
-    public static List<Integer> getGradeList(List<Student> studentList) {
-        List<Integer> gradeList = new ArrayList<Integer>();
+    public static List<Integer> getGrades(List<Student> students) {
+        List<Integer> grades = new ArrayList<Integer>();
         for (int i = 0; i < GROUP_SIZE; i++) {
-            gradeList.add((studentList.get(i)).getGrade());
+            grades.add((students.get(i)).getGrade());
         }
-        return gradeList;
+        return grades;
     }
 
-    private static List<Student> getStudentList() {
-        List<Student> studentList = new ArrayList<Student>();
+    private static List<Student> getStudents() {
+        List<Student> students = new ArrayList<Student>();
         for (int i = 0; i < GROUP_SIZE; i++) {
             int randomGrade = (int) (Math.random() * 10) + 1;
-            studentList.add(new Student(randomGrade));
+            students.add(new Student(randomGrade));
         }
-        return studentList;
+        return students;
     }
 
-    private static List<Integer> getGradeRequiredList(List<Integer> gradeRequiredList) {
-        Iterator<Integer> iterator = gradeRequiredList.iterator();
+    private static List<Integer> getGradesReq(List<Integer> gradeRequired) {
+        Iterator<Integer> iterator = gradeRequired.iterator();
         while (iterator.hasNext()) {
             if (iterator.next() < GRADE_REQUIRED) {
                 iterator.remove();
             }
         }
-        return gradeRequiredList;
+        return gradeRequired;
     }
 }
