@@ -9,18 +9,18 @@ public class Lab18Rev2 {
         System.out.println(getWordLastLetters(testString));
     }
 
-    private static String getClearSentence(String str) {
-        str = str.trim();
-        return str.replaceAll("\\p{Punct}", "");
+    private static String getClearSentence(String text) {
+        text = text.trim();
+        return text.replaceAll("\\p{Punct}", "");
     }
 
-    private static StringBuilder getWordLastLetters(String str) {
+    private static StringBuilder getWordLastLetters(String text) {
         StringBuilder lastLetters = new StringBuilder();
-        int strLength = str.length();
-        for (int i = 0; i < strLength; i++) {
-            char symbol = str.charAt(i);
+        int textLength = text.length();
+        for (int i = 0; i < textLength; i++) {
+            char symbol = text.charAt(i);
             if (symbol == ' ') {
-                lastLetters.append(str.charAt(i - 1));
+                lastLetters.append(text.charAt(i - 1));
             }
         }
         return lastLetters;
