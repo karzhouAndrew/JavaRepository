@@ -17,21 +17,21 @@ public class AdditionalTaskTwo {
             array[i] = in.nextDouble();
         }
         in.close();
-        int testOne = 0;
-        int testTwo = 0;
+        int verificationOnLessOrEqually = 0;
+        int verificationOnMore = 0;
         for (int i = 0; i < array.length - 1; i++) {
             if (array[i] <= array[i + 1]) {
-                testOne++;
+                verificationOnLessOrEqually++;
             } else if (array[i] > array[i + 1]) {
-                testTwo++;
+                verificationOnMore++;
             }
         }
-        if (testOne == 3) {
+        if (verificationOnLessOrEqually == 3) {
             for (int i = 0; i < array.length - 1; i++) {
                 array[i] = array[array.length - 1];
             }
             System.out.println(Arrays.toString(array));
-        } else if (testTwo != 3) {
+        } else if (verificationOnMore != 3) {
             for (int i = 0; i < array.length; i++) {
                 array[i] *= array[i];
             }
