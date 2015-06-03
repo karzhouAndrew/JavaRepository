@@ -4,15 +4,15 @@ public class CashDispenser {
     private int[] banknotesQuantity;
     private int maxSumCash;
     private int[] gotBanknotes;
-    private final Banknotes[] banknotes = Banknotes.values();
+    private final Banknotes[] BANKNOTES = Banknotes.values();
 
     public CashDispenser(int banknotesTwentyQuantity, int banknotesFiftyQuantity, int banknotesHundredQuantity) {
-        banknotesQuantity = new int[banknotes.length];
+        banknotesQuantity = new int[BANKNOTES.length];
         banknotesQuantity[0] = banknotesTwentyQuantity;
         banknotesQuantity[1] = banknotesFiftyQuantity;
         banknotesQuantity[2] = banknotesHundredQuantity;
         calculateMaxSumCash();
-        gotBanknotes = new int[banknotes.length];
+        gotBanknotes = new int[BANKNOTES.length];
     }
 
     public void addBanknotes(int quantity) {
@@ -24,12 +24,12 @@ public class CashDispenser {
 
     public boolean possibleGetCash(int cashSum) {
         if (cashSum <= maxSumCash) {
-            for (int i = banknotes.length - 1; i >= 0; i--) {
-                gotBanknotes[i] = (cashSum - cashSum % banknotes[i].getFaceValue()) / banknotes[i].getFaceValue();
+            for (int i = BANKNOTES.length - 1; i >= 0; i--) {
+                gotBanknotes[i] = (cashSum - cashSum % BANKNOTES[i].getFaceValue()) / BANKNOTES[i].getFaceValue();
                 if (gotBanknotes[i] > banknotesQuantity[i]) {
                     gotBanknotes[i] = banknotesQuantity[i];
                 }
-                cashSum -= gotBanknotes[i] * banknotes[i].getFaceValue();
+                cashSum -= gotBanknotes[i] * BANKNOTES[i].getFaceValue();
             }
             return cashSum == 0;
         } else {
@@ -40,8 +40,8 @@ public class CashDispenser {
     public StringBuilder getCash(int cashSum) {
         StringBuilder offer = new StringBuilder();
         if (this.possibleGetCash(cashSum)) {
-            for (int i = 0; i < banknotes.length; i++) {
-                offer.append(gotBanknotes[i]).append(" - ").append(banknotes[i].getStringValue()).append("; ");
+            for (int i = 0; i < BANKNOTES.length; i++) {
+                offer.append(gotBanknotes[i]).append(" - ").append(BANKNOTES[i].getStringValue()).append("; ");
             }
             for (int i = 0; i < banknotesQuantity.length; i++) {
                 banknotesQuantity[i] -= gotBanknotes[i];
@@ -60,7 +60,7 @@ public class CashDispenser {
     private void calculateMaxSumCash() {
         maxSumCash = 0;
         for (int i = 0; i < banknotesQuantity.length; i++) {
-            maxSumCash += banknotes[i].getFaceValue() * banknotesQuantity[i];
+            maxSumCash += BANKNOTES[i].getFaceValue() * banknotesQuantity[i];
         }
     }
 }
