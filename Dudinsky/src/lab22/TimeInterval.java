@@ -18,20 +18,20 @@ public class TimeInterval {
     }
 
     public int getTotalSecondsValue() {
-        return (this.hours * 60 + this.minutes) * 60 + this.seconds;
+        return (hours * 60 + minutes) * 60 + seconds;
     }
 
     public int compareTo(TimeInterval anotherTimeInterval) {
-        return this.getTotalSecondsValue() - anotherTimeInterval.getTotalSecondsValue();
+        return getTotalSecondsValue() - anotherTimeInterval.getTotalSecondsValue();
     }
 
     public String getValueInHMSFormat() {
-        return this.hours + ":" + this.minutes + ":" + this.seconds;
+        return hours + ":" + minutes + ":" + seconds;
     }
 
     @Override
     public String toString() {
-        return "{" + hours + "час(а/ов), " + minutes + " минут(а/ы), " + seconds + " секунд(а/ы)}";
+        return "{" + hours + " час(а/ов), " + minutes + " минут(а/ы), " + seconds + " секунд(а/ы)}";
     }
 
     public int getSeconds() {

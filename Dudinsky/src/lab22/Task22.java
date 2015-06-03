@@ -17,16 +17,16 @@ public class Task22 {
         givenSeconds = scan.nextInt();
         scan.close();
         TimeInterval secondInterval = new TimeInterval(givenHours, givenMinutes, givenSeconds);
-        System.out.println("Результат приведения ПЕРВОГО интервала к формату ЧЧ:ММ:СС - " + firstInterval.getValueInHMSFormat());
-        System.out.println("Результат приведения ВТОРОГО интервала к формату ЧЧ:ММ:СС - " + secondInterval.getValueInHMSFormat());
+        System.out.println("Результат приведения ПЕРВОГО интервала к формату ЧЧ:ММ:СС  : " + firstInterval.getValueInHMSFormat());
+        System.out.println("Результат приведения ВТОРОГО интервала к формату ЧЧ:ММ:СС  : " + secondInterval.getValueInHMSFormat());
         System.out.println("Полное количество СЕКУНД ВТОРОГО интервала времени: " + secondInterval.getTotalSecondsValue());
         int differInterval = firstInterval.compareTo(secondInterval);
         System.out.println("Результат сравнения ПЕРВОГО и ВТОРОГО интервалов (их разность в секундах): " + differInterval);
         TimeInterval differenceInterval = new TimeInterval(Math.abs(differInterval));
-        System.out.println("Результат приведения РАЗНОСТИ интервалов к формату ЧЧ:ММ:СС - " + differenceInterval.getValueInHMSFormat());
+        System.out.println("Результат приведения РАЗНОСТИ интервалов к формату ЧЧ:ММ:СС  : " + differenceInterval.getValueInHMSFormat());
         TimeInterval summaryInterval = new TimeInterval(firstInterval.getTotalSecondsValue() + secondInterval.getTotalSecondsValue());
         System.out.println("Сумма ПЕРВОГО и ВТОРОГО интервалов (в секундах): " + summaryInterval.getTotalSecondsValue());
-        System.out.println("Результат приведения СУММЫ интервалов к формату ЧЧ:ММ:СС - " + summaryInterval.getValueInHMSFormat());
+        System.out.println("Результат приведения СУММЫ интервалов к формату ЧЧ:ММ:СС  : " + summaryInterval.getValueInHMSFormat());
         System.out.println("Строковые представления интервалов: первого - " + firstInterval + ", второго - " + secondInterval + ", разности - " + differenceInterval + ", суммы - " + summaryInterval);
     }
 }
