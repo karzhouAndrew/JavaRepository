@@ -6,20 +6,18 @@ package task19;
 
 public class Task19Test {
     public static void main(String[] args) {
-        String text = "Hello world ";
-        String world = "helloword";
-        StringBuilder textBuilder = new StringBuilder(text);
-        StringBuilder worldBuilder = new StringBuilder(world);
-        StringBuffer textBuffer = new StringBuffer(text);
-        StringBuffer wordBuffer = new StringBuffer(world);
+        String stringText = "Hello world ";
+        String word = "helloworld";
+        StringBuilder builderText = new StringBuilder(stringText);
+        StringBuffer bufferText = new StringBuffer(stringText);
         Long startTime = System.nanoTime();
-        Task19.compositionAndString(text, world);
+        Task19.stringCompose(stringText, word);
         System.out.println("Оператор сложения и класс String: " + (System.nanoTime() - startTime));
         startTime = System.nanoTime();
-        Task19.appendAndStringBuffer(textBuffer, wordBuffer);
+        Task19.stringBufferAppend(bufferText, word);
         System.out.println("Метод append и класс StringBuffer: " + (System.nanoTime() - startTime));
         startTime = System.nanoTime();
-        Task19.appendAndStringBuilder(textBuilder, worldBuilder);
+        Task19.stringBuilderAppend(builderText, word);
         System.out.println("Метод append и класс StringBuilder: " + (System.nanoTime() - startTime));
     }
 }
