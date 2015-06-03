@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 
 //Из текста удалить все слова заданной длины, которые начинаются на согласную букву.
 public class DeletingWordWithSpecialLength {
-    private final static String SPECIAL_WORD_REGEX = "^[[B-Zb-zБ-Ъб-ъ0-9]&&[^eEyYuUiIoOуУеЕэЭоОыЫиИ]]\\w*";
     private final static String SPECIAL_FIRST_LITERAL_REGEX = "[[B-Zb-zБ-Ъб-ъ0-9]&&[^eEyYuUiIoOуУеЕэЭоОыЫиИ]]";
+    private final static String SPECIAL_WORD_REGEX = "^" + SPECIAL_FIRST_LITERAL_REGEX + "\\w*";
     private final static Pattern WORD_PATTERN = Pattern.compile(SPECIAL_WORD_REGEX);
 
     public static StringBuilder getTextWithoutWordStartingConsonantAndSpecifiedLength
