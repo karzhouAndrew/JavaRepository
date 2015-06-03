@@ -1,7 +1,7 @@
 package task17;
 
 public class Task17 {
-    public static int wordsQuantity(String text) {
+    public static int calculateWordsQuantity(String text) {
         String textWithoutSpace = text.trim();
         int quantity = 1;
         int currentSearchPosition = 0;

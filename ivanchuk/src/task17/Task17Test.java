@@ -11,6 +11,6 @@ public class Task17Test {
         Scanner in = new Scanner(System.in);
         String text = in.nextLine();
         in.close();
-        System.out.println("Количество слов в тексте " + Task17.wordsQuantity(text));
+        System.out.println("Количество слов в тексте " + Task17.calculateWordsQuantity(text));
     }
 }
