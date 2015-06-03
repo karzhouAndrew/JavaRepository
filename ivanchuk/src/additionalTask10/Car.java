@@ -9,8 +9,8 @@ public class Car {
     private int price;
 
     public Car(String brand, int releaseYear, int price, int additionData) {
-        carsQuantity++;
         ID = carsQuantity;
+        carsQuantity++;
         ADDITION_DATE = additionData;
         BRAND = brand;
         RELEASE_YEAR = releaseYear;
@@ -60,7 +60,7 @@ public class Car {
         return price;
     }
 
-    public int getADDITION_DATE() {
+    public int getAdditionDate() {
         return ADDITION_DATE;
     }
 }

@@ -20,12 +20,12 @@ public class AutoHouse {
         return "Авто (" + car.toString() + ") добавлено.";
     }
 
-    public String removeCar(int ID) {
+    public String removeCar(int id) {
         Iterator<Car> iterator = availableCars.iterator();
         String removeCar = "Авто не найдено!!!";
         while (iterator.hasNext()) {
             Car car = iterator.next();
-            if (car.getID() == ID) {
+            if (car.getID() == id) {
                 removeCar = "Авто (" + car.toString() + ") удалено.";
                 iterator.remove();
             }
@@ -37,13 +37,13 @@ public class AutoHouse {
         Set<Car> sortedCars = new TreeSet<Car>(new Comparator<Car>() {
             @Override
             public int compare(Car car1, Car car2) {
-                if (car1.getADDITION_DATE() == car2.getADDITION_DATE()) {
+                if (car1.getAdditionDate() == car2.getAdditionDate()) {
                     if (car1.getBrand().equals(car2.getBrand())) {
                         return Integer.compare(car1.getID(), car2.getID());
                     }
                     return car1.getBrand().compareTo(car2.getBrand());
                 } else {
-                    return Integer.compare(car1.getADDITION_DATE(), car2.getADDITION_DATE());
+                    return Integer.compare(car1.getAdditionDate(), car2.getAdditionDate());
                 }
             }
         });
@@ -70,28 +70,28 @@ public class AutoHouse {
     }
 
     public String searchByBrand(String brand) {
-        Set<Car> carSet = new HashSet<Car>();
+        Set<Car> cars = new HashSet<Car>();
         for (Car car : availableCars) {
             if (car.getBrand().equalsIgnoreCase(brand)) {
-                carSet.add(car);
+                cars.add(car);
             }
         }
-        if (carSet.size() > 0) {
-            return toString(carSet);
+        if (cars.size() > 0) {
+            return toString(cars);
         } else {
             return "Авто марки " + brand + " не найдено!!!";
         }
     }
 
     public String searchByReleaseYear(int year) {
-        Set<Car> carSet = new HashSet<Car>();
+        Set<Car> cars = new HashSet<Car>();
         for (Car car : availableCars) {
             if (car.getReleaseYear() == year) {
-                carSet.add(car);
+                cars.add(car);
             }
         }
-        if (carSet.size() > 0) {
-            return toString(carSet);
+        if (cars.size() > 0) {
+            return toString(cars);
         } else {
             return "Авто " + year + " года выпуска не найдено!!!";
         }

@@ -3,14 +3,14 @@ package additionalTask10;
 import java.util.Scanner;
 
 public abstract class MenuItem {
-    private final String NAME_ITEM;
+    private final String ITEM_NAME;
 
     public MenuItem(String nameItem) {
-        NAME_ITEM = nameItem;
+        ITEM_NAME = nameItem;
     }
 
     public String getNameItem() {
-        return NAME_ITEM;
+        return ITEM_NAME;
     }
 
     public abstract void run(Scanner scanner, AutoHouse autoHouse);
