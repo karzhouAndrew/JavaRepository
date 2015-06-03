@@ -7,16 +7,40 @@ import java.util.regex.Pattern;
 //Из текста удалить все слова заданной длины, которые начинаются на согласную букву.
 public class DeletingWordWithSpecialLength {
     private final static String SPECIAL_WORD_REGEX = "^[[B-Zb-zБ-Ъб-ъ0-9]&&[^eEyYuUiIoOуУеЕэЭоОыЫиИ]]\\w*";
+    private final static String SPECIAL_FIRST_LITERAL_REGEX = "[[B-Zb-zБ-Ъб-ъ0-9]&&[^eEyYuUiIoOуУеЕэЭоОыЫиИ]]";
     private final static Pattern WORD_PATTERN = Pattern.compile(SPECIAL_WORD_REGEX);
 
-    public static String getTextWithoutWordStartingConsonantAndSpecifiedLength(String stringText, int deletingWordLength) {
+    public static StringBuilder getTextWithoutWordStartingConsonantAndSpecifiedLength
+            (String stringText, int deletingWordLength, boolean isBigMethod) {
         if (deletingWordLength < 0) {
-            return "Exception. Negative word length.";
+            return new StringBuilder("Exception. Negative word length.");
         } else if (deletingWordLength == 0) {
-            return stringText;
+            return new StringBuilder(stringText);
         } else {
-            return getTextWithOutSpecialWord(stringText, deletingWordLength).toString();
+            if (isBigMethod) {
+                return getTextWithOutSpecialWord(stringText, deletingWordLength);
+            } else {
+                return getTextWithOutSpecialWordAnotherRealization(stringText, deletingWordLength);
+            }
         }
+    }
+
+    private static StringBuilder getTextWithOutSpecialWordAnotherRealization(String text, int length) {
+        StringBuilder changedText = new StringBuilder(" " + text + " ");
+        Matcher matcher = Pattern
+                .compile(getSpecialWordRegex(length))
+                .matcher(changedText);
+        while (matcher.find()) {
+            changedText.delete(matcher.start() + 1, matcher.end() - 1);
+            matcher.reset(changedText);
+        }
+        return changedText
+                .deleteCharAt(0)
+                .deleteCharAt(changedText.length() - 1);
+    }
+
+    private static String getSpecialWordRegex(int length) {
+        return "\\W" + SPECIAL_FIRST_LITERAL_REGEX + "\\w{" + (length - 1) + "," + (length - 1) + "}\\W";
     }
 
     private static StringBuilder getTextWithOutSpecialWord(String stringText, int deletingWordLength) {

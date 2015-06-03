@@ -9,7 +9,13 @@ public class TestDeletingSpecialWord {
                 "If you give a man a fire, he's warm for a day.\n" +
                 "If you light a man on fire, he is warm for the rest of his life.\n";
         System.out.println(testString + "\n");
+        System.out.println("Long realization" + "\n");
         System.out.println(
-                DeletingWordWithSpecialLength.getTextWithoutWordStartingConsonantAndSpecifiedLength(testString, lengthDeletingWord));
+                DeletingWordWithSpecialLength.getTextWithoutWordStartingConsonantAndSpecifiedLength
+                        (testString, lengthDeletingWord, true));
+        System.out.println("Short realization" + "\n");
+        System.out.println(
+                DeletingWordWithSpecialLength.getTextWithoutWordStartingConsonantAndSpecifiedLength
+                        (testString, lengthDeletingWord, false));
     }
 }
