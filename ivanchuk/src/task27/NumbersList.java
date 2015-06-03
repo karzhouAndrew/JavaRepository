@@ -5,34 +5,31 @@ import java.util.Iterator;
 import java.util.List;
 
 public class NumbersList {
-    private List<Integer> numbersList;
+    private List<Integer> numbers;
 
     public NumbersList(int numberQuantity) {
-        numbersList = new ArrayList<Integer>(numberQuantity);
+        numbers = new ArrayList<Integer>(numberQuantity);
         for (int i = 0; i < numberQuantity; i++) {
-            numbersList.add((int) (Math.random() * 20));
+            numbers.add((int) (Math.random() * 20));
         }
     }
 
     @Override
     public String toString() {
-        StringBuilder marks = new StringBuilder("[ ");
-        for (int number : numbersList) {
-            marks.append(number).append(" ");
-        }
-        marks.append("]");
-        return new String(marks);
+        return numbers.toString();
     }
 
-    public void deleteRepeatingNumbers() {
-        for (int i = 0; i < numbersList.size(); i++) {
-            int number = numbersList.get(i);
-            Iterator<Integer> iterator = numbersList.listIterator(i + 1);
+    public List<Integer> deleteRepeatingNumbers() {
+        List<Integer> result = new ArrayList<Integer>(numbers);
+        for (int i = 0; i < result.size(); i++) {
+            int number = result.get(i);
+            Iterator<Integer> iterator = result.listIterator(i + 1);
             while (iterator.hasNext()) {
                 if (iterator.next() == number) {
                     iterator.remove();
                 }
             }
         }
+        return result;
     }
 }
