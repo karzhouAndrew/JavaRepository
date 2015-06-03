@@ -1,7 +1,6 @@
 package laba.add6_1;
 
 //Проверка формул
-
 public class TestFormulas {
     public static void main(String[] args) {
         int argX = 3;
