@@ -10,35 +10,35 @@ public class Lab27 {
     private final static int SIZE = 10;
 
     public static void main(String[] args) {
-        List<Integer> randomIntegerList = getRandomIntegerList(SIZE);
-        System.out.println(randomIntegerList);
-        System.out.println(getUniqueIntegerList(randomIntegerList));
-        System.out.println(getUniqueIntegerList2(randomIntegerList));
+        List<Integer> randomIntegers = getRandomIntegers();
+        System.out.println(randomIntegers);
+        System.out.println(getUniqueIntegers(randomIntegers));
+        System.out.println(getUniqueIntegers2(randomIntegers));
     }
 
-    private static List<Integer> getUniqueIntegerList2(List<Integer> integerList) {
-        List<Integer> uniqueIntegerList = new ArrayList<Integer>();
-        for (int value : integerList) {
-            if (!uniqueIntegerList.contains(value)) {
-                uniqueIntegerList.add(value);
+    private static List<Integer> getUniqueIntegers(List<Integer> integers) {
+        List<Integer> uniqueIntegers = new ArrayList<Integer>(SIZE);
+        for (int value : integers) {
+            if (!uniqueIntegers.contains(value)) {
+                uniqueIntegers.add(value);
             }
         }
-        return uniqueIntegerList;
+        return uniqueIntegers;
     }
 
-    private static Set<Integer> getUniqueIntegerList(List<Integer> integerList) {
-        Set<Integer> integerSet = new HashSet<Integer>(SIZE);
-        for (int value : integerList) {
-            integerSet.add(value);
+    private static Set<Integer> getUniqueIntegers2(List<Integer> integers) {
+        Set<Integer> uniqueIntegers = new HashSet<Integer>(SIZE);
+        for (int value : integers) {
+            uniqueIntegers.add(value);
         }
-        return integerSet;
+        return uniqueIntegers;
     }
 
-    private static List<Integer> getRandomIntegerList(int size) {
-        List<Integer> arrayList = new ArrayList<Integer>(size);
-        for (int i = 0; i < size; i++) {
-            arrayList.add((int) (Math.random() * 10 + 1));
+    private static List<Integer> getRandomIntegers() {
+        List<Integer> integers = new ArrayList<Integer>(SIZE);
+        for (int i = 0; i < SIZE; i++) {
+            integers.add((int) (Math.random() * 10 + 1));
         }
-        return arrayList;
+        return integers;
     }
 }
