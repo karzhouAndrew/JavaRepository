@@ -50,8 +50,8 @@ public class Car {
         return company;
     }
 
-    public GregorianCalendar getConstructYear() {
-        return constructYear;
+    public int getConstructYear() {
+        return constructYear.get(Calendar.YEAR);
     }
 
     public int getPrice() {

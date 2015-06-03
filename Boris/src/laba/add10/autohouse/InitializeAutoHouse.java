@@ -4,9 +4,8 @@ package laba.add10.autohouse;
 import java.util.Random;
 
 public class InitializeAutoHouse {
-    private static Enum<CompanyEnum> company;
-    private static int minYear = 1990;
-    private static int maxYear = 2015;
+    private final static int MIN_YEAR = 1990;
+    private final static int MAX_YEAR = 2015;
     private static Random random = new Random();
 
     public static AutoHouse generateQuantityCarInAutoHouse(int quantity) {
@@ -16,8 +15,8 @@ public class InitializeAutoHouse {
         }
         AutoHouse listingAutoHouse = new AutoHouse();
         for (int i = 0; i < quantity; i++) {
-            int year = randYear(minYear, maxYear);
-            listingAutoHouse.addCarInAutoHouse(randCompany(), minYear + year, randPrice(year));
+            int year = randYear(MIN_YEAR, MAX_YEAR);
+            listingAutoHouse.addCarInAutoHouse(randCompany(), MIN_YEAR + year, randPrice(year));
         }
         return listingAutoHouse;
     }

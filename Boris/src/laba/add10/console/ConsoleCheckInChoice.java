@@ -10,6 +10,7 @@ public class ConsoleCheckInChoice {
     final static int EXIT = 0;
 
     public static void consoleHello() {
+        new ConsoleMenuAutoHouse();
         System.out.println("Hello. You are in AutoHose menu.");
         String message = "Enter a key:\n" +
                 "1 - add car in AutoHouse.\n" +
