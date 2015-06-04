@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 
-public class caseRubls {
+public class CaseRubls {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int value = in.nextInt();
