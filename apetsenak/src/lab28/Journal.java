@@ -1,6 +1,9 @@
 package lab28;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Random;
 
 public class Journal {
     private List<Pupil> pupils = new ArrayList<Pupil>();
@@ -16,9 +19,9 @@ public class Journal {
         int maxMark = 0;
         ListIterator<Pupil> iterator = pupils.listIterator();
         while (iterator.hasNext()) {
-            if (iterator.next().getMark() > maxMark) {
-                maxMark = iterator.previous().getMark();
-                iterator.next();
+            int mark = iterator.next().getMark();
+            if (mark > maxMark) {
+                maxMark = mark;
             }
         }
         return maxMark;
