@@ -3,7 +3,7 @@ package laba.add10.console;
 
 import laba.add10.autohouse.AutoHouse;
 import laba.add10.autohouse.InitializeAutoHouse;
-import laba.add10.exeption.NullListException;
+import laba.add10.exeption.EmptyListException;
 
 import static laba.add10.console.ConsoleCheckInChoice.*;
 
@@ -34,7 +34,7 @@ public class ConsoleMenuAutoHouse {
     private static void startMethodGetListCarSortByPrice() {
         try {
             System.out.println(carsListing.getCarSortByPrice());
-        } catch (NullListException e) {
+        } catch (EmptyListException e) {
             System.out.println("There are no cars in listing AutoHouse.");
         }
     }
@@ -42,7 +42,7 @@ public class ConsoleMenuAutoHouse {
     private static void startMethodGetListCarSortByConstructingYear() {
         try {
             System.out.println(carsListing.getIDSortByConstructYear());
-        } catch (NullListException e) {
+        } catch (EmptyListException e) {
             System.out.println("There are no cars in listing AutoHouse.");
         }
     }
@@ -50,7 +50,7 @@ public class ConsoleMenuAutoHouse {
     private static void startMethodFindCarByConstructingYear() {
         try {
             System.out.println(carsListing.findIDCarForSpecifyConstructYear(getConsoleConstructingYear()));
-        } catch (NullListException e) {
+        } catch (EmptyListException e) {
             System.out.println("There are no cars with this year of constructing in listing AutoHouse.");
         }
     }
@@ -58,7 +58,7 @@ public class ConsoleMenuAutoHouse {
     private static void startMethodFindCarByCompany() {
         try {
             System.out.println(carsListing.findIDCarForSpecifyCompany(getConsoleEnumCompany()));
-        } catch (NullListException e) {
+        } catch (EmptyListException e) {
             System.out.println("There are no cars this company in listing AutoHouse.");
         }
     }
@@ -83,7 +83,7 @@ public class ConsoleMenuAutoHouse {
             } else if (selectedMethod == 0) {
                 return;
             }
-        } catch (NullListException e) {
+        } catch (EmptyListException e) {
             System.out.println("There are no cars with this ID in listing AutoHouse.");
         }
         System.out.println("Cars were deleted.");

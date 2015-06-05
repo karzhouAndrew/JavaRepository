@@ -52,22 +52,23 @@ public class ConsoleCheckInChoice {
         String message = "Enter company: (" + Arrays.toString(CompanyEnum.values()) + ").";
         do {
             System.out.println(message);
-            CompanyEnum company = getConsoleCompanyEnum();
-            if (company == null) {
-                System.out.println("There are no this company. Please repeat.");
-            } else {
+            CompanyEnum company;
+            try {
+                company = getCompanyEnumFromString();
                 return company;
+            } catch (IllegalArgumentException e) {
+                System.out.println("There are no this company. Please repeat.");
             }
         } while (true);
     }
 
-    private static CompanyEnum getConsoleCompanyEnum() {
+    private static CompanyEnum getCompanyEnumFromString() {
+        return CompanyEnum.valueOf(getConsoleString().toUpperCase());
+    }
+
+    private static String getConsoleString() {
         Scanner consoleIn = new Scanner(System.in);
-        try {
-            return CompanyEnum.valueOf(consoleIn.nextLine().toUpperCase());
-        } catch (Exception e) {
-            return null;
-        }
+        return consoleIn.nextLine();
     }
 
     public static int getConsoleConstructingYear() {
@@ -97,8 +98,9 @@ public class ConsoleCheckInChoice {
     }
 
     private static int getConsoleInteger() {
-        Scanner consoleIn = new Scanner(System.in);
+
         try {
+            Scanner consoleIn = new Scanner(System.in);
             return Integer.valueOf(consoleIn.nextLine());
         } catch (NumberFormatException e) {
             System.out.println("Entered invalid number. Please repeat.");
