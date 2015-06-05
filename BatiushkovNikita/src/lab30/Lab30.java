@@ -41,7 +41,7 @@ public class Lab30 {
         int asciiDownLimit = 32;
         int asciiUpLimit = 126;
         for (int i = 0; i < TEXT_LENGTH; i++) {
-            char randomSymbol = (char) (int) (Math.random() * (asciiUpLimit - asciiDownLimit) + asciiDownLimit + 1);
+            char randomSymbol = (char) (Math.random() * (asciiUpLimit - asciiDownLimit) + asciiDownLimit + 1);
             TEXT.append(randomSymbol);
         }
         return TEXT.toString();
