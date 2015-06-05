@@ -21,7 +21,7 @@ public class Lab30 {
 
     public static void writeFile() {
         try (DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream(FILE_PATH))) {
-            dataOutputStream.writeBytes(generateRandomText());
+            dataOutputStream.writeBytes(generateRandomText(TEXT_LENGTH));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -30,26 +30,26 @@ public class Lab30 {
     public static void readFile() {
         try (Scanner scanner = new Scanner(new FileReader(FILE_PATH))) {
             while (scanner.hasNext()) {
-                buildText(scanner.next());
+                createText(scanner.next());
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
     }
 
-    public static String generateRandomText() {
+    public static String generateRandomText(int length) {
         int asciiDownLimit = 32;
         int asciiUpLimit = 126;
-        for (int i = 0; i < TEXT_LENGTH; i++) {
+        for (int i = 0; i < length; i++) {
             char randomSymbol = (char) (Math.random() * (asciiUpLimit - asciiDownLimit) + asciiDownLimit + 1);
             TEXT.append(randomSymbol);
         }
         return TEXT.toString();
     }
 
-    public static void buildText(String text) {
+    public static void createText(String text) {
+        TEXT.delete(0, TEXT_LENGTH);
         TEXT.append(text);
-        TEXT.append(" ");
     }
 
     public static int countRegExpMatches(String regExp, StringBuilder text) {
