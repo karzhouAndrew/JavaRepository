@@ -21,7 +21,7 @@ public class Lab30 {
 
     public static void writeFile() {
         try (DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream(FILE_PATH))) {
-            dataOutputStream.writeBytes(generateRandomText(TEXT_LENGTH));
+            dataOutputStream.writeBytes(generateRandomText());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,10 +37,10 @@ public class Lab30 {
         }
     }
 
-    public static String generateRandomText(int length) {
+    public static String generateRandomText() {
         int asciiDownLimit = 32;
         int asciiUpLimit = 126;
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < TEXT_LENGTH; i++) {
             char randomSymbol = (char) (int) (Math.random() * (asciiUpLimit - asciiDownLimit) + asciiDownLimit + 1);
             TEXT.append(randomSymbol);
         }
