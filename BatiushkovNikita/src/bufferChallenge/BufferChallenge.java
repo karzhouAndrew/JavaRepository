@@ -1,38 +1,50 @@
 package bufferChallenge;
 
-// Запись в файл через буфер и на прямую.
+// Buffer performance test
 
-import java.io.DataOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class BufferChallenge {
-    private final static int LENGTH = 100;
-    private final static StringBuilder TEXT = new StringBuilder();
-    private final static String FILE_PATH = ".BatiushkovNikita/src/bufferChallenge/bufferChallenge.txt";
+    private final static int SIZE = 10000;
+    private final static String FILE_PATH = "./BatiushkovNikita/src/bufferChallenge/bufferChallenge.txt";
 
     public static void main(String[] args) {
-        System.out.println(generateRandomSymbol());
+        System.out.println(SIZE + " symbols.");
 
+        long startWriteFile = System.currentTimeMillis();
+        writeFile();
+        long stopWriteFile = System.currentTimeMillis();
+        System.out.println("Direct writing: " + (stopWriteFile - startWriteFile) + " ms.");
+
+        long startWriteFileBuffer = System.currentTimeMillis();
+        writeFileBuffer();
+        long stopWriteFileBuffer = System.currentTimeMillis();
+        System.out.println("Buffer writing: " + (stopWriteFileBuffer - startWriteFileBuffer) + " ms.");
     }
 
-    public static void writeFile() {
-        try (DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream(FILE_PATH))) {
-            dataOutputStream.writeBytes(generateRandomSymbol());
+    public static void writeFileBuffer() {
+        try (DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(FILE_PATH)))) {
+            for (int i = 0; i < SIZE; i++) {
+                dataOutputStream.writeChar(generateAsciiCode());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-
-
-    public static String generateRandomSymbol() {
-        int asciiDownLimit = 32;
-        int asciiUpLimit = 126;
-        StringBuilder stringBuilder = new StringBuilder();
-        char randomSymbol = (char) (Math.random() * (asciiUpLimit - asciiDownLimit) + asciiDownLimit + 1);
-        stringBuilder.append(randomSymbol);
-        return stringBuilder.toString();
+    public static void writeFile() {
+        try (DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream(FILE_PATH))) {
+            for (int i = 0; i < SIZE; i++) {
+                dataOutputStream.writeChar(generateAsciiCode());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    public static int generateAsciiCode() {
+        int asciiDownLimit = 32;
+        int asciiUpLimit = 126;
+        return (char) (Math.random() * (asciiUpLimit - asciiDownLimit) + asciiDownLimit + 1);
+    }
 }
