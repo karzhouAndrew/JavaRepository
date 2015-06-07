@@ -3,18 +3,20 @@ package laba31;
 //Имеется файл с текстом, в котором присутствуют числа. Найти все числа, распечатать, посчитать сумму,
 //        убрать все повторяющиеся числа и снова распечатать.
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ProcessNumbersInFile {
     private List<Integer> numbersInFile;
     private int nextEmptySell;
-    private String text;
+    private final static String DECIMAL_REGEX = "\\d+";
 
     public ProcessNumbersInFile() {
         numbersInFile = new ArrayList<>();
@@ -85,19 +87,38 @@ public class ProcessNumbersInFile {
         return numbersInFile;
     }
 
-    public void addNumberToArrayFromFileByScanner(String file) {
-        Scanner scannerIn = null;
+    public void removeListNumbers(){
+        numbersInFile.clear();
+    }
+
+    public void addNumbersFromFile(String file) {
+        BufferedReader inputText = null;
         try {
-            scannerIn = new Scanner(file);
-            while (scannerIn.hasNextInt()) {
-                System.out.println(scannerIn.nextInt());
-                numbersInFile.add(scannerIn.nextInt());
+            inputText = new BufferedReader(new FileReader(file));
+            String readLine = inputText.readLine();
+            while (readLine != null) {
+                addNumberToArray(readLine);
+                readLine = inputText.readLine();
             }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         } finally {
-            nextEmptySell = numbersInFile.size();
-            if (scannerIn != null) {
-                scannerIn.close();
+            if (inputText != null) {
+                try {
+                    inputText.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+        }
+    }
+
+    private void addNumberToArray(String readLine) {
+        Matcher matcher = Pattern.compile(DECIMAL_REGEX).matcher(readLine);
+        while (matcher.find()) {
+            numbersInFile.add(Integer.valueOf(matcher.group()));
         }
     }
 
