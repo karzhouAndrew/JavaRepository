@@ -1,6 +1,5 @@
 package cube;
 
-import cube.Cube;
 
 /**
  * Created by dmitry on 7.6.15.
