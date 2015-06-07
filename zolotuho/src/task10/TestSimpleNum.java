@@ -7,28 +7,26 @@ public class TestSimpleNum {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number : ");
-
+        int number = 0;
         if (sc.hasNextInt()) {
-            int number = sc.nextInt();
-            int dividersNumber = 0;
-            if (number < 0) {
-                System.out.println("Negative integer");
-            } else {
-                for (int i = 2; i <= Math.sqrt(number) + 1; i++) {
-                    int currentNumber = number % i;
-                    if (currentNumber == 0) {
-                        dividersNumber++;
-                    }
-                }
-                if (dividersNumber == 0) {
-                    System.out.println("Simple");
-                } else {
-                    System.out.println("Natural");
-                }
-            }
-        } else {
-            System.out.println("Incorrect enter");
+            number = sc.nextInt();
         }
         sc.close();
+        int dividersNumber = 0;
+        if (number < 0) {
+            System.out.println("Negative integer");
+        } else {
+            for (int i = 2; i <= Math.sqrt(number) + 1; i++) {
+                if (number % i == 0) {
+                    dividersNumber++;
+                    break;
+                }
+            }
+            if (dividersNumber == 0) {
+                System.out.println("Simple");
+            } else {
+                System.out.println("Natural");
+            }
+        }
     }
 }
