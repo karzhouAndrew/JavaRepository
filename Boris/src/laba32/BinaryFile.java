@@ -34,7 +34,6 @@ public class BinaryFile {
                     outputFile.close();
                 } catch (IOException e) {
                     System.out.println("Exception closed file.");
-                    ;
                 }
             }
         }
