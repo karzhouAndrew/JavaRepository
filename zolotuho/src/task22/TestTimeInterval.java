@@ -10,6 +10,5 @@ public class TestTimeInterval {
             System.out.println("This class full seconds = " + timeInterval2.calculateFullSeconds());
         }
         System.out.println(timeInterval);
-
     }
 }
