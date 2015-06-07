@@ -8,36 +8,35 @@ import static java.lang.Math.sqrt;
 //Имеется прямоугольное отверстие размерами a и b,
 // определить, можно ли его полностью закрыть круглой картонкой радиусом r
 public class RectangleInCircle {
+    public double enterNumber(Scanner sc) {
+        if (sc.hasNextDouble()) {
+            return sc.nextDouble();
+        } else {
+            return 0;
+        }
+    }
+
+    public boolean ableRectangleInCircle(double sideA, double sideB, double radius) {
+        if (2 * radius >= sqrt(pow(sideA, 2) + pow(sideB, 2))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        double sideA = 0;
-        double sideB = 0;
-        double radius = 0;
+        RectangleInCircle rectangleInCircle = new RectangleInCircle();
         System.out.print("Enter size a = ");
-        if (sc.hasNextDouble()) {
-            sideA = sc.nextDouble();
-        } else {
-            System.out.println("Incorrect Number!!");
-        }
-
+        double sideA = rectangleInCircle.enterNumber(sc);
         System.out.print("Enter size b = ");
-        if (sc.hasNextDouble()) {
-            sideB = sc.nextDouble();
-        } else {
-            System.out.println("Incorrect Number!!");
-        }
-
+        double sideB = rectangleInCircle.enterNumber(sc);
         System.out.print("Enter r = ");
-        if (sc.hasNextDouble()) {
-            radius = sc.nextDouble();
-
+        double radius = rectangleInCircle.enterNumber(sc);
+        if (rectangleInCircle.ableRectangleInCircle(sideA, sideB, radius)) {
+            System.out.println("Rectangle can be covered circle");
         } else {
-            System.out.println("Incorrect Number!!");
-        }
-        if (2 * radius >= sqrt(pow(sideA, 2) + pow(sideB, 2))) {
-            System.out.println("Rectangular can be covered by Circle");
-        } else {
-            System.out.println("Rectangular can NOT be covered  Circle");
+            System.out.println("Rectangle can NOT be covered circle");
         }
         sc.close();
     }
