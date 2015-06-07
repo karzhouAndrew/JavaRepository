@@ -8,59 +8,30 @@ public class WritingRubles {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("How many rubles do you want to enter: ");
+        int rub = 0;
         if (sc.hasNext()) {
-            int rub = sc.nextInt();
-            int residue;
-            int digitCounter = 0;
-            int[] twoLastDigits = new int[2];
-            while (rub > 0) {
-                residue = rub % 10;
-                if (digitCounter <= 1) {
-                    twoLastDigits[digitCounter] = residue;
-                }
-                rub = (rub - residue) / 10;
-                digitCounter++;
-            }
-
-            if ((twoLastDigits[1] == 1) && (digitCounter >= 2)) {
-                System.out.println(" рублей");
-            } else {
-                switch (twoLastDigits[0]) {
-                    case 0:
-                        System.out.println(" рублей");
-                        break;
-                    case 1:
-                        System.out.println(" рубль");
-                        break;
-                    case 2:
-                        System.out.println(" рубля");
-                        break;
-                    case 3:
-                        System.out.println(" рубля");
-                        break;
-                    case 4:
-                        System.out.println(" рубля");
-                        break;
-                    case 5:
-                        System.out.println(" рублей");
-                        break;
-                    case 6:
-                        System.out.println(" рублей");
-                        break;
-                    case 7:
-                        System.out.println(" рублей");
-                        break;
-                    case 8:
-                        System.out.println(" рублей");
-                        break;
-                    case 9:
-                        System.out.println(" рублей");
-                        break;
-                }
-            }
-        } else {
-            System.out.println("Incorrect number is entered");
+            rub = sc.nextInt();
         }
         sc.close();
+        int residue;
+        int digitCounter=0;
+        int lastDigit = rub % 10;
+        int beforeLastDigit = (rub - lastDigit) / 10 % 10;
+        boolean isLastDigits056789 = lastDigit == 0 || lastDigit == 5 || lastDigit == 6 || lastDigit == 7 || lastDigit == 8 || lastDigit == 9;
+        boolean isLastDigits345 = lastDigit == 2 || lastDigit == 3 || lastDigit == 4;
+        while (rub > 0) {
+            residue = rub % 10;
+            rub = (rub - residue) / 10;
+            digitCounter++;
+        }
+        if ((beforeLastDigit == 1) && (digitCounter >= 2)) {
+            System.out.println(" рублей");
+        } else if (isLastDigits056789 == true) {
+            System.out.println(" рублей");
+        } else if (isLastDigits345 == true) {
+            System.out.println(" рубля");
+        } else if (lastDigit == 1) {
+            System.out.println(" рубль");
+        }
     }
 }
