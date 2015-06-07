@@ -10,11 +10,9 @@ public class TurnNumber {
         int number = 0;
         if (sc.hasNextInt()) {
             number = sc.nextInt();
-        } else {
-            System.out.println("Incorrect number was entered");
         }
         sc.close();
-         int auxiliaryNumber = number;
+        int auxiliaryNumber = number;
         while (auxiliaryNumber >= 1) {
             int digit = (auxiliaryNumber % 10);
             auxiliaryNumber = auxiliaryNumber - digit;
