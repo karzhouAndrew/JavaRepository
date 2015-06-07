@@ -9,8 +9,7 @@ public class TestTimeInterval {
             System.out.println(timeInterval2);
             System.out.println("This class full seconds = " + timeInterval2.calculateFullSeconds());
         }
-        System.out.println(timeInterval.getSeconds());
-        System.out.println(timeInterval.getMinutes());
-        System.out.println(timeInterval.getHours());
+        System.out.println(timeInterval);
+
     }
 }

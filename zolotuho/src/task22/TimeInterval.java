@@ -18,9 +18,9 @@ public class TimeInterval {
     }
 
     public TimeInterval(int secondsFull) {
-        this.seconds = secondsFull % 60;
-        this.minutes = ((secondsFull - this.seconds) / 60) % 60;
-        this.hours = (((secondsFull - this.seconds) / 60) - this.minutes) / 60;
+        seconds = secondsFull % 60;
+        minutes = ((secondsFull - seconds) / 60) % 60;
+        hours = (((secondsFull - seconds) / 60) - minutes) / 60;
     }
 
     public int getSeconds() {
@@ -48,7 +48,7 @@ public class TimeInterval {
     }
 
     public int calculateFullSeconds() {
-        return this.seconds + this.minutes * 60 + this.hours * 60 * 60;
+        return seconds + minutes * 60 + hours * 60 * 60;
     }
 
     @Override
