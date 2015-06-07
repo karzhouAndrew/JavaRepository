@@ -26,4 +26,16 @@ public class PerformanceTestString {
         long finishTime = System.nanoTime();
         return finishTime - startTime;
     }
+
+    public long calculateExecutionTimeStringBuffer(int loopLimit) {
+        StringBuffer stringFirst = new StringBuffer("qwerty");
+        StringBuffer stringSecond = new StringBuffer("asdfgh");
+
+        long startTime = System.nanoTime();
+        for (int i = 0; i < loopLimit; i++) {
+            stringFirst.append(stringSecond);
+        }
+        long finishTime = System.nanoTime();
+        return finishTime - startTime;
+    }
 }
