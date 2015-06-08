@@ -1,22 +1,11 @@
 package laba33;
 
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+//Вывести список файлов и каталогов выбранного каталога на диске. Файлы и каталоги должны быть распечатаны отдельно.
 
 public class TestDirectory {
     public static void main(String[] args) {
-        Directory directory = new Directory("d:/MyProg/");
-        System.out.println(directory.getStringBuilderCatalogs());
-//        System.out.println(directory.getStringBuilderFiles());
-
-
-//        String str = "d:\\MyProg\\123\\321";
-//        String regex = "\\\\([^\\\\]+)$";
-//        Matcher matcher = Pattern.compile(regex).matcher(str);
-//        while (matcher.find()) {
-//            System.out.println(matcher.group());
-//        }
-
+        Directory directory = new Directory("./Boris/Boris.iml");
+        System.out.println(directory.seeCatalogues());
+        System.out.println(directory.seeFiles());
     }
 }
