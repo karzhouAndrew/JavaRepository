@@ -10,16 +10,16 @@ public abstract class DebitCard extends PaymentCard {
     private Currency currency;
 
     public void cashMoney(long sum) {
-        if (getBalance() - sum >= 0) {
-            setBalance(getBalance() - sum);
+        if (balance - sum >= 0) {
+            setBalance(balance - sum);
         } else {
-            setOverdraft(sum - getBalance());
+            setOverdraft(sum - balance);
         }
     }
 
     void payBill(long sum) {
-        if (getBalance() - sum >= 0) {
-            setBalance(getBalance() - sum);
+        if (balance - sum >= 0) {
+            setBalance(balance - sum);
             System.out.println("successful payment");
         } else {
             System.out.println("insufficient balance");
@@ -27,12 +27,12 @@ public abstract class DebitCard extends PaymentCard {
     }
 
     public void showBalance() {
-        System.out.println(getCardID() + " = " + getBalance());
+        System.out.println(getCardID() + " = " + balance);
     }
 
     public void changeCurrency(Currency currency, double currencyRate) {
         setCurrency(currency);
-        setBalance((long) (getBalance() * currencyRate));
+        setBalance((long) (balance * currencyRate));
     }
 
     public DebitCard(String bankName, long cardID, long balance, long overdraft, Currency currency) {

@@ -1,6 +1,6 @@
 package task25;
 
-public class PaymentCard {
+public abstract class PaymentCard {
     private final String bankName;
     private final long cardID;
 
