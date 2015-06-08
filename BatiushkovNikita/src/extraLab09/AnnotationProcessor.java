@@ -6,19 +6,20 @@ package extraLab09;
 // 1)	Transaction is started
 // 2)	Transaction is ended
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class AnnotationProcessor {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
         inspectAnnotation(TestClass.class);
     }
 
-    public static void inspectAnnotation(Class transaction) {
+    public static void inspectAnnotation(Class transaction) throws InvocationTargetException, IllegalAccessException {
         Method[] methods = transaction.getMethods();
         for (Method method : methods) {
             if (method.isAnnotationPresent(Transaction.class)) {
                 System.out.println("Transaction is started");
-                TestClass.annotatedMethod();
+                method.invoke(null);
                 System.out.println("Transaction is ended");
             }
         }
