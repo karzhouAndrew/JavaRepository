@@ -8,15 +8,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Lab30 {
-    private final static StringBuilder TEXT = new StringBuilder();
+    private final static StringBuilder text = new StringBuilder();
     private final static int TEXT_LENGTH = 50;
     private final static String FILE_PATH = "./BatiushkovNikita/src/lab30/Lab30.txt";
 
     public static void main(String[] args) {
         writeFile();
         readFile();
-        System.out.println("Amount punctuation marks in text: " + countRegExpMatches("\\p{Punct}", TEXT));
-        System.out.println("Amount words in text: " + countRegExpMatches("[A-Za-z0-9]+", TEXT));
+        System.out.println("Amount punctuation marks in text: " + countRegExpMatches("\\p{Punct}", text));
+        System.out.println("Amount words in text: " + countRegExpMatches("[A-Za-z0-9]+", text));
     }
 
     public static void writeFile() {
@@ -42,14 +42,14 @@ public class Lab30 {
         int asciiUpLimit = 126;
         for (int i = 0; i < length; i++) {
             char randomSymbol = (char) (Math.random() * (asciiUpLimit - asciiDownLimit) + asciiDownLimit + 1);
-            TEXT.append(randomSymbol);
+            text.append(randomSymbol);
         }
-        return TEXT.toString();
+        return text.toString();
     }
 
-    public static void createText(String text) {
-        TEXT.delete(0, TEXT_LENGTH);
-        TEXT.append(text);
+    public static void createText(String str) {
+        text.delete(0, TEXT_LENGTH);
+        text.append(str);
     }
 
     public static int countRegExpMatches(String regExp, StringBuilder text) {
