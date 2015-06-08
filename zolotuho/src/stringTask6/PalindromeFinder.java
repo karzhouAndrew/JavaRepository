@@ -45,6 +45,8 @@ public class PalindromeFinder {
                 }
             }
             return stringBuilder.toString();
-        } else return "";
+        } else {
+            return "Palindrome is not found";
+        }
     }
 }

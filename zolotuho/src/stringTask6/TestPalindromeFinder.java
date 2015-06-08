@@ -3,7 +3,7 @@ package stringTask6;
 public  class TestPalindromeFinder {
 
     public static void main(String[] args) {
-        String string = "ksdbc kjsdbcks!  awenewa jsdbk jdjbcks, dbks. hhabahh ksdbksbd";
+        String string = "ksdffc kjsdbcks!  awenewa jsdbk jdjbcks, dbks. hhabahh ksdbksbd";
         PalindromeFinder palindromeFinder = new PalindromeFinder();
         String palindromes = palindromeFinder.findPalindromes(string);
         System.out.println("original string");
