@@ -3,12 +3,8 @@ package mathExpression;
 import java.util.Scanner;
 
 public class TestExpression {
-    public static double getNumFromConsole(boolean bool, double realNumber) {
-        if (bool) {
-            return realNumber;
-        } else {
-            return 0;
-        }
+    public static double getNumFromConsole(boolean isDouble, double realNumber) {
+        return isDouble == true ? realNumber : 0;
     }
 
     public static void ExceptionTestExpr() {

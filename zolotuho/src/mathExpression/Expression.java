@@ -1,7 +1,7 @@
 package mathExpression;
 
 import static java.lang.Math.*;
-//Написать программу, вычисляющую значение функции  для различных значений аргумента x, задавая его как целое число.
+//Написать программу, вычисляющую значение функции  для различных значений аргумента x, задавая его как целое число..
 public class Expression {
 
     public static double longExpression(double x) {
