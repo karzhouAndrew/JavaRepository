@@ -4,39 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Students {
-    private List<Student> listing;
+    private List<Student> students;
 
     public Students() {
-        listing = new ArrayList<Student>();
+        students = new ArrayList<>();
     }
 
     public void addStudent(String name, int mark) {
-        listing.add(new Student(name, mark));
-    }
-
-    private class Student {
-        private int mark;
-        private String name;
-
-        public Student(String name, int mark) {
-            this.mark = mark;
-            this.name = name;
-        }
-
-        @Override
-        public String toString() {
-            return "{" +
-                    "name='" + name + '\'' +
-                    ", mark=" + mark +
-                    '}';
-        }
+        students.add(new Student(name, mark));
     }
 
     public void deleteBadStudyingStudents(int acceptedMark) {
-        int studentIndex = listing.size() - 1;
+        int studentIndex = students.size() - 1;
         while (studentIndex > -1) {
-            if (listing.get(studentIndex).mark < acceptedMark) {
-                listing.remove(studentIndex);
+            if (students.get(studentIndex).getMark() < acceptedMark) {
+                students.remove(studentIndex);
             }
             studentIndex--;
         }
@@ -45,7 +27,7 @@ public class Students {
     @Override
     public String toString() {
         return "Students{" +
-                "listing=" + listing +
+                "students = " + students +
                 '}';
     }
 }
