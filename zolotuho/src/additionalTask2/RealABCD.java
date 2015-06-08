@@ -6,11 +6,7 @@ public class RealABCD {
 
     public double enterRealNumber(Scanner input, char symbol) {
         System.out.print("Enter real " + symbol + " = ");
-        if (input.hasNextDouble()) {
-            return input.nextDouble();
-        } else {
-            return 0;
-        }
+        return input.hasNextDouble() == true ? input.nextDouble() : 0;
     }
 
     public static void main(String[] args) {
