@@ -7,18 +7,19 @@ import java.util.regex.Pattern;
 //возрастания количества слов в каждом из них
 
 public class TextSplitter {
+    private final String sentenceMarkRegEx = "[.!?]";
+    private final String spaceRegEx = "[ ]";
+
     public int countSentences(String string) {
-        String[] str = string.split("[.!?]");
-        return str.length;
+        return string.split(sentenceMarkRegEx).length;
     }
 
     public int countWords(String sentence) {
-        String[] str = sentence.split("[ ]");
-        return str.length;
+        return sentence.split(spaceRegEx).length;
     }
 
     public String obtainSentence(String string, int sentenceIndex) {
-        Pattern pattern = Pattern.compile("[.!?]");
+        Pattern pattern = Pattern.compile(sentenceMarkRegEx);
         Matcher matcher = pattern.matcher(string);
         StringBuilder stringBuilder = new StringBuilder();
         int currentPosition = 0;
@@ -37,9 +38,9 @@ public class TextSplitter {
     }
 
     public String[] obtainSentences(String string) {
-        Pattern pattern = Pattern.compile("[.!?]");
+        Pattern pattern = Pattern.compile(sentenceMarkRegEx);
         Matcher matcher = pattern.matcher(string);
-        String[] auxiliaryString = string.split("[.!?]");
+        String[] auxiliaryString = string.split(sentenceMarkRegEx);
         StringBuilder[] sentenceBuilder = new StringBuilder[auxiliaryString.length];
 
         int currentPosition = 0;

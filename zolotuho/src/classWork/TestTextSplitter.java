@@ -5,7 +5,7 @@ package classWork;
 public class TestTextSplitter {
     public static void main(String[] args) {
 
-        String string = "i like an ice-cream. There is not any table! no?   My car would be repaired if i had known.";
+        String string = "i like an ice-cream. There is not any table! nope?   My car would be repaired if i had known.";
         TextSplitter textSplitter = new TextSplitter();
         System.out.println("Original text :");
         System.out.println(string);
