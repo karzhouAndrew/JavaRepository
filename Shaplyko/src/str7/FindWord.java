@@ -21,10 +21,10 @@ public class FindWord {
         return newStr.toString();
     }
 
-    public String separateWord2 (String str, int wordLength) {
-                return str.replaceAll("\\b[БВГДЖЗЙКЛМНПРСТФХЦЧШЩЪЬбвгджзйклмнпрстфхцчшщьъ][а-я0-9]{" +
-                        (wordLength - 1) + "}\\b", "");
-           }
+    public String separateWord2(String str, int wordLength) {
+        return str.replaceAll("\\b[БВГДЖЗЙКЛМНПРСТФХЦЧШЩЪЬбвгджзйклмнпрстфхцчшщьъ][а-я0-9]{" +
+                (wordLength - 1) + "}\\b", "");
+    }
 }
 
 
