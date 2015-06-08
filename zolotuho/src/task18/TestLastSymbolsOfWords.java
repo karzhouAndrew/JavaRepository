@@ -1,6 +1,5 @@
 package task18;
 
-
 public class TestLastSymbolsOfWords {
     public static void main(String[] args) {
         String string = " bhvbhsb. jsbvk!    sd  hvv csc jsffbd. sdvnknv";

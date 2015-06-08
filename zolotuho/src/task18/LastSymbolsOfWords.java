@@ -6,13 +6,8 @@ public class LastSymbolsOfWords {
 
     public String createWordOfLastChar(String string) {
         string = string.trim();
-        int counterSplits = string.split(" +").length;
-        String[] stringWords = new String[counterSplits];
-        int counterWords = 0;
-        for (int i = 0; i < stringWords.length; i++) {
-            stringWords[counterWords] = string.split(" +")[i];
-            counterWords++;
-        }
+        String[] stringWords =string.split(" +");
+        int counterWords = stringWords.length;
         StringBuilder word = new StringBuilder();
         for (int i = 0; i < counterWords; i++) {
             int lengthOfWord = stringWords[i].length();
