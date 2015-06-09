@@ -50,10 +50,10 @@ public class CashMachine {
                 '}';
     }
 
-    public void addDenominations(int numberOf20, int numberOf50, int numberOf100) {
-        this.denomination20 = this.denomination20 + numberOf20;
-        this.denomination50 = this.denomination50 + numberOf50;
-        this.denomination100 = this.denomination100 + numberOf100;
+    public void addDenominations(int quantity20, int quantity50, int quantity100) {
+        denomination20 += quantity20;
+        denomination50 += quantity50;
+        denomination100 += quantity100;
     }
 
     public boolean withdrawCash(int sum) {
@@ -63,7 +63,8 @@ public class CashMachine {
         int[] countDenomination = new int[numberDifferentDenomination];
         int increment = 0;
         int tempSum = 0;
-        if (sum % 100 % 50 % 20 == 0) {
+        boolean ableCoverRequestedSumPresenceDenominations = sum % denomination[0] % denomination[1] % denomination[2] == 0;
+        if (ableCoverRequestedSumPresenceDenominations == true) {
             while (increment < numberDifferentDenomination) {
                 countDenomination[increment] = 0;
                 while (countDenomination[increment] < quantity[increment]) {
@@ -97,7 +98,6 @@ public class CashMachine {
             }
             return true;
         } else {
-            System.out.println("Appropriate denominates is absent!");
             return false;
         }
     }

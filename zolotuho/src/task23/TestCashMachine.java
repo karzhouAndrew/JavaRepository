@@ -7,8 +7,8 @@ public class TestCashMachine {
         cashMachine.withdrawCash(1100);
         System.out.println(cashMachine.toString());
         cashMachine.addDenominations(100, 300, 500);
-        System.out.println(cashMachine.toString());
+        System.out.println(cashMachine);
         cashMachine.withdrawCash(5000);
-        System.out.println(cashMachine.toString());
+        System.out.println(cashMachine);
     }
 }
