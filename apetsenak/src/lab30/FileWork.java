@@ -12,17 +12,24 @@ public class FileWork {
     private String text;
 
     public void readFile(String fileName) {
+        BufferedReader file = null;
         try {
-            readText(fileName);
+            file = new BufferedReader(new FileReader(fileName));
+            readText(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                file.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public void readText(String fileName) throws IOException {
-        BufferedReader file = new BufferedReader(new FileReader(fileName));
+    public void readText(BufferedReader file) throws IOException {
         StringBuilder textBuffer = new StringBuilder();
         String line = file.readLine();
         while (line != null) {
