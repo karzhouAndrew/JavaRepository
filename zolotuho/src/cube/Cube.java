@@ -14,11 +14,6 @@ public class Cube {
         color = "white";
     }
 
-    @Override
-    protected Cube clone() {
-        return this;
-    }
-
     public double getSize() {
         return size;
     }
