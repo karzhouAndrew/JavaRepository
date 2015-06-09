@@ -9,7 +9,6 @@ public class FileManager {
 
     public FileManager(String path) {
         setPath(path);
-        createFile();
     }
 
     public String[] readFile() {
