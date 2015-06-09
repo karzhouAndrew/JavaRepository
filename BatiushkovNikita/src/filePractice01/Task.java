@@ -14,6 +14,7 @@ public class Task {
 
     public static void main(String[] args) {
         FileManager fileManager = new FileManager(PATH);
+        fileManager.createFile();
         Integer[] intSequence;
         String[] strSequence;
 
