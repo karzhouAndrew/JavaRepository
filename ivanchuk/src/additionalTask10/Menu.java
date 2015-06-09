@@ -79,8 +79,7 @@ public class Menu {
     public void run(Scanner scanner, AutoHouse autoHouse) {
         while (!isExit) {
             printMenu();
-            int choice;
-            choice = scanner.nextInt();
+            int choice = scanner.nextInt();
             MenuItem item = items.get(choice - 1);
             item.run(scanner, autoHouse);
         }
