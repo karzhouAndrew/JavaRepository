@@ -7,7 +7,7 @@ public class TestRandomNumbersInFile {
 
         RandomNumbersInFile file = new RandomNumbersInFile();
         file.writeRandomNumberToFile(10);
-        System.out.println(file.getListNumbersInFile());
-
+        System.out.println(file.getSortNumbers());
+        file.deleteFile();
     }
 }
