@@ -15,8 +15,8 @@ public abstract class HouseHold {
     public HouseHold(String serialNumber, String vendorName) {
         this.serialNumber = serialNumber;
         this.vendorName = vendorName;
-        this.color = "";
-        this.state = false;
+        color = "";
+        state = false;
     }
 
     public HouseHold(String serialNumber, String vendorName, String color, boolean state) {
@@ -27,9 +27,9 @@ public abstract class HouseHold {
     }
 
     public HouseHold() {
-        this.serialNumber = "00000000";
-        this.vendorName = "unknown";
-        this.color = "";
-        this.state = false;
+        serialNumber = "00000000";
+        vendorName = "unknown";
+        color = "";
+        state = false;
     }
 }

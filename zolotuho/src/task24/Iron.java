@@ -1,8 +1,8 @@
 package task24;
 
 public class Iron extends SmallHouseHold {
-   private TypeSurface typeSurface;
-   private ProcessMode processMode;
+    private TypeSurface typeSurface;
+    private ProcessMode processMode;
 
     public Iron(double weight, double lengthOfCord, TypeSurface typeSurface, ProcessMode processMode) {
         super(weight, lengthOfCord);
@@ -12,7 +12,7 @@ public class Iron extends SmallHouseHold {
 
     @Override
     public void showState() {
-        if (state) {
+        if (state == true) {
             System.out.println("Iron switched On");
         } else {
             System.out.println("Iron switched off");
@@ -37,7 +37,7 @@ public class Iron extends SmallHouseHold {
 
     public void switchOn() {
         state = true;
-        this.processMode = processMode.SLOW;
+        processMode = processMode.SLOW;
     }
 
     public void switchOff() {

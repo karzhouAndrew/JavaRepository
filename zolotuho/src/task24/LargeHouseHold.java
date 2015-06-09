@@ -16,10 +16,10 @@ public abstract class LargeHouseHold extends HouseHold {
 
     public LargeHouseHold(String serialNumber, String vendorName) {
         super(serialNumber, vendorName);
-        this.weight = 0;
-        this.width = 0;
-        this.height = 0;
-        this.length = 0;
+        weight = 0;
+        width = 0;
+        height = 0;
+        length = 0;
 
     }
 
@@ -31,9 +31,9 @@ public abstract class LargeHouseHold extends HouseHold {
     }
 
     public LargeHouseHold() {
-        this.weight = 0;
-        this.width = 0;
-        this.height = 0;
-        this.length = 0;
+        weight = 0;
+        width = 0;
+        height = 0;
+        length = 0;
     }
 }

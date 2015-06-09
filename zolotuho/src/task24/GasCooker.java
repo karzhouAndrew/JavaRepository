@@ -2,16 +2,16 @@ package task24;
 
 public class GasCooker extends Cooker {
     private double gasTubeDiameter;
-    private ProcessMode modeOfCooking;
+    private ProcessMode cookingMode;
 
-    public GasCooker(double gasTubeDiameter, ProcessMode modeOfCooking) {
+    public GasCooker(double gasTubeDiameter, ProcessMode cookingMode) {
         this.gasTubeDiameter = gasTubeDiameter;
-        this.modeOfCooking = modeOfCooking;
+        this.cookingMode = cookingMode;
     }
 
     @Override
     public void showState() {
-        if (state) {
+        if (state == true) {
             System.out.println("Switched On");
         } else {
             System.out.println("Switched off");
@@ -26,11 +26,11 @@ public class GasCooker extends Cooker {
         this.gasTubeDiameter = gasTubeDiameter;
     }
 
-    public ProcessMode getModeOfCooking() {
-        return modeOfCooking;
+    public ProcessMode getCookingMode() {
+        return cookingMode;
     }
 
-    public void setModeOfCooking(ProcessMode modeOfCooking) {
-        this.modeOfCooking = modeOfCooking;
+    public void setCookingMode(ProcessMode cookingMode) {
+        this.cookingMode = cookingMode;
     }
 }

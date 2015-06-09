@@ -12,7 +12,7 @@ public class Fridge extends LargeHouseHold implements ControlTemperature {
 
     @Override
     public void showState() {
-        if (state) {
+        if (state == true) {
             System.out.println("Fridge switched On");
         } else {
             System.out.println("Fridge switched off");
@@ -31,19 +31,15 @@ public class Fridge extends LargeHouseHold implements ControlTemperature {
     }
 
     public void increaseByOneDegree() {
-        this.freezingTemperature++;
+        freezingTemperature++;
     }
 
     public void decreaseByOneDegree() {
-        this.freezingTemperature--;
+        freezingTemperature--;
     }
 
     public boolean warningInformation() {
-        if (this.freezingTemperature > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return freezingTemperature > 0 ? true : false;
     }
 
     public double getVolume() {
@@ -63,7 +59,7 @@ public class Fridge extends LargeHouseHold implements ControlTemperature {
     }
 
     public void setFreezingTemperature(double freezingTemperature) {
-        freezingTemperature = freezingTemperature;
+        this.freezingTemperature = freezingTemperature;
     }
 
     public double getCoolingTemperature() {
@@ -71,18 +67,18 @@ public class Fridge extends LargeHouseHold implements ControlTemperature {
     }
 
     public void setCoolingTemperature(double coolingTemperature) {
-        coolingTemperature = coolingTemperature;
+        this.coolingTemperature = coolingTemperature;
     }
 
     public void switchOn() {
         state = true;
-        this.freezingTemperature = -1;
-        this.coolingTemperature = 6;
+        freezingTemperature = -1;
+        coolingTemperature = 6;
     }
 
     public void switchOff() {
         state = false;
-        this.freezingTemperature = 0;
-        this.coolingTemperature = 0;
+        freezingTemperature = 0;
+        coolingTemperature = 0;
     }
 }

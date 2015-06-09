@@ -2,11 +2,11 @@ package task24;
 
 public abstract class SmallHouseHold extends HouseHold {
     private double weight;
-    private double lengthOfCord;
+    private double cordLength;
 
-    public SmallHouseHold(double weight, double lengthOfCord) {
+    public SmallHouseHold(double weight, double cordLength) {
         this.weight = weight;
-        this.lengthOfCord = lengthOfCord;
+        this.cordLength = cordLength;
     }
 
     public double getWeight() {
@@ -17,11 +17,11 @@ public abstract class SmallHouseHold extends HouseHold {
         this.weight = weight;
     }
 
-    public double getLengthOfCord() {
-        return lengthOfCord;
+    public double getCordLength() {
+        return cordLength;
     }
 
-    public void setLengthOfCord(double lengthOfCord) {
-        this.lengthOfCord = lengthOfCord;
+    public void setCordLength(double cordLength) {
+        this.cordLength = cordLength;
     }
 }

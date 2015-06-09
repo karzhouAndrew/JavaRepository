@@ -9,10 +9,9 @@ public abstract class Cooker extends LargeHouseHold {
         this.numberCookerPlates = numberCookerPlates;
     }
 
-    public Cooker(double weight, double width, double height, double length, int numberCookerPlates, double temperature) {
+    public Cooker(double weight, double width, double height, double length, int numberCookerPlates) {
         super(weight, width, height, length);
-        this.numberCookerPlates = 4;
-        this.temperature = 0;
+        this.numberCookerPlates = numberCookerPlates;
     }
 
     public int getNumberCookerPlates() {
@@ -33,17 +32,17 @@ public abstract class Cooker extends LargeHouseHold {
 
     public Cooker() {
         super();
-        this.numberCookerPlates = 4;
-        this.temperature = 0;
+        numberCookerPlates = 4;
+        temperature = 0;
     }
 
     public void switchOn() {
         state = true;
-        this.temperature = 100;
+        temperature = 100;
     }
 
     public void switchOff() {
         state = false;
-        this.temperature = 0;
+        temperature = 0;
     }
 }

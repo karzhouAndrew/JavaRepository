@@ -10,7 +10,7 @@ public class TestHouseHold {
         ControlTemperature controlTemperature = new Fridge("jqwh333", "LG", 1, 2, 3, 4, 5);
         //ControlTemperature controlTemperature11 = new ElectricCooker(1000, typeSurface);
         HouseHold fridge1 = new Fridge("jqwh2222", "Bosh", 1, 2, 3, 4, 5);
-        HouseHold electricCooker = new ElectricCooker(1000, typeSurface.METAL);
+        HouseHold electricCooker = new ElectricCooker(1000, typeSurface.METAL, 300);
         HouseHold iron = new Iron(5, 2, typeSurface.CERAMIC, processMode.SLOW);
         HouseHold houseHold;
         houseHold = electricCooker;
@@ -44,8 +44,6 @@ public class TestHouseHold {
             System.out.println("ElectricCooker overheated");
         } else {
             System.out.println("ElectricCooker is normal");
-
-
         }
     }
 }
