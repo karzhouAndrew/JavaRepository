@@ -3,7 +3,6 @@ package autoHouse;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class TestAutoHouse {
     public static void main(String[] args) {
@@ -25,33 +24,7 @@ public class TestAutoHouse {
             cars.put(i, car[i]);
         }
         AutoHouse autoHouse = new AutoHouse((HashMap) cars);
-        Scanner input = new Scanner(System.in);
-        boolean exitFlag = true;
-        do {
-            System.out.println("Enter command, please");
-            System.out.println("add - add car");
-            System.out.println("del - delete car");
-            System.out.println("searchbr - search by brand");
-            System.out.println("searchyr - search by year");
-            System.out.println("sortyear - sort by year");
-            System.out.println("sortpr - sort by price");
-            System.out.println("show - show cars");
-            System.out.println("exit");
-
-            if (input.hasNextLine()) {
-                try {
-                    String enteredLine = input.nextLine();
-                    if (enteredLine.equals("exit")) {
-                        exitFlag = false;
-                    } else {
-                        AutoHouseMenu.valueOf(enteredLine.toUpperCase()).menuFunction(autoHouse);
-                    }
-
-                } catch (Exception e) {
-                    System.out.println("Invalid command");
-                }
-            }
-        } while (exitFlag);
-        input.close();
+        AutoHouseConsole console = new AutoHouseConsole();
+        console.runConsole(autoHouse);
     }
 }

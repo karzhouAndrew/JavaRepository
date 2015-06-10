@@ -12,7 +12,7 @@ public class AutoHouseConsole {
         if (input.hasNextInt()) {
             return input.nextInt();
         } else {
-            System.out.println(correctEnter);
+            correctEnter = false;
             return 0;
         }
     }
@@ -47,7 +47,6 @@ public class AutoHouseConsole {
         int price = consoleEnterInt();
         System.out.println("key - ");
         int key = consoleEnterInt();
-        System.out.println(correctEnter);
         if (correctEnter == true) {
             boolean successCreation =
                     autoHouse.addCar(new Car(vin, new GregorianCalendar(year, month, day), brand, color, price), key);
@@ -124,5 +123,36 @@ public class AutoHouseConsole {
 
     public static void showCars(AutoHouse autoHouse) {
         System.out.println(autoHouse.getCarsSet());
+    }
+
+    public void runConsole(AutoHouse autoHouse) {
+        Scanner input = new Scanner(System.in);
+        boolean exitFlag = true;
+        do {
+            System.out.println("Enter command, please");
+            System.out.println("add - add car");
+            System.out.println("del - delete car");
+            System.out.println("searchbr - search by brand");
+            System.out.println("searchyr - search by year");
+            System.out.println("sortyear - sort by year");
+            System.out.println("sortpr - sort by price");
+            System.out.println("show - show cars");
+            System.out.println("exit");
+
+            if (input.hasNextLine()) {
+                try {
+                    String enteredLine = input.nextLine();
+                    if (enteredLine.equals("exit")) {
+                        exitFlag = false;
+                    } else {
+                        AutoHouseMenu.valueOf(enteredLine.toUpperCase()).menuFunction(autoHouse);
+                    }
+
+                } catch (Exception e) {
+                    System.out.println("Invalid command");
+                }
+            }
+        } while (exitFlag);
+        input.close();
     }
 }

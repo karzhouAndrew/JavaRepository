@@ -63,6 +63,7 @@ public class AutoHouse {
     }
 
     public boolean deleteCarByKey(int key) {
+
         if (cars.containsKey(key)) {
             cars.remove(key);
             return true;
@@ -99,9 +100,7 @@ public class AutoHouse {
         Set<Car> sortedCars = new TreeSet<Car>(new Comparator<Car>() {
             @Override
             public int compare(Car car1, Car car2) {
-                if (car1.getReleaseDate().get(1) > car2.getReleaseDate().get(1)) {
-                    return 1;
-                } else return -1;
+                return car1.getReleaseDate().get(1) > car2.getReleaseDate().get(1) ? 1 : -1;
             }
         });
 
@@ -129,9 +128,7 @@ public class AutoHouse {
         Set<Car> sortedCars = new TreeSet<Car>(new Comparator<Car>() {
             @Override
             public int compare(Car car1, Car car2) {
-                if (car1.getPrice() >= car2.getPrice()) {
-                    return 1;
-                } else return -1;
+                return car1.getReleaseDate().get(1) > car2.getReleaseDate().get(1) ? 1 : -1;
             }
         });
 
