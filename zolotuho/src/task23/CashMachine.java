@@ -81,16 +81,12 @@ public class CashMachine {
             }
             for (int i = 0; i < countDenomination.length; i++) {
                 quantity[i] -= countDenomination[i];
-                switch (denomination[i]) {
-                    case 100:
-                        denomination100 = quantity[i];
-                        break;
-                    case 50:
-                        denomination50 = quantity[i];
-                        break;
-                    case 20:
-                        denomination20 = quantity[i];
-                        break;
+                if (denomination[i] == 100) {
+                    denomination100 = quantity[i];
+                } else if (denomination[i] == 50) {
+                    denomination50 = quantity[i];
+                } else if (denomination[i] == 20) {
+                    denomination20 = quantity[i];
                 }
             }
             for (int i = 0; i < countDenomination.length; i++) {
