@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 
 public class RandomNumbersInFile {
-    private static final String NUMBER_REGEX = "\\d+";
+    private static final String NUMBER_REGEX = "-?\\d+";
     private File path;
     private Random rand = new Random();
     private StringBuilder text;
