@@ -1,7 +1,6 @@
 package module2.laba1;
 
 
-
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -21,7 +20,7 @@ public class Formatting {
         this(Locale.getDefault());
     }
 
-    public String currency(double money){
+    public String currency(double money) {
         return NumberFormat.getCurrencyInstance(locale).format(money);
     }
 
@@ -33,7 +32,7 @@ public class Formatting {
         return locale;
     }
 
-    public static void seeLocales(){
+    public static void seeLocales() {
         for (Locale local : Locale.getAvailableLocales()) {
             System.out.println(local.getDisplayCountry() + " " + local.getCountry());
         }

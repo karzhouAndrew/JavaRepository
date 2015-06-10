@@ -1,7 +1,6 @@
 package module2.laba1;
 
 
-
 public class TestFormat {
     public static void main(String[] args) {
         double money = 153.5;
