@@ -8,6 +8,9 @@ public abstract class PaymentCard {
         this.bankName = bankName;
         this.cardID = cardID;
     }
+    public abstract void showBalance();
+
+    public abstract void transferToAnotherCard(long sum, PaymentCard paymentCard);
 
     public String getBankName() {
         return bankName;

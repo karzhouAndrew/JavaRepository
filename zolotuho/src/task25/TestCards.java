@@ -7,10 +7,10 @@ public class TestCards {
         Visa visa = new Visa("Idea", 578599474, 50000, 0, Currency.EU, 1);
         PaymentCard paymentCard2;
         paymentCard2 = visa;
-        ((Visa) paymentCard1).showBalance();
-        ((Visa) paymentCard2).showBalance();
-        ((Visa) paymentCard1).transferToAnotherCard(5000, paymentCard2);
-        ((Visa) paymentCard1).showBalance();
-        ((Visa) paymentCard2).showBalance();
+        paymentCard1.showBalance();
+        paymentCard2.showBalance();
+        paymentCard1.transferToAnotherCard(5000, paymentCard2);
+        paymentCard1.showBalance();
+        paymentCard2.showBalance();
     }
 }

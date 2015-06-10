@@ -18,11 +18,19 @@ public class MasterCard extends DebitCard {
         }
     }
 
+    public void transferToAnotherCard() {
+
+    }
+
     public long getDiscount() {
         return discount;
     }
 
     public void setDiscount(long discount) {
         this.discount = discount;
+    }
+
+    public void transferToAnotherCard(long sum, PaymentCard paymentCard) {
+
     }
 }
