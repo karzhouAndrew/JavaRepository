@@ -10,9 +10,11 @@ public class TaskTest {
         TextFile textFile = new TextFile("./ivanchuk/src/task31/file");
         if (textFile.readFile()) {
             List<Integer> numbers = textFile.searchNumbers();
-            System.out.println(numbers);
-            System.out.println(textFile.calcSum(numbers));
-            System.out.println(textFile.deleteRepeatingNumbers(numbers));
+            System.out.println("Числа: " + numbers);
+            System.out.println("Сумма: " + textFile.calcSum(numbers));
+            System.out.println("Числа после удаления повторяющихся: " + textFile.deleteRepeatingNumbers(numbers));
+        } else {
+            System.out.println("Ошибка чтения файла!!!");
         }
     }
 }
