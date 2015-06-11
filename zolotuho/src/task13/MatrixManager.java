@@ -9,16 +9,14 @@ import java.util.Scanner;
 public class MatrixManager {
     public void swapMatrix(int[][] matriX) {
         int startLinePosition = 0;
-        for (int i = startLinePosition; i < matriX.length - 2 + 1; i++) {
+        for (int i = startLinePosition; i < matriX.length / 2 + 1; i++) {
             int startRowPosition = startLinePosition;
             for (int j = i; j < matriX.length - 1 - i; j++) {
-                int tempFirst = matriX[i][j];
+                int temp = matriX[i][j];
                 matriX[i][j] = matriX[matriX.length - j - 1][i];
-                int tempSecond = matriX[j][matriX.length - i - 1];
-                matriX[j][matriX.length - i - 1] = tempFirst;
-                tempFirst = matriX[matriX.length - i - 1][matriX.length - j - 1];
-                matriX[matriX.length - i - 1][matriX.length - j - 1] = tempSecond;
-                matriX[matriX.length - j - 1][i] = tempFirst;
+                matriX[matriX.length - j - 1][i] = matriX[matriX.length - i - 1][matriX.length - j - 1];
+                matriX[matriX.length - i - 1][matriX.length - j - 1] = matriX[j][matriX.length - i - 1];
+                matriX[j][matriX.length - i - 1] = temp;
                 startRowPosition++;
             }
             startLinePosition++;
