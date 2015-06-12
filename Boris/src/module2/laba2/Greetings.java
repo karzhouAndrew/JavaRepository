@@ -16,19 +16,16 @@ public class Greetings {
         setLocale("US");
     }
 
-    private void setLocale(String loc) throws IllegalArgumentException {
-        Enum locale;
-        try {
-            locale = Locales.valueOf(loc.toUpperCase());
-        } catch (IllegalArgumentException e){
-            throw new IllegalArgumentException() ;
-        }
-        if (locale.equals(Locales.US) || locale == null) {
+    private void setLocale(String loc) throws IllegalArgumentException{
+        loc = loc.toUpperCase();
+        if (loc.equals("US") || locale == null) {
             this.locale = new Locale("en", "US");
-        } else if (locale.equals(Locales.RU)) {
+        } else if (loc.equals("RU")) {
             this.locale = new Locale("ru", "RU");
-        } else if (locale.equals(Locales.BY)) {
+        } else if (loc.equals("BY")) {
             this.locale = new Locale("be", "BY");
+        } else {
+            throw new IllegalArgumentException();
         }
     }
 
