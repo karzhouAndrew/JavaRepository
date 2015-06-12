@@ -6,11 +6,11 @@ import java.util.Random;
 
 public class TestLogger {
     public static void main(String[] args) {
-        startException(new Random().nextInt(100));
+        startGenerateException(new Random().nextInt(100));
         System.out.println(Logger.getInstanceLogger().getTextFromFile());
     }
 
-    private static void startException(int start) {
+    private static void startGenerateException(int start) {
         try {
             for (int i = start; i < 100; i++) {
                 if (i % 17 == 0) {
@@ -30,7 +30,7 @@ public class TestLogger {
 
     private static void writeText(int start, RuntimeException e) {
         Logger.getInstanceLogger().writeMessage(new Date().toString() + "\t" + e);
-        startException(start + 10);
+        startGenerateException(start + 10);
     }
 }
 
