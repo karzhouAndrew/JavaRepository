@@ -14,11 +14,11 @@ public class TestLogger {
         try {
             for (int i = start; i < 100; i++) {
                 if (i % 17 == 0) {
-                    throw new IllegalArgumentException("i = " + String.valueOf(i) + "\t");
+                    throw new IllegalArgumentException("i = " + i + "\t");
                 } else if (i % 7 == 0) {
-                    throw new NullPointerException("i = " + String.valueOf(i) + "\t");
+                    throw new NullPointerException("i = " + i + "\t");
                 } else if (i % 13 == 0) {
-                    throw new NumberFormatException("i = " + String.valueOf(i) + "\t");
+                    throw new NumberFormatException("i = " + i + "\t");
                 }
             }
         } catch (NumberFormatException e) {
