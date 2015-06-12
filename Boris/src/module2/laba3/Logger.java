@@ -14,7 +14,11 @@ public class Logger {
 
     private Logger() {
         file = new File("./Boris/src/module2/temp.txt");
-        clearFile();
+        if (file.exists()) {
+            clearFile();
+        } else {
+            file.getParentFile().mkdirs();
+        }
     }
 
     public static synchronized Logger getInstanceLogger() {
