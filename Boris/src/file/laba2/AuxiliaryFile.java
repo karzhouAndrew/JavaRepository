@@ -1,9 +1,7 @@
 package file.laba2;
 
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
 
 public class AuxiliaryFile {
@@ -15,8 +13,8 @@ public class AuxiliaryFile {
         this("./Boris/src/file", "temp.txt");
     }
 
-    public AuxiliaryFile(File path) {
-        this.path = path;
+    public AuxiliaryFile(File path) throws IOException {
+        this.path = new File(String.valueOf(path.getCanonicalFile()));
         createFileOrGenerateNewName();
     }
 
@@ -48,21 +46,17 @@ public class AuxiliaryFile {
     }
 
     public void writeLineToFile(StringBuilder str) {
-        writeToFile(str.append("\\n"));
+        writeToFile(str);
     }
 
     public void writeToFile(StringBuilder str) {
-        try (PrintWriter writer = new PrintWriter(path)) {
-            writer.print(str);
+        try (PrintWriter writer = new PrintWriter(new BufferedOutputStream (new FileOutputStream(path, true)))) {
+            writer.println(str);
         } catch (IOException e) {
             System.out.println("File not written.");
         }
     }
 
-    public void changeName(String name){
-        path.renameTo(new File(path.getParent() + "\\" + name));
-
-    }
 
     public static void deleteFile(File path) {
         if (path.exists()) {
@@ -70,21 +64,24 @@ public class AuxiliaryFile {
         }
     }
 
-    public void deleteThisFile(){
+    public void deleteThisFile() {
         deleteFile(path);
     }
 
-    public void replaceOriginal(){
-        String originalName = getName(path.getName());
-        File pathDelete = new File(path.getParent() + originalName);
-        deleteFile(pathDelete);
-        changeName(originalName);
+    public void replaceOriginal(File file) {
+        deleteFile(file);
+        changeName(file);
+    }
+
+    private void changeName(File file) {
+        path.renameTo(file);
+
     }
 
     private String getName(String name) {
         int charStartIndex = 1;
         int quantityFile = nextFileName;
-        while ((quantityFile%=10) < 1){
+        while ((quantityFile %= 10) < 1) {
             charStartIndex++;
         }
         return name.substring(charStartIndex);
