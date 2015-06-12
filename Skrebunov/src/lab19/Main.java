@@ -9,5 +9,7 @@ public class Main {
         System.out.println(object.additionStringOne("String"));
         StringBuilder objectTwo = new StringBuilder("String");
         System.out.println(object.additionStringTwo(objectTwo));
+        StringBuffer objectThree = new StringBuffer("String");
+        System.out.println(object.additionStringBuffer(objectThree));
     }
 }

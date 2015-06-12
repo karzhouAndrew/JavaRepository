@@ -2,7 +2,7 @@ package lab19;
 
 
 public class Addition {
-    String str;
+    private String str;
 
     public Addition() {
 
@@ -23,6 +23,17 @@ public class Addition {
     }
 
     public int additionStringTwo(StringBuilder str) {
+        int startTimeMethod1 = (int) System.nanoTime();
+        int count = 0;
+        while (count < 100) {
+            str.append("+Java");
+            str.append(" ");
+            count++;
+        }
+        return (int) System.nanoTime() - startTimeMethod1;
+    }
+
+    public int additionStringBuffer(StringBuffer str) {
         int startTimeMethod1 = (int) System.nanoTime();
         int count = 0;
         while (count < 100) {
