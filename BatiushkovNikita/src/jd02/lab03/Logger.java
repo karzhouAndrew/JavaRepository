@@ -6,21 +6,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
 
-public class EasyLogger {
-    private static EasyLogger instance;
+public class Logger {
+    private static Logger instance;
     private String path = "./BatiushkovNikita/src/jd02/lab03/ExceptionLog.txt";
 
-    private EasyLogger() {
+    private Logger() {
     }
 
-    public static synchronized EasyLogger getInstance() {
+    public static synchronized Logger getInstance() {
         if (instance == null) {
-            instance = new EasyLogger();
+            instance = new Logger();
         }
         return instance;
     }
 
-    public void loggingException(String text) {
+    public void logException(String text) {
         String message = getTime() + "  " + text;
         writeFile(message);
     }

@@ -5,7 +5,7 @@ import java.io.IOException;
 public class ExceptionGenerator {
     public static String exception;
 
-    public String getIOException() {
+    public String getMessageIOException() {
         try {
             throw new IOException();
         } catch (IOException e) {
@@ -14,7 +14,7 @@ public class ExceptionGenerator {
         return exception;
     }
 
-    public String getClassCastException() {
+    public String getMessageClassCastException() {
         try {
             throw new ClassCastException();
         } catch (ClassCastException e) {
@@ -23,7 +23,7 @@ public class ExceptionGenerator {
         return exception;
     }
 
-    public String getNullPointerException() {
+    public String getMessageNullPointerException() {
         try {
             throw new NullPointerException();
         } catch (NullPointerException e) {
@@ -31,5 +31,4 @@ public class ExceptionGenerator {
         }
         return exception;
     }
-
 }
