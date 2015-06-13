@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pointsList SYSTEM "E:\Documents\DEV\JAVA\PVT\JD02Task05\src\jd02lab05\pointsListFormat.dtd">
+<!DOCTYPE pointsList SYSTEM "pointsListFormat.dtd">
 <pointsList>
     <point unit="mm">
         <x>2</x>
