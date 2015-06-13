@@ -15,7 +15,7 @@ public class DifferentDigit {
         }
         int counter = 0;
         for (int j = value, ost, i = 10; kolCifr != 0; kolCifr--, i = i * 10, counter++) {
-            ost = (val % i) / (i / 10);
+            ost = (j % i) / (i / 10);
             j = j - ost;
             arrValue[counter] = ost;
         }
