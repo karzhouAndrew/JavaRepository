@@ -13,8 +13,9 @@ public class Factorial {
         int value = in.nextInt();
         long factorial = 1;
         for (int i = 1; i <= value; i++) {
-            factorial = factorial * i;
+            factorial *= i;
         }
         System.out.println(factorial);
+        in.close();
     }
 }
