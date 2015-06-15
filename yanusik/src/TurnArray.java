@@ -1,3 +1,5 @@
+package lab13;
+
 /**
  * Создать   массив,   заполнить   его   случайными   элементами
  * ,
@@ -14,6 +16,7 @@ public class TurnArray {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите размерность массива : ");
         int[] array = new int[sc.nextInt()];
+        sc.close();
         for (int i = 0; i < array.length; i++) {
             array[i] = i;
         }
@@ -24,6 +27,5 @@ public class TurnArray {
             array[array.length - 1 - i] = temp;
         }
         System.out.println(Arrays.toString(array));
-        sc.close();
     }
 }
