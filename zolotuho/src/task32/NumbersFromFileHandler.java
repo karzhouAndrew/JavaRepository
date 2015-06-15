@@ -53,6 +53,5 @@ public class NumbersFromFileHandler {
         } catch (IOException e) {
             System.out.println("file not found");
         }
-
     }
 }
