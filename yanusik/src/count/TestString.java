@@ -1,9 +1,7 @@
-package count;
+package Count;
 
 /**
- * * Найти в строке не только запятые, но и другие знаки
- * препинания.
- * Подсчитать общее их количество
+ * Created by dmitry on 7.6.15.
  */
 public class TestString {
     public static void main(String[] args) {
@@ -11,7 +9,7 @@ public class TestString {
         String str = " Ниже не приводятся общеизвестные и очевидные сочетания вроде Ctr+C, " +
                 "Ctr+V или Ctr + S. В IntelliJ IDEA многие хоткеи имеют парный хоткей отличающийся" +
                 " только тем, что в нем дополнительно участвует клавиша Shift. ";
-        System.out.println("number of punctuation = " + string.CountPunct(str));
+        System.out.println("number of punctuation = " + string.CountPun(str));
 
     }
 }
