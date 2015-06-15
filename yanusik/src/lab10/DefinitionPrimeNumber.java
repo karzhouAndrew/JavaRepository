@@ -12,20 +12,20 @@ public class DefinitionPrimeNumber {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.printf("enter value");
-        int value = in.nextInt();
-        boolean flag = false;
-        for (int i = 2; i < Math.sqrt(value) + 1; i++) {
-            if (value % i == 0) {
-                flag = true;
+        int number = in.nextInt();
+        in.close();
+        boolean compound = false;
+        for (int i = 2; i < Math.sqrt(number) + 1; i++) {
+            if (number % i == 0) {
+                compound = true;
                 break;
             }
         }
-        if (flag) {
+        if (compound) {
             System.out.println("sostavnoe chislo");
         } else {
             System.out.println("prostoe chislo");
         }
-        in.close();
     }
 }
 
