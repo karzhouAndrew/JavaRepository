@@ -13,13 +13,17 @@ public class ChangeJavaFile {
 
     public ChangeJavaFile(File file) throws FileNotFoundException {
         if (file.exists()) {
-            if (Pattern.compile(JAVA_REGEX).matcher(file.toString()).find()) {
-                this.file = file;
-            } else {
-                throw new FileNotFoundException("Not java file.");
-            }
+            isJavaFile(file);
         } else {
             throw new FileNotFoundException(file.toString());
+        }
+    }
+
+    private void isJavaFile(File file) throws FileNotFoundException {
+        if (Pattern.compile(JAVA_REGEX).matcher(file.toString()).find()) {
+            this.file = file;
+        } else {
+            throw new FileNotFoundException("Not java file.");
         }
     }
 
@@ -28,21 +32,21 @@ public class ChangeJavaFile {
     }
 
     public void changeFile() {
-        try {
-            tempFile = new AuxiliaryFile(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            String readLine;
-            while ((readLine = reader.readLine()) != null) {
-                tempFile.writeLineToFile(getChangeableLine(readLine));
-            }
-            tempFile.replaceOriginal(file);
+            writeChangesToAuxiliaryFile(reader);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        tempFile.replaceOriginal(file);
+    }
+
+    private void writeChangesToAuxiliaryFile(BufferedReader reader) throws IOException {
+        tempFile = new AuxiliaryFile(file);
+        String readLine;
+        while ((readLine = reader.readLine()) != null) {
+            tempFile.writeLineToFile(getChangeableLine(readLine));
         }
     }
 
@@ -51,13 +55,12 @@ public class ChangeJavaFile {
         for (int i = readLine.length(); i > 0; i--) {
             strB.append(readLine.charAt(i - 1));
         }
-        strB.append("\n");
         return strB;
     }
 
     public StringBuilder readFile() {
         StringBuilder strB = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(tempFile.getPath()))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 strB.append(line).append("\n");

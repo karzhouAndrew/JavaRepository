@@ -6,7 +6,6 @@ import java.io.*;
 
 public class AuxiliaryFile {
     private File path;
-    private StringBuilder text;
     private static int nextFileName = 0;
 
     public AuxiliaryFile() {
@@ -30,7 +29,7 @@ public class AuxiliaryFile {
     private void createFileOrGenerateNewName() {
         if (path.exists()) {
             setPath(path.getParent(), (nextFileName++) + path.getName());
-//            createFileOrGenerateNewName();
+            createFileOrGenerateNewName();
         } else {
             createFile();
         }
@@ -76,18 +75,5 @@ public class AuxiliaryFile {
     private void changeName(File file) {
         path.renameTo(file);
 
-    }
-
-    private String getName(String name) {
-        int charStartIndex = 1;
-        int quantityFile = nextFileName;
-        while ((quantityFile %= 10) < 1) {
-            charStartIndex++;
-        }
-        return name.substring(charStartIndex);
-    }
-
-    public File getPath() {
-        return path;
     }
 }
