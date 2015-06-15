@@ -12,28 +12,28 @@ public class FileManager {
     }
 
     public List<String> getFiles() {
-        List<String> files = new ArrayList<>();
+        List<String> filesNames = new ArrayList<>();
         if (DIRECTORY.isDirectory()) {
             File[] directoryObjects = DIRECTORY.listFiles();
             for (File object : directoryObjects) {
                 if (object.isFile()) {
-                    files.add(object.getName());
+                    filesNames.add(object.getName());
                 }
             }
         }
-        return files;
+        return filesNames;
     }
 
     public List<String> getDirectories() {
-        List<String> directories = new ArrayList<>();
+        List<String> directoriesNames = new ArrayList<>();
         if (DIRECTORY.isDirectory()) {
             File[] directoryObjects = DIRECTORY.listFiles();
             for (File object : directoryObjects) {
                 if (object.isDirectory()) {
-                    directories.add(object.getName());
+                    directoriesNames.add(object.getName());
                 }
             }
         }
-        return directories;
+        return directoriesNames;
     }
 }
