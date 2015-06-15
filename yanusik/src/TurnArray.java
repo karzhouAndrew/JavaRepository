@@ -24,5 +24,6 @@ public class TurnArray {
             array[array.length - 1 - i] = temp;
         }
         System.out.println(Arrays.toString(array));
+        sc.close();
     }
 }
