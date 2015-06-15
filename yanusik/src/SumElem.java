@@ -10,7 +10,6 @@ public class SumElem {
         int indexMax = 0;
         int minArray = array[0];
         int indexMin = 0;
-        int sum = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] > maxArray) {
                 maxArray = array[i];
@@ -27,8 +26,9 @@ public class SumElem {
             indexMax = indexMin;
             indexMin = temp;
         }
+        int sum = 0;
         for (int i = indexMin + 1; i < indexMax; i++) {
-            sum = sum + array[i];
+            sum += array[i];
         }
         System.out.println(sum);
     }
