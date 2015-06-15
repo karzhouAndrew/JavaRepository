@@ -78,15 +78,6 @@ public class AuxiliaryFile {
 
     }
 
-    private String getName(String name) {
-        int charStartIndex = 1;
-        int quantityFile = nextFileName;
-        while ((quantityFile %= 10) < 1) {
-            charStartIndex++;
-        }
-        return name.substring(charStartIndex);
-    }
-
     public File getPath() {
         return path;
     }

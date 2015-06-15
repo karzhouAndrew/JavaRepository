@@ -35,21 +35,21 @@ public class ChangedJavaFile {
         temp = new AuxiliaryFile(this.file);
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String str;
-            while ((str = reader.readLine()) != null){
+            while ((str = reader.readLine()) != null) {
                 findReplaceWord(str);
             }
-            temp.replaceOriginal(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        temp.replaceOriginal(file);
     }
 
     private void findReplaceWord(String str) {
-        if (isRegexExist(str, CLASS_REGEX)){
+        if (isRegexExist(str, CLASS_REGEX)) {
             writeToAuxiliaryFile(str);
-        } else if (isRegexExist(str, REPLACE_WORD)){
+        } else if (isRegexExist(str, REPLACE_WORD)) {
             writeToAuxiliaryFile(str.replaceAll(REPLACE_WORD, INSERT_WORD));
-        } else{
+        } else {
             writeToAuxiliaryFile(str);
         }
     }
@@ -58,17 +58,23 @@ public class ChangedJavaFile {
         temp.writeLineToFile(new StringBuilder(str));
     }
 
-    public StringBuilder seeFile(){
+    public StringBuilder seeFile() {
         StringBuilder strB = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(temp.getPath()))) {
-            String str;
-            while ((str = reader.readLine()) != null){
-                strB.append(str).append("\n");
-            }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            strB = readTextToBuffer(reader);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        return strB;
+    }
+
+    private StringBuilder readTextToBuffer(BufferedReader reader) throws IOException {
+        StringBuilder strB = new StringBuilder();
+        String str;
+        while ((str = reader.readLine()) != null) {
+            strB.append(str).append("\n");
         }
         return strB;
     }
