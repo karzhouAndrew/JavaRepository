@@ -67,7 +67,7 @@ public class AuxiliaryFile {
         deleteFile(path);
     }
 
-    public void replaceOriginal(File file) {
+    public void replaceToFile(File file) {
         deleteFile(file);
         changeName(file);
     }

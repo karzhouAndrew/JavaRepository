@@ -39,7 +39,7 @@ public class ChangeJavaFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        tempFile.replaceOriginal(file);
+        tempFile.replaceToFile(file);
     }
 
     private void writeChangesToAuxiliaryFile(BufferedReader reader) throws IOException {
