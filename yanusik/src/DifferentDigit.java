@@ -1,3 +1,5 @@
+package lab7;
+
 /**
  * Дано    любое  натуральное    n.
  * Верно  ли,  что  все    цифры  числа
@@ -6,28 +8,27 @@
 public class DifferentDigit {
     public static void main(String[] args) {
         int arrValue[] = new int[25];
-        int value = 11;
-        int valueDigit = 0;
-        boolean flag = false;
-        for (int i = 10, j = value; j > 0; i = i * 10) {
-            j = j - i;
-            valueDigit++;
+        int number = 11;
+        int numberDigit = 0;
+        boolean differNumb = false;
+        for (int i = 10, j = number; j > 0; i = i * 10) {
+            j -= i;
+            numberDigit++;
         }
         int counter = 0;
-        for (int j = value, ost, i = 10; kolCifr != 0; kolCifr--, i = i * 10, counter++) {
+        for (int j = number, ost, i = 10; numberDigit != 0; numberDigit--, i = i * 10, counter++) {
             ost = (j % i) / (i / 10);
-            j = j - ost;
+            j -= ost;
             arrValue[counter] = ost;
         }
         for (int i = 0; i < counter; i++) {
             for (int k = i + 1; k < counter; k++) {
                 if (arrValue[i] == arrValue[k]) {
-
-                    flag = true;
+                    differNumb = true;
                 }
             }
         }
-        if (flag) {
+        if (differNumb) {
             System.out.println("не все цифры числа различны");
         } else {
             System.out.println("все цифры числа различны");
