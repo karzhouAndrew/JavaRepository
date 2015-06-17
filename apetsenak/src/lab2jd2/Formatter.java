@@ -8,7 +8,7 @@ public class Formatter {
     private Locale locale;
 
     public Formatter() {
-        locale = Locale.getDefault();
+        locale = Locale.US;
     }
 
     public Formatter(Locale locale) {
