@@ -6,7 +6,7 @@ package count;
  * Подсчитать общее их количество
  */
 public class CountPunctuation {
-    public int CountPunct(String str) {
+    public int countPunct(String str) {
         int count = 0;
         for (int i = 0; i < str.length(); i++) {
             int symbol = str.charAt(i);
