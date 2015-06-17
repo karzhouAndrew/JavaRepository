@@ -26,18 +26,22 @@ public class TransformXMLtoXSLT {
         }
         if (xmlFile.exists()) {
             if (xslFile.exists()) {
-                TransformerFactory transformerFactory = TransformerFactory.newInstance();
-                StreamSource streamSource = new StreamSource(xslFile);
-                Templates templates = transformerFactory.newTemplates(streamSource);
-                Transformer transformer = templates.newTransformer();
-                transformer.transform(new StreamSource(xmlFile), new StreamResult(new FileOutputStream(new File(
-                        xmlFile.getPath().substring(0, xmlFile.getPath().length() - 3) + "html"))));
+                createHTML(xmlFile, xslFile);
             } else {
                 throw new FileNotFoundException(xslPath);
             }
         } else {
             throw new FileNotFoundException(xmlPath);
         }
+    }
+
+    private void createHTML(File xmlFile, File xslFile) throws TransformerException, FileNotFoundException {
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        StreamSource streamSource = new StreamSource(xslFile);
+        Templates templates = transformerFactory.newTemplates(streamSource);
+        Transformer transformer = templates.newTransformer();
+        transformer.transform(new StreamSource(xmlFile), new StreamResult(new FileOutputStream(new File(
+                xmlFile.getPath().substring(0, xmlFile.getPath().length() - 3) + "html"))));
     }
 
 }
