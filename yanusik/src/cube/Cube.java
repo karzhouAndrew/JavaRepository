@@ -7,19 +7,19 @@ package cube;
  * 3) Покрасить куб в определенный цвет
  */
 public class Cube {
-    int width;
-    String color;
+    private int width;
+    private String color;
 
     public Cube(int width) {
         this.width = width;
     }
 
-    public int square() {
-        return 6 * this.width * this.width;
+    public int squareFigure() {
+        return 6 * width * width;
     }
 
-    public int volume() {
-        return this.width * this.width * this.width;
+    public int volumeFigure() {
+        return width * width * width;
     }
 
     public String getCubeColor() {
