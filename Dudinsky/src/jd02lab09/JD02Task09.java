@@ -6,9 +6,9 @@ package jd02lab09;
 public class JD02Task09 {
     public static void main(String[] args) {
 
-        String INPUT_XML_FILE_PATH = "./Dudinsky/src/jd02lab09/pointsList.xml";
-        String STYLE_SHEET_XSL_FILE_PATH = "./Dudinsky/src/jd02lab09/pointListStylesheet.xsl";
-        String OUTPUT_HTML_FILE_PATH = "./Dudinsky/src/jd02lab09/pointsList.html";
+        final String INPUT_XML_FILE_PATH = "./Dudinsky/src/jd02lab09/pointsList.xml";
+        final String STYLE_SHEET_XSL_FILE_PATH = "./Dudinsky/src/jd02lab09/pointListStylesheet.xsl";
+        final String OUTPUT_HTML_FILE_PATH = "./Dudinsky/src/jd02lab09/pointsList.html";
 
         XMLTransformer transformer = new XMLTransformer();
         try {
