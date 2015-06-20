@@ -1,10 +1,11 @@
-package module2.laba7;
+package module2.laba7.parser;
 
+
+import module2.laba7.other.Point;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
 public abstract class Parser {

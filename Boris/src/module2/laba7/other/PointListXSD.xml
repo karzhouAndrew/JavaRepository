@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pointlist xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
            xmlns="http://www.it-academy.by"
-           xs:schemaLocation="http://www.it-academy.by PointList.xsd">
+           xs:schemaLocation="http://www.it-academy.by other/PointList.xsd">
     <point units="cm">
         <x>2</x>
         <y>3</y>

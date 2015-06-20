@@ -1,7 +1,8 @@
-package module2.laba7;
+package module2.laba7.parser.sax;
 
 
-import com.sun.org.apache.xml.internal.resolver.readers.SAXParserHandler;
+import module2.laba7.other.Point;
+import module2.laba7.parser.Parser;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class SAXParser extends Parser {
+    private List<Point> points;
 
     @Override
     public List<Point> parseXML(File file) throws FileNotFoundException {
@@ -23,12 +25,11 @@ public class SAXParser extends Parser {
     }
 
     private List<Point> getPoints(File file) {
-        List<Point> points = null;
         try {
             XMLReader reader = XMLReaderFactory.createXMLReader();
             SAXParsing saxParsing = new SAXParsing();
             reader.setContentHandler(saxParsing);
-            InputSource source = new InputSource(file);
+            InputSource source = new InputSource(file.getCanonicalPath());
             reader.parse(source);
             points = saxParsing.getPoints();
         } catch (SAXException e) {
@@ -37,5 +38,16 @@ public class SAXParser extends Parser {
             e.printStackTrace();
         }
         return points;
+    }
+
+    public List<Point> getPoints() {
+        return points;
+    }
+
+    @Override
+    public String toString() {
+        return "SAXParser{" +
+                "points=" + points +
+                '}';
     }
 }

@@ -1,5 +1,8 @@
-package module2.laba7;
+package module2.laba7.parser;
 
+
+import module2.laba7.parser.Parser;
+import module2.laba7.parser.dom.DOMParser;
 
 public enum ParserType {
     DOM {

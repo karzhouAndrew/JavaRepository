@@ -1,4 +1,4 @@
-package module2.laba7;
+package module2.laba7.other;
 
 
 public class Console {

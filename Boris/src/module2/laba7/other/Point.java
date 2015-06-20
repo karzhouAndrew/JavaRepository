@@ -1,4 +1,4 @@
-package module2.laba7;
+package module2.laba7.other;
 
 
 public class Point {
@@ -8,10 +8,10 @@ public class Point {
 
     @Override
     public String toString() {
-        return "Point{" +
+        return "\nPoint{" +
                 "x=" + x + units +
                 ", y=" + y + units +
-                '}';
+                "}";
     }
 
     public int getX() {
