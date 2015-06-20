@@ -1,8 +1,8 @@
 <!DOCTYPE pointList
         [
                 <!ELEMENT pointList (point*)>
-                <!ELEMENT point (x,y,unit)>
+                <!ELEMENT point (x,y)>
+                <!ATTLIST point  unit (px|mm|cm)#REQUIRED>
                 <!ELEMENT x (#PCDATA)>
                 <!ELEMENT y (#PCDATA)>
-                <!ELEMENT unit (#PCDATA)>
                 ]>

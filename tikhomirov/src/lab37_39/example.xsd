@@ -11,14 +11,14 @@
                         <xs:sequence>
                             <xs:element name="x"/>
                             <xs:element name="y"/>
-                            <xs:element name="unit">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:pattern value="mm|cm|px"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
                         </xs:sequence>
+                        <xs:attribute name="unit">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="mm|cm|px"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
