@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.it-academy.by"
+           xmlns="http://www.it-academy.by"
+           elementFormDefault="qualified">
+
+    <xs:element name="pointsList" type="pointsList"/>
+    <xs:complexType name="pointsList">
+        <xs:sequence>
+            <xs:element type="point" name="point" minOccurs="2" maxOccurs="3"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="point">
+        <xs:sequence>
+            <xs:element name="x" type="xs:int"/>
+            <xs:element name="y" type="xs:int"/>
+        </xs:sequence>
+        <xs:attribute name="units">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="cm"/>
+                    <xs:enumeration value="pm"/>
+                    <xs:enumeration value="mm"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

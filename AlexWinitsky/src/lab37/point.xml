@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pointsList xmlns="http://www.it-academy.by"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.it-academy.by point.xsd">
+
+    <point units="cm">
+        <x>1</x>
+        <y>3</y>
+    </point>
+
+    <point units="pm">
+        <x>1</x>
+        <y>3</y>
+    </point>
+
+</pointsList>
+        <!--
+         Задание 4
+        Сделайте XML на основе приведенного примера, у которого тег point будет иметь параметр unit — единицы измерения. Возможные значения — cm,mm,px.
+        -->
