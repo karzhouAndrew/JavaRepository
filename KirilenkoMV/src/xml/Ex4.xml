@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pointList SYSTEM "shema.dtd">
+<pointList xmlns="http://it-academy.by"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://it-academy.by shema.xsd">
+    <point unit="cm">
+        <x>10</x>
+        <y>25</y>
+    </point>
+    <point unit="mm">
+        <x>5</x>
+        <y>4</y>
+    </point>
+</pointList>
