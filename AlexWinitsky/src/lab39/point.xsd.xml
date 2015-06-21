@@ -1,0 +1,16 @@
+<pointsList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="point.xsd">
+    <point units="cm">
+        <x>3</x>
+        <y>3</y>
+    </point>
+    <point units="mm">
+        <x>3</x>
+        <y>3</y>
+    </point>
+</pointsList>
+<!--
+ Задание 6
+ Для xml, сделанного в предыдущем задании, создайте схему с жестко заданными значениями параметра units тега point
+
+-->
