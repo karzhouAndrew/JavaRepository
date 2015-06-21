@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pointList SYSTEM "point.dtd">
+<pointList>
+    <point units="mm">
+        <x>4</x>
+        <y>4</y>
+    </point>
+    <point units="px">
+        <x>3</x>
+        <y>60</y>
+    </point>
+</pointList>
