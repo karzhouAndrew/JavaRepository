@@ -21,9 +21,10 @@ import java.util.List;
 public class DOMParser extends Parser {
 
     @Override
-    public List<Point> parseXML(File file) throws FileNotFoundException {
+    public void parseXML(File file) throws FileNotFoundException {
         if (super.isXML(file)) {
-            return getPoints(file);
+            super.points = getPoints(file);
+            return;
         }
         throw new FileNotFoundException(file.getPath());
     }

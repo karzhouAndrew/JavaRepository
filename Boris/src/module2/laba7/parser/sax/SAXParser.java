@@ -14,12 +14,12 @@ import java.io.IOException;
 import java.util.List;
 
 public class SAXParser extends Parser {
-    private List<Point> points;
 
     @Override
-    public List<Point> parseXML(File file) throws FileNotFoundException {
+    public void parseXML(File file) throws FileNotFoundException {
         if (super.isXML(file)) {
-            return getPoints(file);
+            super.points = getPoints(file);
+            return;
         }
         throw new FileNotFoundException(file.getPath());
     }
@@ -38,16 +38,5 @@ public class SAXParser extends Parser {
             e.printStackTrace();
         }
         return points;
-    }
-
-    public List<Point> getPoints() {
-        return points;
-    }
-
-    @Override
-    public String toString() {
-        return "SAXParser{" +
-                "points=" + points +
-                '}';
     }
 }
