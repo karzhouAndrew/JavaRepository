@@ -4,12 +4,12 @@ package doplab23v2;
  */
 public class Main {
     public static void main(String[] args) {
-        CashMachine setMoney = new CashMachine();
-        CashMachine empty = new CashMachine();
-        setMoney.setTheMoneyInMachine(100, 100, 100);
-        CashMachine getMoney = new CashMachine(16370);
-        String operationResult = empty.getMoneyFromMachine(getMoney);
-        System.out.println(CashMachine.totalamountInMachine);
+        CashMachine operation = new CashMachine();
+        CashMachine cashMachine = new CashMachine();
+        operation.setTheMoneyInMachine(100, 100, 100);
+        CashMachine transaction = new CashMachine(16370);
+        String operationResult = cashMachine.getMoneyFromMachine(transaction);
+        System.out.println(CashMachine.totalAmountInMachine);
         System.out.println(operationResult);
     }
 }

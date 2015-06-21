@@ -6,7 +6,7 @@ public class CashMachine {
     private int ratingFifty;
     private int ratingOneHundred;
     private int moneySum;
-    public static int totalamountInMachine = 0;
+    protected static int totalAmountInMachine = 0;
 
     public CashMachine() {
 
@@ -47,7 +47,7 @@ public class CashMachine {
     }
 
     public void setTheMoneyInMachine(int oneHundred, int fifty, int twenty) {
-        totalamountInMachine = oneHundred * 100 + fifty * 50 + twenty * 20;
+        totalAmountInMachine = oneHundred * 100 + fifty * 50 + twenty * 20;
     }
 
     public String getMoneyPartOne(int inputSum) {
@@ -100,10 +100,10 @@ public class CashMachine {
                 ", количество купюр номиналом 50 = 1, количество купюр номиналом 20 = " + twentyBills;
     }
 
-    public String getMoneyFromMachine(CashMachine getMoney) {
-        int inputSum = getMoney.moneySum;
+    public String getMoneyFromMachine(CashMachine transaction) {
+        int inputSum = transaction.moneySum;
         String result = null;
-        if (totalamountInMachine < inputSum) {
+        if (totalAmountInMachine < inputSum) {
             result = "Недостаточно средств";
         } else if (inputSum % 10 != 0 || inputSum == 10 || inputSum == 30) {
             result = "Сумма введена не верно";
@@ -111,12 +111,12 @@ public class CashMachine {
             result = "Операция произошла успешно, количество купюр номиналом 100 = " + inputSum / 100;
         } else if ((inputSum < 100 && inputSum % 50 == 0) || (inputSum < 100 && inputSum > 60 && inputSum != 80)
                 || (inputSum % 50 == 0)) {
-            result = getMoney.getMoneyPartOne(inputSum);
+            result = transaction.getMoneyPartOne(inputSum);
         } else if ((inputSum < 100 && inputSum % 20 == 0) || (inputSum % 100 == 20 || inputSum % 100 == 40 ||
                 inputSum % 100 == 60 || inputSum % 100 == 80)) {
-            result = getMoney.getMoneyPartTwo(inputSum);
+            result = transaction.getMoneyPartTwo(inputSum);
         } else if ((inputSum % 100 == 70 || inputSum % 100 == 90) || (inputSum % 100 == 10 || inputSum % 100 == 30)) {
-            result = getMoney.getMoneyPartThree(inputSum);
+            result = transaction.getMoneyPartThree(inputSum);
         }
         return result;
     }
