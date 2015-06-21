@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pointsList SYSTEM "point.dtd">
+<pointsList>
+    <point units="cm">
+        <x>1</x>
+        <y>3</y>
+    </point>
+    <point units="mm">
+        <x>5</x>
+        <y>7</y>
+    </point>
+    <point units="px">
+        <x>9</x>
+        <y>11</y>
+    </point>
+</pointsList>
+
+        <!--
+        Задание 5
+         Для xml, сделанного в предыдущем задании, создайте DTD с жестко заданными значениями параметра units тега point
+        -->
