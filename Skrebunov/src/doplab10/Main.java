@@ -19,7 +19,7 @@ public class Main {
         hm.put(Car.getIdentifierStatic(), new Car("bmw", "5", 300, 2005, 2007, 0));
         hm.put(Car.getIdentifierStatic(), new Car("audi", "A6", 100, 2010, 2010, 0));
         hm.put(Car.getIdentifierStatic(), new Car("audi", "A6", 120, 2011, 2011, 0));
-        Sorting empty = new Sorting();
+        AutoHouse empty = new AutoHouse();
         empty.sorting(hm);
     }
 }

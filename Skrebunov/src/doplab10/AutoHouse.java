@@ -2,39 +2,40 @@ package doplab10;
 
 import java.util.*;
 
-public class Sorting {
-    public void showCars(HashMap<Integer, Car> hm) {
+public class AutoHouse {
+    public void showCars(Map<Integer, Car> hm) {
         Set<Map.Entry<Integer, Car>> set = hm.entrySet();
-        for (Map.Entry<Integer, Car> a : set) {
-            System.out.println(a.getKey() + ": " + a.getValue());
+        for (Map.Entry<Integer, Car> currentCar : set) {
+            System.out.println(currentCar.getKey() + ": " + currentCar.getValue());
         }
     }
 
-    public HashMap create(HashMap<Integer, Car> hm) {
+    public Map addCar(Map<Integer, Car> hm) {
         System.out.println("добавить нажмите 1");
-        Scanner sc = new Scanner(System.in);
-        if (sc.hasNextInt()) {
-            Integer create = sc.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.hasNextInt()) {
+            Integer create = scanner.nextInt();
             if (create == 1) {
                 int cont = 2;
                 while (cont == 2) {
                     System.out.println();
-                    String brandNameScan = sc.nextLine();
+                    String brandNameScan = scanner.nextLine();
                     System.out.println("введите марку");
-                    String brandNameScan1 = sc.nextLine();
+                    String brandNameScan1 = scanner.nextLine();
                     System.out.println("введите модель");
-                    String modelScan = sc.nextLine();
+                    String modelScan = scanner.nextLine();
                     System.out.println("введите цену");
-                    Integer priceScan = sc.nextInt();
+                    Integer priceScan = scanner.nextInt();
                     System.out.println("введите год выпуска");
-                    Integer consYearScan = sc.nextInt();
+                    Integer consYearScan = scanner.nextInt();
                     System.out.println("введите год регистрации");
-                    Integer regYearScan = sc.nextInt();
+                    Integer regYearScan = scanner.nextInt();
                     hm.put(Car.getIdentifierStatic(), new Car(brandNameScan1, modelScan, priceScan, consYearScan, regYearScan, 0));
                     System.out.println("если добавить еще нажмиет 2 или любую цифру если хватит");
-                    cont = sc.nextInt();
+                    cont = scanner.nextInt();
                     showCars(hm);
                     if (cont != 2) {
+                        scanner.close();
                         break;
                     }
                 }
@@ -43,16 +44,16 @@ public class Sorting {
         return hm;
     }
 
-    public HashMap delete(HashMap<Integer, Car> hm) {
+    public Map delete(Map<Integer, Car> hm) {
         showCars(hm);
         System.out.println("введите нужный ID");
-        Scanner sc = new Scanner(System.in);
-        if (sc.hasNextInt()) {
-            Integer delete = sc.nextInt();
-            Iterator it = hm.keySet().iterator();
-            while (it.hasNext()) {
-                if (it.next() == delete) {
-                    it.remove();
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.hasNextInt()) {
+            Integer delete = scanner.nextInt();
+            Iterator iterator = hm.keySet().iterator();
+            while (iterator.hasNext()) {
+                if (iterator.next() == delete) {
+                    iterator.remove();
                 }
             }
         }
@@ -60,29 +61,29 @@ public class Sorting {
         return hm;
     }
 
-    public HashMap nameSorting(HashMap<Integer, Car> hm) {
+    public Map sortingBrandName(Map<Integer, Car> hm) {
         HashMap<Integer, Car> sortedName = new HashMap<Integer, Car>();
         System.out.println("введите марку");
-        Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
-        for (Map.Entry<Integer, Car> a : hm.entrySet()) {
-            if (a.getValue().getBrandName().equals(name)) {
-                sortedName.put(a.getKey(), a.getValue());
+        Scanner scanner = new Scanner(System.in);
+        String brandName = scanner.nextLine();
+        for (Map.Entry<Integer, Car> currentCar : hm.entrySet()) {
+            if (currentCar.getValue().getBrandName().equals(brandName)) {
+                sortedName.put(currentCar.getKey(), currentCar.getValue());
             }
         }
         showCars(sortedName);
         return sortedName;
     }
 
-    public HashMap constructionYear(HashMap<Integer, Car> hm) {
+    public HashMap constructionYear(Map<Integer, Car> hm) {
         HashMap<Integer, Car> constructionYear = new HashMap<Integer, Car>();
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("введите год выпуска");
-        if (sc.hasNextInt()) {
-            Integer year = sc.nextInt();
-            for (Map.Entry<Integer, Car> a : hm.entrySet()) {
-                if (a.getValue().getConstructionYear() == year) {
-                    constructionYear.put(a.getKey(), a.getValue());
+        if (scanner.hasNextInt()) {
+            Integer year = scanner.nextInt();
+            for (Map.Entry<Integer, Car> currentCar : hm.entrySet()) {
+                if (currentCar.getValue().getConstructionYear() == year) {
+                    constructionYear.put(currentCar.getKey(), currentCar.getValue());
                 }
             }
         }
@@ -90,31 +91,31 @@ public class Sorting {
         return constructionYear;
     }
 
-    public void registrationYearSorting(HashMap<Integer, Car> hm) {
+    public void registrationYearSorting(Map<Integer, Car> hm) {
         List carList = new ArrayList(hm.entrySet());
         Collections.sort(carList, new Comparator<Map.Entry<Integer, Car>>() {
             @Override
-            public int compare(Map.Entry<Integer, Car> a, Map.Entry<Integer, Car> b) {
-                return a.getValue().getRegistrationYear() - b.getValue().getRegistrationYear();
+            public int compare(Map.Entry<Integer, Car> currentCar, Map.Entry<Integer, Car> nextCar) {
+                return currentCar.getValue().getRegistrationYear() - nextCar.getValue().getRegistrationYear();
             }
         });
-        Iterator it = carList.iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next());
+        Iterator iterator = carList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
     }
 
-    public void priceSorting(HashMap<Integer, Car> hm) {
+    public void priceSorting(Map<Integer, Car> hm) {
         List carList = new ArrayList(hm.entrySet());
         Collections.sort(carList, new Comparator<Map.Entry<Integer, Car>>() {
             @Override
-            public int compare(Map.Entry<Integer, Car> a, Map.Entry<Integer, Car> b) {
-                return a.getValue().getPrice() - b.getValue().getPrice();
+            public int compare(Map.Entry<Integer, Car> currentCar, Map.Entry<Integer, Car> nextCar) {
+                return currentCar.getValue().getPrice() - nextCar.getValue().getPrice();
             }
         });
-        Iterator it = carList.iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next());
+        Iterator iterator = carList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
     }
 
@@ -128,20 +129,20 @@ public class Sorting {
     }
 
 
-    public HashMap sorting(HashMap<Integer, Car> hm) {
+    public Map sorting(Map<Integer, Car> hm) {
         printOperation();
-        Scanner sc = new Scanner(System.in);
-        if (sc.hasNextInt()) {
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.hasNextInt()) {
             int cont = 0;
             while (cont == 0) {
                 printOperation();
-                int choseNumber = sc.nextInt();
+                int choseNumber = scanner.nextInt();
                 if (choseNumber == 1) {
-                    hm = create(hm);
+                    hm = addCar(hm);
                 } else if (choseNumber == 2) {
                     hm = delete(hm);
                 } else if (choseNumber == 3) {
-                    hm = nameSorting(hm);
+                    hm = sortingBrandName(hm);
                 } else if (choseNumber == 4) {
                     hm = constructionYear(hm);
                 } else if (choseNumber == 5) {
@@ -150,9 +151,9 @@ public class Sorting {
                     priceSorting(hm);
                 }
                 System.out.println("для продолжения нажмите 0");
-                cont = sc.nextInt();
+                cont = scanner.nextInt();
                 if (cont != 0) {
-                    sc.close();
+                    scanner.close();
                     break;
                 }
             }
