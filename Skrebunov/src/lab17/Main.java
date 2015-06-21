@@ -5,8 +5,8 @@ package lab17;
  */
 public class Main {
     public static void main(String[] args) {
-        Words empty = new Words();
-        int numbers = empty.wordsNumber("  .! Подсчитать , количество слов ?");
+        Words words = new Words();
+        int numbers = words.wordsNumber("  .! Подсчитать , количество слов ?");
         System.out.println("Количество слов " + numbers);
     }
 }
