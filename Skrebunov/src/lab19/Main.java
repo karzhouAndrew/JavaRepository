@@ -5,11 +5,11 @@ package lab19;
  */
 public class Main {
     public static void main(String[] args) {
-        Addition object = new Addition("String");
-        System.out.println(object.additionStringOne("String"));
+        Addition addition = new Addition("String");
+        System.out.println(addition.additionStringOne("String"));
         StringBuilder objectTwo = new StringBuilder("String");
-        System.out.println(object.additionStringTwo(objectTwo));
+        System.out.println(addition.additionStringTwo(objectTwo));
         StringBuffer objectThree = new StringBuffer("String");
-        System.out.println(object.additionStringBuffer(objectThree));
+        System.out.println(addition.additionStringBuffer(objectThree));
     }
 }
