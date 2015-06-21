@@ -6,8 +6,10 @@ import javax.xml.stream.XMLStreamReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-public class ParserSTAX {
-    public void parseSTAX(PointsList pointsList, String path) {
+public class STAXParser implements Parser {
+
+    @Override
+    public void parsePoints(PointsList pointsList, String path) {
         String unit = "";
         int x = 0;
         int y = 0;
