@@ -5,6 +5,7 @@ package module2.laba2;
 // программе в качестве входных параметров. Если входные параметры отсутствуют,
 // программа должна выдавать сообщение на английском.
 
+import javax.management.BadStringOperationException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -13,10 +14,10 @@ public class Greetings {
     private static String path = "module2.MessagesBundle";
 
     public Greetings() {
-        setLocale("US");
+        locale = Locale.ENGLISH;
     }
 
-    private void setLocale(String loc) throws IllegalArgumentException{
+    private void setLocale(String loc) throws BadStringOperationException {
         loc = loc.toUpperCase();
         if (loc.equals("US") || locale == null) {
             this.locale = new Locale("en", "US");
@@ -25,7 +26,7 @@ public class Greetings {
         } else if (loc.equals("BY")) {
             this.locale = new Locale("be", "BY");
         } else {
-            throw new IllegalArgumentException();
+            throw new BadStringOperationException(loc);
         }
     }
 
@@ -37,7 +38,7 @@ public class Greetings {
         try {
             setLocale(locale);
             return getMessage("greeting");
-        } catch (IllegalArgumentException e) {
+        } catch (BadStringOperationException e) {
             return getMessage("exception");
         }
     }
