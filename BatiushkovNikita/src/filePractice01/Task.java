@@ -21,7 +21,7 @@ public class Task {
         intSequence = generateRandomIntegers(QUANTITY, MIN_VALUE, MAX_VALUE);
         fileManager.writeFile(convertToStringSequence(intSequence));
 
-        strSequence = fileManager.readFile();
+        strSequence = fileManager.readFile(PATH);
         intSequence = convertToIntegerSequence(strSequence);
 
         Integer[] sortedSequence = sortIntegers(intSequence);
