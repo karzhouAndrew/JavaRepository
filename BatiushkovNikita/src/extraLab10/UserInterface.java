@@ -61,7 +61,6 @@ public class UserInterface {
                 System.out.printf("Make your choice: ");
             }
             scanner.close();
-            break;
         }
     }
 
@@ -138,12 +137,12 @@ public class UserInterface {
             if (scanner.hasNextInt()) {
                 carId = scanner.nextInt();
                 if (carId >= 0) {
+                    scanner.close();
                     break;
                 }
             } else {
                 System.out.println("Wrong input. Try again.");
             }
-            scanner.close();
         }
         return carId;
     }
@@ -183,7 +182,7 @@ public class UserInterface {
 
     public static int enterCarYear() {
         GregorianCalendar calendar = new GregorianCalendar();
-        int carYear;
+        int carYear = 0;
         Scanner scanner;
         while (true) {
             scanner = new Scanner(System.in);
@@ -191,6 +190,7 @@ public class UserInterface {
             if (scanner.hasNextInt()) {
                 carYear = scanner.nextInt();
                 if (carYear <= calendar.get(Calendar.YEAR) && carYear > 1800) {
+                    scanner.close();
                     break;
                 } else {
                     System.out.println("Wrong input. Try again.");
@@ -198,7 +198,6 @@ public class UserInterface {
             } else {
                 System.out.println("Wrong input. Try again.");
             }
-            scanner.close();
         }
         return carYear;
     }
