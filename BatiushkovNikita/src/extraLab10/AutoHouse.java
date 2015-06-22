@@ -14,7 +14,7 @@ package extraLab10;
 import java.util.*;
 
 public class AutoHouse {
-    private Map<Integer, Car> cars = new TreeMap<Integer, Car>();
+    private Map<Integer, Car> cars = new HashMap<>();
 
     public AutoHouse() {
         addCar(new Car(1976, 17500, "Mazda"));

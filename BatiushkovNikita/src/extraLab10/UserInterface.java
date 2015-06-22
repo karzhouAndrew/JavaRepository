@@ -13,18 +13,8 @@ public class UserInterface {
     }
 
     public static void mainMenu() {
-        System.out.println();
-        System.out.println("1.  Add new car in AutoHouse.");
-        System.out.println("2.  Remove car from the AutoHouse by ID.");
-        System.out.println("3.  Search cars by brand.");
-        System.out.println("4.  Search cars by year.");
-        System.out.println("5.  Sort cars by year.");
-        System.out.println("6.  Sort cars by price.");
-        System.out.println("7.  View all cars.");
-        System.out.println("8.  Exit.");
-        System.out.printf("Make your choice: ");
-
-        int userInput;
+        showMenuOptions();
+        int userInput = 0;
         Scanner scanner;
         boolean exit = true;
         while (exit) {
@@ -70,8 +60,22 @@ public class UserInterface {
                 System.out.println("Wrong input. Try again.");
                 System.out.printf("Make your choice: ");
             }
+            scanner.close();
             break;
         }
+    }
+
+    public static void showMenuOptions() {
+        System.out.println();
+        System.out.println("1.  Add new car in AutoHouse.");
+        System.out.println("2.  Remove car from the AutoHouse by ID.");
+        System.out.println("3.  Search cars by brand.");
+        System.out.println("4.  Search cars by year.");
+        System.out.println("5.  Sort cars by year.");
+        System.out.println("6.  Sort cars by price.");
+        System.out.println("7.  View all cars.");
+        System.out.println("8.  Exit.");
+        System.out.printf("Make your choice: ");
     }
 
     public static void menuAddCar() {
@@ -91,7 +95,6 @@ public class UserInterface {
         } else {
             System.out.println("Id " + id + " not found. Try again.");
         }
-
     }
 
     public static void menuSearchByBrand() {
@@ -100,7 +103,7 @@ public class UserInterface {
         if (cars.isEmpty()) {
             System.out.println("Car brand " + "\"" + carBrand + "\"" + " not found. Try again.");
         } else {
-            viewCar(cars.entrySet());
+            viewCars(cars.entrySet());
         }
     }
 
@@ -110,24 +113,24 @@ public class UserInterface {
         if (cars.isEmpty()) {
             System.out.println("Year " + "\"" + year + "\"" + " not found. Try again.");
         } else {
-            viewCar(cars.entrySet());
+            viewCars(cars.entrySet());
         }
     }
 
     public static void menuSortByYear() {
-        viewCar(AUTO_HOUSE.getSortedCarsByYear());
+        viewCars(AUTO_HOUSE.getSortedCarsByYear());
     }
 
     public static void menuSortByPrice() {
-        viewCar(AUTO_HOUSE.getSortedCarsByPrice());
+        viewCars(AUTO_HOUSE.getSortedCarsByPrice());
     }
 
     public static void menuViewAll() {
-        viewCar(AUTO_HOUSE.getCars().entrySet());
+        viewCars(AUTO_HOUSE.getCars().entrySet());
     }
 
     public static int enterCarId() {
-        int carId;
+        int carId = 0;
         Scanner scanner;
         while (true) {
             scanner = new Scanner(System.in);
@@ -140,22 +143,25 @@ public class UserInterface {
             } else {
                 System.out.println("Wrong input. Try again.");
             }
+            scanner.close();
         }
         return carId;
     }
 
     public static String enterBrandName() {
-        String carBrand = null;
+        String carBrand = "";
         Scanner scanner = new Scanner(System.in);
         System.out.print("(String) Enter car brand name: ");
         if (scanner.hasNext()) {
             carBrand = scanner.next();
+            scanner.close();
         }
+        scanner.close();
         return carBrand;
     }
 
     public static int enterCarPrice() {
-        int carPrice;
+        int carPrice = 0;
         Scanner scanner;
         while (true) {
             scanner = new Scanner(System.in);
@@ -170,6 +176,7 @@ public class UserInterface {
             } else {
                 System.out.println("Wrong input. Try again.");
             }
+            scanner.close();
         }
         return carPrice;
     }
@@ -191,11 +198,12 @@ public class UserInterface {
             } else {
                 System.out.println("Wrong input. Try again.");
             }
+            scanner.close();
         }
         return carYear;
     }
 
-    public static void viewCar(Set<Map.Entry<Integer, Car>> cars) {
+    public static void viewCars(Set<Map.Entry<Integer, Car>> cars) {
         System.out.println("Id" + "\t" + "Brand" + "\t" + "Year" + "\t" + "Price");
         for (Map.Entry<Integer, Car> car : cars) {
             System.out.printf(car.getValue().getId() + "\t");
