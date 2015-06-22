@@ -13,22 +13,22 @@ public class Lab30 {
     private final static String FILE_PATH = "./BatiushkovNikita/src/lab30/Lab30.txt";
 
     public static void main(String[] args) {
-        writeFile();
-        readFile();
+        writeFile(FILE_PATH);
+        readFile(FILE_PATH);
         System.out.println("Amount punctuation marks in text: " + countRegExpMatches("\\p{Punct}", text));
         System.out.println("Amount words in text: " + countRegExpMatches("[A-Za-z0-9]+", text));
     }
 
-    public static void writeFile() {
-        try (DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream(FILE_PATH))) {
+    public static void writeFile(String path) {
+        try (DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream(path))) {
             dataOutputStream.writeBytes(generateRandomText(TEXT_LENGTH));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void readFile() {
-        try (Scanner scanner = new Scanner(new FileReader(FILE_PATH))) {
+    public static void readFile(String path) {
+        try (Scanner scanner = new Scanner(new FileReader(path))) {
             while (scanner.hasNext()) {
                 createText(scanner.next());
             }
@@ -56,8 +56,9 @@ public class Lab30 {
         Pattern pattern = Pattern.compile(regExp);
         Matcher matcher = pattern.matcher(text);
         int count = 0;
-        while (matcher.find())
+        while (matcher.find()) {
             count++;
+        }
         return count;
     }
 }
