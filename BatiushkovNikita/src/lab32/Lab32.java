@@ -15,7 +15,7 @@ public class Lab32 {
         FileManager fileManager = new FileManager(PATH);
         fileManager.createFile();
         fileManager.writeFile(convertIntToStr(generateIntegers(QUANTITY, MIN_VALUE, MAX_VALUE)));
-        List<Integer> values = convertStrToInt(fileManager.readFile());
+        List<Integer> values = convertStrToInt(fileManager.readFile(PATH));
         System.out.println("Random numbers: " + values);
         System.out.println("Average: " + calculateAverage(values));
     }
