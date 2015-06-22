@@ -28,7 +28,7 @@ public class StrPractice01 {
         String sentenceMaxSameWords = "";
         List<String> sentences = getSentenceList(text);
         for (int i = 0; i < sentences.size() - 1; i++) {
-            String[] wordArray = getWordArray(sentences.get(i));
+            String[] wordArray = getWordsArray(sentences.get(i));
             int count = getNumMaxSameWords(wordArray);
             if (maxCount <= count) {
                 maxCount = count;
@@ -38,12 +38,12 @@ public class StrPractice01 {
         return sentenceMaxSameWords;
     }
 
-    public static String[] getWordArray(String text) {
+    public static String[] getWordsArray(String text) {
         return (text.replaceAll("\\p{Punct}", " ")).split("\\s+");
     }
 
     public static List<String> getSentenceList(String text) {
-        List<String> sentences = new ArrayList<String>();
+        List<String> sentences = new ArrayList<>();
         Pattern pattern = Pattern.compile("[А-ЯA-Z].+?[.!?]+");
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
