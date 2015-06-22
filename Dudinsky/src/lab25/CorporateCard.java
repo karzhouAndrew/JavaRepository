@@ -1,10 +1,10 @@
 package lab25;
 
-public abstract class CorporateCards extends BankCards {
+public abstract class CorporateCard extends BankCard {
 
     private String corporationName;
 
-    public CorporateCards(long cardNumber, String bankName, String corporationName) {
+    public CorporateCard(long cardNumber, String bankName, String corporationName) {
         super(cardNumber, bankName);
         this.corporationName = corporationName;
     }

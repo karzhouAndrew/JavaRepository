@@ -1,10 +1,10 @@
 package lab25;
 
-public abstract class IndividualCards extends BankCards {
+public abstract class IndividualCard extends BankCard {
 
     private String ownerName;
 
-    public IndividualCards(long cardNumber, String bankName, String ownerName) {
+    public IndividualCard(long cardNumber, String bankName, String ownerName) {
         super(cardNumber, bankName);
         this.ownerName = ownerName;
     }

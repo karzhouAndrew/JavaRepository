@@ -1,6 +1,6 @@
 package lab25;
 
-public class EliteIndividCard extends IndividualCards implements MemoryChipSupporting {
+public class EliteIndividCard extends IndividualCard implements MemoryChipSupporting {
 
     private double interestOnDeposits;
 

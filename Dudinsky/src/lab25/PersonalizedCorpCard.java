@@ -1,6 +1,6 @@
 package lab25;
 
-public class PersonalizedCorpCard extends CorporateCards implements MemoryChipSupporting {
+public class PersonalizedCorpCard extends CorporateCard implements MemoryChipSupporting {
 
     private String employeeName;
 

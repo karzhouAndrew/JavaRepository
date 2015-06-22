@@ -1,6 +1,6 @@
 package lab25;
 
-public class StandardIndividCard extends IndividualCards {
+public class StandardIndividCard extends IndividualCard {
 
     private int validityTerm;
 

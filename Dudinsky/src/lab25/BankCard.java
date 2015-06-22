@@ -1,11 +1,11 @@
 package lab25;
 
-public abstract class BankCards {
+public abstract class BankCard {
 
     private long cardNumber;
     private String bankName;
 
-    public BankCards(long cardNumber, String bankName) {
+    public BankCard(long cardNumber, String bankName) {
         this.cardNumber = cardNumber;
         this.bankName = bankName;
     }

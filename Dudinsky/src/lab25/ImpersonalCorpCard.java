@@ -1,6 +1,6 @@
 package lab25;
 
-public class ImpersonalCorpCard extends CorporateCards {
+public class ImpersonalCorpCard extends CorporateCard {
 
     private int validityTerm;
 
