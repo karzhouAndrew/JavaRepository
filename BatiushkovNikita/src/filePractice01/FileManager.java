@@ -11,7 +11,7 @@ public class FileManager {
         setPath(path);
     }
 
-    public String[] readFile() {
+    public String[] readFile(String path) {
         StringBuilder data = new StringBuilder();
         try (Scanner scanner = new Scanner(new FileReader(path))) {
             while (scanner.hasNext()) {
@@ -36,7 +36,7 @@ public class FileManager {
         }
     }
 
-    public void removeFile() {
+    public void removeFile(String path) {
         try {
             File newFile = new File(path);
             newFile.delete();
