@@ -6,7 +6,7 @@ public class TestBinaryFile {
         BinaryFile file = new BinaryFile("./binary.txt");
         file.writeNumberToBinaryFile(3);
         System.out.println(file.getNumbersFromBinaryFile());
-        System.out.println("Average = " + file.average());
+        System.out.println("Average = " + file.calculateAverage());
 
     }
 }

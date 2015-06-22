@@ -95,7 +95,7 @@ public class BinaryFile {
         }
     }
 
-    public double average() {
+    public double calculateAverage() {
         List<Integer> numbers = getNumbersFromBinaryFile();
         double sum = 0;
         if (numbers.isEmpty()) {
