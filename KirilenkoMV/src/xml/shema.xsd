@@ -23,8 +23,4 @@
             </xs:simpleType>
         </xs:attribute>
     </xs:complexType>
-    <!--xs:complexType name="pointunit">
-        <xs:attribute ref="unit"/>
-    </xs:complexType>
-    <xs:attribute name="unit" type="xs:string"/-->
 </xs:schema>
