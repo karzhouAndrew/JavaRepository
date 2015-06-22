@@ -14,11 +14,6 @@ import java.util.ArrayList;
 
 public class DOMParser {
 
-    final String CHILD_TAG_NAME = "point";
-    final String CHILD_ATTRIBUTE_NAME = "unit";
-    final String FIRST_GRANDCHILD = "x";
-    final String SECOND_GRANDCHILD = "y";
-
     public PointsList parseXML(String inputXmlFilePath) {
         DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
         builderFactory.setIgnoringElementContentWhitespace(true);
@@ -43,7 +38,7 @@ public class DOMParser {
     private PointsList doParsing(Document document) {
         PointsList pointsList = new PointsList(new ArrayList<Point>());
         Element pointsListRoot = document.getDocumentElement();
-        NodeList childNodes = pointsListRoot.getElementsByTagName(CHILD_TAG_NAME);
+        NodeList childNodes = pointsListRoot.getElementsByTagName(TagsAndAttributes.POINT.getName());
         for (int i = 0; i < childNodes.getLength(); i++) {
             Node currentChild = childNodes.item(i);
             Point currentPoint = createPoint(currentChild);
@@ -55,7 +50,7 @@ public class DOMParser {
     private Point createPoint(Node pointNode) {
         Point point = new Point();
         Element pointElement = (Element) pointNode;
-        point.setUnit(pointElement.getAttribute(CHILD_ATTRIBUTE_NAME));
+        point.setUnit(pointElement.getAttribute(TagsAndAttributes.UNIT.getName()));
         NodeList grandChildNodes = pointNode.getChildNodes();
         for (int i = 0; i < grandChildNodes.getLength(); i++) {
             Node currentGrandChild = grandChildNodes.item(i);
@@ -70,10 +65,10 @@ public class DOMParser {
     }
 
     private boolean isXNode(Node grandChild) {
-        return FIRST_GRANDCHILD.equals(grandChild.getNodeName());
+        return TagsAndAttributes.X.getName().equalsIgnoreCase(grandChild.getNodeName());
     }
 
     private boolean isYNode(Node grandChild) {
-        return SECOND_GRANDCHILD.equals(grandChild.getNodeName());
+        return TagsAndAttributes.Y.getName().equalsIgnoreCase(grandChild.getNodeName());
     }
 }
