@@ -13,12 +13,12 @@
                         <tr>
                             <td>
                                 <xsl:value-of select="x"/>
-                                <xsl:text> </xsl:text>
+                                <span>&#160;</span>
                                 <xsl:value-of select="@unit"/>
                             </td>
                             <td>
                                 <xsl:value-of select="y"/>
-                                <xsl:text> </xsl:text>
+                                <span>&#160;</span>
                                 <xsl:value-of select="@unit"/>
                             </td>
                         </tr>
