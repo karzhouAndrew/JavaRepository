@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.it-academy.by"
+           xmlns="http://www.it-academy.by"
+           elementFormDefault="qualified">
+    <xs:element name="pointlist">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="point" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="x" type="xs:integer"/>
+                            <xs:element name="y" type="xs:integer"/>
+                        </xs:sequence>
+                        <xs:attribute name="units">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="px|mm|cm"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+        <!-- Для xml, сделанного в предыдущем задании, создайте схему с жестко заданными
+        значениями параметра units тега point -->
