@@ -1,0 +1,6 @@
+Чтобы повысить быстродействие, используется класс BufferedInputStream для FileInputStream или BufferedReader для FileReader. Главным их отличием является то, что данные читаются сразу блоками во внутренний буфер и выдаются по мере необходимости. Таким образом, значительно увеличивается быстродействие.
+Чтобы не реализовывать повторно файловые операции, уже созданные в FileInputStream и FileReader, данные классы сделали в виде обертки. То есть, в BufferedInputStream имеется поле, хранящее ссылку на объект FileInputStream, который непосредственно выполняет ввод-вывод (аналогично и для другой пары). Поэтому, при создании объекта BufferedInputStream его конструктору надо указать объект FileInputStream. Обычно создание встроенного объекта выполняется тут же:
+fileInputStream = new BufferedInputStream( new FileInputStream("hello.txt"));
+аналогично:
+fileInputStream = new BufferedReader( new  FileReader("hello.txt"));
+Большинство методов BufferedInputStream и BufferedReader работают аналогично методам внутренних классов. Т.е. можно использовать те же методы read, close и т.д.
