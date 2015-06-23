@@ -13,10 +13,10 @@ import java.io.FileOutputStream;
 public class Lab09 {
     public static void main(String[] args) throws TransformerException, FileNotFoundException {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        StreamSource streamSource = new StreamSource(new File("./BatiushkovNikita/src/jd02/lab09/Lab09.xsl"));
+        StreamSource streamSource = new StreamSource(new File("./BatiushkovNikita/src/jd02/lab09/lab09.xsl"));
         Templates templates = transformerFactory.newTemplates(streamSource);
         Transformer transformer = templates.newTransformer();
-        transformer.transform(new StreamSource(new File("./BatiushkovNikita/src/jd02/lab09/Lab09.xml")),
-                new StreamResult(new FileOutputStream(new File("./BatiushkovNikita/src/jd02/lab09/Lab09.html"))));
+        transformer.transform(new StreamSource(new File("./BatiushkovNikita/src/jd02/lab09/lab09.xml")),
+                new StreamResult(new FileOutputStream(new File("./BatiushkovNikita/src/jd02/lab09/lab09.html"))));
     }
 }
