@@ -30,7 +30,7 @@ public class TextProcessor {
         }
     }
 
-    public int getPunctMarksQuantity() {
+    public int countPunctMarksQuantity() {
         if (processingText == null) {
             return 0;
         }
@@ -43,7 +43,7 @@ public class TextProcessor {
         return punctCounter;
     }
 
-    public int getWordsQuantity() {
+    public int countWordsQuantity() {
         if (processingText == null) {
             return 0;
         }

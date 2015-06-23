@@ -10,7 +10,7 @@ public class Task30 {
         TextProcessor textProcessor = new TextProcessor();
         textProcessor.readText(INPUT_TXT_FILE_PATH);
         System.out.print("В файле \'" + INPUT_TXT_FILE_PATH + "\' обнаружено ");
-        System.out.print(textProcessor.getPunctMarksQuantity() + " знак(ов/а) препинания, а также ");
-        System.out.println(textProcessor.getWordsQuantity() + " слов(о/а).");
+        System.out.print(textProcessor.countPunctMarksQuantity() + " знак(ов/а) препинания, а также ");
+        System.out.println(textProcessor.countWordsQuantity() + " слов(о/а).");
     }
 }
