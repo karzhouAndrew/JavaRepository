@@ -7,12 +7,11 @@ package jd02.lab10;
 У каждого покупателя есть набор товаров, которые  должны быть выведены  в процессе обслуживания.
 */
 
-public class Lab10 {
-    public static void main(String[] args) throws InterruptedException {
-        CustomersQueue customersQueue = new CustomersQueue(10);
+public class Main {
+    public static final int QUEUE_SIZE = 10;
 
-
-        Market market = new Market();
-        market.init(customersQueue);
+    public static void main(String[] args) {
+        Customers customers = new Customers(QUEUE_SIZE);
+        new Market().createCashiersThreads(customers);
     }
 }

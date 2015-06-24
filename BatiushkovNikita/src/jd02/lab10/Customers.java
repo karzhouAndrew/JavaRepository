@@ -3,11 +3,11 @@ package jd02.lab10;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class CustomersQueue {
+public class Customers {
     private int queueSize;
     private Deque<Customer> customers = new ArrayDeque<>(queueSize);
 
-    public CustomersQueue(int queueSize) {
+    public Customers(int queueSize) {
         this.queueSize = queueSize;
         generateCustomersQueue();
     }
@@ -19,7 +19,7 @@ public class CustomersQueue {
     }
 
     public synchronized Customer getNextCustomer() {
-        return customers.pop();
+        return customers.poll();
     }
 
     public synchronized boolean isEmpty() {
