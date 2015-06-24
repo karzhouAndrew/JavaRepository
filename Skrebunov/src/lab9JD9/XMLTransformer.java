@@ -16,10 +16,10 @@ import java.io.FileOutputStream;
 public class XMLTransformer {
     public void transform() throws TransformerException, FileNotFoundException {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        StreamSource streamSource = new StreamSource(new File(".\\src\\pl.xsl"));
+        StreamSource streamSource = new StreamSource(new File(".\\Skrebunov\\src\\lab9JD2\\pl.xsl"));
         Templates templates = transformerFactory.newTemplates(streamSource);
         Transformer transformer = templates.newTransformer();
-        transformer.transform(new StreamSource(new File(".\\src\\pl.xml")),
-                new StreamResult(new FileOutputStream(new File(".\\src\\pl.html"))));
+        transformer.transform(new StreamSource(new File(".\\Skrebunov\\src\\lab9JD2\\pl.xml")),
+                new StreamResult(new FileOutputStream(new File(".\\Skrebunov\\src\\lab9JD2\\pl.html"))));
     }
 }
