@@ -31,8 +31,7 @@ public class TextFile {
         for (Integer number : list) {
             sumNumbers += number;
         }
-        float average = (float) sumNumbers / list.size();
-        return average;
+        return (float) sumNumbers / list.size();
 
     }
 
