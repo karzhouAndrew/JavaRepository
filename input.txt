@@ -1,0 +1,5 @@
+Java annotations can be be used at build-time, when you build your software project. The build process includes
+generating source code, compiling the source, generating XML files (e.g. deployment descriptors), packaging the
+compiled code and files into a JAR file etc. Building the software is typically done by an automatic build tool
+like Apache Ant or Apache Maven. Build tools may scan your Java code for specific annotations and generate source
+code or other files based on these annotations.
