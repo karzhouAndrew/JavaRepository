@@ -2,9 +2,9 @@ package jd02.lab10;
 
 public class Market {
     public void createCashiersThreads(Customers customers) {
-        int serviceTimeCashier1 = 0;
-        int serviceTimeCashier2 = 0;
-        int serviceTimeCashier3 = 0;
+        int serviceTimeCashier1 = 350;
+        int serviceTimeCashier2 = 400;
+        int serviceTimeCashier3 = 500;
 
         Thread thread1 = new Thread(new Cashier(serviceTimeCashier1, customers));
         thread1.setName("CASHIER №1");
