@@ -8,7 +8,8 @@ public class Lab19Main {
     public static void main(String[] args) {
         Lab19 lab = new Lab19();
         lab.speedMethodString("java");
-        lab.speedMethodAppend("java");
+        lab.speedMethodBuilder("java");
+        lab.speedMethodBuffer("java");
 
     }
 }

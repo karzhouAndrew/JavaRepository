@@ -9,10 +9,17 @@ public class Lab19 {
         }
     }
 
-    public void methodAppend(String str) {
+    public void methodBuilder(String str) {
         StringBuilder strBuilder = new StringBuilder();
         for (int i = 0; i < 100; i++) {
             strBuilder.append(str);
+        }
+    }
+
+    public void methodBuffer(String str) {
+        StringBuffer strBuffer = new StringBuffer();
+        for (int i = 0; i < 100; i++) {
+            strBuffer.append(str);
         }
     }
 
@@ -27,12 +34,21 @@ public class Lab19 {
     }
 
 
-    public void speedMethodAppend(String str) {
+    public void speedMethodBuilder(String str) {
         Lab19 Speed = new Lab19();
         int startTimeMethod2 = (int) System.nanoTime();
         System.out.println("Method 2 Start time: " + startTimeMethod2);
-        Speed.methodAppend(str);
+        Speed.methodBuilder(str);
         int estimatedTime2 = (int) System.nanoTime() - startTimeMethod2;
         System.out.println("Method 2 End time: " + estimatedTime2);
+    }
+
+    public void speedMethodBuffer(String str) {
+        Lab19 Speed = new Lab19();
+        int startTimeMethod2 = (int) System.nanoTime();
+        System.out.println("Method 3 Start time: " + startTimeMethod2);
+        Speed.methodBuffer(str);
+        int estimatedTime2 = (int) System.nanoTime() - startTimeMethod2;
+        System.out.println("Method 3 End time: " + estimatedTime2);
     }
 }
