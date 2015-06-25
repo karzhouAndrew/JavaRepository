@@ -1,4 +1,7 @@
 package lab34;
+/**
+ * Написать код выводящий число 153.5 в денежном виде для Украины.
+ */
 
 import java.text.NumberFormat;
 import java.util.Locale;
