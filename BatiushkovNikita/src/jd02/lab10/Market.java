@@ -1,21 +1,34 @@
 package jd02.lab10;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Market {
-    public void createCashiersThreads(Customers customers) {
-        int serviceTimeCashier1 = 0;
-        int serviceTimeCashier2 = 0;
-        int serviceTimeCashier3 = 0;
+    private List<Product> products = new ArrayList<>();
 
-        Thread thread1 = new Thread(new Cashier(serviceTimeCashier1, customers));
-        thread1.setName("CASHIER №1");
-        thread1.start();
+    public Market() {
+        generateAssortment();
+    }
 
-        Thread thread2 = new Thread(new Cashier(serviceTimeCashier2, customers));
-        thread2.setName("CASHIER №2");
-        thread2.start();
+    public void generateAssortment() {
+        products.add(new Product("Milk", 10));
+        products.add(new Product("Burger", 6));
+        products.add(new Product("Beef", 19));
+        products.add(new Product("Pork", 74));
+        products.add(new Product("Candies", 7));
+        products.add(new Product("Durum", 16));
+        products.add(new Product("Spelt", 18));
+        products.add(new Product("Eggs", 17));
+        products.add(new Product("Farina", 43));
+        products.add(new Product("Pastas", 122));
+        products.add(new Product("Rice", 89));
+        products.add(new Product("Corn", 56));
+        products.add(new Product("Orange", 83));
+        products.add(new Product("Fries", 51));
+        products.add(new Product("Cheese", 90));
+    }
 
-        Thread thread3 = new Thread(new Cashier(serviceTimeCashier3, customers));
-        thread3.setName("CASHIER №3");
-        thread3.start();
+    public Product getRandomProduct() {
+        return products.get((int) (Math.random() * products.size()));
     }
 }

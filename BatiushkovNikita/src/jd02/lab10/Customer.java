@@ -4,18 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-    private int quantity;
+    private Market assortment = new Market();
     private List<Product> shoppingCart = new ArrayList<>();
 
-    Assortment assortment = new Assortment();
-
-    public Customer(int quantity) {
-        this.quantity = quantity;
-        generateShoppingCart();
+    public Customer(int productsQuantity) {
+        generateShoppingCart(productsQuantity);
     }
 
-    public void generateShoppingCart() {
-        for (int i = 0; i < quantity; i++) {
+    public void generateShoppingCart(int productsQuantity) {
+        for (int i = 0; i < productsQuantity; i++) {
             shoppingCart.add(assortment.getRandomProduct());
         }
     }

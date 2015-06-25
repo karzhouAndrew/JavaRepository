@@ -2,17 +2,16 @@ package jd02.lab10;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Queue;
 
-public class Customers {
-    private int queueSize;
-    private Deque<Customer> customers = new ArrayDeque<>(queueSize);
+public class CustomersQueue {
+    private Queue<Customer> customers = new ArrayDeque<>();
 
-    public Customers(int queueSize) {
-        this.queueSize = queueSize;
-        generateCustomersQueue();
+    public CustomersQueue(int queueSize) {
+        generateCustomersQueue(queueSize);
     }
 
-    public void generateCustomersQueue() {
+    public void generateCustomersQueue(int queueSize) {
         for (int i = 0; i < queueSize; i++) {
             customers.add(new Customer((int) (Math.random() * 10 + 1)));
         }

@@ -11,7 +11,8 @@ public class Main {
     public static final int QUEUE_SIZE = 10;
 
     public static void main(String[] args) {
-        Customers customers = new Customers(QUEUE_SIZE);
-        new Market().createCashiersThreads(customers);
+        CustomersQueue customersQueue = new CustomersQueue(QUEUE_SIZE);
+        MarketManager marketManager = new MarketManager(customersQueue);
+        marketManager.startCashiers();
     }
 }
