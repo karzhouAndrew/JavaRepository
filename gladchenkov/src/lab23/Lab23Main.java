@@ -11,10 +11,10 @@ package lab23;
 public class Lab23Main {
     public static void main(String[] args) {
         Lab23 bankomat = new Lab23(5, 8, 2);
-        bankomat.balance();
+        bankomat.calculateBalance();
         System.out.println();
         bankomat.getCash(670);
         System.out.println();
-        bankomat.balance();
+        bankomat.calculateBalance();
     }
 }

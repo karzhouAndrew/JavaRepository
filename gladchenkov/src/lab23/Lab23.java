@@ -42,17 +42,15 @@ public class Lab23 {
         this.nominal100 = this.nominal100 + nominal100;
     }
 
-    public void balance() {
-        System.out.println("Ваш баланс составляет:" + sum());
+    public int calculateBalance() {
+        this.sum = nominal20 * 20 + nominal50 * 50 + nominal100 * 100;
+        System.out.println("Ваш баланс составляет:" + this.sum);
         getNominal20();
         getNominal50();
         getNominal100();
-    }
-
-    public int sum() {
-        sum = nominal20 * 20 + nominal50 * 50 + nominal100 * 100;
         return sum;
     }
+
 
     public void getCash(int cash) {
         this.cash = cash;
@@ -63,19 +61,19 @@ public class Lab23 {
             while (cash >= 100 && nominal100 >= 1) {
                 setNominal100(-1);
                 money += 100;
-                cash = cash - 100;
+                cash -= 100;
                 System.out.println("Выдана купюра номиналом 100");
             }
             while (cash >= 50 && nominal50 >= 1) {
                 setNominal50(-1);
                 money += 50;
-                cash = cash - 50;
+                cash -= 50;
                 System.out.println("Выдана купюра номиналом 50");
             }
             while (cash >= 20 && nominal20 >= 1) {
                 setNominal20(-1);
                 money += 20;
-                cash = cash - 20;
+                cash -= 20;
                 System.out.println("Выдана купюра номиналом 20");
             }
             if (money == cash) {
