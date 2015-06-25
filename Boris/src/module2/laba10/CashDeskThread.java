@@ -2,9 +2,9 @@ package module2.laba10;
 
 
 import module2.laba10.customer.Customer;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,14 +39,10 @@ public class CashDeskThread {
         }
     }
 
-    public void shutdown(){
-//        try {
-            while (!poolThreads.isTerminated()){
-                poolThreads.shutdown();
-            }
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+    public void shutdown() {
+        while (!poolThreads.isTerminated()) {
+            poolThreads.shutdown();
+        }
         System.out.println("Goodbye.");
     }
 
