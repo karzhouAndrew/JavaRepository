@@ -5,9 +5,10 @@ package lab10;
  */
 public class Lab10 {
     public static void main(String[] args) {
-        int number = 2;
+        int number = 22;
+        int random = (int) Math.sqrt(number);
 
-        for (int i = 2; i <= (int) Math.sqrt(number); i++) {
+        for (int i = 2; i <= random; i++) {
             if (number <= 1) {
                 System.out.println("Заданное число составное");
                 break;
