@@ -19,8 +19,9 @@ public class FrequencyDictionary {
             } else
                 dictionary.put(word, 1);
         }
-        for (String key : dictionary.keySet())
+        for (String key : dictionary.keySet()) {
             System.out.println(key + ": " + dictionary.get(key));
+        }
         return dictionary;
     }
 
