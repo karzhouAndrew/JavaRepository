@@ -21,12 +21,10 @@ public class Lab22 {
 
     public int getInfo() {
         info = sec + min * 60 + hour * 60;
-        System.out.println("Полное количество секунд =  " + info);
         return info;
     }
 
     public int getSec() {
-        System.out.println("Количество секунд = " + sec);
         return sec;
     }
 
@@ -35,17 +33,14 @@ public class Lab22 {
     }
 
     public int getMin() {
-        System.out.println("Количество минут = " + min);
         return min;
     }
 
     public void setMin(int min) {
-
         this.min = min;
     }
 
     public int getHour() {
-        System.out.println("Количество часов = " + hour);
         return hour;
 
     }
@@ -69,4 +64,14 @@ public class Lab22 {
     }
 
 
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Lab22{");
+        sb.append("sec=").append(sec);
+        sb.append(", hour=").append(hour);
+        sb.append(", min=").append(min);
+        sb.append(", info=").append(info);
+        sb.append('}');
+        return sb.toString();
+    }
 }

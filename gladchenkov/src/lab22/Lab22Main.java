@@ -11,19 +11,20 @@ package lab22;
  */
 public class Lab22Main {
     public static void main(String[] args) {
-        Lab22 Time = new Lab22(546, 4567, 76);
-        Time.setHour(5678);
-        Time.getInfo();
-        Time.getHour();
-        System.out.println();
+        Lab22 time = new Lab22(546, 4567, 76);
+        time.setHour(5678);
+        System.out.println(time.getInfo());
+        System.out.println(time.getHour());
+        System.out.println(time.toString());
 
 
-        Lab22 Time2 = new Lab22(546, 4567, 76);
-        Time2.getMin();
-        Time2.setHour(5678);
-        Time2.getInfo();
+        Lab22 time2 = new Lab22(546, 4567, 76);
+        System.out.println(time2.getMin());
+        time2.setHour(5678);
+        System.out.println(time2.getInfo());
+        System.out.println(time.toString());
 
-        if (Time.equals(Time2)) {
+        if (time.equals(time2)) {
             System.out.println("Объекты Time и Time 2 равны");
         } else {
             System.out.println("Объекты Time и Time 2 не равны");
