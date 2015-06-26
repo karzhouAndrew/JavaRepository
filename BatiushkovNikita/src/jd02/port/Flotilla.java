@@ -1,10 +1,12 @@
 package jd02.port;
 
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.SynchronousQueue;
 
 public class Flotilla {
-    private Queue<Ship> shipsQueue = new ConcurrentLinkedQueue<>();
+    private Queue<Ship> shipsQueue = new LinkedList<>();
 
     public Flotilla(int queueSize) {
         generateShipsQueue(queueSize);

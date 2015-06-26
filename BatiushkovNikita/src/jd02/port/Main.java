@@ -1,23 +1,16 @@
 package jd02.port;
 
+
 public class Main {
+    public static final int SHIPS_QUANTITY = 10;
+    public static final int BERTH_QUANTITY = 3;
+    public static final int STORAGE_CAPACITY = 300;
+
     public static void main(String[] args) {
-        //Berth berth1 = new Berth();
-        //Berth berth2 = new Berth();
-        //Berth berth3 = new Berth();
+        Flotilla flotilla = new Flotilla(SHIPS_QUANTITY);
+        PortManager portManager = new PortManager(flotilla, BERTH_QUANTITY);
+        Storage.getInstance().setCapacity(STORAGE_CAPACITY);
 
-        Storage storage = Storage.getInstance();
-
-        //Runnable ship = new Ship();
-        Ship ship = new Ship();
-
-        Flotilla flotilla = new Flotilla(20);
-        Ship nextShip = flotilla.getNextShip();
-
-
-        Runnable berth = new Berth();
-        Thread thread = new Thread(berth);
-        thread.start();
+        portManager.startRegulation();
     }
-
 }

@@ -1,33 +1,30 @@
 package jd02.port;
 
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Berth implements Runnable {
-    private int serviceTime = Util.generateRandomInt(500, 1000);
-    private Ship currentShip;
-    //private Storage storage = Storage.getInstance();
-    private Storage2 storage = Storage2.getInstance();
+public class Storage2 {
+    private static final Storage2 INSTANCE = new Storage2();
+    private int capacity;
+    private int serviceTime = 600;
+    Semaphore semaphore = new Semaphore(1);
 
-    public Berth(Ship currentShip) {
-        this.currentShip = currentShip;
+
+    private Storage2() {
     }
 
-    @Override
-    public void run() {
-/*        try {
-            if (storage.getLock().tryLock(1, TimeUnit.SECONDS)) {*/
-                storage.serve(currentShip);
-/*            }
+    public static Storage2 getInstance() {
+        return INSTANCE;
+    }
+
+    public void serve(Ship ship) {
+        try {
+            semaphore.acquire();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } finally {
-            storage.getLock().unlock();
-        }*/
-    }
+        }
 
-/*    public void serve(Ship ship) {
         try {
             Thread.sleep(serviceTime);
             if (ship.isLoaded()) {
@@ -38,12 +35,15 @@ public class Berth implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        semaphore.release();
+
     }
 
     private void transferFromShipToStorage(Ship ship) {
         int shipCapacity = ship.getCapacity();
-        int storageCapacity = storage.getCapacity() + shipCapacity;
-        storage.setCapacity(storageCapacity);
+        int storageCapacity = getCapacity() + shipCapacity;
+        setCapacity(storageCapacity);
         System.out.println("Загружено на склад: " + shipCapacity);
         System.out.println("Остаток на складе: " + storageCapacity);
         System.out.println();
@@ -51,10 +51,21 @@ public class Berth implements Runnable {
 
     private void transferFromStorageToShip(Ship ship) {
         int shipCapacity = ship.getCapacity();
-        int storageCapacity = storage.getCapacity() - shipCapacity;
-        storage.setCapacity(storageCapacity);
+        int storageCapacity = getCapacity() - shipCapacity;
+        setCapacity(storageCapacity);
         System.out.println("Загружено на корабль " + shipCapacity);
         System.out.println("Остаток на складе: " + storageCapacity);
         System.out.println();
-    }*/
+    }
+
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
 }
+

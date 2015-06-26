@@ -9,7 +9,7 @@ public class Ship {
     //private Lock lock;
 
     public Ship() {
-        //this.lock = new ReentrantLock();
+
     }
 
     public Ship(int capacity, Boolean loaded) {
@@ -32,10 +32,6 @@ public class Ship {
     public void setLoaded(boolean loaded) {
         this.loaded = loaded;
     }
-
-/*    public Lock getLock() {
-        return lock;
-    }*/
 
     @Override
     public String toString() {
