@@ -15,7 +15,7 @@ public enum Storage {
 
     private void transferFromShipToStorage(Ship ship) {
         int shipCapacity = ship.getCapacity();
-        capacity += ship.getCapacity();
+        capacity += shipCapacity;
         System.out.println("Загружено на склад: " + shipCapacity);
         System.out.println("Остаток на складе: " + capacity);
         System.out.println();
@@ -23,7 +23,7 @@ public enum Storage {
 
     private void transferFromStorageToShip(Ship ship) {
         int shipCapacity = ship.getCapacity();
-        capacity -= ship.getCapacity();
+        capacity -= shipCapacity;
         System.out.println("Загружено на корабль " + shipCapacity);
         System.out.println("Остаток на складе: " + capacity);
         System.out.println();

@@ -1,11 +1,12 @@
 package jd02.port;
 
 public class Ship {
-    private int capacity = Util.generateRandomInt(10, 50);
-    private boolean loaded = Util.generateRandomBool();
+    private int capacity;
+    private boolean loaded;
 
     public Ship() {
-
+        this.capacity = Util.generateRandomInt(10, 50);
+        this.loaded = Util.generateRandomBool();
     }
 
     public int getCapacity() {
