@@ -21,6 +21,10 @@ public class PortManager {
             executor.submit(berth);
         }
         executor.shutdown();
-        //executor.awaitTermination(1, TimeUnit.SECONDS);
+        try {
+            executor.awaitTermination(10, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

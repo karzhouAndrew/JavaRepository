@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Flotilla flotilla = new Flotilla(SHIPS_QUANTITY);
         PortManager portManager = new PortManager(flotilla, BERTH_QUANTITY);
-        Storage.getInstance().setCapacity(STORAGE_CAPACITY);
+        Storage.INSTANCE.setCapacity(STORAGE_CAPACITY);
 
         portManager.startRegulation();
     }
