@@ -18,8 +18,7 @@ INSERT INTO listexpenses.receivers (num, receiver) VALUES (3, 'МТС');
 Напишите запрос, делающий выборку из обеих таблиц полей, где величина расходов больше 10000. В выборке должны
 присутствовать четыре поля: номер платежа, дата, имя получателя, величина.
 
-SELECT expenses.num, date, sum, receivers.receiver FROM expenses ,receivers WHERE expenses.receiver = receivers.num
-AND sum > 10000;
+SELECT cl1.num, date, sum, cl2.receiver FROM expenses cl1 ,receivers cl2 WHERE cl1.receiver = cl2.num AND sum > 10000;
 
 
 Задание  46.
