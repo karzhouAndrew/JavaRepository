@@ -1,52 +1,54 @@
 package task43;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Products {
-    private int breadQuantity;
-    private int butterQuantity;
-    private int sausagesQuantity;
+    private AtomicInteger breadQuantity = new AtomicInteger();
+    private AtomicInteger butterQuantity = new AtomicInteger();
+    private AtomicInteger sausagesQuantity = new AtomicInteger();
 
     public Products(int breadQuantity, int butterQuantity, int sausagesQuantity) {
-        this.breadQuantity = breadQuantity;
-        this.butterQuantity = butterQuantity;
-        this.sausagesQuantity = sausagesQuantity;
+        this.breadQuantity.set(breadQuantity);
+        this.butterQuantity.set(butterQuantity);
+        this.sausagesQuantity.set(sausagesQuantity);
     }
 
     public Products() {
     }
 
     public void addProducts(Products products) {
-        breadQuantity = breadQuantity + products.breadQuantity;
-        butterQuantity = butterQuantity + products.butterQuantity;
-        sausagesQuantity = sausagesQuantity + products.sausagesQuantity;
+        breadQuantity.addAndGet(products.breadQuantity.get());
+        butterQuantity.addAndGet(products.butterQuantity.get());
+        sausagesQuantity.addAndGet(products.sausagesQuantity.get());
     }
 
     public void subtractProducts(Products products) {
-        breadQuantity = breadQuantity - products.breadQuantity;
-        butterQuantity = butterQuantity - products.butterQuantity;
-        sausagesQuantity = sausagesQuantity - products.sausagesQuantity;
+        breadQuantity.addAndGet(-products.breadQuantity.get());
+        butterQuantity.addAndGet(-products.butterQuantity.get());
+        sausagesQuantity.addAndGet(-products.sausagesQuantity.get());
     }
 
-    public int getBreadQuantity() {
+    public AtomicInteger getBreadQuantity() {
         return breadQuantity;
     }
 
-    public void setBreadQuantity(int breadQuantity) {
+    public void setBreadQuantity(AtomicInteger breadQuantity) {
         this.breadQuantity = breadQuantity;
     }
 
-    public int getButterQuantity() {
+    public AtomicInteger getButterQuantity() {
         return butterQuantity;
     }
 
-    public void setButterQuantity(int butterQuantity) {
+    public void setButterQuantity(AtomicInteger butterQuantity) {
         this.butterQuantity = butterQuantity;
     }
 
-    public int getSausagesQuantity() {
+    public AtomicInteger getSausagesQuantity() {
         return sausagesQuantity;
     }
 
-    public void setSausagesQuantity(int sausagesQuantity) {
+    public void setSausagesQuantity(AtomicInteger sausagesQuantity) {
         this.sausagesQuantity = sausagesQuantity;
     }
 

@@ -1,6 +1,5 @@
 package task43;
 
-
 public class CashDesk implements Runnable {
     private Clients clients;
     private Shop shop;
@@ -27,7 +26,6 @@ public class CashDesk implements Runnable {
     public Products handleClient(Clients clients, int clientNumber) {
         return clients.getShoppingBaskets().get(clientNumber);
     }
-
 
     public Shop getShop() {
         return shop;

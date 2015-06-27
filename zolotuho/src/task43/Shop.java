@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Shop {
-    private volatile Products products;
+    private Products products;
     private List<CashDesk> cashDesks;
 
     public Shop(Products products, List<CashDesk> cashDesk) {
@@ -18,6 +18,16 @@ public class Shop {
         products = new Products();
         cashDesks = new ArrayList<CashDesk>();
     }
+
+    public Shop(Products products, int cashDeskQuantity) {
+        this.products = products;
+        cashDesks = new ArrayList<CashDesk>();
+        for (int i = 0; i < cashDeskQuantity; i++) {
+            cashDesks.add(new CashDesk());
+            cashDesks.get(i).setShop(this);
+        }
+    }
+
 
     public Products getProducts() {
         return products;
