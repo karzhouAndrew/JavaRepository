@@ -1,0 +1,17 @@
+<?xml version = "1.0"?>
+<!DOCTYPE pointsList SYSTEM "pl.dtd">
+
+<pointsList>
+    <point units = "cm">
+        <x>2</x>
+        <y>3</y>
+    </point>
+    <point units = "mm">
+        <x>9</x>
+        <y>3</y>
+    </point>
+    <point units = "px">
+        <x>5</x>
+        <y>6</y>
+    </point>
+</pointsList>
