@@ -12,18 +12,18 @@ public class BinaryFile {
     private File file;
 
     public BinaryFile(File file) {
-        this(file.toString());
+        this.file = file;
     }
 
     public BinaryFile(String str) {
-        this.file = new File(str);
+        this(new File(str));
     }
 
-    public void writeNumberToBinaryFile(int quantity) {
+    public void writeNumbersToBinaryFile(int quantity) {
         DataOutputStream outputFile = null;
         try {
             outputFile = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
-            writeNumbersListToFile(addRandomNumbers(quantity), outputFile);
+            writeToFile(addRandomNumbers(quantity), outputFile);
         } catch (FileNotFoundException e) {
             System.out.println("Exception opened file.");
         } catch (IOException e) {
@@ -39,7 +39,7 @@ public class BinaryFile {
         }
     }
 
-    private void writeNumbersListToFile(List<Integer> numbers, DataOutputStream outputFile) throws IOException {
+    private void writeToFile(List<Integer> numbers, DataOutputStream outputFile) throws IOException {
         for (Integer number : numbers) {
             outputFile.writeInt(number);
         }
@@ -49,7 +49,7 @@ public class BinaryFile {
         List<Integer> numbers = new ArrayList<>();
         if (quantity > 0) {
             for (int i = 0; i < quantity; i++) {
-                numbers.add(getRandomNumber());
+                numbers.add(generateRandomNumber());
             }
         } else {
             for (int i = quantity; i < 0; i++) {
@@ -59,7 +59,7 @@ public class BinaryFile {
         return numbers;
     }
 
-    private Integer getRandomNumber() {
+    private Integer generateRandomNumber() {
         return new Random().nextInt(10);
     }
 
@@ -101,16 +101,14 @@ public class BinaryFile {
         if (numbers.isEmpty()) {
             return 0;
         } else {
-            sum = getSum(numbers, sum);
-            return sum / numbers.size();
+            return calculateSum(numbers, sum) / numbers.size();
         }
     }
 
-    private double getSum(List<Integer> numbers, double sum) {
+    private double calculateSum(List<Integer> numbers, double sum) {
         for (Integer number : numbers) {
             sum += number;
         }
         return sum;
     }
-
 }
