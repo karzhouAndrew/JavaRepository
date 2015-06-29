@@ -11,12 +11,12 @@ public class FrequencyVocabulary {
     private Map<String, Integer> vocabularyFrequencyWord;
 
     public FrequencyVocabulary() {
-        vocabularyFrequencyWord = new HashMap<String, Integer>();
+        vocabularyFrequencyWord = new HashMap<>();
     }
 
     public void addTextToVocabulary(String text) {
-        String[] arrayWords = text.split(WORD_SPLIT_REGEX);
-        for (String word : arrayWords) {
+        String[] words = text.split(WORD_SPLIT_REGEX);
+        for (String word : words) {
             addWordToVocabulary(word);
         }
     }
@@ -55,7 +55,15 @@ public class FrequencyVocabulary {
     @Override
     public String toString() {
         return "FrequencyVocabulary{" +
-                "vocabularyFrequencyWord=" + vocabularyFrequencyWord +
+                "vocabularyFrequencyWord=\n" + getColon(vocabularyFrequencyWord) +
                 '}';
+    }
+
+    private StringBuilder getColon(Map<String, Integer> words) {
+        StringBuilder strB = new StringBuilder();
+        for (String word : words.keySet()) {
+            strB.append(word).append("=").append(words.get(word)).append("\n");
+        }
+        return strB;
     }
 }
