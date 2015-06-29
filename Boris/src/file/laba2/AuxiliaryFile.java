@@ -36,9 +36,9 @@ public class AuxiliaryFile {
     }
 
     private void createFile() {
-        this.path.getParentFile().mkdirs();
+        path.getParentFile().mkdirs();
         try {
-            this.path.createNewFile();
+            path.createNewFile();
         } catch (IOException e) {
             System.out.println("File not created.");
         }
