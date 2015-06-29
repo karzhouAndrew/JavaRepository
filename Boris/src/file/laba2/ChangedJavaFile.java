@@ -58,7 +58,7 @@ public class ChangedJavaFile {
         temp.writeLineToFile(new StringBuilder(str));
     }
 
-    public StringBuilder seeFile() {
+    public StringBuilder seeFile(File file) {
         StringBuilder strB = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             strB = readTextToBuffer(reader);
@@ -77,5 +77,9 @@ public class ChangedJavaFile {
             strB.append(str).append("\n");
         }
         return strB;
+    }
+
+    public File getFile() {
+        return file;
     }
 }

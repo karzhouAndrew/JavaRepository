@@ -7,6 +7,6 @@ public class TestChangeable {
     public static void main(String[] args) throws IOException {
         ChangedJavaFile file = new ChangedJavaFile("0test.java");
         file.replacePrivateToPublic();
-        System.out.println(file.seeFile());
+        System.out.println(file.seeFile(file.getFile()));
     }
 }
