@@ -13,7 +13,7 @@ public class AuxiliaryFile {
     }
 
     public AuxiliaryFile(File path) throws IOException {
-        this.path = path;
+        this.path = new File(String.valueOf(path.getCanonicalFile()));
         createFileOrGenerateNewName();
     }
 
@@ -36,9 +36,9 @@ public class AuxiliaryFile {
     }
 
     private void createFile() {
-        this.path.getParentFile().mkdirs();
+        path.getParentFile().mkdirs();
         try {
-            this.path.createNewFile();
+            path.createNewFile();
         } catch (IOException e) {
             System.out.println("File not created.");
         }
@@ -57,23 +57,26 @@ public class AuxiliaryFile {
     }
 
 
-    public static void deleteFile(File path) {
-        if (path.exists()) {
-            path.delete();
+    public static void deleteFile(File file) {
+        if (file.exists()) {
+            file.delete();
         }
     }
 
-    public void deleteThisFile() {
-        deleteFile(path);
+    public static void replaceOriginal(File newFile, File removableFile) {
+        deleteFile(removableFile);
+        changeName(removableFile, newFile);
     }
 
-    public void replaceToFile(File file) {
-        deleteFile(file);
-        changeName(file);
+    private static void changeName(File oldFile, File newFile) {
+        if (oldFile.exists()) {
+            System.out.println("Exception.");
+        } else {
+            newFile.renameTo(oldFile);
+        }
     }
 
-    private void changeName(File file) {
-        path.renameTo(file);
-
+    public File getPath() {
+        return path;
     }
 }

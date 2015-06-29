@@ -8,8 +8,8 @@ import java.util.regex.Pattern;
 
 public class ChangeJavaFile {
     private static final String JAVA_REGEX = "\\.java$";
-    File file;
-    AuxiliaryFile tempFile;
+    private File file;
+    private AuxiliaryFile tempFile;
 
     public ChangeJavaFile(File file) throws FileNotFoundException {
         if (file.exists()) {
@@ -17,6 +17,10 @@ public class ChangeJavaFile {
         } else {
             throw new FileNotFoundException(file.toString());
         }
+    }
+
+    public ChangeJavaFile(String file) throws FileNotFoundException {
+        this(new File(file));
     }
 
     private void isJavaFile(File file) throws FileNotFoundException {
@@ -27,10 +31,6 @@ public class ChangeJavaFile {
         }
     }
 
-    public ChangeJavaFile(String file) throws FileNotFoundException {
-        this(new File(file));
-    }
-
     public void changeFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             writeChangesToAuxiliaryFile(reader);
@@ -39,7 +39,7 @@ public class ChangeJavaFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        tempFile.replaceToFile(file);
+        AuxiliaryFile.replaceOriginal(tempFile.getPath(), file);
     }
 
     private void writeChangesToAuxiliaryFile(BufferedReader reader) throws IOException {
@@ -58,7 +58,7 @@ public class ChangeJavaFile {
         return strB;
     }
 
-    public StringBuilder readFile() {
+    public StringBuilder readFile(File file) {
         StringBuilder strB = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
@@ -73,4 +73,7 @@ public class ChangeJavaFile {
         return strB;
     }
 
+    public File getFile() {
+        return file;
+    }
 }
