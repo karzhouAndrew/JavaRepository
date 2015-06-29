@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 public class RandomNumbersInFile {
     private static final String NUMBER_REGEX = "-?\\d+";
     private File path;
-    private Random rand = new Random();
+    private static Random rand = new Random();
     private StringBuilder text;
 
     public RandomNumbersInFile() {
@@ -24,19 +24,21 @@ public class RandomNumbersInFile {
 
     public RandomNumbersInFile(String path, String name) {
         this.path = new File(path + "\\" + name);
-        isExistFile();
-    }
-
-    private void isExistFile() {
-        if (!this.path.exists()) {
-            createFile();
-        }
+        createFile();
     }
 
     private void createFile() {
-        this.path.getParentFile().mkdirs();
+        if (path.exists()) {
+            System.out.println("Exception. File exists.");
+        } else {
+            path.getParentFile().mkdirs();
+            create();
+        }
+    }
+
+    private void create() {
         try {
-            this.path.createNewFile();
+            path.createNewFile();
         } catch (IOException e) {
             System.out.println("File not created.");
         }
@@ -52,12 +54,12 @@ public class RandomNumbersInFile {
 
     private void addNumbersToFile(PrintWriter writer, int quantity) throws IOException {
         for (int i = 0; i < quantity; i++) {
-            writer.print(getRandomNumber());
+            writer.print(generateRandomNumber());
             writer.append("\n");
         }
     }
 
-    private int getRandomNumber() {
+    private int generateRandomNumber() {
         return rand.nextInt(100);
     }
 
@@ -75,11 +77,11 @@ public class RandomNumbersInFile {
     private void isEmpty(Integer number, List<Integer> numbers) {
         numbers.add(number);
         if (numbers.size() > 1) {
-            Sort(numbers);
+            sort(numbers);
         }
     }
 
-    private void Sort(List<Integer> numbers) {
+    private void sort(List<Integer> numbers) {
         int nextIndex = numbers.size() - 1;
         int insertInteger = numbers.get(nextIndex);
         int deflectionsInteger;
@@ -108,10 +110,13 @@ public class RandomNumbersInFile {
         }
     }
 
-    public void deleteFile() {
-        if (path.exists()) {
-            path.delete();
+    public void deleteFile(File file) {
+        if (file.exists()) {
+            file.delete();
         }
     }
 
+    public File getPath() {
+        return path;
+    }
 }

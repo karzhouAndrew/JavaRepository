@@ -8,6 +8,6 @@ public class TestRandomNumbersInFile {
         RandomNumbersInFile file = new RandomNumbersInFile();
         file.writeRandomNumberToFile(10);
         System.out.println(file.getSortNumbers());
-        file.deleteFile();
+        file.deleteFile(file.getPath());
     }
 }
