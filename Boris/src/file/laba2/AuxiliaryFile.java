@@ -6,7 +6,6 @@ import java.io.*;
 
 public class AuxiliaryFile {
     private File path;
-    private StringBuilder text;
     private static int nextFileName = 0;
 
     public AuxiliaryFile() {
@@ -50,7 +49,7 @@ public class AuxiliaryFile {
     }
 
     public void writeToFile(StringBuilder str) {
-        try (PrintWriter writer = new PrintWriter(new BufferedOutputStream (new FileOutputStream(path, true)))) {
+        try (PrintWriter writer = new PrintWriter(new BufferedOutputStream(new FileOutputStream(path, true)))) {
             writer.println(str);
         } catch (IOException e) {
             System.out.println("File not written.");
@@ -58,23 +57,19 @@ public class AuxiliaryFile {
     }
 
 
-    public static void deleteFile(File path) {
-        if (path.exists()) {
-            path.delete();
+    public static void deleteFile(File file) {
+        if (file.exists()) {
+            file.delete();
         }
     }
 
-    public void deleteThisFile() {
-        deleteFile(path);
+    public static void replaceOriginal(File newFile, File removableFile) {
+        deleteFile(removableFile);
+        changeName(removableFile, newFile);
     }
 
-    public void replaceOriginal(File file) {
-        deleteFile(file);
-        changeName(file);
-    }
-
-    private void changeName(File file) {
-        path.renameTo(file);
+    private static void changeName(File oldFile, File newFile) {
+        newFile.renameTo(oldFile);
 
     }
 

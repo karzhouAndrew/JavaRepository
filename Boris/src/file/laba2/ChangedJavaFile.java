@@ -23,16 +23,12 @@ public class ChangedJavaFile {
         }
     }
 
-    private boolean isRegexExist(String str, String regex) {
-        return Pattern.compile(regex).matcher(str).find();
-    }
-
     public ChangedJavaFile(String path) throws IOException, IllegalArgumentException {
         this(new File(path));
     }
 
     public void replacePrivateToPublic() throws IOException {
-        temp = new AuxiliaryFile(this.file);
+        temp = new AuxiliaryFile(file);
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String str;
             while ((str = reader.readLine()) != null) {
@@ -41,7 +37,7 @@ public class ChangedJavaFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        temp.replaceOriginal(file);
+        AuxiliaryFile.replaceOriginal(temp.getPath(), file);
     }
 
     private void findReplaceWord(String str) {
@@ -52,6 +48,10 @@ public class ChangedJavaFile {
         } else {
             writeToAuxiliaryFile(str);
         }
+    }
+
+    private boolean isRegexExist(String str, String regex) {
+        return Pattern.compile(regex).matcher(str).find();
     }
 
     private void writeToAuxiliaryFile(String str) {
