@@ -29,7 +29,7 @@ public class TestLogger {
     }
 
     private static void writeText(int start, RuntimeException e) {
-        Logger.getInstanceLogger().writeMessage(new Date().toString() + "\t" + e);
+        Logger.getInstanceLogger().addMessage(new Date().toString() + "\t" + e);
         startGenerateException(start + 10);
     }
 }

@@ -28,7 +28,20 @@ public class Logger {
         return logger;
     }
 
-    public void writeMessage(String str) {
+    public StringBuilder getTextFromFile() {
+        StringBuilder text = new StringBuilder();
+        try (BufferedReader strB = new BufferedReader(new FileReader(file))) {
+            String reader;
+            while ((reader = strB.readLine()) != null) {
+                text.append(reader).append("\n");
+            }
+        } catch (IOException e) {
+            addMessage(new Date().toString() + e.getMessage());
+        }
+        return text;
+    }
+
+    public void addMessage(String str) {
         writeOrAddToFile(str + "\n", true);
     }
 
@@ -40,20 +53,9 @@ public class Logger {
         try (PrintWriter writer = new PrintWriter(new FileWriter(file, add))) {
             writer.append(str);
         } catch (IOException e) {
-            writeMessage(new Date().toString() + e);
+            addMessage(new Date().toString() + e);
         }
     }
 
-    public StringBuilder getTextFromFile() {
-        StringBuilder text = new StringBuilder();
-        try (BufferedReader strB = new BufferedReader(new FileReader(file))) {
-            String reader;
-            while ((reader = strB.readLine()) != null) {
-                text.append(reader).append("\n");
-            }
-        } catch (IOException e) {
-            writeMessage(new Date().toString() + e.getMessage());
-        }
-        return text;
-    }
+
 }
