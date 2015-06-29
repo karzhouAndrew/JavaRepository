@@ -14,6 +14,10 @@ public class ChangedJavaFile {
     private File file;
     private AuxiliaryFile temp;
 
+    public ChangedJavaFile(String path) throws IOException, IllegalArgumentException {
+        this(new File(path));
+    }
+
     public ChangedJavaFile(File file) throws IOException, IllegalArgumentException {
         if (file.exists()) {
             this.file = new File(file.getCanonicalFile().toString());
@@ -29,12 +33,8 @@ public class ChangedJavaFile {
         return Pattern.compile(regex).matcher(str).find();
     }
 
-    public ChangedJavaFile(String path) throws IOException, IllegalArgumentException {
-        this(new File(path));
-    }
-
     public void changeable() throws IOException {
-        temp = new AuxiliaryFile(this.file);
+        temp = new AuxiliaryFile(file);
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String str;
             while ((str = reader.readLine()) != null) {
@@ -43,7 +43,7 @@ public class ChangedJavaFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        temp.replaceOriginal(file);
+        AuxiliaryFile.replaceOriginal(temp.getPath(), file);
     }
 
     private void findReplaceWord(String str) {
@@ -59,7 +59,7 @@ public class ChangedJavaFile {
         temp.writeLineToFile(new StringBuilder(str));
     }
 
-    public StringBuilder seeFile() {
+    public StringBuilder seeFile(File file) {
         StringBuilder strB = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             strB = readTextToBuffer(reader);
@@ -78,5 +78,9 @@ public class ChangedJavaFile {
             strB.append(str).append("\n");
         }
         return strB;
+    }
+
+    public File getFile() {
+        return file;
     }
 }

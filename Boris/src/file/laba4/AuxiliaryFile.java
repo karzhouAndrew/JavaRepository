@@ -1,12 +1,10 @@
 package file.laba4;
 
-
 import java.io.*;
 
 
 public class AuxiliaryFile {
     private File path;
-    private StringBuilder text;
     private static int nextFileName = 0;
 
     public AuxiliaryFile() {
@@ -37,9 +35,9 @@ public class AuxiliaryFile {
     }
 
     private void createFile() {
-        this.path.getParentFile().mkdirs();
+        path.getParentFile().mkdirs();
         try {
-            this.path.createNewFile();
+            path.createNewFile();
         } catch (IOException e) {
             System.out.println("File not created.");
         }
@@ -58,33 +56,23 @@ public class AuxiliaryFile {
     }
 
 
-    public static void deleteFile(File path) {
-        if (path.exists()) {
-            path.delete();
+    public static void deleteFile(File file) {
+        if (file.exists()) {
+            file.delete();
         }
     }
 
-    public void deleteThisFile() {
-        deleteFile(path);
+    public static void replaceOriginal(File newFile, File removableFile) {
+        deleteFile(removableFile);
+        changeName(removableFile, newFile);
     }
 
-    public void replaceOriginal(File file) {
-        deleteFile(file);
-        changeName(file);
-    }
-
-    private void changeName(File file) {
-        path.renameTo(file);
-
-    }
-
-    private String getName(String name) {
-        int charStartIndex = 1;
-        int quantityFile = nextFileName;
-        while ((quantityFile %= 10) < 1) {
-            charStartIndex++;
+    private static void changeName(File oldFile, File newFile) {
+        if (oldFile.exists()) {
+            System.out.println("Exception.");
+        } else {
+            newFile.renameTo(oldFile);
         }
-        return name.substring(charStartIndex);
     }
 
     public File getPath() {
