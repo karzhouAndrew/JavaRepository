@@ -6,11 +6,11 @@
     <xs:element name="pointList">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="point" minOccurs="0" maxOccurs="unbounded" type="Point"/>
+                <xs:element name="point" minOccurs="0" maxOccurs="unbounded" type="point"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:complexType name="Point">
+    <xs:complexType name="point">
         <xs:sequence>
             <xs:element name="x" type="xs:integer"/>
             <xs:element name="y" type="xs:integer"/>
