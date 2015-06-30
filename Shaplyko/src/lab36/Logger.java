@@ -22,7 +22,7 @@ public class Logger {
         try {
             outputFile = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
             outputFile.writeUTF(message);
-            getTime(outputFile);
+            createTime(outputFile);
         } catch (FileNotFoundException e) {
             System.out.println("Не могу открыть файл");
         } catch (IOException e) {
@@ -38,7 +38,7 @@ public class Logger {
         }
     }
 
-    private void getTime(DataOutputStream outputFile) throws IOException {
+    private void createTime(DataOutputStream outputFile) throws IOException {
         Date now = new Date();
         outputFile.writeUTF(DateFormat.getDateTimeInstance().format(now));
     }
