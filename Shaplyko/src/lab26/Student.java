@@ -1,8 +1,8 @@
 package lab26;
 
 public class Student {
-    String secondName;
-    int mark;
+    private String secondName;
+    private int mark;
 
     public Student(String secondName, int mark) {
         this.secondName = secondName;
