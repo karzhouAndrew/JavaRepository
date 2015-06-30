@@ -21,10 +21,12 @@ public class FileWork {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            try {
-                file.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (file != null) {
+                try {
+                    file.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
