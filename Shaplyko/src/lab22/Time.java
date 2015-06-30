@@ -39,10 +39,10 @@ public class Time {
 
     public int compareToTime(Object object) {
         Time tmp = (Time) object;
-        if ((amountSecond()) < (amountSecond(tmp))) {
+        if (amountSecond() < amountSecond(tmp)) {
             System.out.println("Объекты 1 меньше объекта 2 = " + -1);
             return -1;
-        } else if ((amountSecond()) > (amountSecond(tmp))) {
+        } else if (amountSecond() > amountSecond(tmp)) {
             System.out.println("Объекты 1 больше объекта 2 = " + 1);
             return 1;
         }
