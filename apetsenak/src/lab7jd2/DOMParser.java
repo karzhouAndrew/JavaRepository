@@ -17,12 +17,10 @@ public class DOMParser {
         Document document = null;
         try {
             builder = factory.newDocumentBuilder();
+            File file = new File(fileName);
+            document = builder.parse(file);
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
-        }
-        File file = new File(fileName);
-        try {
-            document = builder.parse(file);
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
