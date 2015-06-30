@@ -10,7 +10,7 @@ public class FirstTest {
             int secondNumber = 0;
             int result = firstNumber / secondNumber;
         } catch (Exception e) {
-            logger.log(e);
+            logger.log(e, e.toString());
         }
     }
 }

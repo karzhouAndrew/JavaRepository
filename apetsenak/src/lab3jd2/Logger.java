@@ -26,22 +26,25 @@ public class Logger {
         return instance;
     }
 
-    public void log(Exception exception) {
+    public void log(Exception exception, String message) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(logFile, true))) {
-            writeFile(exception, writer);
+            writeFile(exception, message, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void writeFile(Exception exception, PrintWriter writer) {
+    private void writeFile(Exception exception, String message, PrintWriter writer) {
         Calendar time = new GregorianCalendar();
         StringBuilder writeLine = new StringBuilder(time.getTime().toString());
         writeLine.append("  Message : ");
-        writeLine.append(exception.toString());
+        writeLine.append(message);
         writer.println(writeLine.toString());
         for (StackTraceElement trace : exception.getStackTrace()) {
             writer.println(trace.toString());
+            if (trace.toString().contains("main")) {
+                break;
+            }
         }
         writer.println();
     }

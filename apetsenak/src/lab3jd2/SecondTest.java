@@ -9,7 +9,7 @@ public class SecondTest {
             int[] firstNumber = new int[5];
             firstNumber[5] = 0;
         } catch (Exception e) {
-            logger.log(e);
+            logger.log(e, e.toString());
         }
     }
 }
