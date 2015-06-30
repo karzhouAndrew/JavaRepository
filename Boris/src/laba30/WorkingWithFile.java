@@ -3,7 +3,9 @@ package laba30;
 
 import java.io.*;
 
-public class ProcessTextInFile {
+//Создать файл с текстом, прочитать, подсчитать в тексте количество знаков препинания и слов.
+
+public class WorkingWithFile {
     private final String WORD_REGEX = "\\w+";
     private final String PUNCTUATION_REGEX = "\\p{Punct}";
     private String text;
@@ -37,12 +39,12 @@ public class ProcessTextInFile {
         }
     }
 
-    public int getPunctuationQuantity() {
+    public int countPunctuationQuantity() {
         return text.split(PUNCTUATION_REGEX).length - 1;
 
     }
 
-    public int getWordQuantity() {
+    public int countWordQuantity() {
         return text.split(WORD_REGEX).length - 1;
     }
 
