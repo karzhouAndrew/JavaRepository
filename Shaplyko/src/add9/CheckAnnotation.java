@@ -3,6 +3,9 @@ package add9;
 public class CheckAnnotation {
     private int number;
 
+    public CheckAnnotation() {
+    }
+
     public CheckAnnotation(int number) {
         this.number = number;
     }
