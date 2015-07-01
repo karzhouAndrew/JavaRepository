@@ -10,11 +10,11 @@ public class Customer {
     private static int nextCustomer = 1;
     private int quantityProducts = (int) (Math.random() * 5);
     private List<Product> products;
-    private int id;
+    private final int id;
 
     public Customer() {
         products = new ArrayList<>();
-        this.id = nextCustomer++;
+        id = nextCustomer++;
         generateProducts(quantityProducts);
     }
 
@@ -26,23 +26,20 @@ public class Customer {
         addProduct(new Product(name, price));
     }
 
-    public List<Product> getProducts() throws NullPointerException {
+    public List<Product> getProducts() {
         return products;
     }
 
     @Override
     public String toString() {
-        return products == null ? ("\nCustomer #" + id + " hasn't have products.")
-                : ("\nCustomer #" + id + " have products:\n" + getProducts().toString());
+        return products.isEmpty() ? ("\nCustomer #" + id + " hasn't have products.")
+                : ("\nCustomer #" + id + " has products:\n" + getProducts().toString());
     }
 
     private void generateProducts(int quantity) {
-        if (quantity > 0) {
-            for (int i = 0; i < quantity; i++) {
-                products.add(Product.generateNewProduct());
-            }
-        } else {
-            products = null;
+        for (int i = 0; i < quantity; i++) {
+            products.add(Product.generateNewProduct());
         }
     }
+
 }
