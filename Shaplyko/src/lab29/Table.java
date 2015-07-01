@@ -9,14 +9,13 @@ public class Table {
 
     public void creationTable(String str) {
         String strWord[] = str.split(SPLIT_WORD);
-        for (int i = 0; i < strWord.length; ++i) {
-            int counter = 1;
-            for (int j = 0; j < strWord.length; ++j) {
-                if (strWord[j].equalsIgnoreCase(strWord[i]) && i != j) {
-                    counter++;
-                }
+        for (int i = 0; i < strWord.length; i++) {
+            strWord[i] = strWord[i].toLowerCase();
+            if (words.containsKey(strWord[i])) {
+                words.put(strWord[i], words.get(strWord[i]) + 1);
+            } else {
+                words.put(strWord[i], 1);
             }
-            words.put(strWord[i].toLowerCase(), counter);
         }
     }
 
@@ -24,3 +23,4 @@ public class Table {
         System.out.println("Частотная таблица :" + words);
     }
 }
+
