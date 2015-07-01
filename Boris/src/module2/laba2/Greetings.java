@@ -17,7 +17,7 @@ public class Greetings {
         locale = Locale.ENGLISH;
     }
 
-    private void setLocale(String loc) throws BadStringOperationException {
+    private void setLocale(String loc) {
         loc = loc.toUpperCase();
         if (loc.equals("US") || locale == null) {
             this.locale = new Locale("en", "US");
@@ -26,7 +26,7 @@ public class Greetings {
         } else if (loc.equals("BY")) {
             this.locale = new Locale("be", "BY");
         } else {
-            throw new BadStringOperationException(loc);
+            throw new IllegalArgumentException(loc);
         }
     }
 
@@ -38,7 +38,7 @@ public class Greetings {
         try {
             setLocale(locale);
             return getMessage("greeting");
-        } catch (BadStringOperationException e) {
+        } catch (IllegalArgumentException e) {
             return getMessage("exception");
         }
     }
