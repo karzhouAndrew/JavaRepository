@@ -1,16 +1,16 @@
-package module2.addShip.ship;
+package module2.SeaPort.ship;
 
 
-import module2.addShip.box.Box;
-import module2.addShip.ship.exception.EmptyHoldException;
-import module2.addShip.ship.exception.FullHoldException;
+import module2.SeaPort.box.Box;
+import module2.SeaPort.ship.exception.EmptyHoldException;
+import module2.SeaPort.ship.exception.FullHoldException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Ship {
-    private boolean load;
+    private boolean isLoad;
     private int maxCapacity;
     private final static int maxGenerateCapacity = 10;
     private List<Box> hold;
@@ -19,15 +19,15 @@ public class Ship {
         this(generateLoadUnload(), generateCapacity());
     }
 
-    public Ship(boolean load, int capacity) {
-        this.load = load;
+    public Ship(boolean isLoad, int capacity) {
+        this.isLoad = isLoad;
         hold = new ArrayList<>(capacity);
         maxCapacity = capacity;
         generateHold();
     }
 
     private void generateHold() {
-        if (!this.load) {
+        if (!isLoad) {
             for (int i = 0; i < maxCapacity; i++) {
                 hold.add(new Box());
             }
@@ -50,12 +50,22 @@ public class Ship {
         }
     }
 
-    public void unloadBox(Box box) {
+    public Box unloadBox() {
         if (!hold.isEmpty()) {
+            Box box = hold.get(hold.size() - 1);
             hold.remove(hold.size() - 1);
+            return box;
         } else {
             throw new EmptyHoldException();
         }
+    }
+
+    public boolean isLoad() {
+        return isLoad;
+    }
+
+    public boolean isEmpty() {
+        return hold.isEmpty();
     }
 
 }

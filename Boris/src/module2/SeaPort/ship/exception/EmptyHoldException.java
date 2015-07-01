@@ -1,4 +1,4 @@
-package module2.addShip.ship.exception;
+package module2.SeaPort.ship.exception;
 
 
 public class EmptyHoldException extends ShipException {

@@ -1,4 +1,4 @@
-package module2.addShip.box;
+package module2.SeaPort.box;
 
 
 import java.util.Random;
