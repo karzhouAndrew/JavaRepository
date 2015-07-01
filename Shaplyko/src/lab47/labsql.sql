@@ -20,15 +20,10 @@ FROM expenses e2))
 
 Вывести наибольший платеж за тот день, когда сумма платежей была наибольшей.
 
-SELECT e.date, MAX(e.sum)
-FROM (SELECT e1.date d, sum(e1.sum) с
-FROM expenses e1
-GROUP BY e1.date) а,
-expenses e
-WHERE a.с=(SELECT max(а1.с)
-FROM (SELECT e1.date d, SUM(e1.sum) с
-FROM expenses e1
-GROUP BY e1.date) а1) AND
-p.date=a.d
-GROUP BY e.date
+SELECT MAX(sum) AS max_sum
+FROM expenses
+WHERE date = (SELECT date FROM (SELECT date, SUM(sum) AS val_sum
+FROM expenses
+GROUP BY date) AS pay_sum
+ORDER BY val_sum DESC LIMIT 0,1);
 
