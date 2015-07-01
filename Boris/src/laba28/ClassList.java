@@ -30,10 +30,10 @@ public class ClassList {
     }
 
     public int findMaxMark() {
-        Iterator iterator = students.iterator();
+        Iterator<Student> iterator = students.iterator();
         int maxMark = 0;
         while (iterator.hasNext()) {
-            Student student = (Student) iterator.next();
+            Student student = iterator.next();
             if (student.getMark() > maxMark) {
                 maxMark = student.getMark();
             }
