@@ -32,21 +32,21 @@ public class AutoHouse {
         return cars.containsKey(iD) ? generateID() : iD;
     }
 
-    public Map<Integer, Car> getIDSortByConstructYear() throws EmptyListException {
+    public Map<Integer, Car> getCarsSortByConstructYear() throws EmptyListException {
         if (cars.isEmpty()) {
             throw new EmptyListException();
         }
-        Map<Integer, Car> sortForConstructYear = new TreeMap<Integer, Car>(
+        Map<Integer, Car> sortForConstructYear = new TreeMap<>(
                 new Comparator() {
                     @Override
                     public int compare(Object first, Object second) {
-                        Car getFirstCar = getCar(first);
-                        Car getSecondCar = getCar(second);
-                        int differenceYear = getFirstCar.getConstructYear() - getSecondCar.getConstructYear();
+                        Car firstCar = getCar(first);
+                        Car secondCar = getCar(second);
+                        int differenceYear = firstCar.getConstructYear() - secondCar.getConstructYear();
                         if (differenceYear == 0) {
-                            int differenceCompany = getFirstCar.getCompany().compareTo(getSecondCar.getCompany());
+                            int differenceCompany = firstCar.getCompany().compareTo(secondCar.getCompany());
                             if (differenceCompany == 0) {
-                                int differencePrice = getFirstCar.getPrice() - getSecondCar.getPrice();
+                                int differencePrice = firstCar.getPrice() - secondCar.getPrice();
                                 if (differencePrice == 0) {
                                     return 1;
                                 } else {
@@ -74,13 +74,13 @@ public class AutoHouse {
                 new Comparator() {
                     @Override
                     public int compare(Object first, Object second) {
-                        Car getFirstCar = getCar(first);
-                        Car getSecondCar = getCar(second);
-                        int differencePrice = getFirstCar.getPrice() - getSecondCar.getPrice();
+                        Car firstCar = getCar(first);
+                        Car secondCar = getCar(second);
+                        int differencePrice = firstCar.getPrice() - secondCar.getPrice();
                         if (differencePrice == 0) {
-                            int differenceYear = getFirstCar.getConstructYear() - getSecondCar.getConstructYear();
+                            int differenceYear = firstCar.getConstructYear() - secondCar.getConstructYear();
                             if (differenceYear == 0) {
-                                int differenceCompany = getFirstCar.getCompany().compareTo(getSecondCar.getCompany());
+                                int differenceCompany = firstCar.getCompany().compareTo(secondCar.getCompany());
                                 if (differenceCompany == 0) {
                                     return 1;
 
@@ -90,9 +90,7 @@ public class AutoHouse {
                             } else {
                                 return differenceYear;
                             }
-                        } else
-
-                        {
+                        } else {
                             return differencePrice;
                         }
 

@@ -41,7 +41,7 @@ public class ConsoleMenuAutoHouse {
 
     private static void startMethodGetListCarSortByConstructingYear() {
         try {
-            System.out.println(carsListing.getIDSortByConstructYear());
+            System.out.println(carsListing.getCarsSortByConstructYear());
         } catch (EmptyListException e) {
             System.out.println("There are no cars in listing AutoHouse.");
         }
