@@ -12,7 +12,7 @@ public class CashDeskThread {
     private static final String THREAD_NUMBER_REGEX = "thread-(\\d+)";
     private static CashDeskThread instance;
     private static final int THREADS = 10;
-    ExecutorService poolThreads;
+    private static ExecutorService poolThreads;
 
     private CashDeskThread() {
         poolThreads = Executors.newFixedThreadPool(THREADS);
