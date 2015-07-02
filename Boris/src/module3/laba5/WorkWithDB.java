@@ -16,43 +16,39 @@ public class WorkWithDB {
 
     public StringBuilder seeTable() {
         String query = "SELECT paydate, value, name\n" +
-                "FROM expenses, receivers r\n" +
-                "WHERE receiver = r.num";
+                        "FROM expenses, receivers r\n" +
+                        "WHERE receiver = r.num";
         return getResultSelect(query, false);
     }
 
     public void addRecording(String paydate, int receiver, double value) {
         String query = "INSERT INTO expenses (paydate, receiver, value)\n" +
-                "VALUES ('" + paydate + "', " + receiver + ", " + value + ")";
+                        "VALUES ('" + paydate + "', " + receiver + ", " + value + ")";
         System.out.println(getResultSelect(query, true));
     }
 
     public void deleteRecording(int id) {
         String query = "DELETE FROM expenses \n" +
-                "WHERE num = " + id;
+                        "WHERE num = " + id;
         System.out.println(getResultSelect(query, true));
     }
 
     public void deleteLastRecording() {
         String query = "DELETE FROM expenses " +
-                "ORDER BY num DESC " +
-                "LIMIT 1";
+                        "ORDER BY num DESC " +
+                        "LIMIT 1";
         System.out.println(getResultSelect(query, true));
     }
 
-
     private StringBuilder getResultSelect(String query, boolean updateOrSelect) {
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Error loading driver.");
-        }
         Connection connection = null;
         Statement statement = null;
         ResultSet result = null;
         StringBuilder strB = new StringBuilder();
+
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(bdURL, login, password);
             statement = connection.createStatement();
             if (updateOrSelect) {
@@ -61,6 +57,9 @@ public class WorkWithDB {
                 result = statement.executeQuery(query);
                 strB = getSelectQuery(result);
             }
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error loading driver.");
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
