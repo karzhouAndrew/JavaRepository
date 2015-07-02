@@ -4,10 +4,15 @@ package module3.laba5;
 import java.sql.*;
 
 public class WorkWithDB {
-    private String login = "root";
-    private String password = "admin123";
-    private String bdURL = "jdbc:mysql://localhost:3306/test_database";
+    private String login;
+    private String password;
+    private String bdURL;
 
+    public WorkWithDB(String login, String password, String bdURL) {
+        this.login = login;
+        this.password = password;
+        this.bdURL = bdURL;
+    }
 
     public StringBuilder seeTable() {
         String query = "SELECT paydate, value, name\n" +
