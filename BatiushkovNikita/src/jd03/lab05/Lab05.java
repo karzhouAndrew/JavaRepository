@@ -19,7 +19,11 @@ public class Lab05 {
     public static final String SELECT_QUARY = "SELECT * FROM expenses";
 
     public static void main(String[] args) {
-        try (Connection connection = DriverManager.getConnection(Util.getDBURL(), Util.getUserName(), Util.getPassword());
+        String dbURL = Util.getDBURL();
+        String userName = Util.getUserName();
+        String password = Util.getPassword();
+
+        try (Connection connection = DriverManager.getConnection(dbURL, userName, password);
              Statement statement = connection.createStatement()) {
             statement.executeUpdate(INSERT_QUARY);
             try (ResultSet resultSet = statement.executeQuery(SELECT_QUARY)) {
