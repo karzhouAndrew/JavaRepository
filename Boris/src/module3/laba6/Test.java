@@ -11,6 +11,6 @@ public class Test {
         WorkWithDB workWithDB = new WorkWithDB("root", "admin123", "jdbc:mysql://localhost:3306/test_database");
         workWithDB.addRecording(Date.valueOf("2011-05-11"), 3, 55200);
         System.out.println(workWithDB.seeTable());
-        workWithDB.deleteLastRecording();
+//        workWithDB.deleteLastRecording();
     }
 }

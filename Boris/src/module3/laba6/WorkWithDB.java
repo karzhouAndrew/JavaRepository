@@ -33,18 +33,18 @@ public class WorkWithDB {
         System.out.println(getResultSelect(templateQuery, true));
     }
 
-    public void deleteRecording(int id) {
-        String query = "DELETE FROM expenses \n" +
-                "WHERE num = " + id;
-        System.out.println(getResultSelect(query, true));
-    }
-
-    public void deleteLastRecording() {
-        String query = "DELETE FROM expenses " +
-                "ORDER BY num DESC " +
-                "LIMIT 1";
-        System.out.println(getResultSelect(query, true));
-    }
+//    public void deleteRecording(int id) {
+//        String query = "DELETE FROM expenses \n" +
+//                "WHERE num = " + id;
+//        System.out.println(getResultSelect(query, true));
+//    }
+//
+//    public void deleteLastRecording() {
+//        String query = "DELETE FROM expenses " +
+//                "ORDER BY num DESC " +
+//                "LIMIT 1";
+//        System.out.println(getResultSelect(query, true));
+//    }
 
 
     private StringBuilder getResultSelect(String query, boolean updateOrSelect) {
@@ -66,12 +66,11 @@ public class WorkWithDB {
                 preparedStatement.setDate(1, paydate);
                 preparedStatement.setInt(2, receiver);
                 preparedStatement.setDouble(3, value);
-
-                strB.append(statement.executeUpdate(query));
+                System.out.println(preparedStatement.executeUpdate());
             } else {
                 statement = connection.createStatement();
                 result = statement.executeQuery(query);
-                strB = getSelectQuery(result);
+                strB.append(getSelectQuery(result));
             }
         } catch (SQLException e) {
             e.printStackTrace();
