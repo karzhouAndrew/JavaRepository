@@ -21,7 +21,7 @@ public class WorkWithDB {
         String query = "SELECT paydate, value, name\n" +
                 "FROM expenses, receivers r\n" +
                 "WHERE receiver = r.num";
-        return getResultSelect(query, false);
+        return getResultSelect(query);
     }
 
     public void addRecording(Date paydate, int receiver, double value) {
@@ -30,54 +30,50 @@ public class WorkWithDB {
         this.value = value;
         String templateQuery = "INSERT INTO expenses (paydate, receiver, value) " +
                 "VALUES (?, ?, ?)";
-        System.out.println(getResultSelect(templateQuery, true));
+        addRecord(templateQuery);
     }
 
-//    public void deleteRecording(int id) {
-//        String query = "DELETE FROM expenses \n" +
-//                "WHERE num = " + id;
-//        System.out.println(getResultSelect(query, true));
-//    }
-//
-//    public void deleteLastRecording() {
-//        String query = "DELETE FROM expenses " +
-//                "ORDER BY num DESC " +
-//                "LIMIT 1";
-//        System.out.println(getResultSelect(query, true));
-//    }
-
-
-    private StringBuilder getResultSelect(String query, boolean updateOrSelect) {
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Error loading driver.");
-        }
+    private StringBuilder getResultSelect(String query) {
         Connection connection = null;
         Statement statement = null;
         ResultSet result = null;
-        PreparedStatement preparedStatement = null;
         StringBuilder strB = new StringBuilder();
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(bdURL, login, password);
-            if (updateOrSelect) {
-                preparedStatement = connection.prepareStatement(query);
-                preparedStatement.setDate(1, paydate);
-                preparedStatement.setInt(2, receiver);
-                preparedStatement.setDouble(3, value);
-                System.out.println(preparedStatement.executeUpdate());
-            } else {
-                statement = connection.createStatement();
-                result = statement.executeQuery(query);
-                strB.append(getSelectQuery(result));
-            }
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+            strB.append(getSelectQuery(result));
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         } finally {
-            close(connection, statement, result, preparedStatement);
+            close(connection, statement, result, null);
         }
         return strB;
+    }
+
+
+    private void addRecord(String query) {
+        Connection connection = null;
+        ResultSet result = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection(bdURL, login, password);
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, paydate);
+            preparedStatement.setInt(2, receiver);
+            preparedStatement.setDouble(3, value);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            close(connection, null, result, preparedStatement);
+        }
     }
 
     private StringBuilder getSelectQuery(ResultSet result) throws SQLException {
