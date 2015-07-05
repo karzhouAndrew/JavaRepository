@@ -24,12 +24,12 @@ public class TextFileAnalyzer {
 
     public int countWords(File path) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(path.getCanonicalPath()));
-        String string = bufferedReader.readLine();
+        String currentString = bufferedReader.readLine();
         int wordsCounter = 0;
-        while (string != null) {
-            String[] strings = string.split("[ ]+");
+        while (currentString != null) {
+            String[] strings = currentString.split("[ ]+");
             wordsCounter += strings.length;
-            string = bufferedReader.readLine();
+            currentString = bufferedReader.readLine();
         }
         bufferedReader.close();
         return wordsCounter;
