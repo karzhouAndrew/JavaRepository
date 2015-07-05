@@ -66,19 +66,22 @@ public class ExpensesDAOImpl implements ExpensesDAO {
 
     @Override
     public int addExpense(Expense expense) {
-        String paydate = expense.getPaydate();
-        int value = expense.getValue();
-        int receiver = expense.getReceiver();
-        int num = expense.getNum();
-        String query = "INSERT INTO expenses (num, paydate, value, receiver) VALUES (" + num + ", " + paydate + ", " + value + ", " + receiver + ")";
-
+        String query = "INSERT INTO expenses (num, paydate, value, receiver) VALUES (?, ?, ?, ?)";
+        Connection connection = null;
+        PreparedStatement pStatement = null;
         ConnectionPool connectionPool = ConnectionPool.getInstance();
-        try (Connection connection = connectionPool.getConnection();
-             Statement statement = connection.createStatement()) {
-            statement.executeUpdate(query);
+        try {
+            connection = connectionPool.getConnection();
+            pStatement = connection.prepareStatement(query);
+            pStatement.setInt(1, expense.getNum());
+            pStatement.setString(2, expense.getPaydate());
+            pStatement.setInt(3, expense.getValue());
+            pStatement.setInt(4, expense.getReceiver());
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBUtils.close(connection, pStatement);
         }
-        return num;
+        return expense.getNum();
     }
 }

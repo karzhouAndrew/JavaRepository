@@ -25,4 +25,8 @@ public final class DBUtils {
             e.printStackTrace();
         }
     }
+
+    public static void close(Connection connection, Statement statement) {
+        close(connection, statement, null);
+    }
 }

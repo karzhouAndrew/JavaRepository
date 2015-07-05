@@ -15,9 +15,11 @@ public class Main {
         ExpenseService expenseService = new ExpenseService();
         System.out.println(expenseService.getExpense(2));
         System.out.println(expenseService.getExpenses());
-        String paydate = "2011" + "06" + "12";
-        Expense expense = new Expense(5, paydate, 22345, 9);
-        expenseService.addExpense(expense);
+        String paydate = "2013" + "21" + "99";
+        //String paydate = "2011-06-12";
+        Expense expense = new Expense(19, paydate, 22347785, 99);
+        System.out.println(expenseService.addExpense(expense));
+
         System.out.println(expenseService.getExpenses());
 
         ReceiverService receiverService = new ReceiverService();
