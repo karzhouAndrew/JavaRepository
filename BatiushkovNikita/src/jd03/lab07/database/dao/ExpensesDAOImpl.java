@@ -1,6 +1,7 @@
 package jd03.lab07.database.dao;
 
 import jd03.lab07.database.pool.ConnectionPool;
+import jd03.lab07.database.pool.DBUtils;
 import jd03.lab07.entity.Expense;
 
 import java.sql.*;
@@ -11,13 +12,17 @@ public class ExpensesDAOImpl implements ExpensesDAO {
 
     @Override
     public Expense getExpense(int num) {
+        String query = "SELECT * FROM expenses WHERE num = ?";
         Expense expense = null;
-        String query = "SELECT * FROM expenses WHERE num = " + num;
-
+        Connection connection = null;
+        PreparedStatement pStatement = null;
+        ResultSet resultSet = null;
         ConnectionPool connectionPool = ConnectionPool.getInstance();
-        try (Connection connection = connectionPool.getConnection();
-             PreparedStatement pStatement = connection.prepareStatement(query);
-             ResultSet resultSet = pStatement.executeQuery()) {
+        try {
+            connection = connectionPool.getConnection();
+            pStatement = connection.prepareStatement(query);
+            pStatement.setInt(1, num);
+            resultSet = pStatement.executeQuery();
             while (resultSet.next()) {
                 expense = new Expense(resultSet.getInt("num"),
                         resultSet.getString("paydate"),
@@ -26,19 +31,24 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBUtils.close(connection, pStatement, resultSet);
         }
         return expense;
     }
 
     @Override
     public List<Expense> getExpenses() {
-        List<Expense> expenses = new ArrayList<>();
         String query = "SELECT * FROM expenses";
-
+        List<Expense> expenses = new ArrayList<>();
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
         ConnectionPool connectionPool = ConnectionPool.getInstance();
-        try (Connection connection = connectionPool.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(query)) {
+        try {
+            connection = connectionPool.getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 Expense expense = new Expense(resultSet.getInt("num"),
                         resultSet.getString("paydate"),
@@ -48,6 +58,8 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBUtils.close(connection, statement, resultSet);
         }
         return expenses;
     }
