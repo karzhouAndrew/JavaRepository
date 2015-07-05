@@ -28,27 +28,31 @@ public class Store {
     }
 
     public void addBox(Box box) {
-        if (boxesOnStore.size() < maxCapacity) {
-            if (lock.tryLock()) {
+        try {
+            lock.tryLock();
+            if (boxesOnStore.size() < maxCapacity) {
                 boxesOnStore.add(box);
-                lock.unlock();
+            } else {
+                throw new FullStoreException();
             }
-        } else {
-            throw new FullStoreException();
+        } finally {
+            lock.unlock();
         }
     }
 
     public Box removeBox() {
-
-        if (boxesOnStore.isEmpty()) {
-            throw new EmptyStoreException();
-        } else {
-            Box box = boxesOnStore.get(boxesOnStore.size() - 1);
-            if (lock.tryLock()) {
+        try {
+            lock.tryLock();
+            if (boxesOnStore.isEmpty()) {
+                throw new EmptyStoreException();
+            } else {
+                Box box = boxesOnStore.get(boxesOnStore.size() - 1);
                 boxesOnStore.remove(boxesOnStore.size() - 1);
-                lock.unlock();
+
+                return box;
             }
-            return box;
+        } finally {
+            lock.unlock();
         }
     }
 
