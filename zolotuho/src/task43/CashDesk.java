@@ -1,30 +1,30 @@
 package task43;
 
 public class CashDesk implements Runnable {
-    private Clients clients;
+    private ClientsMainQueue clientsMainQueue;
     private Shop shop;
 
     @Override
     public void run() {
         Thread thread = Thread.currentThread();
-        for (int i = 0; i < clients.getShoppingBaskets().size(); i++) {
-            synchronized (shop.getProducts()) {
-                shop.subtractProductsFromShop(handleClient(clients, i));
+        for (int i = 0; i < clientsMainQueue.getShoppingBaskets().size(); i++) {
+            synchronized (shop.getProductsMonitor()) {
+                shop.subtractProductsFromShop(handleClient(clientsMainQueue, i));
             }
-            System.err.println(clients.getShoppingBasket(i) + "  " + thread.getName() + "  " + shop.getProducts());
+            System.err.println(clientsMainQueue.getShoppingBasket(i) + "  " + thread.getName() + "  " + shop.getProductsMonitor());
         }
     }
 
-    public CashDesk(Clients clients) {
-        this.clients = clients;
+    public CashDesk(ClientsMainQueue clientsMainQueue) {
+        this.clientsMainQueue = clientsMainQueue;
     }
 
     public CashDesk() {
-        this.clients = new Clients();
+        this.clientsMainQueue = new ClientsMainQueue();
     }
 
-    public Products handleClient(Clients clients, int clientNumber) {
-        return clients.getShoppingBaskets().get(clientNumber);
+    public ProductsMonitor handleClient(ClientsMainQueue clientsMainQueue, int clientNumber) {
+        return clientsMainQueue.getShoppingBaskets().get(clientNumber);
     }
 
     public Shop getShop() {
@@ -35,11 +35,11 @@ public class CashDesk implements Runnable {
         this.shop = shop;
     }
 
-    public Clients getClients() {
-        return clients;
+    public ClientsMainQueue getClientsMainQueue() {
+        return clientsMainQueue;
     }
 
-    public void setClients(Clients clients) {
-        this.clients = clients;
+    public void setClientsMainQueue(ClientsMainQueue clientsMainQueue) {
+        this.clientsMainQueue = clientsMainQueue;
     }
 }

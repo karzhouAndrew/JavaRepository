@@ -7,14 +7,16 @@ package task43;
 public class ShopTest {
 
     public static void main(String[] args) {
-
-        Products productsToShop = new Products(50000, 50000, 50000);
-        Products productsToClientsBasket = new Products(1, 1, 1);
-        Clients clients = new Clients();
-        for (int i = 0; i < 50000; i++) {
-            clients.addClient(productsToClientsBasket);
+        int productQuantity = 10000;
+        ProductsMonitor productsMonitorToShop = new ProductsMonitor(productQuantity, productQuantity, productQuantity);
+        int productQuantityInBasket = 1;
+        ProductsMonitor productsMonitorToClientsBasket = new ProductsMonitor(productQuantityInBasket, productQuantityInBasket, productQuantityInBasket);
+        ClientsMainQueue clientsMainQueue = new ClientsMainQueue();
+        for (int i = 0; i < productQuantity; i++) {
+            clientsMainQueue.addClient(productsMonitorToClientsBasket);
         }
-        Shop shop = new Shop(productsToShop, 20);
-        shop.work(clients);
+        int cashDeskQuantity = 20;
+        Shop shop = new Shop(productsMonitorToShop, cashDeskQuantity);
+        shop.work(clientsMainQueue);
     }
 }
