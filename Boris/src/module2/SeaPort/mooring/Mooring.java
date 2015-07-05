@@ -8,9 +8,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Mooring {
-    private static final int THREADS = 2;
+    private static final int THREADS = 5;
     private static Mooring mooring;
     private static ExecutorService pool;
+    private static int quantity = 1;
 
     private Mooring() {
         pool = Executors.newFixedThreadPool(THREADS);
@@ -24,6 +25,7 @@ public class Mooring {
     }
 
     public void moor(final Ship ship) {
+        System.out.println(quantity++);
         pool.execute(new Runnable() {
             @Override
             public void run() {
