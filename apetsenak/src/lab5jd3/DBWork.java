@@ -15,16 +15,12 @@ public class DBWork {
     }
 
     private String processRequest(String query, boolean isSelectQuery) {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
         StringBuilder result = new StringBuilder();
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(dbURL, login, password);
             statement = connection.createStatement();
             if (isSelectQuery) {
@@ -34,6 +30,8 @@ public class DBWork {
                 statement.executeUpdate(query);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
             close(resultSet, statement, connection);
