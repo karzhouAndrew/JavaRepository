@@ -29,7 +29,6 @@ public class DOMParser implements Parser {
         } catch (SAXException e) {
             System.out.println("Exception occurred during parsing");
             e.printStackTrace();
-
         } catch (IOException e) {
             System.out.println("File not found");
             e.printStackTrace();
