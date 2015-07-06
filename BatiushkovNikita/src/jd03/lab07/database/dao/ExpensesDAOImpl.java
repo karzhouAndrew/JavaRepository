@@ -77,6 +77,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             pStatement.setString(2, expense.getPaydate());
             pStatement.setInt(3, expense.getValue());
             pStatement.setInt(4, expense.getReceiver());
+            pStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

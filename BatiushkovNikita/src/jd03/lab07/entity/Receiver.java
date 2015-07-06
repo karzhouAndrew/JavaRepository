@@ -33,26 +33,6 @@ public class Receiver {
         return "Receiver{" +
                 "num=" + num +
                 ", name='" + name + '\'' +
-                '}' + "\n";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Receiver receiver = (Receiver) o;
-
-        if (num != receiver.num) return false;
-        if (name != null ? !name.equals(receiver.name) : receiver.name != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = num;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
+                '}';
     }
 }

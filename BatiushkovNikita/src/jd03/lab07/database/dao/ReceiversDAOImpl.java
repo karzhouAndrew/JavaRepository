@@ -61,7 +61,7 @@ public class ReceiversDAOImpl implements ReceiversDAO {
     @Override
     public int addReceiver(Receiver receiver) {
         int num = receiver.getNum();
-        String query = "INSERT INTO receiver (num, name) VALUES (?, ?)";
+        String query = "INSERT INTO receivers (num, name) VALUES (?, ?)";
         Connection connection = null;
         PreparedStatement pStatement = null;
         ConnectionPool connectionPool = ConnectionPool.getInstance();
@@ -70,6 +70,7 @@ public class ReceiversDAOImpl implements ReceiversDAO {
             pStatement = connection.prepareStatement(query);
             pStatement.setInt(1, num);
             pStatement.setString(2, receiver.getName());
+            pStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

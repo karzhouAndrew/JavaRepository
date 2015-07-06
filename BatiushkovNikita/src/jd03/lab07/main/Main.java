@@ -6,27 +6,43 @@ import jd03.lab07.entity.Receiver;
 import jd03.lab07.service.ExpenseService;
 import jd03.lab07.service.ReceiverService;
 
+import java.util.ArrayList;
+
 public class Main {
     public static final String CONFIG_FILE_PATH = "jd03.lab07.database.pool.DBConfig";
 
     public static void main(String[] args) {
         new DBConfig(CONFIG_FILE_PATH);
+        expensesTest();
+        receiversTest();
 
-        ExpenseService expenseService = new ExpenseService();
-        System.out.println(expenseService.getExpense(2));
-        System.out.println(expenseService.getExpenses());
-        String paydate = "2013" + "21" + "99";
-        //String paydate = "2011-06-12";
-        Expense expense = new Expense(19, paydate, 22347785, 99);
-        System.out.println(expenseService.addExpense(expense));
+    }
 
-        System.out.println(expenseService.getExpenses());
-
+    public static void receiversTest() {
         ReceiverService receiverService = new ReceiverService();
-        System.out.println(receiverService.getReceiver(2));
-        System.out.println(receiverService.getReceivers());
+        Receiver receiver = receiverService.getReceiver(2);
+        System.out.println(receiver);
 
-        Receiver receiver = new Receiver(120, "Tanya");
-        receiverService.addReceiver(receiver);
+        Receiver receiver1 = new Receiver(4, "Sasha");
+        receiverService.addReceiver(receiver1);
+
+        ArrayList<Receiver> receivers = (ArrayList<Receiver>) receiverService.getReceivers();
+        for (Receiver rec : receivers) {
+            System.out.println(rec);
+        }
+    }
+
+    public static void expensesTest() {
+        ExpenseService expenseService = new ExpenseService();
+        Expense expense = expenseService.getExpense(2);
+        System.out.println(expense);
+
+        Expense expense1 = new Expense(5, "2015-12-12", 89999, 1);
+        expenseService.addExpense(expense1);
+
+        ArrayList<Expense> expenses = (ArrayList<Expense>) expenseService.getExpenses();
+        for (Expense exp : expenses) {
+            System.out.println(exp);
+        }
     }
 }
