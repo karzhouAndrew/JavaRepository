@@ -11,12 +11,12 @@ public class ReceiverDaoImpl implements ReceiverDao {
     @Override
     public Receiver getReceiver(int num) throws ClassNotFoundException {
         Receiver receiver = null;
-        Class.forName("com.mysql.jdbc.Driver");
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/listexpenses", "root", "admin123");
+            connection = connectionPool.getConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(SQL_GET_RECEIVER + num);
             receiver = initReceiver(resultSet);
@@ -31,12 +31,12 @@ public class ReceiverDaoImpl implements ReceiverDao {
     @Override
     public ArrayList<Receiver> getReceivers() throws ClassNotFoundException {
         ArrayList<Receiver> receivers = null;
-        Class.forName("com.mysql.jdbc.Driver");
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/listexpenses", "root", "admin123");
+            connection = connectionPool.getConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(SQL_GET_RECEIVERS);
             receivers = initReceivers(resultSet);
@@ -50,11 +50,11 @@ public class ReceiverDaoImpl implements ReceiverDao {
 
     @Override
     public void addReceiver(Receiver receiver) throws ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/listexpenses", "root", "admin123");
+            connection = connectionPool.getConnection();
             preparedStatement = connection.prepareStatement(SQL_INSERT_RECEIVER);
             preparedStatement.setInt(1, receiver.getNum());
             preparedStatement.setString(2, receiver.getReceiver());

@@ -11,12 +11,12 @@ public class ExpensesDaoImpl implements ExpensesDao {
     @Override
     public Expense getExpense(int num) throws ClassNotFoundException {
         Expense expense = null;
-        Class.forName("com.mysql.jdbc.Driver");
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/listexpenses", "root", "admin123");
+            connection = connectionPool.getConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(SQL_GET_EXPENSE + num);
             expense = initExpense(resultSet);
@@ -31,12 +31,12 @@ public class ExpensesDaoImpl implements ExpensesDao {
     @Override
     public ArrayList<Expense> getExpenses() throws ClassNotFoundException {
         ArrayList<Expense> expenses = null;
-        Class.forName("com.mysql.jdbc.Driver");
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/listexpenses", "root", "admin123");
+            connection = connectionPool.getConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(SQL_GET_EXPENSES);
             expenses = initExpenses(resultSet);
@@ -50,12 +50,12 @@ public class ExpensesDaoImpl implements ExpensesDao {
 
     @Override
     public void addExpense(Expense expense) throws ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/listexpenses", "root", "admin123");
+            connection = connectionPool.getConnection();
             preparedStatement = connection.prepareStatement(SQL_INSERT_EXPENSE);
             preparedStatement.setInt(1, expense.getNum());
             preparedStatement.setString(2, expense.getDate());
