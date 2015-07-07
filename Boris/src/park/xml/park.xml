@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plants xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.it-academy.by"
+        xs:schemaLocation="http://www.it-academy.by park.xsd">
+    <tree>
+        <sort>Oak</sort>
+        <height>1536</height>
+        <thickness>13</thickness>
+    </tree>
+    <tree>
+        <sort>Birch</sort>
+        <height>1248</height>
+        <thickness>9</thickness>
+    </tree>
+    <tree>
+        <sort>Maple</sort>
+        <height>1321</height>
+        <thickness>7</thickness>
+    </tree>
+    <bush>
+        <sort>Lilac</sort>
+        <height>924</height>
+        <thunksQuantity>1</thunksQuantity>
+    </bush>
+    <bush>
+        <sort>Acacia</sort>
+        <height>722</height>
+        <thunksQuantity>3</thunksQuantity>
+    </bush>
+    <bush>
+        <sort>Barberry</sort>
+        <height>751</height>
+        <thunksQuantity>3</thunksQuantity>
+    </bush>
+</plants>
