@@ -9,19 +9,11 @@ import static java.lang.Math.sqrt;
 // определить, можно ли его полностью закрыть круглой картонкой радиусом r
 public class RectangleInCircle {
     public double enterNumber(Scanner sc) {
-        if (sc.hasNextDouble()) {
-            return sc.nextDouble();
-        } else {
-            return 0;
-        }
+        return sc.hasNextDouble() ? sc.nextDouble() : 0;
     }
 
     public boolean ableRectangleInCircle(double sideA, double sideB, double radius) {
-        if (2 * radius >= sqrt(pow(sideA, 2) + pow(sideB, 2))) {
-            return true;
-        } else {
-            return false;
-        }
+        return 2 * radius >= sqrt(pow(sideA, 2) + pow(sideB, 2));
     }
 
     public static void main(String[] args) {
@@ -33,11 +25,11 @@ public class RectangleInCircle {
         double sideB = rectangleInCircle.enterNumber(sc);
         System.out.print("Enter r = ");
         double radius = rectangleInCircle.enterNumber(sc);
+        sc.close();
         if (rectangleInCircle.ableRectangleInCircle(sideA, sideB, radius)) {
             System.out.println("Rectangle can be covered circle");
         } else {
             System.out.println("Rectangle can NOT be covered circle");
         }
-        sc.close();
     }
 }
