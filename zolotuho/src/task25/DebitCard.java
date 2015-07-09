@@ -5,49 +5,26 @@ enum Currency {
 }
 
 public abstract class DebitCard extends PaymentCard {
-    private long balance;
     private long overdraft;
     private Currency currency;
 
     public void cashMoney(long sum) {
-        if (balance - sum >= 0) {
-            setBalance(balance - sum);
+        if (getBalance() - sum >= 0) {
+            setBalance(getBalance() - sum);
         } else {
-            setOverdraft(sum - balance);
+            setOverdraft(sum - getBalance());
         }
-    }
-
-    void payBill(long sum) {
-        if (balance - sum >= 0) {
-            setBalance(balance - sum);
-            System.out.println("successful payment");
-        } else {
-            System.out.println("insufficient balance");
-        }
-    }
-
-    public void showBalance() {
-        System.out.println(getCardID() + " = " + balance);
     }
 
     public void changeCurrency(Currency currency, double currencyRate) {
         setCurrency(currency);
-        setBalance((long) (balance * currencyRate));
+        setBalance((long) (getBalance() * currencyRate));
     }
 
     public DebitCard(String bankName, long cardID, long balance, long overdraft, Currency currency) {
-        super(bankName, cardID);
-        this.balance = balance;
+        super(bankName, cardID, balance);
         this.overdraft = overdraft;
         this.currency = currency;
-    }
-
-    public long getBalance() {
-        return balance;
-    }
-
-    public void setBalance(long balance) {
-        this.balance = balance;
     }
 
     public long getOverdraft() {

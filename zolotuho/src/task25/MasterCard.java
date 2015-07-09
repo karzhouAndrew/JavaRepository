@@ -19,7 +19,6 @@ public class MasterCard extends DebitCard {
     }
 
     public void transferToAnotherCard() {
-
     }
 
     public long getDiscount() {

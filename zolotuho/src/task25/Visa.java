@@ -9,7 +9,7 @@ public class Visa extends DebitCard {
         } else {
             setOverdraft(sum - getBalance());
         }
-        ((DebitCard) paymentCard).setBalance(((DebitCard) paymentCard).getBalance() + sum);
+        paymentCard.setBalance(paymentCard.getBalance() + sum);
     }
 
     public Visa(String bankName, long cardID, long balance, long overdraft, Currency currency, long monthlyPercent) {
