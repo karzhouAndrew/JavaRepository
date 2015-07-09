@@ -3,13 +3,13 @@
            targetNamespace="http://www.it-academy.by"
            xmlns="http://www.it-academy.by"
            elementFormDefault="qualified">
-    <xs:element name="pointList" type="PointList"/>
-    <xs:complexType name="PointList">
+    <xs:element name="pointList" type="pointListType"/>
+    <xs:complexType name="pointListType">
         <xs:sequence>
-            <xs:element name="point" type="Point" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="point" type="pointType" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="Point">
+    <xs:complexType name="pointType">
         <xs:sequence>
             <xs:element name="x" type="xs:integer">
             </xs:element>
