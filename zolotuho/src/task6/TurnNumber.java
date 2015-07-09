@@ -14,8 +14,8 @@ public class TurnNumber {
         sc.close();
         int auxiliaryNumber = number;
         while (auxiliaryNumber >= 1) {
-            int digit = (auxiliaryNumber % 10);
-            auxiliaryNumber = auxiliaryNumber - digit;
+            int digit = auxiliaryNumber % 10;
+            auxiliaryNumber -= digit;
             System.out.print(digit);
             auxiliaryNumber /= 10;
         }
