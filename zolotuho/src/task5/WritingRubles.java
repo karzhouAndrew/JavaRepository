@@ -13,25 +13,12 @@ public class WritingRubles {
             rub = sc.nextInt();
         }
         sc.close();
-        int residue;
-        int digitCounter=0;
-        int lastDigit = rub % 10;
-        int beforeLastDigit = (rub - lastDigit) / 10 % 10;
-        boolean isLastDigits056789 = lastDigit == 0 || lastDigit == 5 || lastDigit == 6 || lastDigit == 7 || lastDigit == 8 || lastDigit == 9;
-        boolean isLastDigits345 = lastDigit == 2 || lastDigit == 3 || lastDigit == 4;
-        while (rub > 0) {
-            residue = rub % 10;
-            rub = (rub - residue) / 10;
-            digitCounter++;
-        }
-        if ((beforeLastDigit == 1) && (digitCounter >= 2)) {
-            System.out.println(" рублей");
-        } else if (isLastDigits056789 == true) {
-            System.out.println(" рублей");
-        } else if (isLastDigits345 == true) {
-            System.out.println(" рубля");
-        } else if (lastDigit == 1) {
-            System.out.println(" рубль");
+        if (rub / 10 % 10 == 1 || rub % 10 > 4) {
+            System.out.print("рублей");
+        } else if (rub % 10 == 1) {
+            System.out.print("рубль");
+        } else {
+            System.out.print("рубля");
         }
     }
 }
