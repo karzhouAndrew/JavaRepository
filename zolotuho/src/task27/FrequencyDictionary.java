@@ -5,6 +5,7 @@ import java.util.*;
 //создать частотный словарь
 public class FrequencyDictionary {
     private Map<String, Integer> dictionary;
+    private static final String REGEX_TEXT_TO_WORDS_PATTERN = "[\\p{Punct}\\s]+";
 
     public FrequencyDictionary() {
         dictionary = new TreeMap<String, Integer>(new Comparator<String>() {
@@ -27,31 +28,15 @@ public class FrequencyDictionary {
         this.dictionary = dictionary;
     }
 
-    public void makeFrequencyDictionary(String string) {
-        String[] words = string.split("[ .,?!-:;]+");
-        String[] uniqueWords = new String[words.length];
-        int[] frequency = new int[words.length];
-        int indexUniqueWords = 0;
-        for (int i = 0; i < words.length - 1; i++) {
-            int equalWordCounter = 1;
-            if (words[i] == null) {
-                continue;
+    public void makeFrequencyDictionary(String text) {
+        String[] words = text.split(REGEX_TEXT_TO_WORDS_PATTERN);
+        for (String word : words) {
+            word = word.toLowerCase();
+            if (dictionary.containsKey(word)) {
+                dictionary.put(word, dictionary.get(word) + 1);
+            } else {
+                dictionary.put(word, 1);
             }
-            for (int j = i + 1; j < words.length; j++) {
-
-                if (words[i].equals(words[j])) {
-                    equalWordCounter++;
-                    words[j] = null;
-                }
-            }
-            frequency[indexUniqueWords] = equalWordCounter;
-            uniqueWords[indexUniqueWords] = words[i];
-            indexUniqueWords++;
-        }
-        indexUniqueWords = 0;
-        while (frequency[indexUniqueWords] != 0) {
-            dictionary.put(uniqueWords[indexUniqueWords], frequency[indexUniqueWords]);
-            indexUniqueWords++;
         }
     }
 
