@@ -3,10 +3,8 @@ package park.plant.tree;
 
 import park.plant.Plant;
 
-public class Tree extends Plant {
-    private static final double GROW_UP = 2;
+public abstract class Tree extends Plant {
     private double thickness;
-    private static final double THICKNESS_UP = 0.2;
 
     public Tree(String name, int height, int thickness) {
         super(name, height);
@@ -14,10 +12,7 @@ public class Tree extends Plant {
     }
 
     @Override
-    public void grow() {
-        super.setHeight(getHeight() + GROW_UP);
-        thickness += THICKNESS_UP;
-    }
+    public abstract void grow();
 
     @Override
     public boolean equals(Object o) {

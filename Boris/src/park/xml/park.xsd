@@ -9,7 +9,15 @@
                 <xs:element name="tree" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="sort" type="xs:string"/>
+                            <xs:element name="sort">
+                                <xs:simpleType>
+                                    <xs:restriction>
+                                        <xs:enumeration value="Oak"/>
+                                        <xs:enumeration value="Birch"/>
+                                        <xs:enumeration value="Maple"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
                             <xs:element name="height">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:double">
@@ -32,7 +40,15 @@
                 <xs:element name="bush" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="sort" type="xs:string"/>
+                            <xs:element name="sort">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Lilac"/>
+                                        <xs:enumeration value="Acacia"/>
+                                        <xs:enumeration value="Barberry"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
                             <xs:element name="height">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:double">

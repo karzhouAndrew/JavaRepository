@@ -3,8 +3,7 @@ package park.plant.bush;
 
 import park.plant.Plant;
 
-public class Bush extends Plant {
-    private static final double GROW_UP = 1;
+public abstract class Bush extends Plant {
     private int thunksQuantity;
 
     public Bush(String name, int height, int thunksQuantity) {
@@ -13,9 +12,7 @@ public class Bush extends Plant {
     }
 
     @Override
-    public void grow() {
-        super.setHeight(getHeight() + GROW_UP);
-    }
+    public abstract void grow();
 
     @Override
     public boolean equals(Object o) {
@@ -44,11 +41,4 @@ public class Bush extends Plant {
                 '}';
     }
 
-    public int getThunksQuantity() {
-        return thunksQuantity;
-    }
-
-    public void setThunksQuantity(int thunksQuantity) {
-        this.thunksQuantity = thunksQuantity;
-    }
 }
