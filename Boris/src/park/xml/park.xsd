@@ -57,7 +57,7 @@
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-                            <xs:element name="thunksQuantity">
+                            <xs:element name="thunksquantity">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:integer">
                                         <xs:minLength value="1"/>

@@ -41,4 +41,11 @@ public abstract class Bush extends Plant {
                 '}';
     }
 
+    public int getThunksQuantity() {
+        return thunksQuantity;
+    }
+
+    public void setThunksQuantity(int thunksQuantity) {
+        this.thunksQuantity = thunksQuantity;
+    }
 }
