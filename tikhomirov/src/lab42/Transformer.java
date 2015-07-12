@@ -19,6 +19,6 @@ public class Transformer {
         javax.xml.transform.Transformer transformer = templates.newTransformer();
         transformer.transform(new StreamSource(new File(XML_File)),
                 new StreamResult(new FileOutputStream
-                        (new File("D:\\env\\Java\\JavaRepository_1\\tikhomirov\\src\\lab42\\example.html"))));
+                        (new File("tikhomirov\\src\\lab42\\example.html"))));
     }
 }
