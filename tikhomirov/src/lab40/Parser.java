@@ -28,7 +28,7 @@ public class Parser {
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
-        File file = new File("D:\\env\\Java\\JavaRepository_1\\tikhomirov\\src\\lab40\\PointsList.xml");
+        File file = new File("tikhomirov\\src\\lab40\\PointsList.xml");
         try {
             document = builder.parse(file);
         } catch (SAXException e) {
