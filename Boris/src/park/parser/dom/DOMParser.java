@@ -60,7 +60,7 @@ public class DOMParser extends Parser {
         NodeList childNodesTree = rootElement.getElementsByTagName(Tags.TREE.toString().toLowerCase());
         for (int i = 0; i < childNodesTree.getLength(); i++) {
             Node node = childNodesTree.item(i);
-            plants.add(createBush((Element) node));
+            plants.add(createTree((Element) node));
         }
         return plants;
     }
@@ -68,7 +68,7 @@ public class DOMParser extends Parser {
     private Plant createBush(Element element) {
         Bush bush = null;
         switch (BushEnum.valueOf(
-                element.getElementsByTagName(Tags.SORT.toString().toLowerCase()).item(0).getTextContent())) {
+                element.getElementsByTagName(Tags.SORT.toString().toLowerCase()).item(0).getTextContent().toUpperCase())) {
             case ACACIA:
                 bush = BushEnum.ACACIA.getBush();
                 break;
@@ -97,7 +97,7 @@ public class DOMParser extends Parser {
     private Plant createTree(Element element) {
         Tree tree = null;
         switch (TreeEnum.valueOf(
-                element.getElementsByTagName(Tags.SORT.toString().toLowerCase()).item(0).getTextContent())) {
+                element.getElementsByTagName(Tags.SORT.toString().toLowerCase()).item(0).getTextContent().toUpperCase())) {
             case BIRCH:
                 tree = TreeEnum.BIRCH.getTree();
                 break;
@@ -117,8 +117,8 @@ public class DOMParser extends Parser {
     }
 
     private void setTreeParametrs(Tree tree, Element element) {
-        tree.setThickness(Integer.parseInt(
-                element.getElementsByTagName(Tags.THUNKSQUANTITY.toString().toLowerCase()).item(0).getTextContent()));
+        tree.setThickness(Double.parseDouble(
+                element.getElementsByTagName(Tags.THICKNESS.toString().toLowerCase()).item(0).getTextContent()));
         tree.setHeight(Double.parseDouble(
                 element.getElementsByTagName(Tags.HEIGHT.toString().toLowerCase()).item(0).getTextContent()));
     }

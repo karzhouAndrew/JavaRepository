@@ -1,13 +1,19 @@
 package park.parser;
 
 
-
 public enum Tags {
-    PLANT,
+    PLANTS,
     TREE,
     BUSH,
     SORT,
     HEIGHT,
     THICKNESS,
-    THUNKSQUANTITY
+    THUNKSQUANTITY;
+
+//    public abstract boolean isCurrent();
+//
+//    public void changeCurrent(){
+//
+//    }
+
 }

@@ -20,16 +20,16 @@
     <bush>
         <sort>Lilac</sort>
         <height>924</height>
-        <thunksQuantity>1</thunksQuantity>
+        <thunksquantity>1</thunksquantity>
     </bush>
     <bush>
         <sort>Acacia</sort>
         <height>722</height>
-        <thunksQuantity>3</thunksQuantity>
+        <thunksquantity>3</thunksquantity>
     </bush>
     <bush>
         <sort>Barberry</sort>
         <height>751</height>
-        <thunksQuantity>3</thunksQuantity>
+        <thunksquantity>3</thunksquantity>
     </bush>
 </plants>
