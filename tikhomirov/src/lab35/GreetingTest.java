@@ -27,6 +27,7 @@ public class GreetingTest {
         } else {
             locale = new Locale("en", "EN");
         }
+        sc.close();
         ResourceBundle rb = ResourceBundle.getBundle("lab35.MessagesBundle", locale);
         System.out.println(rb.getString("greetings"));
     }
