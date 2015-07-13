@@ -15,25 +15,33 @@ public class FileManager {
         File path = new File("D:\\env\\Projects");
         List<String> files = new ArrayList<String>();
         List<String> dirs = new ArrayList<String>();
-        for (File f : path.listFiles()) {
-            if (f.isDirectory()) {
-                dirs.add(f.getName());
+        for (File file : path.listFiles()) {
+            if (file.isDirectory()) {
+                dirs.add(file.getName());
             } else {
-                files.add(f.getName());
+                files.add(file.getName());
             }
         }
+        BufferedWriter bwFiles = null;
+        BufferedWriter bwDirs = null;
         try {
-            BufferedWriter bwFiles = new BufferedWriter(new FileWriter
-                    ("D:\\env\\Java\\JavaRepository_1\\tikhomirov\\src\\lab33\\fileResult.txt"));
+            bwFiles = new BufferedWriter(new FileWriter("tikhomirov\\src\\lab33\\fileResult.txt"));
 
-            bwFiles.write("List of files: "+String.valueOf(files));
+            bwFiles.write("List of files: " + String.valueOf(files));
             bwFiles.flush();
-            BufferedWriter bwDirs = new BufferedWriter(new FileWriter
-                    ("D:\\env\\Java\\JavaRepository_1\\tikhomirov\\src\\lab33\\dirsResult.txt"));
-            bwDirs.write("List of dirs: "+String.valueOf(dirs));
+            bwDirs = new BufferedWriter(new FileWriter("tikhomirov\\src\\lab33\\dirsResult.txt"));
+            bwDirs.write("List of dirs: " + String.valueOf(dirs));
             bwDirs.flush();
+            bwFiles.flush();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                bwDirs.close();
+                bwFiles.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
