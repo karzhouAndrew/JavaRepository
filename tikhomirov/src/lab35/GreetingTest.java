@@ -7,12 +7,12 @@ import java.util.Scanner;
 /**
  * Создать программу, которая будет приветствовать пользователя на трех языках: английском, русском,белорусском.
  * Требуемый язык и страна должны сообщаться программе в качестве входных параметров. Если входные параметры
- * отсутствуют, программа должна выдавать сообщение на английском.
+ * отсутствуют, программа должна выдавать сообщение на английском..
  */
 public class GreetingTest {
     public static void main(String[] args) {
         Locale locale;
-        System.out.println("Enter interface language:");
+        System.out.println("Please,enter interface language:");
         System.out.println("1 - English");
         System.out.println("2 - Russian");
         System.out.println("3 - Belorussian");
