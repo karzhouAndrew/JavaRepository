@@ -9,23 +9,23 @@ import java.util.List;
 public class StudentTest {
     public static void main(String[] args) {
 
-        List<Student> student = new ArrayList<Student>();
-        student.add(new Student("Stepan", 5));
-        student.add(new Student("Romuald", 2));
-        student.add(new Student("James", 1));
-        student.add(new Student("Alex", 10));
-        student.add(new Student("Max", 9));
-        student.add(new Student("Yuliya", 3));
+        List<Student> students = new ArrayList<Student>();
+        students.add(new Student("Stepan", 5));
+        students.add(new Student("Romuald", 2));
+        students.add(new Student("James", 1));
+        students.add(new Student("Alex", 10));
+        students.add(new Student("Max", 9));
+        students.add(new Student("Yuliya", 3));
         System.out.println("Полный список студентов:");
-        System.out.println("student = " + student);
-        for (int i = 0; i < student.size(); i++) {
-            if ((student.get(i).getMark()) < 4) {
-                student.remove(i);
+        System.out.println("student = " + students);
+        for (int i = 0; i < students.size(); i++) {
+            if ((students.get(i).getMark()) < 4) {
+                students.remove(i);
                 i--;
             }
         }
         System.out.println("Список студентов после удаления неудовлетворительных оценок");
-        System.out.println("student = " + student);
+        System.out.println("student = " + students);
     }
 }
 
