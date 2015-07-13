@@ -18,8 +18,34 @@ import java.util.List;
  */
 public class Parser {
     public static void main(String[] args) {
-        List<Point> pointList = new ArrayList<>();
+        Document document = getDocument();
+        Element root = document.getDocumentElement();
+        System.out.println("The document " + root.getTagName() + " structure:");
+        NodeList nodeList = root.getElementsByTagName("point");
+        List<Point> pointList = getPoints(nodeList);
+        Iterator<Point> iterator = pointList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
 
+    private static List<Point> getPoints(NodeList nodeList) {
+        List<Point> pointList = null;
+        pointList = new ArrayList<>();
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            Node nodePoints = nodeList.item(i);
+            if (nodePoints.getNodeType() == Node.ELEMENT_NODE) {
+                Element ePoint = (Element) nodePoints;
+                pointList.add(new Point());
+                pointList.get(i).setX(ePoint.getElementsByTagName("x").item(0).getTextContent());
+                pointList.get(i).setY(ePoint.getElementsByTagName("y").item(0).getTextContent());
+                pointList.get(i).setUnit(ePoint.getAttribute("unit"));
+            }
+        }
+        return pointList;
+    }
+
+    private static Document getDocument() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = null;
         Document document = null;
@@ -36,23 +62,6 @@ public class Parser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Element root = document.getDocumentElement();
-        System.out.println("The document " + root.getTagName() + " structure:");
-        NodeList nodeList = root.getElementsByTagName("point");
-
-        for (int i = 0; i < nodeList.getLength(); i++) {
-            Node nodePoints = nodeList.item(i);
-            if (nodePoints.getNodeType() == Node.ELEMENT_NODE) {
-                Element ePoint = (Element) nodePoints;
-                pointList.add(new Point());
-                pointList.get(i).setX(ePoint.getElementsByTagName("x").item(0).getTextContent());
-                pointList.get(i).setY(ePoint.getElementsByTagName("y").item(0).getTextContent());
-                pointList.get(i).setUnit(ePoint.getAttribute("unit"));
-            }
-        }
-        Iterator<Point> iterator = pointList.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
+        return document;
     }
 }
