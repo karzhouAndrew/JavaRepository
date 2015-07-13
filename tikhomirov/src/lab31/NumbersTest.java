@@ -9,8 +9,7 @@ import java.io.IOException;
  */
 public class NumbersTest {
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(
-                new FileReader("D:\\env\\Java\\JavaRepository_1\\tikhomirov\\src\\lab31\\example.txt"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("tikhomirov\\src\\lab31\\example.txt"));
         String result = bufferedReader.readLine();
         StringBuilder stringBuilder = new StringBuilder();
         System.out.println("Исходный текст файла:");
@@ -20,6 +19,7 @@ public class NumbersTest {
             result = bufferedReader.readLine();
             System.out.println();
         }
+        bufferedReader.close();
         String str = stringBuilder.toString();
         NumbersPerformance performance = new NumbersPerformance();
         System.out.println("Встречающиеся числа в файле: " + performance.printNumbers(str));

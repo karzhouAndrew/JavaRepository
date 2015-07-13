@@ -5,10 +5,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class NumbersPerformance {
-    int sum = 0;
-    List<String> numbers = new ArrayList<String>();
+    private List<String> numbers;
 
     public List<String> printNumbers(String str) {
+        numbers = new ArrayList<>();
         Pattern pattern = Pattern.compile("\\d+");
         Matcher matcher = pattern.matcher((str));
         while (matcher.find()) {
@@ -18,6 +18,7 @@ public class NumbersPerformance {
     }
 
     public int sumNumbers() {
+        int sum = 0;
         Iterator<String> iterator = numbers.iterator();
         while (iterator.hasNext()) {
             sum += Integer.parseInt(iterator.next());
