@@ -2,8 +2,21 @@ package lab25;
 
 public abstract class CreditCard extends Card {
 
+    protected int maxSumOfCredit;
+    protected int overdraftDuration;
+
+    public CreditCard(int cardNumber, double money, int maxSumOfCredit, int overdraftDuration) {
+        super(cardNumber, money);
+        this.maxSumOfCredit = maxSumOfCredit;
+        this.overdraftDuration = overdraftDuration;
+    }
+
     public int getMaxSumOfCredit() {
         return maxSumOfCredit;
+    }
+
+    public int getOverdraftDuration() {
+        return overdraftDuration;
     }
 
     @Override
@@ -12,19 +25,6 @@ public abstract class CreditCard extends Card {
                 "maxSumOfCredit=" + maxSumOfCredit +
                 ", overdraftDuration=" + overdraftDuration +
                 '}';
-    }
-
-    public int getOverdraftDuration() {
-        return overdraftDuration;
-    }
-
-    int maxSumOfCredit;
-    int overdraftDuration;
-
-    public CreditCard(int cardNumber, double money, int maxSumOfCredit, int overdraftDuration) {
-        super(cardNumber, money);
-        this.maxSumOfCredit = maxSumOfCredit;
-        this.overdraftDuration = overdraftDuration;
     }
 
 

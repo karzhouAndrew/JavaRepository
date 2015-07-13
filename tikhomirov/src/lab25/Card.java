@@ -4,16 +4,8 @@ package lab25;
  *
  */
 public abstract class Card {
-    @Override
-    public String toString() {
-        return "Card{" +
-                "cardNumber=" + cardNumber +
-                ", money=" + money +
-                '}';
-    }
-
-    int cardNumber;
-    public double money;
+    protected int cardNumber;
+    protected double money;
 
     public Card(int cardNumber, double money) {
         this.cardNumber = cardNumber;
@@ -26,5 +18,13 @@ public abstract class Card {
 
     public int getCardNumber() {
         return cardNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "cardNumber=" + cardNumber +
+                ", money=" + money +
+                '}';
     }
 }

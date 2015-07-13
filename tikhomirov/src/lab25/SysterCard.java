@@ -2,13 +2,6 @@ package lab25;
 
 
 public class SysterCard extends CreditCard implements VisaElectrone {
-    @Override
-    public String toString() {
-        return "SysterCard{" +
-                "bankName='" + bankName + '\'' +
-                '}';
-    }
-
     private String bankName;
 
     public SysterCard(int cardNumber, double money, int maxSumOfCredit, int overdraftDuration, String bankName) {
@@ -28,5 +21,12 @@ public class SysterCard extends CreditCard implements VisaElectrone {
 
     public String getBankName() {
         return bankName;
+    }
+
+    @Override
+    public String toString() {
+        return "SysterCard{" +
+                "bankName='" + bankName + '\'' +
+                '}';
     }
 }
