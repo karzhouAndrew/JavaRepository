@@ -8,16 +8,16 @@ import java.util.*;
  */
 public class StudentTest {
     public static void main(String[] args) {
-        List<Student> student = new ArrayList<Student>();
-        student.add(new Student("Max", 0));
-        student.add(new Student("Helen", 5));
-        student.add(new Student("Alex", 9));
-        student.add(new Student("David", 4));
-        student.add(new Student("Nick", 6));
-        student.add(new Student("Julia", 4));
-        Iterator<Student> iterator = student.iterator();
+        List<Student> students = new ArrayList<Student>();
+        students.add(new Student("Max", 0));
+        students.add(new Student("Helen", 5));
+        students.add(new Student("Alex", 9));
+        students.add(new Student("David", 4));
+        students.add(new Student("Nick", 6));
+        students.add(new Student("Julia", 4));
+        Iterator<Student> iterator = students.iterator();
 
-        int maxMark = student.get(0).getMark();
+        int maxMark = students.get(0).getMark();
         while (iterator.hasNext()) {
             if (iterator.next().getMark() > maxMark) {
                 maxMark = iterator.next().getMark();
