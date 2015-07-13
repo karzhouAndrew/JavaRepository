@@ -24,6 +24,6 @@ public class NumbersTest {
         NumbersPerformance performance = new NumbersPerformance();
         System.out.println("Встречающиеся числа в файле: " + performance.printNumbers(str));
         System.out.println("Сумма данных чисел: " + performance.sumNumbers());
-        System.out.println("Те же числа после удаления повторов: " + performance.deleteDuplicateNumbers());
+        System.out.println("Те же числа после удаления повторов:  " + performance.deleteDuplicateNumbers());
     }
 }
