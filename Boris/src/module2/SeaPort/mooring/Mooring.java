@@ -26,19 +26,16 @@ public class Mooring {
 
     public void moor(final Ship ship) {
         System.out.println(quantity++);
-        pool.execute(new Runnable() {
+        Thread thread = new Thread() {
             @Override
             public void run() {
                 System.out.println("Ship start " + Thread.currentThread().getName());
                 LoadUnloadBox.start(ship);
                 System.out.println("Ship Finish " + Thread.currentThread().getName());
             }
-        });
-
-        if (!ship.isEmpty()) {
-            System.out.println("Return ship. " + Thread.currentThread().getName());
-            moor(ship);
-        }
+        };
+        pool.execute(thread);
+        System.out.println("Next please.");
     }
 
     public void shutdown() {
