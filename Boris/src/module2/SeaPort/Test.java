@@ -11,6 +11,11 @@ public class Test {
             Ship ship = new Ship();
             Mooring.getMooring().moor(ship);
         }
+        try {
+            Thread.currentThread().wait(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Mooring.getMooring().shutdown();
     }
 }

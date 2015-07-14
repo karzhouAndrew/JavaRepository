@@ -5,6 +5,7 @@ import module2.SeaPort.LoadUnloadBox.LoadUnloadBox;
 import module2.SeaPort.ship.Ship;
 import module2.SeaPort.store.exception.EmptyStoreException;
 import module2.SeaPort.store.exception.FullStoreException;
+import module2.SeaPort.store.exception.StoreException;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -34,18 +35,12 @@ public class Mooring {
                 System.out.println("Ship start " + Thread.currentThread().getName());
                 try {
                     LoadUnloadBox.start(ship);
-                } catch (EmptyStoreException e) {
-                    System.out.println("Store is empty. Ship is out.");
-                    returnShip(ship);
-                } catch (FullStoreException e) {
-                    System.out.println("Store is full. Ship is out.");
+                } catch (StoreException e) {
+                    System.out.println("Store is full or empty.");
                     returnShip(ship);
                 }
-                System.out.println("Ship Finish " + Thread.currentThread().getName());
-
             }
         });
-
         System.out.println("Next please.");
     }
 
