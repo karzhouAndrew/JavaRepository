@@ -27,8 +27,8 @@ public class LoadUnloadBox {
                 Store.getStore().addBox(box);
             }
         } catch (FullStoreException e) {
-            System.out.println("Store is full. Ship is out.");
             ship.loadBox(box);
+            new FullStoreException();
         } catch (EmptyHoldException e) {
             System.out.println("Ship is empty. Sink.");
         }
@@ -45,8 +45,6 @@ public class LoadUnloadBox {
         } catch (FullHoldException e) {
             System.out.println("Ship is full. Sink.");
             Store.getStore().addBox(box);
-        } catch (EmptyStoreException e) {
-            System.out.println("Store is empty. Ship is out.");
         }
     }
 }
