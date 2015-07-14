@@ -7,14 +7,11 @@ import module2.SeaPort.store.exception.FullStoreException;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Store {
     private static Store store;
     private List<Box> boxesOnStore;
     private final static int maxCapacity = 10;
-    private Lock lock = new ReentrantLock();
 
     private Store() {
         boxesOnStore = new ArrayList<>();
