@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pointList SYSTEM "example.dtd">
+<pointList>
+    <point unit="px">
+        <x>2</x>
+        <y>5</y>
+    </point>
+
+    <point unit="mm">
+        <x>2</x>
+        <y>5</y>
+    </point>
+
+</pointList>
