@@ -11,6 +11,6 @@ public class HellowWorld {
         int day = (h - d) / 24;
         int w = day % 7;
         int week = (day - w) / 7;
-        System.out.println(week + " недель " + day + " дней " + h + " часов " + min + " минут " + sec + " секунд");
+        System.out.println(week + " weeks " + day + " days " + h + " hours " + min + " minutes " + sec + " seconds");
     }
 }
