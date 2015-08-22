@@ -9,14 +9,14 @@ public class MaxMark {
         for (int i = 0; i < marks.length; i++) {
             marks[i] = (int) (Math.random() * 10);
         }
-        int maxmark = 0;
+        int maxMark = 0;
         int studentNum = 0;
         for (int j = 0; j < marks.length; j++) {
-            if (marks[j] > maxmark) {
-                maxmark = marks[j];
+            if (marks[j] > maxMark) {
+                maxMark = marks[j];
                 studentNum = j;
             }
         }
-        System.out.println("Tha highest mark is " + maxmark + ", got the student #" + studentNum);
+        System.out.println("Tha highest mark is " + maxMark + ", got the student #" + studentNum);
     }
 }
