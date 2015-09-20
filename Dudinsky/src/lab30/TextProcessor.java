@@ -13,8 +13,8 @@ public class TextProcessor {
     private final String WORD_COUNT_PATTERN = "[А-Яа-яЁёA-Za-z]+";
     private final String PUNCT_COUNT_PATTERN = "\\p{Punct}";
 
-    public void readText(String input_txt_file_path) {
-        try (BufferedReader inputText = new BufferedReader(new FileReader(input_txt_file_path))) {
+    public void readText(String inputTxtFilePath) {
+        try (BufferedReader inputText = new BufferedReader(new FileReader(inputTxtFilePath))) {
             StringBuilder stringBuilder = new StringBuilder();
             String currentLine = inputText.readLine();
             while (currentLine != null) {
@@ -23,7 +23,7 @@ public class TextProcessor {
             }
             processingText = stringBuilder.toString();
         } catch (FileNotFoundException e) {
-            System.out.println("Не найден следующий файл: " + input_txt_file_path);
+            System.out.println("Не найден следующий файл: " + inputTxtFilePath);
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
