@@ -1,0 +1,7 @@
+24.09.2015 19:37:19
+Это тестовое сообщение об ошибке.
+-------------------
+24.09.2015 19:37:19
+Это тестовый FileNotFoundException.
+[jd02lab03.JD02Task03.testCaughtExceptionLogging(JD02Task03.java:21), jd02lab03.JD02Task03.main(JD02Task03.java:16), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:606), com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)]
+-------------------
