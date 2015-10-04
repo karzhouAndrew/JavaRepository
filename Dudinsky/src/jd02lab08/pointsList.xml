@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="pointListStylesheet.xsl"?>
+
+<pointsList xmlns="http://www.it-academy.by"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.it-academy.by pointListSchema.xsd">
+    <point unit="mm">
+        <x>5</x>
+        <y>2</y>
+    </point>
+    <point unit="px">
+        <x>40</x>
+        <y>80</y>
+    </point>
+    <point unit="cm">
+        <x>3.2</x>
+        <y>5.1</y>
+    </point>
+</pointsList>
