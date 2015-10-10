@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<it:plantsList xmlns:it="http://www.it-academy.by"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.it-academy.by plantsListScheme.xsd">
+
+    <it:tree>
+        <it:kind>Birch</it:kind>
+        <it:height>1.53</it:height>
+    </it:tree>
+    <it:tree>
+        <it:kind>Oak</it:kind>
+        <it:height>1.62</it:height>
+    </it:tree>
+    <it:tree>
+        <it:kind>Birch</it:kind>
+        <it:height>1.31</it:height>
+    </it:tree>
+    <it:tree>
+        <it:kind>Maple</it:kind>
+        <it:height>1.23</it:height>
+    </it:tree>
+    <it:tree>
+        <it:kind>Maple</it:kind>
+        <it:height>1.16</it:height>
+    </it:tree>
+    <it:tree>
+        <it:kind>Oak</it:kind>
+        <it:height>1.08</it:height>
+    </it:tree>
+    <it:shrub>
+        <it:kind>Jasmine</it:kind>
+        <it:height>1.12</it:height>
+    </it:shrub>
+    <it:shrub>
+        <it:kind>Brier</it:kind>
+        <it:height>0.85</it:height>
+    </it:shrub>
+    <it:shrub>
+        <it:kind>Jasmine</it:kind>
+        <it:height>1.05</it:height>
+    </it:shrub>
+    <it:shrub>
+        <it:kind>Lilac</it:kind>
+        <it:height>0.82</it:height>
+    </it:shrub>
+    <it:shrub>
+        <it:kind>Brier</it:kind>
+        <it:height>1.10</it:height>
+    </it:shrub>
+    <it:shrub>
+        <it:kind>Lilac</it:kind>
+        <it:height>0.97</it:height>
+    </it:shrub>
+
+    <it:totalTransplantData>
+        <it:overallQuantity>0</it:overallQuantity>
+        <it:summaryHeight>0.00</it:summaryHeight>
+    </it:totalTransplantData>
+
+</it:plantsList>
