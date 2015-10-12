@@ -14,7 +14,7 @@ public class STAXParser {
 
     private PointsList pointsList;
     private Point point;
-    TagsAndAttributes currentElement;
+    private TagsAndAttributes currentElement;
 
     public PointsList parseXML(String inputXmlFilePath) {
         try (InputStream inputStream = new FileInputStream(inputXmlFilePath)) {

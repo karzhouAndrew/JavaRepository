@@ -5,9 +5,10 @@ package jd02lab08;
 разделенных запятой, при этом должна выводиться единица измерения. Например: 10px, 30px */
 
 public class JD02Task08 {
-    public static void main(String[] args) {
 
-        final String INPUT_XML_FILE_PATH = "./Dudinsky/src/jd02lab08/pointsList.xml";
+    private static final String INPUT_XML_FILE_PATH = "./Dudinsky/src/jd02lab08/pointsList.xml";
+
+    public static void main(String[] args) {
 
         STAXParser staxParser = new STAXParser();
         PointsList pointsList = staxParser.parseXML(INPUT_XML_FILE_PATH);
