@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.it-academy.by"
+           xmlns="http://www.it-academy.by"
+           elementFormDefault="qualified">
+    <xs:element name="plantsList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="tree" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="kind">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Birch"/>
+                                        <xs:enumeration value="Maple"/>
+                                        <xs:enumeration value="Oak"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="height" type="heightType"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="shrub" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="kind">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Brier"/>
+                                        <xs:enumeration value="Jasmine"/>
+                                        <xs:enumeration value="Lilac"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="height" type="heightType"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="totalTransplantData">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="overallQuantity" type="xs:nonNegativeInteger"/>
+                            <xs:element name="summaryHeight" type="heightType"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="heightType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
