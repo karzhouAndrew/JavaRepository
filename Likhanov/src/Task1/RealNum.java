@@ -2,7 +2,8 @@ package Task1;
 
 import java.util.*;
 
-/** Determine the sum of the first three digits of the fractional part of a given positive real number
+/**
+ * Determine the sum of the first three digits of the fractional part of a given positive real number
  **/
 public class RealNum {
     public static void main(String[] args) {
@@ -10,16 +11,14 @@ public class RealNum {
         double num;
         System.out.println("Enter the number, please: ");
         num = scanner.nextDouble();
-        double intNum = num *1000;
-        int bufferNum = (int)intNum;
+        System.out.println("Enter the quantity of digits, please: ");
+        int quantDigits = scanner.nextInt();
         int sum = 0;
-        for (int i = 3; i > 0; i--) {
-            int getDigit = bufferNum % 10;
-            intNum /= 10;
-            bufferNum = (int)intNum;
-            sum += getDigit;
+        for (int i = 0; i < quantDigits; i++) {
+            num *= 10;
+            sum += (int) num % 10;
         }
-        System.out.println("The sum of the first three digits of the fractional part of " + num + " is " + sum + ".");
+        System.out.println("The sum of the first " + quantDigits + " digits of the fractional part of " + num + " is " + sum + ".");
         scanner.close();
     }
 }
