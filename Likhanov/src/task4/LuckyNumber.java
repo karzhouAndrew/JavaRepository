@@ -20,6 +20,8 @@ public class LuckyNumber {
             System.out.println(randNum + " is lucky number!");
         } else if ((randNum == 781) || (randNum == 302) || (randNum == 409) || (randNum == 941)) {
             System.out.println(randNum + " is magic number!");
-        } else System.out.println("Sorry, " + randNum + " is unlucky number...");
+        } else {
+            System.out.println("Sorry, " + randNum + " is unlucky number...");
+        }
     }
 }
