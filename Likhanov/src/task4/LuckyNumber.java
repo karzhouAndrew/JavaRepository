@@ -1,7 +1,7 @@
 package task4;
 
 /**
- * Determine if the random number is lucky, magic or unlucke.
+ * Determine if the random number is lucky, magic or unlucky.
  */
 public class LuckyNumber {
     public static void main(String[] args) {
