@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plants xmlns="http://www.it-academy.by"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.it-academy.by garden.xsd">
+    <tree>
+        <name>maple</name>
+        <age>100</age>
+        <height>40</height>
+        <trunkWidth>50</trunkWidth>
+    </tree>
+    <tree>
+        <name>appleTree</name>
+        <age>12</age>
+        <height>6</height>
+        <trunkWidth>30</trunkWidth>
+    </tree>
+    <tree>
+        <name>birch</name>
+        <age>15</age>
+        <height>15</height>
+        <trunkWidth>17</trunkWidth>
+    </tree>
+    <bush>
+        <name>lilac</name>
+        <age>3</age>
+        <height>1</height>
+        <trunkQuantity>12</trunkQuantity>
+    </bush>
+    <bush>
+        <name>currant</name>
+        <age>5</age>
+        <height>1</height>
+        <trunkQuantity>25</trunkQuantity>
+    </bush>
+</plants>
