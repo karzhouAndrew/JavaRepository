@@ -1,22 +1,28 @@
 package lab12;
 
+import java.util.Scanner;
+
 /**
  * The task is to find tha max mark and display the number of the student
  **/
 public class MaxMark {
     public static void main(String[] args) {
-        int[] marks = new int[10];
-        for (int i = 0; i < marks.length; i++) {
-            marks[i] = (int) (Math.random() * 10);
+        int [] marks = new int[10];
+        Scanner scan = new Scanner(System.in);
+        for(int i = 0; i < marks.length; i++){
+            marks[i] = scan.nextInt();
         }
-        int maxmark = 0;
-        int studentNum = 0;
-        for (int j = 0; j < marks.length; j++) {
-            if (marks[j] > maxmark) {
-                maxmark = marks[j];
-                studentNum = j;
+        int maxMark = marks[0];
+        for(int i = 0; i < marks.length - 1; i++){
+            if(marks[i] < marks[i + 1]){
+                maxMark = marks[i+1];
             }
         }
-        System.out.println("Tha highest mark is " + maxmark + ", got the student #" + studentNum);
+        for(int i = 0; i < marks.length; i++){
+            if(marks[i] == maxMark){
+                System.out.println("Student #" + (i + 1) + " has the highest mark " + marks[i]);
+            }
+        }
+        scan.close();
     }
 }

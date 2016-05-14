@@ -11,19 +11,17 @@ public class sum {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        int lowbarrier = scanner.nextInt();
-        int number = scanner.nextInt();
-        for (int quantity = 1; quantity <= number; lowbarrier++) {
-            if (lowbarrier == 0) {
-                continue;
+        int sum = 0;
+        System.out.println("Enter quantity of numbers: ");
+        int lowBarrier = scanner.nextInt();
+        System.out.println("Entet the numbers: ");
+        for(int i = 0; i < lowBarrier; i++){
+            int number = scanner.nextInt();
+            if(number % 3 == 0){
+                sum+= number;
             }
-            if (lowbarrier % 3 == 0) {
-                sum += lowbarrier;
-                quantity++;
-            }
-
-
         }
-        System.out.println("The sum of the " + number + " numbers is " + sum);
+        System.out.println("The sum of the first three numbers that can be divided by 3 is " + sum + ".");
+        scanner.close();
     }
 }

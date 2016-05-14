@@ -7,17 +7,16 @@ import java.util.Scanner;
 public class Number {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number: ");
         int number = scanner.nextInt();
-        int finalNum;
-        while (number > 0) {
-            finalNum = number % 10;
-            number = number / 10;
-            if (finalNum > 0) {
-                System.out.print(finalNum);
-            } else {
-                System.out.print("");
-            }
+        int endNumber = number % 10;
+        while(number > 9){
+            number/= 10;
+            endNumber = (endNumber * 10) + (number % 10);
         }
+        System.out.println("The reverse order number is: " + endNumber);
 
     }
+
 }
+

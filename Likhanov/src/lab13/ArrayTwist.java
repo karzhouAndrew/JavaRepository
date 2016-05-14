@@ -1,20 +1,25 @@
 package lab13;
 
+import java.util.Arrays;
+
 /**
  * Create an array, fill it with random elements, display it, upend, and then display it again.
  **/
 public class ArrayTwist {
     public static void main(String[] args) {
-        System.out.print("Have look at the array: ");
-        int[] array = new int[5];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 10 + 5);
-            System.out.print(array[i] + " ");
+        int randomNumbers[] = new int[6];
+        for (int i = 0; i < randomNumbers.length; i++) {
+            randomNumbers[i] = (int) (Math.random() * 10);
+        }
+        System.out.println(Arrays.toString(randomNumbers));
+        for (int i = randomNumbers.length - 1; i >= 0; i--) {
+            for (int j = 0; j < i; j++) {
+                int tmp = randomNumbers[j];
+                randomNumbers[j] = randomNumbers[j + 1];
+                randomNumbers[j + 1] = tmp;
+            }
         }
         System.out.println();
-        System.out.print("Lets upend it:          ");
-        for (int j = array.length - 1; j >= 0; j--) {
-            System.out.print(array[j] + " ");
-        }
+        System.out.println(Arrays.toString(randomNumbers));
     }
 }
