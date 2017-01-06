@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.it-academy.by"
+           xmlns="http://www.it-academy.by"
+           elementFormDefault="qualified">
+    <xs:element name="plants">
+        <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="tree" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="sort">
+                                <xs:simpleType>
+                                    <xs:restriction>
+                                        <xs:enumeration value="Oak"/>
+                                        <xs:enumeration value="Birch"/>
+                                        <xs:enumeration value="Maple"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="height">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:double">
+                                        <xs:minLength value="20"/>
+                                        <xs:maxLength value="3000"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="thickness">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:double">
+                                        <xs:minLength value="1"/>
+                                        <xs:maxLength value="100"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="bush" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="sort">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Lilac"/>
+                                        <xs:enumeration value="Acacia"/>
+                                        <xs:enumeration value="Barberry"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="height">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:double">
+                                        <xs:minLength value="20"/>
+                                        <xs:maxLength value="3000"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="thunksquantity">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:integer">
+                                        <xs:minLength value="1"/>
+                                        <xs:maxLength value="15"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
